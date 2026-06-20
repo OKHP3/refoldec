@@ -70,9 +70,36 @@ See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the full design.
 | **xMIE / xME / xIE** | Operating physics — maturation and inversion mechanics |
 | **Process Skills** | Executable capture contracts for agents |
 | **BPMN-for-Mermaid** | Visual notation layer for linked process documentation |
+| **Mermaid Theme Builder** | Visual governance — renderer profiles, palettes, semantic styling contracts |
+| **skillz** | Executable agent-skill substrate for packaging reusable transformations |
 | **Notion** | Living capture plane and process object store |
 | **GitHub** | Canon, schema, artifact, and publishing plane |
 | **OverKill Hill** | Public explanation and publishing surface |
+
+---
+
+## The OKHP³ Visual Language Stack
+
+ReFolDec is the **keystone theory** above a set of related OKHP³ projects. Each project is a concrete expression of a ReFolDec plane — not a peer or replacement.
+
+```
+ReFolDec                         ← meta-theory and recursive transformation grammar
+  ├── skillz                     ← executable agent-skill substrate (Executable plane)
+  ├── Mermaid Theme Builder      ← visual governance, renderer profiles, style contracts (Visual plane)
+  ├── BPMN-for-Mermaid           ← process-structure and notation (Visual plane)
+  └── PathScrib-R / Flowpilot    ← lineage: early process-capture ancestors (retired)
+```
+
+| Project | Plane | Governing concern |
+|---|---|---|
+| **ReFolDec** | All planes | Meta-theory: the recursive fold/unfold transformation grammar |
+| **skillz** | Executable | Packaging reusable xIE outputs as executable agent instructions |
+| **Mermaid Theme Builder** | Visual | Visual governance: renderer profiles, palette management, semantic class contracts |
+| **BPMN-for-Mermaid** | Visual | Process-structure and Markdown-native notation |
+| **PathScrib-R / Flowpilot Scribbler** | Capture (lineage) | Early process-capture agent ancestors — not current active layers |
+| **OverKill Hill** | Version/Publish | Public narrative, portfolio, and proof surface |
+
+See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.md) for the full ecosystem map.
 
 ---
 
@@ -106,6 +133,15 @@ See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the full design.
 ---
 
 ## Related
+
+**Docs**
+
+- [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.md) — Full OKHP³ ecosystem map
+- [`docs/concepts/core-loop.md`](./docs/concepts/core-loop.md) — The recursive transformation grammar explained
+- [`docs/case-studies/mermaid-visual-language-stack.md`](./docs/case-studies/mermaid-visual-language-stack.md) — Concrete case study: idea → artifact through the full stack
+- [`docs/glossary.md`](./docs/glossary.md) — Canonical term definitions
+
+**External**
 
 - [xMIE Operating System — Notion Hub](https://app.notion.com/p/370812e0ced481eab9a0f00fe6b1bc74)
 - [ReFolDec — Notion Spine Page](https://app.notion.com/p/37d812e0ced4812ca4e1edc7c77d0922)

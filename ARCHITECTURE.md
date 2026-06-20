@@ -155,6 +155,39 @@ ReFolDec emerges as the named public framework
 
 ---
 
+## The OKHP³ ecosystem
+
+ReFolDec is not one of the OKHP³ projects — it is the **governing theory above them**. Each related project is a concrete, plane-specific expression of ReFolDec mechanics. None of them replaces or subsumes the others.
+
+```
+ReFolDec                         ← meta-theory and transformation grammar (all planes)
+  ├── skillz                     ← Executable plane: reusable agent-skill substrate
+  ├── Mermaid Theme Builder      ← Visual plane: visual governance, renderer profiles, style contracts
+  ├── BPMN-for-Mermaid           ← Visual plane: process-structure and Markdown-native notation
+  ├── OverKill Hill              ← Version/Publish plane: public narrative and proof surface
+  └── PathScrib-R / Flowpilot   ← Capture plane (lineage): early process-capture ancestors
+```
+
+| Project | Plane | Governing concern | Status |
+|---|---|---|---|
+| **ReFolDec** | All planes | Meta-theory: the recursive fold/unfold transformation grammar | Active — keystone |
+| **skillz** | Executable | Packaging xIE outputs as executable, repeatable agent instructions | Active |
+| **Mermaid Theme Builder** | Visual | Visual governance: renderer profiles, palette management, semantic class contracts, diagram-output contracts | Active |
+| **BPMN-for-Mermaid** | Visual | Process-structure and notation — Markdown-native BPMN-aware diagram types | Active |
+| **OverKill Hill** | Version/Publish | Public narrative, portfolio, and proof surface for the OKHP³ stack | Active |
+| **PathScrib-R / Flowpilot Scribbler** | Capture | Early process-capture agent lineage — provenance, not current active layer | Lineage |
+
+### What each project is NOT
+
+- **Mermaid Theme Builder** is not the apex. It governs visual output contracts for one plane.
+- **BPMN-for-Mermaid** is not an independent product. It is a notation component of the Visual plane.
+- **skillz** is not a replacement for Process Skills inside ReFolDec. It is the external substrate that packages and distributes them.
+- **PathScrib-R / Flowpilot Scribbler** are not current active tools. They are acknowledged lineage artifacts that informed the Capture plane design.
+
+See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.md) for the full ecosystem map.
+
+---
+
 ## Keeper sentence
 
 BPMN-for-Mermaid began as a missing diagram type; MPS began as a narrative through-line; BAC began as an authoring method; xMIE began as a maturation metaphor. All four are now recognizable as expressions of the same system: the capture, maturation, inversion, visualization, and reuse of process.

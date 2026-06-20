@@ -1,0 +1,200 @@
+ROLE
+You are acting as a senior product architect, technical writer, and repo-alignment agent for the OKHP³ ReFolDec project.
+
+You are working in the Replit project:
+https://replit.com/t/overkill-hill/repls/refoldec
+
+The GitHub repository is:
+https://github.com/OKHP3/refoldec
+
+OPERATING MODE
+Begin in PLAN MODE ONLY.
+
+Do not edit files yet.
+Do not run broad refactors.
+Do not change dependencies.
+Do not invent major implementation details that are unsupported by the repo.
+First inspect the repository structure, README files, docs, package files, source files, and any existing project notes.
+Then produce a detailed implementation plan with target files, intended changes, risk notes, and acceptance criteria.
+Wait for explicit approval before entering BUILD MODE.
+
+STRATEGIC CONTEXT
+ReFolDec stands for Recursively Folding Codec.
+
+It is the keystone concept above several related OKHP³ projects:
+- Mermaid Theme Builder
+- BPMN for Mermaid
+- skillz
+- PathScrib-R / Flowpilot Scribbler lineage
+- OverKill-Hill public site
+
+ReFolDec is not merely a utility, app, or file converter. It is the overarching theory and platform vocabulary for recursively folding and unfolding ideas between formats:
+
+raw thought
+→ prose
+→ structured notes
+→ process narratives
+→ diagrams
+→ code
+→ documentation
+→ agent instructions
+→ governed reusable artifacts
+→ revised thought
+
+The core thesis:
+ReFolDec is a recursive transformation grammar for moving ideas between human-readable, machine-readable, visual, procedural, and agent-executable forms.
+
+The newest name wraps one of the oldest concepts in Jamie Hill / OKHP³ thinking: ideas can be encoded, decoded, folded, unfolded, and refolded across media without losing semantic continuity.
+
+PROJECT POSITIONING
+Position ReFolDec as:
+- the meta-theory of the OKHP³ Visual Language Stack
+- the recursive codec for idea/artifact transformation
+- the explanatory layer above Mermaid Theme Builder, BPMN for Mermaid, and skillz
+- the place where the whole pattern is named and stabilized
+
+Do NOT position ReFolDec as:
+- just a Mermaid tool
+- just a file converter
+- just a compression library
+- a commercial SaaS
+- a finished product
+- a replacement for Mermaid Theme Builder, BPMN, or skillz
+
+RELATED PROJECT MAP
+Use this conceptual map:
+
+ReFolDec
+= recursive folding/unfolding theory and transformation grammar
+
+skillz
+= executable agent-skill substrate for repeatable transformations
+
+Mermaid Theme Builder
+= visual governance, renderer profile, palette, and style-contract layer
+
+BPMN for Mermaid
+= process-structure and notation layer
+
+PathScrib-R / Flowpilot Scribbler
+= earlier process-capture agent lineage
+
+OverKill-Hill
+= public narrative, routing, portfolio, and proof surface
+
+PRIVATE / PUBLIC BOUNDARY
+There is an enterprise Mermaid styling artifact that helped prove the governance-profile pattern. Treat it only as private provenance and abstraction input.
+
+Do not expose employer-specific names, colors, systems, examples, or internal materials.
+Do not publish BFS-branded content.
+Use generic language such as:
+- enterprise governance profile
+- brand palette profile
+- semantic class library
+- renderer profile
+- diagram-output contract
+- style-preserving update
+- syntax repair mode
+
+PRIMARY OBJECTIVE
+Upgrade the ReFolDec repo so it clearly explains what ReFolDec is, why it exists, and how it relates to the OKHP³ Visual Language Stack.
+
+The repo should become the conceptual anchor that future users, agents, and contributors can read before understanding the downstream tools.
+
+REQUIRED CONTENT THEMES
+Add or update documentation to cover:
+
+1. Definition
+   ReFolDec = Recursively Folding Codec.
+   A framework for folding and unfolding ideas across representations.
+
+2. Core Loop
+   idea ⇄ text ⇄ structure ⇄ diagram ⇄ code ⇄ documentation ⇄ agent instruction ⇄ reusable artifact
+
+3. Why It Exists
+   Modern AI workflows produce many fragments: prompts, diagrams, markdown, code, docs, and agent files.
+   ReFolDec gives those fragments a recursive transformation model.
+
+4. Mermaid Visual Language Stack Case Study
+   Use the Mermaid-related projects as a case study:
+   - raw process idea
+   - PathScrib-R capture
+   - process narrative
+   - BPMN for Mermaid DSL
+   - Mermaid code
+   - Mermaid Theme Builder styling/governance
+   - documentation
+   - SKILL.md execution package
+   - refolded artifact for reuse
+
+5. Relationship to skillz
+   skillz packages ReFolDec-like transformations into executable agent instructions.
+
+6. Relationship to Mermaid Theme Builder
+   Theme Builder handles visual governance, renderer profiles, palettes, and semantic styling.
+
+7. Relationship to BPMN for Mermaid
+   BPMN for Mermaid handles process modeling structure and diagram notation.
+
+8. Relationship to PathScrib-R / Flowpilot Scribbler
+   These are lineage artifacts and early process-capture ancestors, not primary active layers.
+
+9. Public/Private Provenance
+   ReFolDec can describe enterprise-style governance problems generically.
+   Do not expose private employer-specific content.
+
+PREFERRED DOCUMENTATION STRUCTURE
+Inspect the repo first, then propose the exact structure. Candidate files may include:
+
+- README.md
+- docs/README.md
+- docs/concepts/refoldec-core-loop.md
+- docs/case-studies/mermaid-visual-language-stack.md
+- docs/architecture/okhp3-visual-language-stack.md
+- docs/glossary.md
+- docs/roadmap.md
+
+Only create files that fit the existing repo style.
+
+PLAN MODE OUTPUT REQUIREMENTS
+Your first response must include:
+
+1. Repository observations
+2. Proposed information architecture
+3. Target files to create or update
+4. Exact change summary per file
+5. Risks / assumptions
+6. Acceptance criteria
+7. Build-mode checklist
+
+Do not edit files in Plan Mode.
+
+BUILD MODE REQUIREMENTS
+After approval, implement the plan with minimal, coherent changes.
+
+Preserve existing project identity.
+Do not overwrite useful existing content unless improving or consolidating it.
+Prefer additive documentation over destructive rewrites.
+Keep commits/diffs easy to review.
+
+ACCEPTANCE CRITERIA
+The completed update must satisfy:
+
+- ReFolDec is clearly positioned as the keystone theory above the related projects.
+- The recursive fold/unfold loop is explained in plain but precise language.
+- Mermaid Theme Builder is positioned as a visual-governance component, not the apex.
+- BPMN for Mermaid is positioned as the process-structure/notation layer.
+- skillz is positioned as the executable agent-skill substrate.
+- PathScrib-R / Flowpilot Scribbler is treated as lineage, not a current central product.
+- No employer-specific names, palettes, internal systems, or proprietary examples are exposed.
+- The repo includes a case-study bridge to the Mermaid Visual Language Stack.
+- The docs are useful to both humans and future agents.
+
+VALIDATION CHECKLIST
+Before final response in Build Mode:
+
+- List changed files.
+- Summarize what each change accomplished.
+- Confirm no private employer-specific content was added.
+- Confirm no unrelated refactors were performed.
+- Confirm the repo now explains ReFolDec’s place in the OKHP³ stack.
