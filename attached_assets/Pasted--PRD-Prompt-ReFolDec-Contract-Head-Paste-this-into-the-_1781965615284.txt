@@ -1,0 +1,129 @@
+# PRD Prompt — ReFolDec (Contract Head)
+
+**Paste this into the `refoldec` Repl. Run in Plan mode first. Do not build until the plan is approved.**
+
+Repl: `https://replit.com/t/overkill-hill/repls/refoldec`
+Repo: `https://github.com/OKHP3/refoldec`
+
+---
+
+## Ecosystem Context Preamble
+
+You are building one component of the OverKill Hill P³ (OKHP3) ecosystem. The ecosystem is organized as one body with a conceptual head and several organs.
+
+**Head — ReFolDec (Recursively Folding Codec):** the thesis that a diagram, its underlying code, its documentation, and its agent-executable form are the same meaning held in different folds, and that meaning can move between those forms without loss, recursively. ReFolDec owns the shared contracts every other component conforms to.
+
+**Organs:**
+- `mermaid-theme-builder` — the presentation fold. How meaning looks when it unfolds to a rendered diagram (color, renderer safety, semantic-role styling).
+- `mermaid-diagram-bpmn` (bpmn-beta) — the structural fold. The canonical code form for business-process meaning.
+- `skillz` — the automation fold. Packages folds as portable agent skills (SKILL.md).
+- `OverKill-Hill` (overkillhill.com) — the narrative surface. The public storefront that makes the body legible as one thing.
+
+**Conformance rules (all components):**
+1. Do not redefine shared concepts. The semantic-class registry, the fold vocabulary, and the scope firewall are defined once, here in ReFolDec. Reference them.
+2. Source of truth flows down from ReFolDec. Consumers vendor a synced copy and add a parity check. Do not fork the definition.
+3. Honor the scope firewall. No third-party employer names, no employer-owned color values, no employer-specific artifacts in any public or shared asset. Brand-agnostic frameworks travel freely. Specific palettes and identifiers do not.
+4. Stay inside your fold. Author structure where you own structure, apply color where you own color.
+
+Locked names, use verbatim: ReFolDec, bpmn-beta, skillz, PathScrib-R, Flowpilot Scribbler.
+
+---
+
+## Your Role In This Pass
+
+You are the head. This pass produces **contracts and canonical assets only**. You are a specification repository wearing a Repl.
+
+**Hard out-of-scope for this pass.** Do not build any runtime, fold-execution engine, orchestration code, CLI, parser, renderer, or application code of any kind. No `src/` application logic. No web app. If you find yourself scaffolding an engine, stop. ReFolDec-as-product (the orchestrator that chains folds) is deferred until the organs stand on their own. This pass is markdown specs plus JSON assets, nothing executable beyond a small validation script.
+
+---
+
+## Mode 1 — Plan (do this first, then stop)
+
+Produce a plan and wait for approval. The plan must include:
+
+1. Proposed file tree for the deliverables below.
+2. The representation-and-fold model: name the canonical representations and the legal folds between them, with your proposed definition of "lossless."
+3. The full proposed role list for the semantic-class registry, with the abstract palette token and shape convention each role will carry.
+4. Any open questions or ambiguities you want resolved before writing.
+
+Do not write final files in Plan mode. Surface the structure and the open questions, then stop for approval.
+
+---
+
+## Mode 2 — Build (only after plan approval)
+
+Deliver the following.
+
+### Deliverable A — `ECOSYSTEM.md`
+
+The canonical context document every organ reads. Contents:
+- The head-and-organs model above, expanded.
+- The ecosystem topology: head, four organs, the fold each owns, how they relate.
+- The conformance rules, authoritative version.
+- A pointer table: each organ, its repo, its Repl, its fold, its primary ReFolDec dependency.
+
+This file is the single source for the Ecosystem Context Preamble. Organs will reference it by raw URL.
+
+### Deliverable B — `FOLD-CONTRACT.md`
+
+Define the codec formally.
+- **Canonical representations.** Name exactly four: Diagram (rendered visual), Code (DSL or Mermaid or bpmn-beta source), Documentation (prose narrative), Agent-Executable (SKILL.md or instruction form). For each, state what it is authoritative for.
+- **Legal folds.** Define each permitted transformation between representations (for example Documentation to Code, Code to Diagram, Code to Agent-Executable). State direction and reversibility for each.
+- **Lossless criteria.** Define what is preserved across a fold. Name the invariants (semantic roles, identifiers, flow relationships, governance tags). State explicitly what is allowed to vary (layout coordinates, color binding, presentation chrome) and what must never vary (meaning, role assignment, edge topology).
+- **Round-trip guarantee.** State the conditions under which a representation can be folded out and refolded back without semantic loss.
+
+### Deliverable C — Semantic Class Registry
+
+The meaning axis. This is the asset the organs were missing.
+
+- `semantic-class-registry/SEMANTIC-CLASSES.md` — the human spec.
+- `semantic-class-registry/semantic-classes.json` — the machine source of truth.
+
+Each role is defined once, with these fields:
+- `id` (for example `actor`, `ai`, `data`)
+- `meaning` (one-line semantic definition)
+- `paletteToken` (abstract token, NOT hex: for example `primary`, `accent`, `alert`, `neutral`, `boundary`)
+- `shape` (Mermaid shape convention: for example `rounded`, `rectangle`, `diamond`, `cylinder`, `stadium`)
+- `classDefPattern` (the classDef body in token-abstract form, with stroke and emphasis rules, no literal hex)
+
+Canonical role set (architecture family): `actor`, `channel`, `app`, `ai`, `data`, `external`, `control`, `boundary`, `log`, `question`, `scope`, `alert`.
+
+Canonical role set (process family): `startend`, `step`, `system`, `decision`, `approval`, `handoff`, `data`, `note`, `control`, `alert`.
+
+Add a shape grammar table mapping shape name to Mermaid syntax (for example `startend` to `(( ))`, `decision` to `{ }`, `data` to `[( )]`).
+
+**Critical:** the registry carries no hex values. It references abstract palette tokens. Color binding happens downstream in the presentation fold. This keeps the head color-agnostic and on-thesis.
+
+### Deliverable D — `SCOPE-FIREWALL.md`
+
+The shared firewall policy all organs inherit, especially the site.
+- No third-party employer names appear in any public or shared OKHP3 asset.
+- No employer-owned color values (hex) appear in any OKHP3 repo.
+- Brand-agnostic frameworks, methodology, vocabulary, and role names travel freely. Specific palettes and proprietary identifiers do not.
+- A short checklist an organ can run before publishing.
+
+### Deliverable E — Validation
+
+One small, dependency-free Node script and a test:
+- `scripts/validate-registry.mjs` — verifies `semantic-classes.json` is well-formed, every role has all required fields, no hex values are present, every `paletteToken` is from the allowed token set.
+- `tests/registry.test.mjs` — run with `node --test`.
+
+This is the only executable code permitted in this pass, and it validates the spec. It is not an engine.
+
+---
+
+## Acceptance Criteria
+
+- `ECOSYSTEM.md`, `FOLD-CONTRACT.md`, `SCOPE-FIREWALL.md` exist and are internally consistent.
+- The registry spec and JSON exist, agree with each other, and contain zero hex values.
+- `validate-registry.mjs` passes and would fail if a hex value or missing field were introduced.
+- No application, runtime, or orchestration code exists in the repo.
+- The canonical disclaimer (personal project of Jamie Hill / OverKill Hill P³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai) appears in the README.
+
+---
+
+## Constraints
+
+- Specs in markdown, assets in JSON, one validation script in Node with no external dependencies.
+- Token-abstract registry. No hex. No employer palette, ever.
+- Do not build the orchestrator. State in the README that the codec runtime is intentionally deferred.

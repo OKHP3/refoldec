@@ -2,6 +2,8 @@
 
 > **ReFolDec** — the **Re**cursively **Fol**ding Co**dec** — is a bidirectional process-capture and transformation framework for folding raw thought into structured artifacts, then unfolding mature artifacts back into their source primitives, patterns, and reusable instructions.
 
+> **Disclaimer:** Personal project of Jamie Hill / OverKill Hill P³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai.
+
 ---
 
 ## What it is
@@ -129,10 +131,20 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 | BPMN-for-Mermaid component | 🔄 In progress |
 | OverKill Hill project page | 📋 Planned |
 | Public proof-of-concept | 📋 Planned |
+| Ecosystem contracts (`ECOSYSTEM.md`, `FOLD-CONTRACT.md`) | ✅ In repo |
+| Semantic class registry | ✅ In repo |
+| Codec runtime / fold orchestrator | ⏸ Intentionally deferred — organs must stabilize first |
 
 ---
 
 ## Related
+
+**Contracts**
+
+- [`ECOSYSTEM.md`](./ECOSYSTEM.md) — Head-and-organs model, conformance rules, organ pointer table
+- [`FOLD-CONTRACT.md`](./FOLD-CONTRACT.md) — Canonical representations, legal folds, lossless criteria, round-trip guarantee
+- [`SCOPE-FIREWALL.md`](./SCOPE-FIREWALL.md) — Shared firewall policy and pre-publish checklist
+- [`semantic-class-registry/SEMANTIC-CLASSES.md`](./semantic-class-registry/SEMANTIC-CLASSES.md) — Semantic role definitions, palette tokens, shape grammar
 
 **Docs**
 
@@ -152,6 +164,12 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 ## Contributing
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+
+---
+
+## Disclaimer
+
+This is a personal project of Jamie Hill / OverKill Hill P³. It is not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai. Any reference to enterprise-scale diagram governance or production rendering contexts describes generic patterns only. No employer-specific names, palettes, or proprietary artifacts appear in this repository.
 
 ---
 

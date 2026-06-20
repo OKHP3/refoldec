@@ -1,0 +1,178 @@
+[
+  {
+    "id": "actor",
+    "family": "architecture",
+    "meaning": "Human user or role interacting with the system",
+    "paletteToken": "primary",
+    "shape": "stadium",
+    "classDefPattern": "fill:var(--token-primary),stroke:var(--token-primary-stroke),stroke-width:2px,color:var(--token-on-primary)"
+  },
+  {
+    "id": "channel",
+    "family": "architecture",
+    "meaning": "Communication pathway or interface between components",
+    "paletteToken": "neutral",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "app",
+    "family": "architecture",
+    "meaning": "Software application or service",
+    "paletteToken": "accent",
+    "shape": "rounded",
+    "classDefPattern": "fill:var(--token-accent),stroke:var(--token-accent-stroke),stroke-width:1px,color:var(--token-on-accent)"
+  },
+  {
+    "id": "ai",
+    "family": "architecture",
+    "meaning": "AI model, agent, or automated reasoning component",
+    "paletteToken": "accent-alt",
+    "shape": "hexagon",
+    "classDefPattern": "fill:var(--token-accent-alt),stroke:var(--token-accent-alt-stroke),stroke-width:1px,color:var(--token-on-accent-alt)"
+  },
+  {
+    "id": "data",
+    "family": "architecture",
+    "meaning": "Data store, database, or persistent state",
+    "paletteToken": "neutral",
+    "shape": "cylinder",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "external",
+    "family": "architecture",
+    "meaning": "System or actor outside the defined scope boundary",
+    "paletteToken": "boundary",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-boundary),stroke:var(--token-boundary-stroke),stroke-width:1px,stroke-dasharray:4 2,color:var(--token-on-boundary)"
+  },
+  {
+    "id": "control",
+    "family": "architecture",
+    "meaning": "Control flow, orchestration, or routing logic",
+    "paletteToken": "neutral",
+    "shape": "diamond",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "boundary",
+    "family": "architecture",
+    "meaning": "Scope or system boundary marker",
+    "paletteToken": "boundary",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-boundary),stroke:var(--token-boundary-stroke),stroke-width:1px,stroke-dasharray:4 2,color:var(--token-on-boundary)"
+  },
+  {
+    "id": "log",
+    "family": "architecture",
+    "meaning": "Audit trail, log output, or immutable record",
+    "paletteToken": "neutral",
+    "shape": "parallelogram",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "question",
+    "family": "architecture",
+    "meaning": "Open question, unknown, or decision-pending node",
+    "paletteToken": "alert",
+    "shape": "diamond",
+    "classDefPattern": "fill:var(--token-alert),stroke:var(--token-alert-stroke),stroke-width:2px,color:var(--token-on-alert)"
+  },
+  {
+    "id": "scope",
+    "family": "architecture",
+    "meaning": "Scope container or logical grouping",
+    "paletteToken": "boundary",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-boundary),stroke:var(--token-boundary-stroke),stroke-width:1px,stroke-dasharray:4 2,color:var(--token-on-boundary)"
+  },
+  {
+    "id": "alert",
+    "family": "architecture",
+    "meaning": "Warning, error, or critical condition",
+    "paletteToken": "alert",
+    "shape": "stadium",
+    "classDefPattern": "fill:var(--token-alert),stroke:var(--token-alert-stroke),stroke-width:2px,color:var(--token-on-alert)"
+  },
+  {
+    "id": "startend",
+    "family": "process",
+    "meaning": "Start or end event of a process",
+    "paletteToken": "primary",
+    "shape": "circle",
+    "classDefPattern": "fill:var(--token-primary),stroke:var(--token-primary-stroke),stroke-width:2px,color:var(--token-on-primary)"
+  },
+  {
+    "id": "step",
+    "family": "process",
+    "meaning": "A discrete action or task performed by an actor",
+    "paletteToken": "neutral",
+    "shape": "rounded",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "system",
+    "family": "process",
+    "meaning": "Automated system action or background operation",
+    "paletteToken": "accent",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-accent),stroke:var(--token-accent-stroke),stroke-width:1px,color:var(--token-on-accent)"
+  },
+  {
+    "id": "decision",
+    "family": "process",
+    "meaning": "Branching decision point",
+    "paletteToken": "neutral",
+    "shape": "diamond",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "approval",
+    "family": "process",
+    "meaning": "Human approval gate or sign-off requirement",
+    "paletteToken": "primary",
+    "shape": "stadium",
+    "classDefPattern": "fill:var(--token-primary),stroke:var(--token-primary-stroke),stroke-width:2px,color:var(--token-on-primary)"
+  },
+  {
+    "id": "handoff",
+    "family": "process",
+    "meaning": "Transfer of ownership or responsibility between actors",
+    "paletteToken": "secondary",
+    "shape": "rounded",
+    "classDefPattern": "fill:var(--token-secondary),stroke:var(--token-secondary-stroke),stroke-width:1px,color:var(--token-on-secondary)"
+  },
+  {
+    "id": "data",
+    "family": "process",
+    "meaning": "Data input, output, or transformation in process context",
+    "paletteToken": "neutral",
+    "shape": "cylinder",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "note",
+    "family": "process",
+    "meaning": "Annotation, comment, or explanatory note",
+    "paletteToken": "neutral",
+    "shape": "rectangle",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,stroke-dasharray:2 2,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "control",
+    "family": "process",
+    "meaning": "Process control event such as a timer, signal, or interrupt",
+    "paletteToken": "neutral",
+    "shape": "diamond",
+    "classDefPattern": "fill:var(--token-neutral),stroke:var(--token-neutral-stroke),stroke-width:1px,color:var(--token-on-neutral)"
+  },
+  {
+    "id": "alert",
+    "family": "process",
+    "meaning": "Error, exception, or escalation path",
+    "paletteToken": "alert",
+    "shape": "stadium",
+    "classDefPattern": "fill:var(--token-alert),stroke:var(--token-alert-stroke),stroke-width:2px,color:var(--token-on-alert)"
+  }
+]
