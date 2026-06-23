@@ -136,7 +136,7 @@ The mature documentation is inverted (xIE) into an executable package. A `SKILL.
 
 This is no longer a human-narrative document. It is an instruction set for an agent. The skillz substrate can pick this up and make it invokable by name.
 
-**Output:** A `SKILL.md` file in the `skills/` directory, ready for packaging.
+**Output:** A `SKILL.md` file in the `.agents/skills/` directory, ready for packaging.
 
 ---
 

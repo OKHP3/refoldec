@@ -11,7 +11,7 @@ Process Skills are the bridge between the Inversion plane (xIE) and the Executab
 Each skill lives in its own subdirectory:
 
 ```
-skills/
+.agents/skills/
   skill-name/
     SKILL.md          ← canonical spec file
     assets/           ← supporting assets (optional)

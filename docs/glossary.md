@@ -105,7 +105,7 @@ The layer where canon is stored, versioned, and made public. GitHub repos and Ov
 ### Process Skills (Agent Skills)
 Executable process-capture contracts packaged as `SKILL.md` files. Each skill defines: a trigger, compatible agent surfaces, steps, inputs, outputs, and notes. Process Skills are the bridge between the Inversion plane and the Executable plane.
 
-See [`skills/README.md`](../skills/README.md) for the schema.
+See [`.agents/skills/README.md`](../.agents/skills/README.md) for the schema.
 
 ---
 
