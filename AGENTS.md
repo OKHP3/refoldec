@@ -1,182 +1,137 @@
-# AGENTS.md — ReFolDec Agent Context
+# AGENTS.md — ReFolDec Repository Guide
 
-This file provides orientation for any AI agent working in this repository. Read it before making any changes.
+Read this file before changing the repository. It is the canonical agent guide; `CLAUDE.md` points here.
 
----
+## Project identity and scope
 
-## What this repo is
+ReFolDec (Recursively Folding Codec) is a Git-backed specification and contract repository for the OKHP³ ecosystem. It defines the shared vocabulary and boundaries that downstream organs use when moving the same meaning between diagram, code, documentation, and agent-executable forms.
 
-**ReFolDec** (Recursively Folding Codec) is a **specification repository**, not an application. It contains:
+Confirmed repository responsibilities:
 
-- Ecosystem contracts that every OKHP³ organ conforms to
-- A semantic-class registry (the meaning axis for all diagram roles)
-- A fold contract (the formal codec definition)
-- A scope firewall (the shared privacy and content policy)
-- Conceptual documentation and case studies
-- One validation script (no application runtime)
+- Define ecosystem conformance rules in `ECOSYSTEM.md`.
+- Define the four representations, legal folds, invariants, and round-trip criteria in `FOLD-CONTRACT.md`.
+- Maintain the color-agnostic semantic-class registry under `semantic-class-registry/`.
+- Enforce the publication boundary in `SCOPE-FIREWALL.md`.
+- Explain the architecture and case studies in Markdown documentation.
+- Carry a small set of checked-in Process Skills under `.agents/skills/`.
 
-There is no web server, no frontend, no database, and no application logic to run. The only executable code is `scripts/validate-registry.mjs` and `tests/registry.test.mjs`, both of which validate the semantic-class registry JSON.
+Mission, confirmed by the contracts and README: provide the shared specification head for the OKHP³ organs. The longer-term vision, inferred from the contracts, is a lossless, recursively foldable process-capture model; the programmatic codec runtime is explicitly deferred.
 
----
+Current status:
 
-## Read these first
+- Active specification/documentation project; no application runtime is present.
+- The semantic registry validator and Node test suite are working and dependency-free.
+- Four local skills and their supporting assets/scripts are present under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
+- Organ URLs and some ecosystem plans are still marked as placeholders or planned in the documentation.
 
-Before making any changes, read these files in order:
+## Scope boundaries and non-goals
 
-1. **`ECOSYSTEM.md`** — The head-and-organs model, conformance rules, locked names, organ pointer table.
-2. **`FOLD-CONTRACT.md`** — The four canonical representations, legal folds, lossless invariants, round-trip guarantee.
-3. **`SCOPE-FIREWALL.md`** — What may and may not appear in any public or shared asset. Run the pre-publish checklist before committing.
-4. **`ARCHITECTURE.md`** — The ReFolDec planes, mechanics, and component roles.
+Allowed work includes contract and documentation maintenance, semantic-registry entries, Process Skill specifications, and explicitly requested changes to the registry validator/tests.
 
----
+Do not create or introduce:
 
-## Repo structure
+- An application, web server, CLI, parser, renderer, database, orchestration engine, or fold runtime.
+- New dependencies for the repository-level validator or tests.
+- A fifth canonical representation, a new semantic family, or forked definitions of shared vocabulary without a formal contract revision.
+- Employer/client names, proprietary identifiers, private artifacts, employer-owned palettes, or sensitive data.
+- Bound color literals or CSS color functions in shared/registry content. Registry entries use abstract palette tokens and CSS custom-property references only.
 
-```
-/
-├── AGENTS.md                          ← this file
-├── ECOSYSTEM.md                       ← ecosystem context (read first)
-├── FOLD-CONTRACT.md                   ← codec contract (read first)
-├── SCOPE-FIREWALL.md                  ← content firewall (read first)
-├── ARCHITECTURE.md                    ← planes, mechanics, component roles
-├── README.md                          ← public-facing overview
-├── CHANGELOG.md                       ← version history
-├── CONTRIBUTING.md                    ← contribution guide
-│
-├── semantic-class-registry/
-│   ├── SEMANTIC-CLASSES.md            ← human spec for all diagram roles
-│   └── semantic-classes.json          ← machine source of truth (no hex)
-│
-├── scripts/
-│   └── validate-registry.mjs          ← registry validator (no dependencies)
-│
-├── tests/
-│   └── registry.test.mjs              ← tests (run with: node --test)
-│
-├── notation/
-│   └── README.md                      ← BPMN-for-Mermaid component spec
-│
-├── docs/
-│   ├── okhp3-visual-language-stack.md ← ecosystem map
-│   ├── glossary.md                    ← canonical term definitions
-│   ├── concepts/
-│   │   └── core-loop.md               ← recursive transformation grammar
-│   └── case-studies/
-│       └── mermaid-visual-language-stack.md ← full fold walkthrough
-│
-└── .agents/
-    └── skills/
-        └── README.md                  ← Process Skills schema and structure
+The existing support code inside `.agents/skills/` is in scope only when maintaining those skills. Do not treat it as permission to add application logic.
+
+## Architecture and workflows
+
+ReFolDec is the head of a conceptual ecosystem:
+
+- `mermaid-theme-builder` owns the presentation fold.
+- `bpmn-beta` owns the structural/process-notation fold.
+- `skillz` owns the automation/package fold.
+- `OverKill-Hill` owns the narrative/public surface.
+
+The four canonical representations are `Diagram`, `Code`, `Documentation`, and `Agent-Executable`. `xME` is maturation/fold direction, `xIE` is inversion/unfold direction, and `xMIE` is the combined mechanic. Across folds, preserve semantic role, node identity, edge topology, flow relationships, and governance tags; layout, palette binding, presentation chrome, and prose style may vary.
+
+The normal information flow is:
+
+```text
+capture → structure → maturation → inversion → executable/visual artifact → versioned canon
 ```
 
----
+The semantic registry is the meaning axis consumed by downstream organs. The head defines roles and abstract tokens; presentation consumers bind concrete styling downstream.
 
-## What agents may do
+## Repository map
 
-- Add or improve documentation in `docs/`, `ARCHITECTURE.md`, `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`
-- Add new entries to `semantic-class-registry/semantic-classes.json` (must pass the validator)
-- Add new `SKILL.md` files under `.agents/skills/<skill-name>/SKILL.md`
-- Improve or extend `ECOSYSTEM.md`, `FOLD-CONTRACT.md`, or `SCOPE-FIREWALL.md` when directed
-- Extend `scripts/validate-registry.mjs` or `tests/registry.test.mjs` when directed
+```text
+AGENTS.md                         canonical agent guidance
+CLAUDE.md                         pointer to AGENTS.md
+ECOSYSTEM.md                      ecosystem head and conformance rules
+FOLD-CONTRACT.md                  representation and fold contract
+SCOPE-FIREWALL.md                 publication/privacy policy
+ARCHITECTURE.md                   planes, mechanics, and component roles
+README.md                         public overview and status tracker
+CONTRIBUTING.md                   contribution conventions
+CHANGELOG.md                      history and planned work
+.github/ISSUE_TEMPLATE/           issue forms
+.replit                           Replit environment metadata; no run command
+semantic-class-registry/          human and machine registry definitions
+scripts/validate-registry.mjs     dependency-free registry validator
+tests/registry.test.mjs           Node test suite for registry rules
+notation/README.md                BPMN-for-Mermaid notation specification
+docs/                             concepts, glossary, ecosystem map, case study
+.agents/skills/                   local SKILL.md files and optional assets/scripts
+attached_assets/                  checked-in source prompts/reference material
+```
 
----
+There is one Git repository at this root. No nested repository or independent application was found.
 
-## What agents must not do
+## Runtime and validation
 
-- **Do not create application code.** No `src/` directory, no web app, no CLI, no parser, no renderer, no orchestration engine. The codec runtime is intentionally deferred.
-- **Do not introduce hex color values** anywhere in any file — not in JSON, not in Markdown, not in scripts.
-- **Do not introduce CSS color functions** (`rgb()`, `hsl()`, `oklch()`, etc.) in any shared or registry file.
-- **Do not expose employer names, employer palettes, or employer-specific artifacts.** See `SCOPE-FIREWALL.md` for the full policy.
-- **Do not redefine shared concepts.** Fold vocabulary, semantic roles, and palette tokens are defined in the contracts. Reference them; do not fork them.
-- **Do not rename locked names.** See the locked-names table below.
-- **Do not install external dependencies** for the validation script or tests. Both are intentionally dependency-free.
+The repository has no package manifest and no install step. `.replit` declares Node.js 20 for the hosted environment; the checks require only Node.js and built-in modules.
 
----
-
-## Locked names
-
-Use these verbatim in all files:
-
-| Name | Do not alter to |
-|---|---|
-| `ReFolDec` | Refoldec, refoldec, RFD |
-| `bpmn-beta` | BPMN-beta, bpmn_beta |
-| `skillz` | skills, Skillz |
-| `PathScrib-R` | PathScribR, pathscrib-r |
-| `Flowpilot Scribbler` | flowpilot-scribbler, Flowpilot_Scribbler |
-| `OverKill-Hill` | Overkill-Hill, overkill-hill (as repo/component name) |
-| `overkillhill.com` | overkill-hill.com |
-| `xMIE`, `xME`, `xIE` | xmie, Xme, xie |
-
----
-
-## File naming conventions
-
-| Convention | Rule |
-|---|---|
-| Spec files | `UPPERCASE.md` — e.g., `SKILL.md`, `README.md`, `AGENTS.md` |
-| Documentation files | `lowercase-kebab.md` — e.g., `core-loop.md`, `glossary.md` |
-| JSON assets | `lowercase-kebab.json` — e.g., `semantic-classes.json` |
-| Scripts | `lowercase-kebab.mjs` — e.g., `validate-registry.mjs` |
-| Skill directories | `lowercase-kebab/` under `.agents/skills/` |
-
----
-
-## Validation
-
-After any change to `semantic-class-registry/semantic-classes.json`, run:
+Run the repository checks from the root:
 
 ```bash
 node scripts/validate-registry.mjs
-```
-
-And run the full test suite with:
-
-```bash
 node --test tests/registry.test.mjs
 ```
 
-Both must pass before committing. The validator enforces:
-- All required fields present and non-empty
-- `family` is `architecture` or `process`
-- `paletteToken` is from the allowed token set
-- No hex color values (`#rrggbb`, `#rgb`, `#rrggbbaa`)
-- No CSS color functions (`rgb()`, `hsl()`, `oklch()`, etc.)
-- All `(id, family)` pairs are unique
+The validator checks JSON shape, required fields, allowed `family` and `paletteToken` values, color-agnostic content, and unique `(id, family)` pairs. The test suite also covers negative detection cases. For documentation-only changes, additionally run `git diff --check` and inspect `git status --short`.
 
----
+No application build, local server, deployment command, or production guarantee is defined in this repository. Links to GitHub/Replit and organ projects in the docs are contextual; placeholder links remain unresolved until the project owner confirms them.
 
-## Semantic class registry rules
+## Change conventions
 
-The registry (`semantic-class-registry/semantic-classes.json`) is the meaning axis for all OKHP³ diagram roles. When working with it:
+Before editing, read these in order:
 
-- **Never add hex values.** Use abstract palette tokens only (`primary`, `secondary`, `accent`, `accent-alt`, `neutral`, `boundary`, `alert`, `success`).
-- **Never add a sixth representation or a new family** without a formal revision to `FOLD-CONTRACT.md`.
-- **The `(id, family)` pair is the unique key.** `data`, `control`, and `alert` intentionally appear in both families with different meanings — this is by design.
-- The `classDefPattern` field uses CSS custom property syntax (`var(--token-*)`) as the abstract reference format. Organs resolve these to concrete values; the registry does not.
+1. `ECOSYSTEM.md`
+2. `FOLD-CONTRACT.md`
+3. `SCOPE-FIREWALL.md`
+4. `ARCHITECTURE.md`
 
----
+Use the existing naming conventions: uppercase contract/spec files, lowercase kebab-case documentation and JSON assets, lowercase kebab-case skill directories, and `SKILL.md` for a skill entry point.
 
-## Scope firewall quick check
+For registry changes:
 
-Before committing any content, verify:
+- Treat `semantic-class-registry/semantic-classes.json` as the machine source of truth and keep `SEMANTIC-CLASSES.md` aligned.
+- Use only the allowed abstract palette tokens: `primary`, `secondary`, `accent`, `accent-alt`, `neutral`, `boundary`, `alert`, `success`.
+- The `(id, family)` pair is unique; `data`, `control`, and `alert` may intentionally occur in both families.
+- Run both registry commands above after editing the JSON.
 
-- [ ] No employer or client names
-- [ ] No hex color values anywhere
-- [ ] No CSS color functions in any registry or contract file
-- [ ] No employer-owned palette files or brand assets
-- [ ] Generic language for any enterprise-context references
-- [ ] Locked names used verbatim
-- [ ] Canonical disclaimer present in README
+For all public/shared content, apply the full checklist in `SCOPE-FIREWALL.md`. Preserve these locked names verbatim: `ReFolDec`, `bpmn-beta`, `skillz`, `PathScrib-R`, `Flowpilot Scribbler`, `OverKill-Hill`, `overkillhill.com`, `xMIE`, `xME`, and `xIE`.
 
-Full policy: `SCOPE-FIREWALL.md`
+Preserve existing user changes and do not use destructive version-control commands. Keep edits limited to the requested contract, documentation, guidance, registry, skill, or validation scope.
 
----
+## Known gaps and open questions
+
+- The codec runtime/orchestrator is intentionally deferred; its eventual scope and implementation contract are unknown.
+- The organ pointer table contains placeholder repository/Replit URLs that need owner confirmation before being treated as authoritative deployment links.
+- Process Skills are present, but their broader release/versioning plan remains in progress.
+- The repository has no application build, deployment configuration, or integration test beyond the registry checks.
+
+## Keeping this guide current
+
+Update this file when the repository gains a new top-level artifact, validation command, execution surface, canonical contract, or materially different project status. Keep `CLAUDE.md` as the short pointer rather than duplicating this guide. Re-check the structure and validation commands whenever the registry, skills directory, or runtime policy changes.
 
 ## Canonical disclaimer
 
 This text must appear in the README of any public OKHP³ repo:
 
 > Personal project of Jamie Hill / OverKill Hill P³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai.
-
-## Imported Claude Cowork project instructions
