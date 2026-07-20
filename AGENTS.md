@@ -19,7 +19,7 @@ Mission, confirmed by the contracts and README: provide the shared specification
 
 Current status:
 
-- Active specification/documentation project; no application runtime is present.
+- Active specification/documentation project; no application runtime is present. The checked-in validation surface uses Node.js 24 LTS; the supporting skill scripts require Python 3.9+ when those skills are exercised.
 - The semantic registry validator and Node test suite are working and dependency-free.
 - Four local skills and their supporting assets/scripts are present under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
 - Organ URLs and some ecosystem plans are still marked as placeholders or planned in the documentation.
@@ -84,7 +84,7 @@ There is one Git repository at this root. No nested repository or independent ap
 
 ## Runtime and validation
 
-The repository has no package manifest and no install step. `.replit` declares Node.js 20 for the hosted environment; the checks require only Node.js and built-in modules.
+The repository has no package manifest and no install step. `.replit` declares Node.js 24 for the hosted environment; the checks require only Node.js and built-in modules.
 
 Run the repository checks from the root:
 
@@ -124,7 +124,7 @@ Preserve existing user changes and do not use destructive version-control comman
 - The codec runtime/orchestrator is intentionally deferred; its eventual scope and implementation contract are unknown.
 - The organ pointer table contains placeholder repository/Replit URLs that need owner confirmation before being treated as authoritative deployment links.
 - Process Skills are present, but their broader release/versioning plan remains in progress.
-- The repository has no application build, deployment configuration, or integration test beyond the registry checks.
+- The repository has no application build, deployment configuration, or integration test beyond the registry checks. Technology freshness is checked weekly by `.github/workflows/technology-freshness.yml`; update `.replit` when the supported Node.js LTS major changes.
 
 ## Keeping this guide current
 

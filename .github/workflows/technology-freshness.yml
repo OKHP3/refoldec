@@ -1,0 +1,29 @@
+name: Technology freshness
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '17 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Use latest Node.js LTS
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+      - name: Check declared technology versions
+        run: node scripts/check-technology-versions.mjs
+      - name: Validate semantic registry
+        run: node scripts/validate-registry.mjs
+      - name: Run tests
+        run: node --test tests/registry.test.mjs
