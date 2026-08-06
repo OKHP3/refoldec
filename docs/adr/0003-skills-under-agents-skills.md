@@ -19,7 +19,10 @@ This aligns with:
 - `AGENTS.md` conventions for agent-readable governance files in `.agents/`,
 - the emerging de facto standard across OKHP³ repositories.
 
-The root `/skills/` directory was removed and all skills were moved to `.agents/skills/`.
+The runtime source for all local Process Skills lives under `.agents/skills/`.
+The root `/skills/` path is permitted only for an explicitly identified,
+generated publication mirror such as `skills/okhp3-skill-promotion/`; it is not
+an additional authoring location or runtime skill catalog.
 
 ## Decision
 
@@ -33,11 +36,11 @@ The `okhp3-skill-cataloger` is the tool used to inventory and validate them. Its
 
 - Skills are co-located with other agent governance files (`.agents/memory/`, `.agents/skills/`).
 - The cataloger works without configuration — its default path matches the repo layout.
-- Cross-repo consistency: any agent familiar with `.agents/skills/` can find skills immediately.
+- Cross-repo consistency: any agent familiar with `.agents/skills/` can find runtime skills immediately, while promotion mirrors remain clearly labeled and traceable.
 
 ### Negative
 
-- Paths in older documentation or internal notes that referenced `/skills/` are stale; they were updated when the move was made.
+- Paths in older documentation or internal notes that referenced `/skills/` must be classified: runtime references are stale, while explicit promotion-mirror references may remain valid.
 
 ### Invariants
 
@@ -49,4 +52,5 @@ The `okhp3-skill-cataloger` is the tool used to inventory and validate them. Its
 
 - `.agents/skills/README.md` — generated skill catalog.
 - `.agents/skills/.catalog-meta.json` — machine-readable catalog metadata.
+- `skills/` — optional publication mirrors, never a second editable runtime source.
 - `AGENTS.md` — agent operating rules including skill authority order.

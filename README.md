@@ -152,6 +152,7 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 - [`docs/concepts/core-loop.md`](./docs/concepts/core-loop.md) — The recursive transformation grammar explained
 - [`docs/case-studies/mermaid-visual-language-stack.md`](./docs/case-studies/mermaid-visual-language-stack.md) — Concrete case study: idea → artifact through the full stack
 - [`docs/glossary.md`](./docs/glossary.md) — Canonical term definitions
+- [`docs/technology-stack.md`](./docs/technology-stack.md) — Maintained technology and runtime inventory
 - [`docs/adr/`](./docs/adr/) — Architecture Decision Records
 
 **External**

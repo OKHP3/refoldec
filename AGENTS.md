@@ -75,7 +75,7 @@ semantic-class-registry/          human and machine registry definitions
 scripts/validate-registry.mjs     dependency-free registry validator
 tests/registry.test.mjs           Node test suite for registry rules
 notation/README.md                BPMN-for-Mermaid notation specification
-docs/                             concepts, glossary, ecosystem map, case study
+docs/                             concepts, glossary, ecosystem map, case study, technology inventory
 .agents/skills/                   local SKILL.md files and optional assets/scripts
 attached_assets/                  checked-in source prompts/reference material
 ```
