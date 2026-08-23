@@ -1,0 +1,1 @@
+- [GitHub transport](github-transport.md) — use the authenticated connector API when local Git HTTPS credentials are unavailable.
