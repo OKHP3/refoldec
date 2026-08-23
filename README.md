@@ -131,6 +131,8 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 | BPMN-for-Mermaid component | 🔄 In progress |
 | OverKill Hill project page | 📋 Planned |
 | Public proof-of-concept | 📋 Planned |
+| Fixture-level fold proof | ✅ Analytical — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
+| Controlled public readiness | ✅ Approved with limits — [`docs/release/2026-08-22-controlled-readiness.md`](./docs/release/2026-08-22-controlled-readiness.md) |
 | Ecosystem contracts (`ECOSYSTEM.md`, `FOLD-CONTRACT.md`) | ✅ In repo |
 | Semantic class registry | ✅ In repo |
 | Codec runtime / fold orchestrator | ⏸ Intentionally deferred — organs must stabilize first |
@@ -151,6 +153,9 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 - [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.md) — Full OKHP³ ecosystem map
 - [`docs/concepts/core-loop.md`](./docs/concepts/core-loop.md) — The recursive transformation grammar explained
 - [`docs/case-studies/mermaid-visual-language-stack.md`](./docs/case-studies/mermaid-visual-language-stack.md) — Concrete case study: idea → artifact through the full stack
+- [`docs/evidence/2026-08-22-refoldec-baseline.md`](./docs/evidence/2026-08-22-refoldec-baseline.md) — dated claim and evidence baseline
+- [`docs/conformance/fold-conformance-matrix.md`](./docs/conformance/fold-conformance-matrix.md) — implementation-neutral fold tests
+- [`docs/evidence/skill-library-maturity.md`](./docs/evidence/skill-library-maturity.md) — 40-package maturity and evidence posture
 - [`docs/glossary.md`](./docs/glossary.md) — Canonical term definitions
 - [`docs/technology-stack.md`](./docs/technology-stack.md) — Maintained technology and runtime inventory
 - [`docs/adr/`](./docs/adr/) — Architecture Decision Records

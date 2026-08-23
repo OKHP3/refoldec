@@ -4,6 +4,10 @@
 
 This case study traces a single process idea from raw thought to reusable artifact, moving through every active layer of the OKHP³ Visual Language Stack. Each stage is mapped to a ReFolDec plane and direction.
 
+For the reproducible fixture-level proof of the four canonical forms, see
+[`../proof/minimal-fold-loop.md`](../proof/minimal-fold-loop.md). This broader
+case study remains explanatory rather than independent runtime evidence.
+
 This is a representative example — not a record of one specific event. It describes the pattern that any process-capture workflow follows when the full stack is in use.
 
 ---

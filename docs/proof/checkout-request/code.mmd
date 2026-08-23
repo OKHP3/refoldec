@@ -1,0 +1,11 @@
+%% artifact: synthetic-access-request
+%% representation: Code
+%% version: 1.0.0
+%% owner: refoldec-maintainers
+flowchart TD
+  requester[Requester] -->|performs| submit[Submit access request]
+  submit -->|flows-to| review{Request complete?}
+  review -->|yes| approve[Approve request]
+  review -->|no| return[Return for correction]
+  approve -->|flows-to| record[(Record decision)]
+  return -->|flows-to| submit

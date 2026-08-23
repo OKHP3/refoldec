@@ -14,6 +14,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - OverKill Hill public project page
 - Public proof-of-concept: one captured workflow represented as Notion pages, Markdown, a Mermaid diagram, and an Agent Skill
 
+### Evidence baseline — 2026-08-22
+- Added a claim ledger, fold conformance matrix, neutral fixture, and fixture-level four-form proof.
+- Recorded controlled public readiness as approved with limits; runtime, organ conformance, and live skill uplift remain deferred.
+
 ---
 
 ## [0.1.0] — 2026-06-13

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "review_date": "2026-08-22",
+  "decision": "approve-with-limits",
+  "evidence_status": "analytical",
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "claim": "ReFolDec defines four canonical representations and legal/deferred fold boundaries.",
+      "claim_type": "fact",
+      "status": "supported",
+      "evidence_ids": ["FOLD-CONTRACT.md#1", "FOLD-CONTRACT.md#2"],
+      "consequence": "Downstream organs could invent incompatible representations or direct folds.",
+      "next_test": "Require organ conformance reports against the matrix."
+    },
+    {
+      "claim_id": "CLM-02",
+      "claim": "The semantic registry is machine-readable, color-agnostic, and mechanically validated.",
+      "claim_type": "fact",
+      "status": "supported",
+      "evidence_ids": ["semantic-class-registry/semantic-classes.json", "scripts/validate-registry.mjs", "tests/registry.test.mjs"],
+      "consequence": "Consumers could drift in role names or bind private palette values upstream.",
+      "next_test": "Run parity checks in each consuming organ."
+    },
+    {
+      "claim_id": "CLM-03",
+      "claim": "The fold contract's invariants are testable without building a runtime.",
+      "claim_type": "design_choice",
+      "status": "supported",
+      "evidence_ids": ["docs/conformance/fold-conformance-matrix.md", "docs/conformance/fixture.json", "scripts/validate-conformance.mjs"],
+      "consequence": "Prose guarantees remain ambiguous to implementers.",
+      "next_test": "Apply the validator to a second fixture."
+    },
+    {
+      "claim_id": "CLM-04",
+      "claim": "One synthetic workflow can be traced through all four forms with preserved invariants.",
+      "claim_type": "demonstration",
+      "status": "supported-with-limits",
+      "evidence_ids": ["docs/proof/minimal-fold-loop.md", "docs/proof/checkout-request/comparison.json"],
+      "consequence": "The public proof could overstate general codec capability.",
+      "next_test": "Repeat the comparison on an unseen fixture."
+    },
+    {
+      "claim_id": "CLM-05",
+      "claim": "The local skill library is release-ready and improves agent outcomes.",
+      "claim_type": "hypothesis",
+      "status": "blocked",
+      "evidence_ids": ["docs/evidence/skill-library-maturity.md", ".agents/skills/okhp3-skill-foundry/evals/evals.json"],
+      "consequence": "Users could mistake structural package health for measured task-quality uplift.",
+      "next_test": "Run isolated current-version treatment/control evaluations with a protected holdout."
+    },
+    {
+      "claim_id": "CLM-06",
+      "claim": "All named ecosystem organs currently conform to the head contracts.",
+      "claim_type": "hypothesis",
+      "status": "blocked",
+      "evidence_ids": ["ECOSYSTEM.md#organ-pointer-table", "SCOPE-FIREWALL.md"],
+      "consequence": "Placeholder links and planned organs could be presented as verified dependencies.",
+      "next_test": "Obtain owner-approved parity reports from each organ."
+    },
+    {
+      "claim_id": "CLM-07",
+      "claim": "A codec runtime or direct Diagram ↔ Agent-Executable fold is ready to implement.",
+      "claim_type": "proposal",
+      "status": "blocked",
+      "evidence_ids": ["FOLD-CONTRACT.md#deferred-folds", "ARCHITECTURE.md"],
+      "consequence": "A premature runtime could bake in uncontracted semantics.",
+      "next_test": "Approve a contract revision with an intermediate representation first."
+    }
+  ]
+}

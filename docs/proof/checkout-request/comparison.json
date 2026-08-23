@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "artifact": "synthetic-access-request",
+  "sequence": [
+    "Documentation → Code",
+    "Code → Diagram",
+    "Code → Agent-Executable",
+    "Agent-Executable → Code",
+    "Code → Documentation"
+  ],
+  "evidence_status": "analytical",
+  "comparison": {
+    "nodes": "6/6 IDs and semantic roles preserved",
+    "edges": "6/6 directed relationships preserved",
+    "flows": "2/2 branches preserved",
+    "governance": "4/4 tags preserved",
+    "allowed_variation": ["prose wording", "layout", "palette", "renderer chrome"]
+  },
+  "negative_cases": [
+    {"case": "missing owner tag", "result": "lossy — governance invariant missing"},
+    {"case": "redirect yes edge to return", "result": "lossy — edge topology changed"},
+    {"case": "Diagram → Agent-Executable shortcut", "result": "rejected — deferred fold"}
+  ],
+  "human_review": "The comparison is a fixture-level proof, not evidence of general runtime behavior."
+}

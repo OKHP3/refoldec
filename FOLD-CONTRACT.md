@@ -201,7 +201,12 @@ A future validator may test round-trip compliance by:
 3. Executing the inverse fold to produce A′.
 4. Asserting that all invariants extracted from A are present and identical in A′.
 
-For this pass, the prose definition above is the operative specification. The test implementation is deferred to the codec runtime.
+The neutral fixture and comparison rules now live in
+[`docs/conformance/fold-conformance-matrix.md`](docs/conformance/fold-conformance-matrix.md)
+and [`docs/conformance/fixture.json`](docs/conformance/fixture.json). The
+dependency-free validator checks fixture structure and the Node test suite
+covers valid preservation, explicit loss, and deferred-fold rejection. This is
+contract-level evidence only; execution of a general codec remains deferred.
 
 ---
 
