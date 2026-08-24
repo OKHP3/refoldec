@@ -24,8 +24,10 @@ was regenerated from source rather than hand-edited.
 ## Version normalization
 
 `architecture-decision-records` and `frontend-design` were the only catalog
-warnings for missing version metadata. They now declare `0.1.0`. This is
-metadata normalization, not a quality claim or benchmark result.
+warnings for missing version metadata. The current repository snapshot still
+needs those two frontmatter blocks normalized before this report can claim that
+warning is resolved. This is metadata normalization, not a quality claim or
+benchmark result.
 
 ## Release posture
 

@@ -6,7 +6,9 @@ const { spawnSync } = require('node:child_process');
 const test = require('node:test');
 
 const packageDir = path.resolve(__dirname, '..');
-const localMirror = path.resolve(packageDir, '..', '..', '.agents', 'skills', 'okhp3-skill-foundry');
+// packageDir is <repo>/.agents/skills/okhp3-skill-foundry; climb to repo root
+// before resolving the project-local mirror.
+const localMirror = path.resolve(packageDir, '..', '..', '..', '.agents', 'skills', 'okhp3-skill-foundry');
 const validator = path.join(packageDir, 'scripts', 'validate-skill-suite.cjs');
 
 function run(target) {
