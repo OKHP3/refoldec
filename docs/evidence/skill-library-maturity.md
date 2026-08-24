@@ -14,7 +14,7 @@ was regenerated from source rather than hand-edited.
 |---|---|---|
 | Package discovery | PASS | `.agents/skills/.catalog-meta.json` reports 40 |
 | Catalog generation | PASS | `gen-skills-readme.py --check` |
-| Portable metadata | WARN | Two legacy packages lacked version metadata and were assigned `0.1.0` |
+| Portable metadata | PASS | All 40 cataloged packages now declare version metadata |
 | Resource paths | PASS | `validate-skill-suite.cjs --skills-dir .agents/skills` |
 | Package checks | PASS where present | Package-local Node/Python tests |
 | Normal/edge/safety evaluation design | PARTIAL | Present for reviewed evaluation-bearing packages; not uniform across all packages |
@@ -24,10 +24,9 @@ was regenerated from source rather than hand-edited.
 ## Version normalization
 
 `architecture-decision-records` and `frontend-design` were the only catalog
-warnings for missing version metadata. The current repository snapshot still
-needs those two frontmatter blocks normalized before this report can claim that
-warning is resolved. This is metadata normalization, not a quality claim or
-benchmark result.
+warnings for missing version metadata; both frontmatter blocks are now
+normalized. This is metadata normalization, not a quality claim or benchmark
+result.
 
 ## Release posture
 

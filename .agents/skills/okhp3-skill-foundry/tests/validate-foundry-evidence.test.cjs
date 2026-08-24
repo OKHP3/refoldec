@@ -18,7 +18,7 @@ function run(target) {
 function temporaryPackage(mutator) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'foundry-validator-'));
   const target = path.join(root, 'okhp3-skill-foundry');
-  fs.cpSync(packageDir, target, { recursive: true, filter: source => !source.includes(`${path.sep}workspace${path.sep}`) });
+  fs.cpSync(packageDir, target, { recursive: true });
   try {
     mutator(target);
     return { root, target, result: run(target) };
