@@ -5,3 +5,7 @@ stack = "BEST_EFFORT_FALLBACK"
 
 [nix]
 channel = "stable-25_05"
+
+[postMerge]
+path = "scripts/post-merge-setup.sh"
+timeoutMs = 180000
