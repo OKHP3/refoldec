@@ -1,0 +1,424 @@
+{
+  "schema_version": "1.0",
+  "review_protocol": "equilibrium-v1",
+  "review_mode": "five-way",
+  "evaluation_status": "analytical",
+  "review_date": "2026-08-26",
+  "timezone": "America/Chicago",
+  "artifact": {
+    "path": "repository root at frozen revision",
+    "sha256": null,
+    "version": "54b95450b871dcbd02e8e74974e24400a481c746",
+    "commit_date": "2026-08-03T22:13:23Z",
+    "working_tree": "clean",
+    "scope": [
+      "README.md",
+      "AGENTS.md",
+      "ARCHITECTURE.md",
+      "ECOSYSTEM.md",
+      "FOLD-CONTRACT.md",
+      "SCOPE-FIREWALL.md",
+      "docs/concepts/core-loop.md",
+      "docs/case-studies/mermaid-visual-language-stack.md",
+      "docs/okhp3-visual-language-stack.md",
+      ".agents/skills/okhp3-equilibrium-review/SKILL.md",
+      ".agents/skills/okhp3-equilibrium-review/assets/equilibrium-review-record.json",
+      ".agents/skills/okhp3-equilibrium-review/references/domain-adapters.md",
+      ".agents/skills/okhp3-equilibrium-review/references/review-protocol.md",
+      ".agents/skills/okhp3-equilibrium-review/evals/evals.json",
+      ".agents/skills/okhp3-equilibrium-review/benchmarks/benchmark.json",
+      ".agents/skills/okhp3-equilibrium-review/benchmarks/evolution-review-2026-07-28.json"
+    ],
+    "source_hashes": {
+      "README.md": "d69db2539e7a0345143dd8334cbc0574fa56b089b08468f6dd60ebf3c1d8ab2d",
+      "AGENTS.md": "f006111d958302991528bb77e18add21cd7a2daf1c2562b123470e4e8d7f5f89",
+      "ARCHITECTURE.md": "8affd2f472d910f94479f9168b71b445b4f8d34142f591a3cdca274347991b9c",
+      "ECOSYSTEM.md": "cc6b8184679fb234783a611a90e2e0bee71b4e927d687c95e689d44f9266bb17",
+      "FOLD-CONTRACT.md": "6e5ab4e3f206abb6140def2d7e6896fec5dc23cf99246c22d4d070be3c56f2bb",
+      "SCOPE-FIREWALL.md": "8ce9fce71c0dbfacb2501f7b68b3b38750bdaf7abb113a13b229e173958c0133",
+      "docs/concepts/core-loop.md": "ba4e93692d1e7429c1113e27477e053c7fb7afdce323ec68adf5501cdfe57da5",
+      "docs/case-studies/mermaid-visual-language-stack.md": "8cf7fdae467610176c5725467a1e75124b80859665235b026d669542d06a51f1",
+      "docs/okhp3-visual-language-stack.md": "a546cf6258a90911c1c17190fad47740b2d6888a3190eb0e0fd0d2ca48cff758",
+      ".agents/skills/okhp3-equilibrium-review/SKILL.md": "24aad5cce75ca4b41e60b556b7903e4f1d0e384e0f1755ad81e5b7a9014b6ffe",
+      ".agents/skills/okhp3-equilibrium-review/assets/equilibrium-review-record.json": "213b1489ffbee8a119175ed26c12c56eb6aea65c955c7441f776f15bd1038a34",
+      ".agents/skills/okhp3-equilibrium-review/references/domain-adapters.md": "bf07caa2c69dae0c0768611d39a54b7ccff043b8f9a8663106b173ea0e47fe22",
+      ".agents/skills/okhp3-equilibrium-review/references/review-protocol.md": "b02fddfc733d02a59c9db9f09f507c2be48bf032105c6078cfb16328e0802f04",
+      ".agents/skills/okhp3-equilibrium-review/evals/evals.json": "7ea92fbd6e40ce73a581a3cb42a6be4291b012bc2f4570cb2d329ae75c1f26bc",
+      ".agents/skills/okhp3-equilibrium-review/benchmarks/benchmark.json": "c6e1289c58c7b6d63419c6d876a287cca16353db3bb3565396c43116ad1a367f",
+      ".agents/skills/okhp3-equilibrium-review/benchmarks/evolution-review-2026-07-28.json": "e44e3379d6f4a6b61e9a646e981d418bd02d60fab28c04ca92d30f925adb38be"
+    }
+  },
+  "decision_question": "Is ReFolDec ready, within its stated scope, to be treated as a usable, safe, and evidence-supported recursive fold/unfold framework, and what may be released now versus what must defer for evidence?",
+  "audience": [
+    "ReFolDec owner and collaborators",
+    "downstream OKHP3 organ maintainers",
+    "public-facing reviewers",
+    "future codec runtime implementers"
+  ],
+  "acceptance_criteria": [
+    "Classify material claims as confirmed, inferred, proposal, or unknown with exact evidence paths and line ranges.",
+    "Separate analytical structural evidence, live command evidence, historical benchmark evidence, and not-run work.",
+    "Record a smallest decisive next test, owner decision, and consequence for every blocked claim.",
+    "State usable-now, approved-with-limits, and defer-for-evidence boundaries.",
+    "Keep placeholder URLs and unsupported runtime claims explicitly unverified."
+  ],
+  "constraints": [
+    "No codec runtime implementation or four-representation contract change.",
+    "No external publication, organ contact, or placeholder URL verification.",
+    "No source-document rewriting to strengthen the maturity result.",
+    "No external provider, protected holdout, renderer, client, or domain-specialist adjudication was available."
+  ],
+  "evidence_taxonomy": {
+    "analytical": "Contracts, documentation, static inspection, and reviewer reasoning.",
+    "live": "Commands actually run on the frozen repository; limited to registry validation, tests, and diff hygiene.",
+    "historical": "Earlier evaluation/benchmark records retained for context and not treated as current live proof.",
+    "not-run": "A fold, inverse fold, round-trip, renderer, external conformance, portability, or whole-tree publication test not performed."
+  },
+  "live_checks": [
+    {
+      "command": "node scripts/validate-registry.mjs",
+      "status": "passed",
+      "result": "22 registry entries verified"
+    },
+    {
+      "command": "node --test tests/registry.test.mjs",
+      "status": "passed",
+      "result": "21 tests passed, 0 failed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "result": "no whitespace errors"
+    }
+  ],
+  "independence": {
+    "reviewer_contexts_separated": true,
+    "shared_model_or_source_limits": [
+      "Evidence, outcome, and safety/portability reviewers used separate prompts and contexts but the same local, self-authored source set.",
+      "The model family was not independently known.",
+      "The equilibrium skill's own evaluation and benchmark records were among the reviewed sources.",
+      "No independent external source, live fold executor, external provider, protected holdout, renderer, or domain-specialist adjudication was available."
+    ]
+  },
+  "initial_reviews": [
+    {
+      "role": "evidence reviewer",
+      "identity": "independent analytical review pass",
+      "prompt_context": "task-specific evidence review",
+      "source_set": "frozen artifact scope",
+      "tools_permissions": "read-only repository review; no side effects",
+      "status": "analytical",
+      "finding": "Contracts and vocabulary are directly supported; practical losslessness, round trips, organ conformance, and portability are not evidenced."
+    },
+    {
+      "role": "outcome reviewer",
+      "identity": "independent analytical review pass",
+      "prompt_context": "task-specific outcome review",
+      "source_set": "frozen artifact scope",
+      "tools_permissions": "read-only repository review; no side effects",
+      "status": "analytical",
+      "finding": "The repository is useful as a specification/head-canon and planning reference, but the case study is illustrative and release language needs explicit limits."
+    },
+    {
+      "role": "safety and portability reviewer",
+      "identity": "independent analytical review pass",
+      "prompt_context": "task-specific safety and portability review",
+      "source_set": "frozen artifact scope",
+      "tools_permissions": "read-only repository review; no side effects",
+      "status": "analytical",
+      "finding": "The firewall is policy and partial automation, not whole-tree clearance; placeholders, unsupported folds, runtime assumptions, and client portability remain bounded risks."
+    }
+  ],
+  "concordance": "analytical-agreement",
+  "claim_ledger": [
+    {
+      "claim_id": "CLM-18",
+      "claim": "ReFolDec is defined as a capture-first framework for turning thoughts, workflows, narratives, and repeated actions into structured, visual, reusable, and versioned artifacts.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported-with-limits",
+      "evidence_ids": ["E-22"],
+      "evidence_paths": ["README.md#L9-L13", "ARCHITECTURE.md#L7-L13", "docs/concepts/core-loop.md#L65-L82"],
+      "evidence_state": "analytical definition, not outcome evidence",
+      "consequence": "The public positioning would overstate the repository's actual concern.",
+      "next_test": "Trace one owner-authorized input through the claimed artifact types and record outputs and limitations."
+    },
+    {
+      "claim_id": "CLM-19",
+      "claim": "Meaning can move recursively between representations without loss of semantic continuity.",
+      "claim_type": "hypothesis",
+      "classification": "proposal",
+      "status": "provisional",
+      "evidence_ids": ["E-23"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L8-L12", "FOLD-CONTRACT.md#L174-L194", "docs/concepts/core-loop.md#L3-L7", "docs/concepts/core-loop.md#L76-L82"],
+      "evidence_state": "analytical thesis; practical test not-run",
+      "consequence": "The central recursive codec thesis would fail for at least one transformation.",
+      "next_test": "Execute the invariant-preserving fixture loop described for CLM-07.",
+      "owner_decision": "Present this as a design thesis, not an observed result."
+    },
+    {
+      "claim_id": "CLM-01",
+      "claim": "ReFolDec is a Git-backed specification/contract repository and does not currently contain an application runtime.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-01", "E-02"],
+      "evidence_paths": ["AGENTS.md#L18-L25", "AGENTS.md#L85-L98", "ECOSYSTEM.md#L132-L135", "README.md#L134-L136"],
+      "evidence_state": "analytical",
+      "consequence": "Treating prose contracts as an executable codec would mislead users and release decisions.",
+      "next_test": "Inspect the frozen tree and run the declared checks; do not make a runtime claim without an actual tested runtime surface."
+    },
+    {
+      "claim_id": "CLM-02",
+      "claim": "ReFolDec defines a bidirectional model: xME is maturation/fold, xIE is inversion/unfold, and xMIE is the combined mechanic.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-03"],
+      "evidence_paths": ["README.md#L17-L24", "ARCHITECTURE.md#L17-L47", "docs/concepts/core-loop.md#L29-L61"],
+      "evidence_state": "analytical",
+      "consequence": "Inconsistent vocabulary would prevent shared coordination across organs.",
+      "next_test": "Compare downstream organ terminology with the canonical vocabulary."
+    },
+    {
+      "claim_id": "CLM-03",
+      "claim": "There are exactly four canonical representations: Diagram, Code, Documentation, and Agent-Executable.",
+      "claim_type": "design_choice",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-04"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L16-L20", "FOLD-CONTRACT.md#L22-L100", "AGENTS.md#L50-L50"],
+      "evidence_state": "analytical",
+      "consequence": "Undeclared representations could break interoperability.",
+      "next_test": "Run a static conformance scan across organ contracts and artifacts."
+    },
+    {
+      "claim_id": "CLM-04",
+      "claim": "The head-and-organs model, ownership boundaries, source-of-truth rule, and conformance rules are defined.",
+      "claim_type": "design_choice",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-05"],
+      "evidence_paths": ["ECOSYSTEM.md#L8-L10", "ECOSYSTEM.md#L37-L59", "ECOSYSTEM.md#L63-L93", "ARCHITECTURE.md#L158-L185"],
+      "evidence_state": "analytical",
+      "consequence": "Organ drift and cross-fold boundary violations could go undetected.",
+      "next_test": "Compare owner-authorized current organ contracts and vendored registry copies with the head."
+    },
+    {
+      "claim_id": "CLM-05",
+      "claim": "The contract enumerates legal reversible fold pairs and explicitly defers direct Diagram to Agent-Executable folds.",
+      "claim_type": "design_choice",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-06"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L104-L134"],
+      "evidence_state": "analytical",
+      "consequence": "Implementers may expose unsupported direct transformations.",
+      "next_test": "Scan organ implementations for undeclared direct folds and require contract revision before accepting them."
+    },
+    {
+      "claim_id": "CLM-06",
+      "claim": "Losslessness is defined as preservation of semantic roles, node identity, edge topology, flow relationships, and governance tags; layout, palette binding, and prose style may vary.",
+      "claim_type": "design_choice",
+      "classification": "confirmed",
+      "status": "supported",
+      "evidence_ids": ["E-07"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L138-L171"],
+      "evidence_state": "analytical",
+      "consequence": "Different organs could preserve different meanings.",
+      "next_test": "Compare all five invariant classes before and after each legal fold on one shared fixture."
+    },
+    {
+      "claim_id": "CLM-07",
+      "claim": "ReFolDec currently demonstrates practical lossless and reversible folds with successful round trips.",
+      "claim_type": "hypothesis",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-08"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L174-L204", "ECOSYSTEM.md#L132-L135"],
+      "evidence_state": "not-run",
+      "consequence": "A claimed lossless fold could silently change meaning.",
+      "next_test": "Freeze one fixture per legal fold, execute fold and inverse, and compare all invariants.",
+      "owner_decision": "Keep all practical lossless, reversible, and round-trip claims deferred until fixture results exist."
+    },
+    {
+      "claim_id": "CLM-08",
+      "claim": "The documented case study is evidence that one complete fold/unfold loop has run.",
+      "claim_type": "hypothesis",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-09"],
+      "evidence_paths": ["docs/case-studies/mermaid-visual-language-stack.md#L3-L7", "docs/case-studies/mermaid-visual-language-stack.md#L21-L30", "docs/case-studies/mermaid-visual-language-stack.md#L124-L154"],
+      "evidence_state": "not-run",
+      "consequence": "Public readers may mistake an illustrative scenario for empirical proof.",
+      "next_test": "Archive raw input, every intermediate artifact, final SKILL.md, cross-representation IDs/tags, hashes, and an unfold/refold comparison.",
+      "owner_decision": "Keep the case study labeled illustrative until a frozen proof fixture is archived."
+    },
+    {
+      "claim_id": "CLM-09",
+      "claim": "The eight-stage core loop and four-representation contract are already one internally aligned formal model.",
+      "claim_type": "interpretation",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-10"],
+      "evidence_paths": ["FOLD-CONTRACT.md#L16-L20", "docs/concepts/core-loop.md#L11-L25", "docs/concepts/core-loop.md#L35-L61", "docs/case-studies/mermaid-visual-language-stack.md#L23-L154"],
+      "evidence_state": "analytical",
+      "consequence": "Implementers cannot tell whether idea, text, structure, and reusable artifact are canonical representations or explanatory states.",
+      "next_test": "Publish a normative mapping for every loop stage and transition, verify it against the legal-fold table, and run one fixture.",
+      "owner_decision": "Defer claims of one coherent formal loop until the mapping is resolved without changing the four-representation contract in this task."
+    },
+    {
+      "claim_id": "CLM-10",
+      "claim": "Process Skills are defined as executable capture workflows and checked-in local skills exist.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported-with-limits",
+      "evidence_ids": ["E-11"],
+      "evidence_paths": ["ARCHITECTURE.md#L65-L77", "AGENTS.md#L22-L25", "AGENTS.md#L77-L80", ".agents/skills/okhp3-equilibrium-review/SKILL.md#L37-L43"],
+      "evidence_state": "analytical",
+      "consequence": "The executable-plane description would overstate the repository contents.",
+      "next_test": "Validate each checked-in skill against trigger, output, safety, and portability criteria."
+    },
+    {
+      "claim_id": "CLM-11",
+      "claim": "The local equilibrium-review skill and its evaluation materials prove portable, effective, production-ready agent execution.",
+      "claim_type": "hypothesis",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-12", "E-13", "E-14"],
+      "evidence_paths": [".agents/skills/okhp3-equilibrium-review/references/domain-adapters.md#L38-L42", ".agents/skills/okhp3-equilibrium-review/evals/evals.json#L2-L6", ".agents/skills/okhp3-equilibrium-review/benchmarks/benchmark.json#L4-L30", ".agents/skills/okhp3-equilibrium-review/benchmarks/evolution-review-2026-07-28.json#L43-L58"],
+      "evidence_state": "historical and analytical; no live provider run",
+      "consequence": "Users may rely on a skill that activates poorly or handles untrusted input unsafely.",
+      "next_test": "Run matched live evaluations across separated clients or model families with an unseen holdout and human/domain-specialist grading.",
+      "owner_decision": "Approve local analytical use only; make no portability, uplift, production, or general task-quality claim."
+    },
+    {
+      "claim_id": "CLM-12",
+      "claim": "The semantic-class registry is a color-agnostic, validated meaning axis for downstream organs.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported-with-limits",
+      "evidence_ids": ["E-15", "E-16"],
+      "evidence_paths": ["semantic-class-registry/SEMANTIC-CLASSES.md#L9-L16", "scripts/validate-registry.mjs", "tests/registry.test.mjs"],
+      "evidence_state": "live for registry only; analytical for organ use",
+      "consequence": "Role meaning and palette governance could drift.",
+      "next_test": "Require organ parity checks and verify downstream consumers bind tokens without redefining roles."
+    },
+    {
+      "claim_id": "CLM-13",
+      "claim": "The scope firewall defines publication and privacy boundaries for the ecosystem.",
+      "claim_type": "design_choice",
+      "classification": "confirmed",
+      "status": "supported-with-limits",
+      "evidence_ids": ["E-17"],
+      "evidence_paths": ["SCOPE-FIREWALL.md#L8-L13", "SCOPE-FIREWALL.md#L16-L53", "SCOPE-FIREWALL.md#L57-L95", "SCOPE-FIREWALL.md#L110-L114"],
+      "evidence_state": "analytical",
+      "consequence": "Private or proprietary material could enter shared assets.",
+      "next_test": "Apply the checklist to every frozen release tree."
+    },
+    {
+      "claim_id": "CLM-14",
+      "claim": "The complete repository is proven safe and publication-ready by the scope firewall.",
+      "claim_type": "hypothesis",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-18"],
+      "evidence_paths": ["SCOPE-FIREWALL.md#L99-L101", "AGENTS.md#L25-L25", "AGENTS.md#L122-L127"],
+      "evidence_state": "not-run",
+      "consequence": "A public release could expose prohibited content or misleading references.",
+      "next_test": "Freeze the release tree, run a repository-wide sensitive-content/reference scan, and independently inspect every flagged result and checklist item.",
+      "owner_decision": "Do not treat policy presence or registry validation as whole-tree publication clearance."
+    },
+    {
+      "claim_id": "CLM-15",
+      "claim": "The organ pointer table and external links are authoritative and verified.",
+      "claim_type": "fact",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-19"],
+      "evidence_paths": ["ECOSYSTEM.md#L115-L128", "README.md#L157-L161"],
+      "evidence_state": "not-run",
+      "consequence": "Readers may be sent to nonexistent or unauthorized destinations.",
+      "next_test": "Run owner-authorized URL and repository checks with retrieval dates.",
+      "owner_decision": "Retain placeholder labels and do not call links verified."
+    },
+    {
+      "claim_id": "CLM-16",
+      "claim": "Downstream organs conform to ReFolDec contracts and the active/lineage statuses in the ecosystem map are current.",
+      "claim_type": "hypothesis",
+      "classification": "unknown",
+      "status": "blocked",
+      "evidence_ids": ["E-20"],
+      "evidence_paths": ["ECOSYSTEM.md#L79-L93", "ECOSYSTEM.md#L115-L128", "ARCHITECTURE.md#L171-L185"],
+      "evidence_state": "not-run",
+      "consequence": "The head may describe an ecosystem that has drifted or does not exist as stated.",
+      "next_test": "Compare current owner-authorized organ artifacts and record parity/conformance results.",
+      "owner_decision": "Treat organ conformance and status as unverified until source snapshots are available."
+    },
+    {
+      "claim_id": "CLM-17",
+      "claim": "The repository's current validation surface supports the narrow specification baseline.",
+      "claim_type": "fact",
+      "classification": "confirmed",
+      "status": "supported-with-limits",
+      "evidence_ids": ["E-21"],
+      "evidence_paths": ["AGENTS.md#L85-L98", "scripts/validate-registry.mjs", "tests/registry.test.mjs"],
+      "evidence_state": "live, narrow scope",
+      "consequence": "The documentation/registry baseline would not be mechanically healthy.",
+      "next_test": "Rerun the declared checks on every baseline revision."
+    }
+  ],
+  "disruptor": {
+    "triggered": true,
+    "authority": "analytical",
+    "status": "analytical",
+    "falsification_hypotheses": [
+      {
+        "id": "DIS-01",
+        "claim_challenged": "Legal-fold definitions imply practical reversibility.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Execute each legal fold and inverse on frozen fixtures and compare all invariants."
+      },
+      {
+        "id": "DIS-02",
+        "claim_challenged": "The case study proves one complete loop.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Archive a complete source-to-skill fixture with hashes and a successful unfold/refold comparison."
+      },
+      {
+        "id": "DIS-03",
+        "claim_challenged": "Skill evaluation materials prove portability or readiness.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Run matched live evaluations with separated clients/model families and a protected unseen holdout."
+      },
+      {
+        "id": "DIS-04",
+        "claim_challenged": "The scope firewall proves whole-repository publication safety.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Run and record a whole-tree firewall scan plus independent manual review."
+      },
+      {
+        "id": "DIS-05",
+        "claim_challenged": "The four-representation contract and eight-stage loop are already aligned.",
+        "result": "survives strongly",
+        "test_that_could_prove_objection_wrong": "Publish a normative stage/transition mapping and verify it with one fixture."
+      }
+    ],
+    "test_results": [
+      "No counterexample was falsified because the decisive runtime, fixture, portability, and whole-tree tests were not available.",
+      "The disruptor results are not live proof of defects or correctness; they are analytical objections that preserve deferral."
+    ]
+  },
+  "negotiator": {
+    "triggered": true,
+    "status": "analytical",
+    "decision": "approve-with-limits",
+    "decisive_evidence": [
+      "The frozen repository directly defines a coherent vocabulary, four-representation contract, legal-fold boundaries, invariants, registry policy, and scope firewall.",
+      "The live registry validator and 21-test suite pass, but their scope is narrow.",
+      "The repository explicitly defers the runtime and round-trip test implementation.",
+      "The equilibrium benchmark is not-run and the evolution review is analytical with external holdout required.",
+      "The representative case study is explicitly not a record of a specific executed event.",
+      "The core loop includes stages outside the exhaustive four-representation contract without a normative mapping."
+    ],
+    "rationale": "The eviWF���6��vW2�"��$6�FV2�'V�F��R7W&f6R�2��G&�GV6VB�"��$V&Ɩ2&��b��b�6��6WB�2V&Ɨ6�VB�"��$F�v�7G&V��&v��2FV6�&VB6��f�&֖�r�"��$6����Wf�VF���fW'6����"&V�6��&�6��vW2�"��$�WrW�FW&��Ɩ�2�"6V�6�F�fR�6��FV�B&�6�V�FW"F�R&V�V6RG&VR� �ТЧ
