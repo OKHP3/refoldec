@@ -112,6 +112,25 @@ Each project in the OKHP³ Visual Language Stack operates at one or more specifi
 
 ---
 
+## Contract boundary and evidence status
+
+The eight stages above are explanatory states in the broader capture loop, not
+additional canonical representations in the codec contract. The current
+contract recognizes exactly four forms: `Diagram`, `Code`, `Documentation`,
+and `Agent-Executable`. In particular, `idea`, `text`, `structure`, and
+`reusable artifact` remain descriptive entry/exit states until a future
+contract revision gives them canonical schemas and legal folds.
+
+The legal four-form directions, invariant projection, fixture, and failure
+cases are specified in
+[`docs/conformance/fold-conformance-matrix.md`](../conformance/fold-conformance-matrix.md).
+That fixture-level evidence tests the contract shape; it is not evidence that
+a general runtime has executed the entire eight-stage loop. The evidence
+baseline therefore keeps operational losslessness, general round trips, and
+the direct `Diagram ↔ Agent-Executable` shortcut deferred.
+
+---
+
 ## Further reading
 
 - [`ARCHITECTURE.md`](../../ARCHITECTURE.md) — Planes, mechanics, and component roles

@@ -4,6 +4,7 @@ representation: Agent-Executable
 version: 1.0.0
 owner: refoldec-maintainers
 status: fixture
+applicable_context: public-safe synthetic demonstration
 trigger: A synthetic access request needs to be checked.
 ---
 
@@ -16,6 +17,28 @@ trigger: A synthetic access request needs to be checked.
 5. If incomplete, perform `return` and repeat `submit`.
 6. If the process cannot determine completeness, stop and escalate rather than
    inventing a decision.
+
+## Semantic trace
+
+| Step/node ID | Semantic role | Action or relationship |
+|---|---|---|
+| `requester` | `actor` | provides the request to `submit` |
+| `submit` | `step` | submits the access request to `review` |
+| `review` | `decision` | branches to `approve` or `return` |
+| `approve` | `approval` | approves the complete request for `record` |
+| `return` | `handoff` | sends an incomplete request back to `submit` |
+| `record` | `data` | records the decision |
+
+The `complete` branch is `review → approve` when “request is complete”. The
+`incomplete` branch is `review → return` when “request is incomplete”. These
+relationships, IDs, and roles are invariant even though the executable form
+uses ordered prose.
+
+## Governance trace
+
+Preserve `artifact_version: 1.0.0`, `owner: refoldec-maintainers`, `status:
+fixture`, and `applicable_context: public-safe synthetic demonstration` when
+this instruction is copied or executed.
 
 ## Output
 

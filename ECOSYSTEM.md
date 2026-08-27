@@ -60,6 +60,35 @@ ReFolDec owns the **shared contracts** that every organ conforms to:
 
 ---
 
+## Conformance and parity record
+
+The head contract is versioned. An organ claiming conformance MUST record a
+machine-readable or human-readable parity result containing:
+
+| Required field | Meaning |
+|---|---|
+| `contract_version` | The supported `FOLD-CONTRACT.md` version |
+| `fixture_schema_version` | The conformance fixture schema used |
+| `registry_version` | The semantic-class registry version |
+| `firewall_version` | The `SCOPE-FIREWALL.md` version |
+| `supported_folds` | Exact legal fold directions implemented |
+| `deferred_folds` | Exact direct folds still rejected |
+| `result` and `checked_at` | Pass/fail result and date of the check |
+
+Parity MUST compare the canonical invariant projection exactly: node identity,
+semantic role, directed edge topology, flow branch/source/target/condition,
+and governance tags. Layout, bound colors, renderer chrome, prose style, and
+formatting are not parity fields. Unknown fields may be ignored only when the
+contract marks them optional; missing required fields or a version mismatch
+MUST fail closed.
+
+The authoritative fold rows, failure codes, fixture, and comparison rules are
+in [`docs/conformance/`](docs/conformance/). Direct
+`Diagram ↔ Agent-Executable` support remains a parity failure until a contract
+revision defines the intermediate representation.
+
+---
+
 ## How organs relate to the head
 
 An organ's job is to **apply** the fold it owns — not to define new fold vocabulary, redefine semantic roles, or modify the scope firewall.
@@ -84,7 +113,7 @@ These rules are authoritative for all components. They do not need to be re-expl
 The semantic-class registry, the fold vocabulary, and the scope firewall are defined once, here in ReFolDec. Organs reference them. Do not fork the definition, restate it in a conflicting way, or let it drift.
 
 **Rule 2 — Source of truth flows down from ReFolDec.**
-Consumers vendor a synced copy of shared assets and add a parity check. If the head updates the registry, organs update their vendored copy. The head does not sync upward.
+Consumers vendor a synced copy of shared assets and add a parity check. If the head updates the registry or a contract, organs update their vendored copy and record the versions checked. The head does not sync upward.
 
 **Rule 3 — Honor the scope firewall.**
 No third-party employer names in any public or shared asset. No employer-owned color values (hex) in any OKHP³ repo. Brand-agnostic frameworks, methodology, vocabulary, and role names travel freely. Specific palettes and proprietary identifiers do not. See `SCOPE-FIREWALL.md` for the full policy and pre-publish checklist.

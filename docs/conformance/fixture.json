@@ -1,31 +1,179 @@
 {
-  "schema_version": "1.0",
-  "fixture_id": "synthetic-access-request",
-  "governance": {
-    "artifact_version": "1.0.0",
-    "owner": "refoldec-maintainers",
-    "status": "fixture",
-    "applicable_context": "public-safe synthetic demonstration"
+  "contract": {
+    "id": "refoldec-fold-contract",
+    "version": "1.0.0"
   },
-  "nodes": [
-    {"id": "requester", "semantic_role": "actor", "label": "Requester"},
-    {"id": "submit", "semantic_role": "step", "label": "Submit access request"},
-    {"id": "review", "semantic_role": "decision", "label": "Request complete?"},
-    {"id": "approve", "semantic_role": "approval", "label": "Approve request"},
-    {"id": "return", "semantic_role": "handoff", "label": "Return for correction"},
-    {"id": "record", "semantic_role": "data", "label": "Record decision"}
-  ],
-  "edges": [
-    {"from": "requester", "to": "submit", "relationship": "performs"},
-    {"from": "submit", "to": "review", "relationship": "flows-to"},
-    {"from": "review", "to": "approve", "relationship": "yes"},
-    {"from": "review", "to": "return", "relationship": "no"},
-    {"from": "approve", "to": "record", "relationship": "flows-to"},
-    {"from": "return", "to": "submit", "relationship": "flows-to"}
-  ],
-  "flows": [
-    {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
-    {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
-  ],
-  "representations": ["Diagram", "Code", "Documentation", "Agent-Executable"]
+  "schema_version": "1.1",
+  "fixture_id": "synthetic-access-request",
+  "canonical_projection": {
+    "nodes": [
+      {"id": "requester", "semantic_role": "actor"},
+      {"id": "submit", "semantic_role": "step"},
+      {"id": "review", "semantic_role": "decision"},
+      {"id": "approve", "semantic_role": "approval"},
+      {"id": "return", "semantic_role": "handoff"},
+      {"id": "record", "semantic_role": "data"}
+    ],
+    "edges": [
+      {"from": "requester", "to": "submit", "relationship": "performs"},
+      {"from": "submit", "to": "review", "relationship": "flows-to"},
+      {"from": "review", "to": "approve", "relationship": "yes"},
+      {"from": "review", "to": "return", "relationship": "no"},
+      {"from": "approve", "to": "record", "relationship": "flows-to"},
+      {"from": "return", "to": "submit", "relationship": "flows-to"}
+    ],
+    "flows": [
+      {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
+      {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
+    ],
+    "governance": {
+      "artifact_version": "1.0.0",
+      "owner": "refoldec-maintainers",
+      "status": "fixture",
+      "applicable_context": "public-safe synthetic demonstration"
+    }
+  },
+  "representations": {
+    "Diagram": {
+      "format": "rendered-visual",
+      "payload": {
+        "layout": "left-to-right",
+        "render_context": "fixture-only"
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "review", "semantic_role": "decision"},
+          {"id": "approve", "semantic_role": "approval"},
+          {"id": "return", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "review", "relationship": "flows-to"},
+          {"from": "review", "to": "approve", "relationship": "yes"},
+          {"from": "review", "to": "return", "relationship": "no"},
+          {"from": "approve", "to": "record", "relationship": "flows-to"},
+          {"from": "return", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
+          {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Code": {
+      "format": "mermaid-dsl",
+      "payload": {
+        "source": "neutral process graph source; syntax is intentionally not executed by this fixture"
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "review", "semantic_role": "decision"},
+          {"id": "approve", "semantic_role": "approval"},
+          {"id": "return", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "review", "relationship": "flows-to"},
+          {"from": "review", "to": "approve", "relationship": "yes"},
+          {"from": "review", "to": "return", "relationship": "no"},
+          {"from": "approve", "to": "record", "relationship": "flows-to"},
+          {"from": "return", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
+          {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Documentation": {
+      "format": "markdown-narrative",
+      "payload": {
+        "narrative": "The requester submits an access request. The process reviews whether it is complete. Complete requests go to approval and are recorded; incomplete requests return for correction and resubmission."
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "review", "semantic_role": "decision"},
+          {"id": "approve", "semantic_role": "approval"},
+          {"id": "return", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "review", "relationship": "flows-to"},
+          {"from": "review", "to": "approve", "relationship": "yes"},
+          {"from": "review", "to": "return", "relationship": "no"},
+          {"from": "approve", "to": "record", "relationship": "flows-to"},
+          {"from": "return", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
+          {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Agent-Executable": {
+      "format": "structured-instruction",
+      "payload": {
+        "trigger": "An access request is submitted.",
+        "inputs": ["access request"],
+        "outputs": ["recorded decision"],
+        "steps": ["submit", "review", "approve or return", "record"],
+        "failure_paths": ["incomplete request returns for correction"]
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "review", "semantic_role": "decision"},
+          {"id": "approve", "semantic_role": "approval"},
+          {"id": "return", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "review", "relationship": "flows-to"},
+          {"from": "review", "to": "approve", "relationship": "yes"},
+          {"from": "review", "to": "return", "relationship": "no"},
+          {"from": "approve", "to": "record", "relationship": "flows-to"},
+          {"from": "return", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {"branch_id": "complete", "source": "review", "target": "approve", "condition": "request is complete"},
+          {"branch_id": "incomplete", "source": "review", "target": "return", "condition": "request is incomplete"}
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    }
+  }
 }

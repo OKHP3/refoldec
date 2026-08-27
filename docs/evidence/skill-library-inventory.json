@@ -1,0 +1,963 @@
+{
+  "schemaVersion": "1.0",
+  "reportKind": "local-skill-library-inventory",
+  "asOf": "2026-08-27",
+  "evidenceBoundary": "structural and analytical inventory; no live task-quality uplift claim",
+  "summary": {
+    "packageCount": 40,
+    "versionedPackageCount": 40,
+    "evaluationFileCount": 24,
+    "noEvaluationFileCount": 16,
+    "developmentAndHoldoutPartitionCount": 9,
+    "completeDevelopmentAndHoldoutCount": 9,
+    "developmentOnlyCount": 4,
+    "unpartitionedEvaluationCount": 11,
+    "invalidEvaluationCount": 0,
+    "incompleteEvaluationCount": 11,
+    "minimumShapePackageCount": 13,
+    "packageLocalTestCount": 11,
+    "benchmarkStatusCounts": {
+      "historical": 1,
+      "not-run": 39
+    }
+  },
+  "skills": [
+    {
+      "name": "architecture-decision-records",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "frontend-design",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-artifact-validation",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-as-is-process-capture",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-brand-style-registry",
+      "version": "1.2.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 3,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-capture-intake",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-chatgpt-project-migration",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-custom-gpt-builder",
+      "version": "1.3.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 16,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 8,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-custom-gpt-readiness",
+      "version": "1.2.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-decision-model-authoring",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-elicitation-interviews",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-equilibrium-review",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-only"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 3,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-evidence-standard",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-future-state-strategy",
+      "version": "0.1.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-gpt-skill-conversion-plan",
+      "version": "1.2.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-graduation-gate",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-handoff-packaging",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-notion-capture-router",
+      "version": "0.3.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 4,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-outcome-modeling-core",
+      "version": "1.1.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 4,
+        "completeCaseCount": 4,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 4,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 2,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-overkill-hill-brand",
+      "version": "1.1.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-process-capture",
+      "version": "1.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-process-gap-analysis",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-process-intake-and-scope",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 4,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-project-promotion",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-repl-repo-janitor",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-repository-janitor",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-repository-organizer",
+      "version": "1.1.1",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 5,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-session-handoff",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-skill-cataloger",
+      "version": "1.7.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-skill-discovery",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-skill-foundry",
+      "version": "3.1.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 4,
+        "completeCaseCount": 4,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 4,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
+      },
+      "benchmarkStatus": "historical",
+      "resourceCounts": {
+        "references": 4,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-skill-promotion",
+      "version": "0.1.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 4,
+        "completeCaseCount": 4,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 4,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 1
+      }
+    },
+    {
+      "name": "okhp3-source-backed-research",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-thread-context-extraction",
+      "version": "2.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 4,
+        "scripts": 2,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-thread-extract-chatgpt",
+      "version": "2.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 4,
+        "scripts": 2,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-thread-extract-claude",
+      "version": "2.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 4,
+        "scripts": 2,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-triage-and-file",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "developmentCaseCount": 2,
+        "holdoutCaseCount": 1,
+        "releaseHoldoutStatus": null,
+        "coverage": "development-and-holdout"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-vite-github-pages",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "version": "1.0.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "web-design-guidelines",
+      "version": "1.0.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "releaseHoldoutStatus": null,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    }
+  ]
+}

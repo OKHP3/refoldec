@@ -421,4 +421,82 @@
       "The representative case study is explicitly not a record of a specific executed event.",
       "The core loop includes stages outside the exhaustive four-representation contract without a normative mapping."
     ],
-    "rationale": "The eviWF���6��vW2�"��$6�FV2�'V�F��R7W&f6R�2��G&�GV6VB�"��$V&Ɩ2&��b��b�6��6WB�2V&Ɨ6�VB�"��$F�v�7G&V��&v��2FV6�&VB6��f�&֖�r�"��$6����Wf�VF���fW'6����"&V�6��&�6��vW2�"��$�WrW�FW&��Ɩ�2�"6V�6�F�fR�6��FV�B&�6�V�FW"F�R&V�V6RG&VR� �ТЧ
+    "rationale": "The evidence supports a specification/head-canon baseline and narrow local maintenance use, but not practical fold behavior, complete-loop proof, portability, external conformance, or whole-tree publication safety.",
+    "unresolved_items": [
+      "Normative status and mapping of core-loop stages outside the four canonical representations.",
+      "Round-trip fixture set and protected evaluation holdout.",
+      "Owner-authorized external URL and organ-conformance checks.",
+      "Whole-tree scope-firewall review for the intended release surface.",
+      "Current public status and rights for lineage and external project references."
+    ]
+  },
+  "release_decision": "approve-with-limits",
+  "release_scope": {
+    "usable_now": [
+      "Read and cite repository-defined framework vocabulary and ownership boundaries.",
+      "Maintain the semantic registry and run its dependency-free validator/tests.",
+      "Use contracts for downstream design and contract-gap identification.",
+      "Use checked-in skills and review materials locally when assumptions and limits are visible."
+    ],
+    "approved_with_limits": [
+      "Describe ReFolDec as an analytical specification and bidirectional process-capture framework.",
+      "Present fold tables and lossless criteria as normative design intent.",
+      "Share registry and firewall governance artifacts without calling them whole-tree clearance.",
+      "Describe skill evaluation materials as analytical/design-ready/not-run evidence only."
+    ],
+    "defer_for_evidence": [
+      "Operational lossless, reversible, or round-trip claims.",
+      "A demonstrated complete fold loop.",
+      "Direct Diagram to Agent-Executable folds.",
+      "Skill portability, uplift, production readiness, or general task quality.",
+      "External organ conformance, current organ status, and placeholder URL verification.",
+      "Whole-repository publication safety and codec runtime readiness."
+    ]
+  },
+  "limitations": [
+    "No live fold or inverse-fold execution was recorded.",
+    "No codec runtime/orchestrator exists in the frozen repository.",
+    "No renderer, external organ, Agent Skills client, external provider, protected holdout, or domain-specialist adjudication was available.",
+    "All review passes rely on correlated local sources and should not be treated as independent external corroboration.",
+    "Registry validation covers registry-specific rules, not whole-repository firewall compliance.",
+    "The case study is representative, not an executed event record.",
+    "Placeholder URLs remain unverified."
+  ],
+  "follow_up": [
+    {
+      "item": "Resolve the formal relationship between the four canonical representations and the eight-stage core loop.",
+      "owner": "ReFolDec owner and contract maintainers",
+      "next_test": "Publish a normative mapping for every stage and transition and verify it against one fixture.",
+      "consequence_if_false": "The framework remains ambiguous for implementers and fold claims must stay deferred."
+    },
+    {
+      "item": "Run one complete fold/unfold fixture loop.",
+      "owner": "Future fold-claims implementation owner",
+      "next_test": "Archive source/intermediate/final artifacts, identity and governance tags, hashes, and invariant comparison results.",
+      "consequence_if_false": "No practical lossless, reversible, or complete-loop claim can be released."
+    },
+    {
+      "item": "Establish a live skill portability and safety holdout.",
+      "owner": "Process Skills/equilibrium-review maintainer",
+      "next_test": "Run matched evaluations across separated clients/model families with an unseen holdout and human grading.",
+      "consequence_if_false": "Skills remain approved only for bounded local analytical use."
+    },
+    {
+      "item": "Perform owner-authorized whole-tree publication and ecosystem checks.",
+      "owner": "ReFolDec owner",
+      "next_test": "Scan the frozen release tree, inspect firewall findings, verify links, and compare organ snapshots.",
+      "consequence_if_false": "No repository-wide publication clearance or authoritative external ecosystem claim."
+    }
+  ],
+  "review_expiry": {
+    "expires_on": "2026-09-26",
+    "reopen_earlier_if": [
+      "A contract or representation changes.",
+      "A codec/runtime surface is introduced.",
+      "A public proof-of-concept is published.",
+      "A downstream organ is declared conforming.",
+      "A skill evaluation version or benchmark changes.",
+      "New external links or sensitive-content risk enter the release tree."
+    ]
+  }
+}

@@ -5,6 +5,36 @@
 
 ---
 
+## Contract identity and version
+
+- **Contract ID:** `refoldec-fold-contract`
+- **Contract version:** `1.0.0`
+- **Conformance fixture schema:** `1.1`
+- **Status:** Normative specification; no codec runtime is implied.
+
+The contract version is independent from an implementation's version. A
+downstream organ MUST declare the contract version, fixture schema version,
+semantic-class registry version, firewall version, and legal fold directions it
+supports. A version mismatch is a parity failure, not a reason to silently
+translate or ignore fields.
+
+Version changes follow these rules:
+
+| Change | Required version action |
+|---|---|
+| Editorial clarification with no normative meaning change | Patch version; record the affected sections |
+| Additive optional metadata or conformance evidence that preserves existing semantics | Minor version; update the fixture schema only if its shape changes |
+| Change to a canonical representation, vocabulary, invariant, legal/deferred fold, or invariant comparison rule | Major version, ADR, updated fixture schema, matrix, tests, and downstream parity review |
+
+Every normative revision MUST update the matrix, the neutral fixture, and the
+negative tests in the same change. A semantic revision invalidates prior
+round-trip or conformance proof records until they are rerun; an editorial
+patch does not. See
+[`docs/conformance/fold-conformance-matrix.md`](docs/conformance/fold-conformance-matrix.md)
+for the implementation-neutral procedure.
+
+---
+
 ## The thesis
 
 A diagram, its underlying code, its documentation, and its agent-executable form are the **same meaning held in different folds**. Meaning can move between those forms without loss, recursively.
@@ -195,7 +225,7 @@ A broken round-trip is a **defective fold**. It must be corrected before the fol
 
 ### Programmatic testing
 
-A future validator may test round-trip compliance by:
+A runtime validator may test round-trip compliance by:
 1. Parsing the invariants of Representation A.
 2. Executing the fold to produce Representation B.
 3. Executing the inverse fold to produce A′.
@@ -204,8 +234,9 @@ A future validator may test round-trip compliance by:
 The neutral fixture and comparison rules now live in
 [`docs/conformance/fold-conformance-matrix.md`](docs/conformance/fold-conformance-matrix.md)
 and [`docs/conformance/fixture.json`](docs/conformance/fixture.json). The
-dependency-free validator checks fixture structure and the Node test suite
-covers valid preservation, explicit loss, and deferred-fold rejection. This is
+dependency-free validator checks the fixture structure and the Node test suite
+covers every legal direction with valid preservation, explicit loss,
+ambiguity/missing-metadata detection, and deferred-fold rejection. This is
 contract-level evidence only; execution of a general codec remains deferred.
 
 ---

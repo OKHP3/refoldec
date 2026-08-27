@@ -1,25 +1,157 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "artifact": "synthetic-access-request",
-  "sequence": [
-    "Documentation → Code",
-    "Code → Diagram",
-    "Code → Agent-Executable",
-    "Agent-Executable → Code",
-    "Code → Documentation"
-  ],
-  "evidence_status": "analytical",
-  "comparison": {
-    "nodes": "6/6 IDs and semantic roles preserved",
-    "edges": "6/6 directed relationships preserved",
-    "flows": "2/2 branches preserved",
-    "governance": "4/4 tags preserved",
-    "allowed_variation": ["prose wording", "layout", "palette", "renderer chrome"]
+  "evidence_status": "manual-analytical",
+  "performed_at": "2026-08-26",
+  "contract": {
+    "id": "refoldec-fold-contract",
+    "version": "1.0.0",
+    "fixture_schema_version": "1.1",
+    "registry_version": "1.0.0",
+    "firewall_version": "1.0.0"
   },
-  "negative_cases": [
-    {"case": "missing owner tag", "result": "lossy — governance invariant missing"},
-    {"case": "redirect yes edge to return", "result": "lossy — edge topology changed"},
-    {"case": "Diagram → Agent-Executable shortcut", "result": "rejected — deferred fold"}
+  "source": {
+    "path": "source-input.md",
+    "kind": "raw synthetic capture",
+    "scope_review": "passed by inspection: generic workflow, no employer, client, proprietary, or personal data"
+  },
+  "artifact_hashes": {
+    "algorithm": "sha256",
+    "hash_scope": "all listed proof artifacts except this comparison record",
+    "files": [
+      {"path": "source-input.md", "sha256": "efa5fbd59c86ddb5654b67377ade22a664840b3970806b8da71b4a3e4c25c127"},
+      {"path": "documentation.md", "sha256": "d4b595620cefa4727fed6c904c5e10383c7fca62abdfed36b219304d8cbc9810"},
+      {"path": "code.mmd", "sha256": "360e21b917c49ffc672c8cb9499c56164f87e6cc25f1548c63013016cf78f1f0"},
+      {"path": "diagram.md", "sha256": "cee609bb9e6dad55b7f44f0547581908f483bd609ffa32475757c264a4621c70"},
+      {"path": "agent-executable.md", "sha256": "e75ad1ae67cb41b710db4c790e5c45454e8dcb5a068e31662cf91b43028e582e"},
+      {"path": "unfolded-code.mmd", "sha256": "fcbce96c19399c7f075a5dced477032abb8539f62604a270358e201441f512dc"},
+      {"path": "unfolded-documentation.md", "sha256": "a015044ec8b00099ea3d4697fe7777580766b2365f90b7d4cc10ddac33883c75"}
+    ]
+  },
+  "sequence": [
+    {
+      "step": 1,
+      "direction": "source-capture → Documentation",
+      "input": "source-input.md",
+      "output": "documentation.md",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Named every node, role, relationship, branch, and governance tag; no unmarked inference."
+    },
+    {
+      "step": 2,
+      "direction": "Documentation → Code",
+      "input": "documentation.md",
+      "output": "code.mmd",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Copied canonical IDs, Mermaid edges, branch conditions, classes, and governance comments."
+    },
+    {
+      "step": 3,
+      "direction": "Code → Diagram",
+      "input": "code.mmd",
+      "output": "diagram.md",
+      "method": "manual fold; renderer recipe archived",
+      "result": "PASS_WITH_LIMITATION",
+      "review": "All source-level nodes, edges, branches, roles, and tags are visible in the diagram record; no live renderer was used."
+    },
+    {
+      "step": 4,
+      "direction": "Code → Agent-Executable",
+      "input": "code.mmd",
+      "output": "agent-executable.md",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Ordered execution, both branches, escalation path, IDs, roles, and governance tags are explicit."
+    },
+    {
+      "step": 5,
+      "direction": "Agent-Executable → Code",
+      "input": "agent-executable.md",
+      "output": "unfolded-code.mmd",
+      "method": "manual unfold",
+      "result": "PASS",
+      "review": "Reconstructed source graph without inferring a missing node, edge, branch, role, or governance value."
+    },
+    {
+      "step": 6,
+      "direction": "Code → Documentation",
+      "input": "unfolded-code.mmd",
+      "output": "unfolded-documentation.md",
+      "method": "manual unfold",
+      "result": "PASS",
+      "review": "Reconstructed narrative names all six IDs, roles, six edges, two branches, escalation path, and four tags."
+    }
   ],
-  "human_review": "The comparison is a fixture-level proof, not evidence of general runtime behavior."
+  "invariant_comparison": {
+    "projection_source": "docs/conformance/fixture.json#canonical_projection",
+    "compared_forms": [
+      "documentation.md",
+      "code.mmd",
+      "diagram.md",
+      "agent-executable.md",
+      "unfolded-code.mmd",
+      "unfolded-documentation.md"
+    ],
+    "checks": [
+      {"invariant": "semantic_role_assignment", "expected": 6, "observed": 6, "result": "PASS"},
+      {"invariant": "node_identity", "expected": 6, "observed": 6, "result": "PASS"},
+      {"invariant": "edge_topology", "expected": 6, "observed": 6, "result": "PASS"},
+      {"invariant": "flow_relationships", "expected": 2, "observed": 2, "result": "PASS"},
+      {"invariant": "governance_tags", "expected": 4, "observed": 4, "result": "PASS"}
+    ],
+    "round_trip_comparisons": [
+      {
+        "path": "Documentation → Code → Agent-Executable → Code → Documentation",
+        "source": "documentation.md",
+        "inverse_outputs": ["unfolded-code.mmd", "unfolded-documentation.md"],
+        "result": "PASS",
+        "equivalence": "all five invariant projections match the neutral fixture exactly"
+      },
+      {
+        "path": "Code → Agent-Executable → Code",
+        "source": "code.mmd",
+        "inverse_output": "unfolded-code.mmd",
+        "result": "PASS",
+        "equivalence": "six nodes, six edges, two flows, and four governance tags match"
+      }
+    ],
+    "allowed_variation": ["prose wording", "layout", "palette", "shape rendering", "renderer chrome", "source ordering"]
+  },
+  "lossy_or_ambiguous_cases": [
+    {
+      "case": "missing owner tag",
+      "failure_code": "GOVERNANCE_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; do not infer the owner"
+    },
+    {
+      "case": "redirect yes edge to return",
+      "failure_code": "TOPOLOGY_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; branch target must remain approve"
+    },
+    {
+      "case": "duplicate visual node identity",
+      "failure_code": "AMBIGUOUS_MAPPING",
+      "result": "AMBIGUOUS",
+      "decision": "stop and request human clarification; do not infer identity"
+    },
+    {
+      "case": "Diagram → Agent-Executable shortcut",
+      "failure_code": "DEFERRED_FOLD",
+      "result": "REJECTED",
+      "decision": "route through Code; direct fold is not contracted"
+    }
+  ],
+  "human_review": {
+    "reviewed": true,
+    "review_scope": "public-safe scope, canonical IDs, registry roles, topology, branches, governance, and deferred boundaries",
+    "limitations": [
+      "This is one synthetic fixture, not a general codec demonstration.",
+      "No independent runtime executor, Mermaid renderer, or Agent Skills client was used.",
+      "The proof supports a bounded manual demonstration only; it does not support production, portability, or general losslessness claims."
+    ]
+  }
 }

@@ -37,7 +37,7 @@ test('SKILL.md has valid frontmatter', () => {
 
 test('name matches directory', () => {
   const fm = parseFrontmatter(read('SKILL.md'));
-  assert.equal(fm.name, 'process-intake-and-scope');
+  assert.equal(fm.name, 'okhp3-process-intake-and-scope');
 });
 
 test('bp_skill_version is present', () => {

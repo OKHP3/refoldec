@@ -4,9 +4,12 @@
 
 This case study traces a single process idea from raw thought to reusable artifact, moving through every active layer of the OKHP³ Visual Language Stack. Each stage is mapped to a ReFolDec plane and direction.
 
-For the reproducible fixture-level proof of the four canonical forms, see
-[`../proof/minimal-fold-loop.md`](../proof/minimal-fold-loop.md). This broader
-case study remains explanatory rather than independent runtime evidence.
+For the bounded manual proof of one public-safe workflow in all four canonical
+forms, including inverse artifacts, hashes, invariant comparison, and failure
+cases, see [`../proof/minimal-fold-loop.md`](../proof/minimal-fold-loop.md).
+This broader case study remains explanatory rather than independent runtime
+evidence; the linked proof is the evidence record for the single synthetic
+fixture.
 
 This is a representative example — not a record of one specific event. It describes the pattern that any process-capture workflow follows when the full stack is in use.
 
@@ -169,6 +172,16 @@ The artifact is never final. It is always somewhere on the fold/unfold continuum
 | **One job per component** | BPMN for Mermaid handles notation; Mermaid Theme Builder handles governance; skillz handles execution — none overlaps |
 | **The loop closes** | Stage 9 — the artifact re-enters the system when the process changes |
 | **Lineage is preserved** | Stage 2 — PathScrib-R is acknowledged as the ancestor of the capture pattern, not erased |
+
+## Evidence boundary
+
+The linked [`minimal fold loop proof`](../proof/minimal-fold-loop.md) records
+one manually performed, public-safe synthetic fold/unfold sequence. It
+supports a bounded fixture-level demonstration of semantic continuity across
+Documentation, Code, Diagram, and Agent-Executable. It does not establish a
+general codec runtime, production losslessness, renderer execution, agent
+execution, portability, or the deferred direct Diagram ↔ Agent-Executable
+folds.
 
 ---
 

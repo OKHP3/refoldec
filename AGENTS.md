@@ -91,9 +91,11 @@ Run the repository checks from the root:
 ```bash
 node scripts/validate-registry.mjs
 node --test tests/registry.test.mjs
+node scripts/validate-conformance.mjs
+node --test tests/conformance.test.mjs
 ```
 
-The validator checks JSON shape, required fields, allowed `family` and `paletteToken` values, color-agnostic content, and unique `(id, family)` pairs. The test suite also covers negative detection cases. For documentation-only changes, additionally run `git diff --check` and inspect `git status --short`.
+The registry validator checks JSON shape, required fields, allowed `family` and `paletteToken` values, color-agnostic content, and unique `(id, family)` pairs. The conformance validator checks the four-form fixture, its canonical invariant projections, and contract/schema versions; its tests cover legal-direction preservation, invariant loss, ambiguity, missing metadata, and deferred folds. These are fixture/specification checks, not a codec runtime. For documentation-only changes, additionally run `git diff --check` and inspect `git status --short`.
 
 No application build, local server, deployment command, or production guarantee is defined in this repository. Links to GitHub/Replit and organ projects in the docs are contextual; placeholder links remain unresolved until the project owner confirms them.
 

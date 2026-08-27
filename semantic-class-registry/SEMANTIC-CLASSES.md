@@ -6,6 +6,32 @@
 
 ---
 
+## Registry identity and parity
+
+- **Registry ID:** `refoldec-semantic-class-registry`
+- **Registry version:** `1.0.0`
+
+Downstream organs MUST vendor the machine JSON without changing it and record
+the registry version they checked. A parity check compares every row by the
+unique `(id, family)` key and requires exact equality for `meaning`,
+`paletteToken`, `shape`, and `classDefPattern`. Missing rows, extra rows,
+duplicate keys, changed values, or unrecognised palette tokens are failures.
+The registry validator and tests are the reference checks for this contract.
+
+Registry version rules:
+
+- Patch: editorial metadata that does not change role meaning or rendering
+  semantics.
+- Minor: additive role or additive non-breaking metadata.
+- Major: removing or renaming a role, changing its meaning, palette token,
+  shape, or class pattern.
+
+Any non-patch registry change requires an ADR, updated vendored copies, and a
+fresh parity check. Registry parity does not authorize binding concrete color
+values; that remains downstream presentation-fold work.
+
+---
+
 ## Purpose
 
 The semantic-class registry is the **meaning axis** of the OKHP³ Visual Language Stack.

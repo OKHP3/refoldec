@@ -5,6 +5,31 @@
 
 ---
 
+## Firewall identity and parity
+
+- **Firewall ID:** `okhp3-scope-firewall`
+- **Firewall version:** `1.0.0`
+
+Downstream organs MUST record the firewall version used for a release check.
+Parity means that shared assets contain only the allowed generic categories,
+contain none of the prohibited categories, preserve the canonical disclaimer
+where required, and keep semantic registry values color-agnostic. A failing or
+unrun firewall check is not a passing parity result.
+
+Version rules:
+
+- Patch: editorial clarification with no policy change.
+- Minor: additive checklist or evidence requirement that does not relax an
+  existing prohibition.
+- Major: any change to what may travel, what is prohibited, or the required
+  disclaimer.
+
+All policy changes require an ADR or equivalent recorded change decision and a
+fresh pre-publish review. This policy does not claim that the repository has
+been automatically scanned; the checklist remains the release gate.
+
+---
+
 ## Purpose
 
 The scope firewall exists to ensure that private, employer-specific, or proprietary material never enters the public OKHP³ ecosystem. Brand-agnostic frameworks, methodology, vocabulary, and role names travel freely. Specific palettes, proprietary identifiers, and employer-owned artifacts do not.
