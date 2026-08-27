@@ -1,1 +1,2 @@
 - [GitHub transport](github-transport.md) — use the authenticated connector API when local Git HTTPS credentials are unavailable.
+- [Inventory stability](inventory-stability.md) — repository inventories must exclude generated cache directories so test runs do not change evidence counts.
