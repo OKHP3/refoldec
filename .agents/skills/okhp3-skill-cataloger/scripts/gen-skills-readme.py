@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-gen-skills-readme.py — okhp3-skill-cataloger v1.6.1
+gen-skills-readme.py — okhp3-skill-cataloger v1.7.0
 OverKill Hill P³ · https://overkillhill.com · https://github.com/OKHP3
 =======================================================
 Bundled with the okhp3-skill-cataloger Agent Skill.

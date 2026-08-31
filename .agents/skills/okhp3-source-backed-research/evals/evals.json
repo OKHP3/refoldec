@@ -3,6 +3,11 @@
   "skill_name": "okhp3-source-backed-research",
   "skill_version": "0.1.0",
   "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {"id":"normal","partition":"development","risk":"medium","prompt":"Research a changing technical fact using supplied local notes and authoritative public documentation.","expectations":["States the question and decision context.","Records source title, publisher, URL, retrieval date, and supported claim.","Separates source fact, interpretation, recommendation, and unknown."]},
     {"id":"local-suffices","partition":"development","risk":"low","prompt":"Answer a question whose needed evidence is fully present in local files.","expectations":["Inventories local evidence before external retrieval.","Does not browse merely to decorate the answer.","Cites the local paths and states remaining uncertainty."]},

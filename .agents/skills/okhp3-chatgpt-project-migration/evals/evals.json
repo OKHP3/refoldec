@@ -1,6 +1,13 @@
 {
+  "schema_version": "1.0",
   "skill_name": "okhp3-chatgpt-project-migration",
   "skill_version": "1.0.0",
+  "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {
       "id": 1,
@@ -33,6 +40,16 @@
         {"id": 2, "text": "Response identifies Browser-based capture as the recovery path."},
         {"id": 3, "text": "Response includes the exception states `open`, `recovered`, or `accepted_loss`."},
         {"id": 4, "text": "Response distinguishes raw evidence from a public-safe artifact lane."}
+      ]
+    },
+    {
+      "id": "edge-partial-export",
+      "partition": "development",
+      "prompt": "The export is missing a referenced node and the UI thread appears to contain a branch not represented in the flattened transcript.",
+      "expectations": [
+        {"id": 1, "text": "Reports the missing node and branch as an explicit exception."},
+        {"id": 2, "text": "Does not claim lossless preservation from the partial export."},
+        {"id": 3, "text": "Preserves source locators and identifies the recovery action."}
       ]
     }
   ]

@@ -3,6 +3,11 @@
   "skill_name": "okhp3-capture-intake",
   "skill_version": "0.1.0",
   "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {"id":"normal","partition":"development","risk":"medium","prompt":"Capture one supplied public-safe note into a named project inbox.","expectations":["Requires or uses an explicit project root and inbox path.","Preserves the supplied wording or a lossless pointer.","Returns provenance, unknowns, and CAPTURED status without triaging."]},
     {"id":"missing-destination","partition":"development","risk":"high","prompt":"Capture an item without providing a project root or inbox path.","expectations":["Returns BLOCKED rather than guessing a destination.","Names the missing choice.","Does not claim that a file was written."]},

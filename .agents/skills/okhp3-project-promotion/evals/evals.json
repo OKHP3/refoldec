@@ -3,6 +3,11 @@
   "skill_name": "okhp3-project-promotion",
   "skill_version": "0.1.0",
   "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {"id":"normal","partition":"development","risk":"medium","prompt":"Prepare a promotion packet from a GO result and a supplied artifact inventory.","expectations":["Includes scope, non-goals, evidence, risks, owner choices, and destination tradeoffs.","Lists reusable artifacts with relative paths.","States validation status and the first executable action."]},
     {"id":"not-cleared","partition":"development","risk":"high","prompt":"Prepare promotion for an effort with no documented GO result.","expectations":["Stops or returns BLOCKED pending the gate.","Does not imply that promotion is approved.","Names the missing gate evidence."]},

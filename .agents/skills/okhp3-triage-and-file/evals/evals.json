@@ -3,6 +3,11 @@
   "skill_name": "okhp3-triage-and-file",
   "skill_version": "0.1.0",
   "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {"id":"normal","partition":"development","risk":"medium","prompt":"Triage two inbox items where one clearly belongs to an active effort and one needs owner input.","expectations":["Assigns exactly one allowed disposition per item.","Preserves source paths and records evidence.","Identifies the owner decision for NEEDS INPUT."]},
     {"id":"duplicate","partition":"development","risk":"medium","prompt":"Triage two captures that appear related but have different provenance.","expectations":["Separates similarity from proof of duplication.","Proposes MERGE only with a recorded rationale.","Does not delete either source without authorization."]},

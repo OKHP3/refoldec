@@ -3,6 +3,11 @@
   "skill_name": "okhp3-evidence-standard",
   "skill_version": "0.1.0",
   "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {"id":"normal","partition":"development","risk":"medium","prompt":"Classify claims from a supplied file and one current tool result.","expectations":["Uses only CONFIRMED, INFERRED, PROPOSAL, or UNKNOWN.","Links each consequential claim to evidence or marks it UNKNOWN.","Lists consequence_if_false and next_check."]},
     {"id":"conflict","partition":"development","risk":"high","prompt":"Reconcile two sources that disagree about a current fact.","expectations":["Shows both claims and their evidence tiers.","Does not resolve the conflict by confidence or majority vote.","States the decisive next check."]},

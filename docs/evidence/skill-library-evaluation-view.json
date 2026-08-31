@@ -1,0 +1,2847 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-31T12:42:44Z",
+  "scope": {
+    "skills_dir": ".agents/skills",
+    "cataloged_package_count": 40,
+    "project_owned_package_count": 36,
+    "host_or_third_party_exception_count": 4,
+    "scope_note": "The task brief named the 14-package catalog at planning time; this view uses the current checked-in tree as the source of truth and inventories all 40 packages."
+  },
+  "status_legend": {
+    "live": "Comparable executor or user runs occurred for the exact version and configuration.",
+    "analytical": "Static, fixture, or manual review only; supports design/integrity findings.",
+    "historical": "Completed evidence for an older version or superseded setup.",
+    "not-run": "Evaluation design or check was unavailable, unauthorized, or not executed."
+  },
+  "acceptance_criteria": {
+    "frontmatter": "Every project-owned package has a quoted semver and portable name; adopted host/third-party packages are explicit exceptions.",
+    "resources": "Referenced package-local paths resolve, and available deterministic package checks pass.",
+    "evaluation_design": "Each relevant package has normal, edge, and unsafe/out-of-scope development coverage before a release holdout is considered.",
+    "task_quality": "No task-quality or uplift claim without matched current-version runs, separated grading, and an unseen holdout."
+  },
+  "summary": {
+    "evaluation_design_ready": 36,
+    "evaluation_design_incomplete": 0,
+    "legacy_partition_packages": 11,
+    "holdout_not_declared_packages": 0,
+    "packages_with_missing_references": 0,
+    "historical_benchmark_packages": 1,
+    "task_quality_status": "not-run",
+    "release_posture": "analytical-structural-integrity"
+  },
+  "packages": [
+    {
+      "name": "architecture-decision-records",
+      "path": ".agents/skills/architecture-decision-records/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "host-or-third-party",
+      "frontmatter": {
+        "status": "documented-exception",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": false,
+        "design_status": "not-run",
+        "design_skill_version": null,
+        "design_version_matches": true,
+        "case_count": 0,
+        "partitions": [],
+        "case_shape": "missing",
+        "partition_status": "missing",
+        "coverage": {
+          "normal": false,
+          "edge": false,
+          "unsafe_or_out_of_scope": false,
+          "status": "incomplete"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "not-declared",
+          "holdout_seen": null,
+          "reason": "No release holdout record is present."
+        }
+      }
+    },
+    {
+      "name": "frontend-design",
+      "path": ".agents/skills/frontend-design/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "host-or-third-party",
+      "frontmatter": {
+        "status": "documented-exception",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": false,
+        "design_status": "not-run",
+        "design_skill_version": null,
+        "design_version_matches": true,
+        "case_count": 0,
+        "partitions": [],
+        "case_shape": "missing",
+        "partition_status": "missing",
+        "coverage": {
+          "normal": false,
+          "edge": false,
+          "unsafe_or_out_of_scope": false,
+          "status": "incomplete"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "not-declared",
+          "holdout_seen": null,
+          "reason": "No release holdout record is present."
+        }
+      }
+    },
+    {
+      "name": "okhp3-artifact-validation",
+      "path": ".agents/skills/okhp3-artifact-validation/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-as-is-process-capture",
+      "path": ".agents/skills/okhp3-as-is-process-capture/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/as-is-process-example.yaml",
+          "references/as-is-capture-rules.md",
+          "scripts/assign-step-ids.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-brand-style-registry",
+      "path": ".agents/skills/okhp3-brand-style-registry/SKILL.md",
+      "version": "1.2.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/profile-seeds/askjamie.yaml",
+          "assets/profile-seeds/glee-fully.yaml",
+          "assets/profile-seeds/overkill-hill.yaml",
+          "assets/specialization-seeds/",
+          "assets/style-library.example.yaml",
+          "references/application-playbook.md",
+          "references/source-sampling.md",
+          "references/style-profile-schema.md",
+          "scripts/extract_css_signals.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.2.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-capture-intake",
+      "path": ".agents/skills/okhp3-capture-intake/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-chatgpt-project-migration",
+      "path": ".agents/skills/okhp3-chatgpt-project-migration/SKILL.md",
+      "version": "1.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/source-manifest-schema.md"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.0.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-custom-gpt-builder",
+      "path": ".agents/skills/okhp3-custom-gpt-builder/SKILL.md",
+      "version": "1.3.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/actions-and-apps.md",
+          "references/eval-and-redteam.md",
+          "references/instruction-architecture.md",
+          "references/knowledge-engineering.md",
+          "references/platform-comparison.md",
+          "references/quality-tiers.md",
+          "references/repo-overlay.md",
+          "references/taxonomy.md"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.3.0",
+        "design_version_matches": true,
+        "case_count": 16,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-custom-gpt-readiness",
+      "path": ".agents/skills/okhp3-custom-gpt-readiness/SKILL.md",
+      "version": "1.2.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/readiness-dossier-schema.md"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.2.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-decision-model-authoring",
+      "path": ".agents/skills/okhp3-decision-model-authoring/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/decision-model-example.yaml",
+          "references/dmn-modeling-rules.md",
+          "scripts/validate-decision-model.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-elicitation-interviews",
+      "path": ".agents/skills/okhp3-elicitation-interviews/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/question-plan-example.yaml",
+          "references/babok-elicitation-techniques.md",
+          "scripts/generate-question-plan.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-equilibrium-review",
+      "path": ".agents/skills/okhp3-equilibrium-review/SKILL.md",
+      "version": "1.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/equilibrium-review-record.json",
+          "references/domain-adapters.md",
+          "references/review-protocol.md",
+          "references/role-prompts.md",
+          "scripts/run_equilibrium_review.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.0.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": true,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": "1.0.0",
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-evidence-standard",
+      "path": ".agents/skills/okhp3-evidence-standard/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-future-state-strategy",
+      "path": ".agents/skills/okhp3-future-state-strategy/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/future-state-example.yaml",
+          "references/change-strategy-framework.md",
+          "scripts/generate-future-state.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-gpt-skill-conversion-plan",
+      "path": ".agents/skills/okhp3-gpt-skill-conversion-plan/SKILL.md",
+      "version": "1.2.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/conversion-dossier-schema.md"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.2.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-graduation-gate",
+      "path": ".agents/skills/okhp3-graduation-gate/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-handoff-packaging",
+      "path": ".agents/skills/okhp3-handoff-packaging/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/handoff-manifest-example.yaml",
+          "references/publication-checklist.md",
+          "scripts/build-publication-bundle.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-notion-capture-router",
+      "path": ".agents/skills/okhp3-notion-capture-router/SKILL.md",
+      "version": "0.3.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/report-template.md",
+          "assets/trigger-eval-queries.json",
+          "references/destination-contract.md",
+          "references/final-check.md",
+          "references/output-contract.md",
+          "references/platform-variants.md"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.3.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-outcome-modeling-core",
+      "path": ".agents/skills/okhp3-outcome-modeling-core/SKILL.md",
+      "version": "1.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/computational-model.md",
+          "references/glossary.md",
+          "scripts/calculate-outcome-model.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.1.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": true,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": "1.1.0",
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public development cases are visible to the author. A genuine release holdout must be controlled outside the optimizing context."
+        }
+      }
+    },
+    {
+      "name": "okhp3-overkill-hill-brand",
+      "path": ".agents/skills/okhp3-overkill-hill-brand/SKILL.md",
+      "version": "1.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/overkill-hill.yaml"
+        ],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-process-capture",
+      "path": ".agents/skills/okhp3-process-capture/SKILL.md",
+      "version": "1.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-process-gap-analysis",
+      "path": ".agents/skills/okhp3-process-gap-analysis/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/gap-analysis-example.yaml",
+          "references/gap-analysis-framework.md",
+          "scripts/analyze-gaps.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-process-intake-and-scope",
+      "path": ".agents/skills/okhp3-process-intake-and-scope/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/fixtures/intake-purchase-approval.yaml",
+          "references/pir-schema.md",
+          "scripts/generate-pir.mjs",
+          "scripts/score-intake-completeness.mjs",
+          "scripts/validate-pir.mjs"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": true
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-project-promotion",
+      "path": ".agents/skills/okhp3-project-promotion/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-repl-repo-janitor",
+      "path": ".agents/skills/okhp3-repl-repo-janitor/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/naming-conventions.md",
+          "scripts/audit-repo.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-repository-janitor",
+      "path": ".agents/skills/okhp3-repository-janitor/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/branch-lifecycle.md",
+          "scripts/audit_mirrors.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-repository-organizer",
+      "path": ".agents/skills/okhp3-repository-organizer/SKILL.md",
+      "version": "1.1.1",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "references/agent-skills-quality.md",
+          "references/archetype-rubric.md",
+          "references/cross-platform-naming.md",
+          "references/github-baseline.md",
+          "references/scaffold-matrix.md",
+          "scripts/inventory_repo.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.1.1",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-session-handoff",
+      "path": ".agents/skills/okhp3-session-handoff/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-skill-cataloger",
+      "path": ".agents/skills/okhp3-skill-cataloger/SKILL.md",
+      "version": "1.7.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/catalog-meta-schema.json",
+          "references/MODES.md",
+          "scripts/gen-skills-readme.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.7.0",
+        "design_version_matches": true,
+        "case_count": 5,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-skill-discovery",
+      "path": ".agents/skills/okhp3-skill-discovery/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-skill-foundry",
+      "path": ".agents/skills/okhp3-skill-foundry/SKILL.md",
+      "version": "3.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/skill-template.md",
+          "references/brand-standard.md",
+          "references/equilibrium-review-protocol.md",
+          "references/eval-patterns.md",
+          "references/grading-schema.md"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "3.1.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": true,
+        "benchmark_status": "historical",
+        "evaluated_skill_version": "1.0.0",
+        "benchmark_version_matches": false,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "This portable package's public evaluation design is readable by implementers. A genuine release holdout must be controlled outside the optimizer's context and recorded in release evidence."
+        }
+      }
+    },
+    {
+      "name": "okhp3-skill-promotion",
+      "path": ".agents/skills/okhp3-skill-promotion/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/promotion-manifest-template.json",
+          "references/promotion-manifest.md",
+          "scripts/sync_skill_mirror.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public evaluation design is readable by implementers. A genuine release holdout must be controlled outside the optimizer's context."
+        }
+      }
+    },
+    {
+      "name": "okhp3-source-backed-research",
+      "path": ".agents/skills/okhp3-source-backed-research/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-thread-context-extraction",
+      "path": ".agents/skills/okhp3-thread-context-extraction/SKILL.md",
+      "version": "2.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/thread-extract-template.md",
+          "references/evidence-map.md",
+          "references/extraction-contract.md",
+          "references/extraction-depth-profiles.md",
+          "references/platform-capture-patterns.md",
+          "scripts/create_thread_extract.py",
+          "scripts/validate_package.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "2.0.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-thread-extract-chatgpt",
+      "path": ".agents/skills/okhp3-thread-extract-chatgpt/SKILL.md",
+      "version": "2.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/thread-extract-template.md",
+          "references/evidence-map.md",
+          "references/extraction-contract.md",
+          "references/extraction-depth-profiles.md",
+          "references/platform-capture-patterns.md",
+          "scripts/create_thread_extract.py",
+          "scripts/validate_package.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "2.0.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-thread-extract-claude",
+      "path": ".agents/skills/okhp3-thread-extract-claude/SKILL.md",
+      "version": "2.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [
+          "assets/thread-extract-template.md",
+          "references/evidence-map.md",
+          "references/extraction-contract.md",
+          "references/extraction-depth-profiles.md",
+          "references/platform-capture-patterns.md",
+          "scripts/create_thread_extract.py",
+          "scripts/validate_package.py"
+        ],
+        "missing_references": [],
+        "scripts_present": true,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "2.0.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-triage-and-file",
+      "path": ".agents/skills/okhp3-triage-and-file/SKILL.md",
+      "version": "0.1.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "0.1.0",
+        "design_version_matches": true,
+        "case_count": 3,
+        "partitions": [
+          "development",
+          "holdout"
+        ],
+        "case_shape": "complete",
+        "partition_status": "explicit",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "okhp3-vite-github-pages",
+      "path": ".agents/skills/okhp3-vite-github-pages/SKILL.md",
+      "version": "1.0.0",
+      "package_class": "portable-core",
+      "frontmatter": {
+        "status": "pass",
+        "host_adapter_present": true,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": true
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "analytical",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "analytical",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": true,
+        "design_status": "not-run",
+        "design_skill_version": "1.0.0",
+        "design_version_matches": true,
+        "case_count": 4,
+        "partitions": [
+          "development",
+          "unpartitioned"
+        ],
+        "case_shape": "complete",
+        "partition_status": "legacy-unpartitioned",
+        "coverage": {
+          "normal": true,
+          "edge": true,
+          "unsafe_or_out_of_scope": true,
+          "status": "ready"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "external-required",
+          "holdout_seen": true,
+          "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+        }
+      }
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "path": ".agents/skills/vercel-react-best-practices/SKILL.md",
+      "version": "1.0.0",
+      "package_class": "host-or-third-party",
+      "frontmatter": {
+        "status": "documented-exception",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": false,
+        "design_status": "not-run",
+        "design_skill_version": null,
+        "design_version_matches": true,
+        "case_count": 0,
+        "partitions": [],
+        "case_shape": "missing",
+        "partition_status": "missing",
+        "coverage": {
+          "normal": false,
+          "edge": false,
+          "unsafe_or_out_of_scope": false,
+          "status": "incomplete"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "not-declared",
+          "holdout_seen": null,
+          "reason": "No release holdout record is present."
+        }
+      }
+    },
+    {
+      "name": "web-design-guidelines",
+      "path": ".agents/skills/web-design-guidelines/SKILL.md",
+      "version": "1.0.0",
+      "package_class": "host-or-third-party",
+      "frontmatter": {
+        "status": "documented-exception",
+        "host_adapter_present": false,
+        "trigger_boundary_present": true,
+        "scope_boundary_present": false
+      },
+      "resources": {
+        "referenced_paths": [],
+        "missing_references": [],
+        "scripts_present": false,
+        "package_tests_present": false
+      },
+      "dimensions": {
+        "trigger_quality": {
+          "status": "analytical",
+          "basis": "Description and package trigger sections were inspected; no client recall/precision run was available."
+        },
+        "portability": {
+          "status": "analytical",
+          "basis": "Static package contract and path checks only."
+        },
+        "safety": {
+          "status": "not-run",
+          "basis": "Boundary language was inspected; no adversarial executor run was available."
+        },
+        "output_contract": {
+          "status": "not-run",
+          "basis": "Output headings/schema language were inspected; no task-quality run was available."
+        },
+        "task_quality": {
+          "status": "not-run",
+          "basis": "No isolated matched executor and unseen release holdout were available."
+        }
+      },
+      "evaluation": {
+        "design_file": false,
+        "design_status": "not-run",
+        "design_skill_version": null,
+        "design_version_matches": true,
+        "case_count": 0,
+        "partitions": [],
+        "case_shape": "missing",
+        "partition_status": "missing",
+        "coverage": {
+          "normal": false,
+          "edge": false,
+          "unsafe_or_out_of_scope": false,
+          "status": "incomplete"
+        },
+        "benchmark_file": false,
+        "benchmark_status": "not-run",
+        "evaluated_skill_version": null,
+        "benchmark_version_matches": true,
+        "release_holdout": {
+          "status": "not-declared",
+          "holdout_seen": null,
+          "reason": "No release holdout record is present."
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "skill_name": "okhp3-skill-promotion",
   "skill_version": "0.1.0",
-  "status": "design-ready",
+  "status": "not-run",
   "release_status": "analytical-structural-integrity",
   "performance_evidence_status": "not-run",
   "note": "The package has structural and deterministic-helper tests. No live with/without agent benchmark or unseen release holdout has been run.",

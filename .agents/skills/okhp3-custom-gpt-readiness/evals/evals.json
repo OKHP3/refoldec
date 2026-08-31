@@ -1,6 +1,13 @@
 {
+  "schema_version": "1.0",
   "skill_name": "okhp3-custom-gpt-readiness",
   "skill_version": "1.2.0",
+  "status": "not-run",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {
       "id": "concept-with-gaps",

@@ -1,20 +1,20 @@
 {
   "schemaVersion": "1.0",
   "reportKind": "local-skill-library-inventory",
-  "asOf": "2026-08-27",
+  "asOf": "2026-08-31",
   "evidenceBoundary": "structural and analytical inventory; no live task-quality uplift claim",
   "summary": {
     "packageCount": 40,
     "versionedPackageCount": 40,
-    "evaluationFileCount": 24,
-    "noEvaluationFileCount": 16,
+    "evaluationFileCount": 36,
+    "noEvaluationFileCount": 4,
     "developmentAndHoldoutPartitionCount": 9,
     "completeDevelopmentAndHoldoutCount": 9,
-    "developmentOnlyCount": 4,
+    "developmentOnlyCount": 16,
     "unpartitionedEvaluationCount": 11,
     "invalidEvaluationCount": 0,
     "incompleteEvaluationCount": 11,
-    "minimumShapePackageCount": 13,
+    "minimumShapePackageCount": 25,
     "packageLocalTestCount": 11,
     "benchmarkStatusCounts": {
       "historical": 1,
@@ -81,7 +81,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -97,14 +97,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": false,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -120,14 +122,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 4,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 1,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -152,7 +155,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -169,14 +172,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 4,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 1,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -200,7 +204,7 @@
         ],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -224,7 +228,7 @@
         ],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -240,14 +244,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -262,14 +268,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -292,7 +300,7 @@
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
@@ -317,7 +325,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -333,14 +341,16 @@
       "hasScopeSection": true,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -363,7 +373,7 @@
         ],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -388,7 +398,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -404,14 +414,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": false,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -426,14 +438,16 @@
       "hasScopeSection": true,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -472,14 +486,16 @@
       "hasScopeSection": true,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -494,14 +510,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": false,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -516,14 +534,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": false,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -538,14 +558,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -569,7 +591,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -585,14 +607,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -607,14 +631,16 @@
       "hasScopeSection": false,
       "hasValidationLoopSignal": true,
       "evaluation": {
-        "filePresent": false,
-        "caseCount": 0,
-        "completeCaseCount": 0,
-        "partitions": [],
-        "developmentCaseCount": 0,
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 3,
+        "partitions": [
+          "development"
+        ],
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
-        "coverage": "no-evaluation-file"
+        "releaseHoldoutStatus": "external-required",
+        "coverage": "development-only"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -630,14 +656,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 4,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 1,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -662,7 +689,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -679,14 +706,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 5,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 2,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -711,7 +739,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -784,7 +812,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -808,7 +836,7 @@
         ],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -832,7 +860,7 @@
         ],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -849,14 +877,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 4,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 1,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",
@@ -881,7 +910,7 @@
         ],
         "developmentCaseCount": 2,
         "holdoutCaseCount": 1,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "development-and-holdout"
       },
       "benchmarkStatus": "not-run",
@@ -898,14 +927,15 @@
       "hasValidationLoopSignal": true,
       "evaluation": {
         "filePresent": true,
-        "caseCount": 3,
+        "caseCount": 4,
         "completeCaseCount": 0,
         "partitions": [
+          "development",
           "unpartitioned"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 1,
         "holdoutCaseCount": 0,
-        "releaseHoldoutStatus": null,
+        "releaseHoldoutStatus": "external-required",
         "coverage": "incomplete-cases"
       },
       "benchmarkStatus": "not-run",

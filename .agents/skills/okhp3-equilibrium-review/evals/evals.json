@@ -1,9 +1,14 @@
 {
   "skill_name": "okhp3-equilibrium-review",
   "skill_version": "1.0.0",
-  "status": "design-ready",
+  "status": "not-run",
   "holdout_seen": true,
   "holdout_status": "external-required",
+  "release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
+  },
   "evals": [
     {
       "id": "document-concordance-normal",
