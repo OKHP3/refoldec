@@ -124,15 +124,18 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 | Item | Status |
 |---|---|
 | Name lock | ✅ Locked — 2026-06-13 |
-| Repo | ✅ Live — `OKHP3/refoldec` |
+| Repo | ✅ Canonical pointer declared — external URL check not run |
 | Architecture doc | ✅ In repo |
-| Notion hub | ✅ Live |
+| Notion hub | ⚠️ Declared in project docs — external status not verified in this review |
 | Process Skills v1 | 🔄 In progress |
 | BPMN-for-Mermaid component | 🔄 In progress |
 | OverKill Hill project page | 📋 Planned |
-| Public proof-of-concept | ✅ Controlled synthetic fold loop — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
+| Public proof-of-concept | ✅ One controlled synthetic fold loop, manually demonstrated — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
 | Fixture-level fold proof | ✅ Analytical — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
-| Controlled public readiness | ✅ Approved with limits — [`docs/release/2026-08-22-controlled-readiness.md`](./docs/release/2026-08-22-controlled-readiness.md) |
+| Skill-library evidence | ⚠️ Analytical structural integrity only — task-quality evidence not-run |
+| Organ conformance | ⏸ Deferred — no owner-authorized parity reports |
+| Repository-wide publication clearance | ⏸ Not established — firewall policy is not whole-tree clearance |
+| Controlled public readiness | ✅ Approved with limits — [`docs/release/2026-08-31-controlled-readiness.md`](./docs/release/2026-08-31-controlled-readiness.md) |
 | Ecosystem contracts (`ECOSYSTEM.md`, `FOLD-CONTRACT.md`) | ✅ In repo |
 | Semantic class registry | ✅ In repo |
 | Codec runtime / fold orchestrator | ⏸ Intentionally deferred — organs must stabilize first |
@@ -157,6 +160,8 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 - [`docs/evidence/2026-08-22-refoldec-baseline.md`](./docs/evidence/2026-08-22-refoldec-baseline.md) — dated claim and evidence baseline
 - [`docs/conformance/fold-conformance-matrix.md`](./docs/conformance/fold-conformance-matrix.md) — implementation-neutral fold tests
 - [`docs/evidence/skill-library-maturity.md`](./docs/evidence/skill-library-maturity.md) — 40-package maturity and evidence posture
+- [`docs/reviews/2026-08-31-controlled-readiness.json`](./docs/reviews/2026-08-31-controlled-readiness.json) — machine-readable controlled-readiness record
+- [`docs/reviews/2026-08-31-controlled-readiness.md`](./docs/reviews/2026-08-31-controlled-readiness.md) — consolidated evidence review and release boundary
 - [`docs/glossary.md`](./docs/glossary.md) — Canonical term definitions
 - [`docs/technology-stack.md`](./docs/technology-stack.md) — Maintained technology and runtime inventory
 - [`docs/adr/`](./docs/adr/) — Architecture Decision Records

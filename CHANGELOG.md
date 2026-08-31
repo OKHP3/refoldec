@@ -12,11 +12,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Process Skills v1 schema
 - BPMN-for-Mermaid component specification
 - OverKill Hill public project page
-- Public proof-of-concept: one captured workflow represented as Notion pages, Markdown, a Mermaid diagram, and an Agent Skill
+
+### Added
+- Controlled synthetic four-form fold/unfold proof package with manual invariant comparison.
+- Consolidated controlled-readiness decision separating specification evidence from runtime, organ, and skill outcome claims.
 
 ### Evidence baseline — 2026-08-22
 - Added a claim ledger, fold conformance matrix, neutral fixture, and fixture-level four-form proof.
 - Recorded controlled public readiness as approved with limits; runtime, organ conformance, and live skill uplift remain deferred.
+
+### Evidence review — 2026-08-31
+- Reconciled the current 40-package skill-library inventory with the controlled public-readiness decision.
+- Kept task-quality, portability, whole-tree publication safety, external organ conformance, and runtime evidence explicitly not-run or deferred.
 
 ---
 

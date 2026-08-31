@@ -143,18 +143,26 @@ Do not abbreviate, rename, or rebrand these names in shared assets.
 
 ## Organ pointer table
 
-> URLs marked `[placeholder]` are to be confirmed and updated when repos and Repls are published.
+> A `confirmed-in-head` pointer means that this repository declares the pointer as
+> canonical; it does not establish that the remote destination exists, is
+> authorized, or conforms. URLs marked `placeholder` require owner confirmation
+> and an external check before they may be treated as evidence.
 
-| Organ | Repo | Repl | Fold | Primary ReFolDec dependency |
-|---|---|---|---|---|
-| **mermaid-theme-builder** | `github.com/OKHP3/mermaid-theme-builder` [placeholder] | `replit.com/t/overkill-hill/repls/mermaid-theme-builder` [placeholder] | Presentation | `semantic-class-registry/`, `FOLD-CONTRACT.md` |
-| **bpmn-beta** | `github.com/OKHP3/mermaid-diagram-bpmn` [placeholder] | `replit.com/t/overkill-hill/repls/mermaid-diagram-bpmn` [placeholder] | Structural | `semantic-class-registry/`, `FOLD-CONTRACT.md` |
-| **skillz** | `github.com/OKHP3/skillz` [placeholder] | `replit.com/t/overkill-hill/repls/skillz` [placeholder] | Automation | `FOLD-CONTRACT.md` |
-| **OverKill-Hill** | `github.com/OKHP3/overkill-hill` [placeholder] | `replit.com/t/overkill-hill/repls/overkill-hill` [placeholder] | Narrative | `ECOSYSTEM.md`, `FOLD-CONTRACT.md` |
+| Organ | Repo | Repl | Fold | Pointer status | Owner decision / evidence needed | Primary ReFolDec dependency |
+|---|---|---|---|---|---|---|
+| **mermaid-theme-builder** | `github.com/OKHP3/mermaid-theme-builder` `[placeholder]` | `replit.com/t/overkill-hill/repls/mermaid-theme-builder` `[placeholder]` | Presentation | `placeholder` | Owner must confirm repo/Repl, ownership, current status, and a parity report. | `semantic-class-registry/`, `FOLD-CONTRACT.md` |
+| **bpmn-beta** | `github.com/OKHP3/mermaid-diagram-bpmn` `[placeholder]` | `replit.com/t/overkill-hill/repls/mermaid-diagram-bpmn` `[placeholder]` | Structural | `placeholder` | Owner must confirm repo/Repl, ownership, current status, and a parity report. | `semantic-class-registry/`, `FOLD-CONTRACT.md` |
+| **skillz** | `github.com/OKHP3/skillz` `[placeholder]` | `replit.com/t/overkill-hill/repls/skillz` `[placeholder]` | Automation | `placeholder` | Owner must confirm repo/Repl, ownership, current status, and a parity report. | `FOLD-CONTRACT.md` |
+| **OverKill-Hill** | `github.com/OKHP3/overkill-hill` `[placeholder]` | `replit.com/t/overkill-hill/repls/overkill-hill` `[placeholder]` | Narrative | `placeholder` | Owner must confirm repo/Repl, ownership, current status, and a parity report. | `ECOSYSTEM.md`, `FOLD-CONTRACT.md` |
 
 **ReFolDec (this repo):**
-- Repo: `github.com/OKHP3/refoldec`
-- Repl: `replit.com/t/overkill-hill/repls/refoldec`
+- Repo: `github.com/OKHP3/refoldec` — `confirmed-in-head`; external URL check not run
+- Repl: `replit.com/t/overkill-hill/repls/refoldec` — `confirmed-in-head`; external URL check not run
+
+No downstream organ pointer is externally confirmed in the current evidence
+record. A parity report must include `contract_version`, `fixture_schema_version`,
+`registry_version`, `firewall_version`, `supported_folds`, `deferred_folds`,
+`result`, and `checked_at` before an organ can be described as conforming.
 
 ---
 

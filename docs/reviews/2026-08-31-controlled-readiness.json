@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "review_protocol": "equilibrium-v1",
+  "review_mode": "conditional-five-way-synthesis",
+  "evaluation_status": "analytical",
+  "review_date": "2026-08-31",
+  "artifact": {
+    "path": "repository root and checked-in proof/skill evidence",
+    "sha256": null,
+    "version": "5fc76673cf2491abf5ae78a11ee333dd72914c39",
+    "working_tree": "dirty because this release record and status updates are part of the reviewed change",
+    "scope": [
+      "README.md",
+      "AGENTS.md",
+      "ECOSYSTEM.md",
+      "FOLD-CONTRACT.md",
+      "SCOPE-FIREWALL.md",
+      "CHANGELOG.md",
+      "CONTRIBUTING.md",
+      "docs/case-studies/mermaid-visual-language-stack.md",
+      "docs/proof/minimal-fold-loop.md",
+      "docs/conformance/fold-conformance-matrix.md",
+      "docs/evidence/2026-08-22-refoldec-baseline.md",
+      "docs/evidence/skill-library-maturity.md",
+      "docs/release/2026-08-31-controlled-readiness.md",
+      "docs/reviews/2026-08-31-controlled-readiness.md",
+      ".agents/skills/okhp3-equilibrium-review/SKILL.md",
+      ".agents/skills/okhp3-artifact-validation/SKILL.md"
+    ]
+  },
+  "decision_question": "Is ReFolDec ready, within its stated scope, to be treated as a usable, safe, and evidence-supported recursive fold/unfold framework, and what may be released now versus what must defer for evidence?",
+  "acceptance_criteria": [
+    "Classify claims as confirmed, inferred, proposal, or unknown.",
+    "Separate analytical, live, historical, and not-run evidence.",
+    "State approved, approved-with-limits, deferred, and rejected boundaries.",
+    "Keep placeholder links, runtime limits, and firewall limitations explicit.",
+    "Give blocked claims an owner, decisive next test, and consequence.",
+    "Define review expiry and earlier reopening triggers."
+  ],
+  "independence": {
+    "reviewer_contexts_separated": true,
+    "shared_model_or_source_limits": [
+      "Review perspectives rely substantially on the same local repository sources.",
+      "The model family is not independently known.",
+      "No external organ, renderer, Agent Skills client, protected holdout, or domain-specialist adjudication was available."
+    ]
+  },
+  "evidence_checks": [
+    {
+      "area": "contract",
+      "status": "analytical-supported",
+      "evidence": "FOLD-CONTRACT.md 1.0.0, fixture schema 1.1, legal fold matrix, invariant rules, and deferred direct folds."
+    },
+    {
+      "area": "registry",
+      "status": "live-narrow",
+      "evidence": "Dependency-free registry validator and tests; applies to registry integrity only."
+    },
+    {
+      "area": "conformance",
+      "status": "fixture-analytical",
+      "evidence": "Neutral fixture/matrix and tests cover preservation, loss, ambiguity, missing metadata, and deferred-fold rejection; no runtime."
+    },
+    {
+      "area": "cross-representation-proof",
+      "status": "manual-analytical-bounded",
+      "evidence": "One synthetic source with four forms, inverse artifacts, hashes, and invariant comparison."
+    },
+    {
+      "area": "skill-library",
+      "status": "analytical-structural",
+      "evidence": "40 packages, 36 project-owned evaluation designs ready, current task quality not-run, one historical benchmark."
+    },
+    {
+      "area": "provenance",
+      "status": "analytical-supported-with-limits",
+      "evidence": "Case study is representative; proof package uses synthetic public-safe source provenance."
+    },
+    {
+      "area": "scope-firewall",
+      "status": "policy-present-whole-tree-not-run",
+      "evidence": "Firewall policy and registry-specific automation exist; whole-tree clearance and external-link review were not run."
+    },
+    {
+      "area": "organ-conformance",
+      "status": "not-run",
+      "evidence": "Downstream pointers remain placeholders and no owner-authorized parity reports are available."
+    }
+  ],
+  "live_checks": [
+    {
+      "command": "node scripts/validate-registry.mjs",
+      "status": "passed",
+      "result": "22 registry entries verified"
+    },
+    {
+      "command": "node --test tests/registry.test.mjs",
+      "status": "passed",
+      "result": "21 tests passed"
+    },
+    {
+      "command": "node scripts/validate-conformance.mjs",
+      "status": "passed",
+      "result": "four forms, six nodes, six edges, and two flows"
+    },
+    {
+      "command": "node --test tests/conformance.test.mjs",
+      "status": "passed",
+      "result": "9 tests passed"
+    },
+    {
+      "command": "node --test tests/skill-library-audit.test.mjs",
+      "status": "passed",
+      "result": "2 tests passed"
+    },
+    {
+      "command": "python3 .agents/skills/okhp3-skill-cataloger/scripts/gen-skills-readme.py --skills-dir .agents/skills --check",
+      "status": "passed-with-warnings",
+      "result": "40 packages; advisory package warnings retained"
+    },
+    {
+      "command": "node .agents/skills/okhp3-skill-foundry/scripts/validate-skill-suite.cjs --skills-dir .agents/skills",
+      "status": "passed-with-warnings",
+      "result": "40 packages validated"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "result": "no whitespace errors"
+    }
+  ],
+  "initial_reviews": [
+    {
+      "role": "evidence reviewer",
+      "status": "analytical",
+      "finding": "Specification and structural evidence is present; operational fold, organ, and skill outcome evidence is absent."
+    },
+    {
+      "role": "outcome reviewer",
+      "status": "analytical",
+      "finding": "The repository is useful as a head-canon and contribution reference; the case study is not empirical proof."
+    },
+    {
+      "role": "safety and portability reviewer",
+      "status": "analytical",
+      "finding": "Firewall policy is not whole-tree clearance; placeholders and client portability remain unverified."
+    }
+  ],
+  "concordance": "analytical-agreement-with-shared-source-limit",
+  "disruptor": {
+    "triggered": true,
+    "authority": "analytical",
+    "status": "objections-survive",
+    "falsification_hypotheses": [
+      {
+        "id": "DIS-01",
+        "claim_challenged": "A fixture validator proves general fold losslessness.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Run an implementation-backed fold/inverse cycle on unseen fixtures."
+      },
+      {
+        "id": "DIS-02",
+        "claim_challenged": "The representative case study proves an executed loop.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Archive a frozen executed fixture with source, intermediates, inverse outputs, hashes, and comparison."
+      },
+      {
+        "id": "DIS-03",
+        "claim_challenged": "Structural skill evidence proves portability or uplift.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Run matched current-version evaluations with separated grading and a protected unseen holdout."
+      },
+      {
+        "id": "DIS-04",
+        "claim_challenged": "The firewall policy proves whole-tree publication safety.",
+        "result": "survives",
+        "test_that_could_prove_objection_wrong": "Perform an owner-authorized whole-tree scan and manual checklist review."
+      }
+    ]
+  },
+  "negotiator": {
+    "triggered": true,
+    "status": "analytical",
+    "decision": "approve-with-limits",
+    "decisive_evidence": [
+      "The contracts and conformance design define a coherent specification boundary.",
+      "The registry has narrow live validator/test evidence.",
+      "One synthetic proof package supports only a bounded manual analytical demonstration.",
+      "The current skill inventory explicitly limits task-quality evidence to not-run.",
+      "Organ pointers are explicitly placeholders and no parity reports are available."
+    ],
+    "rationale": "The repository supports controlled public specification and bounded fixture proof, but not runtime, broad losslessness, skill outcome, external conformance, or whole-tree publication claims.",
+    "unresolved_items": [
+      "Normative mapping between explanatory core-loop stages and canonical forms.",
+      "Second unseen proof fixture.",
+      "Current-version protected skill holdout.",
+      "Owner-authorized organ pointer and parity checks.",
+      "Whole-tree scope-firewall review."
+    ]
+  },
+  "release_decision": "approve-with-limits",
+  "release_scope": {
+    "approved": [
+      "Public specification/head-canon vocabulary and contract artifacts.",
+      "One bounded public-safe synthetic proof package.",
+      "Contributions through the existing issue and pull-request path within scope."
+    ],
+    "approved_with_limits": [
+      "Analytical framework positioning only.",
+      "Manual fixture-level proof language only.",
+      "Structural/analytical skill-library description only.",
+      "Organ links as routing context only while marked placeholders."
+    ],
+    "deferred": [
+      "General runtime, operational losslessness, and generalized round trips.",
+      "Skill portability, uplift, production readiness, and task-quality claims.",
+      "External organ conformance and URL verification.",
+      "Whole-tree publication/privacy clearance.",
+      "Direct Diagram to Agent-Executable folds."
+    ],
+    "rejected": [
+      "Treating validators as ecosystem-wide conformance proof.",
+      "Treating the case study as an executed event record.",
+      "Unilateral implementation of a deferred direct fold.",
+      "Starting runtime work before contract, proof, and owner-conformance gates."
+    ]
+  },
+  "follow_up": [
+    {
+      "item": "Publish the normative core-loop stage/transition mapping.",
+      "owner": "ReFolDec owner and contract maintainers",
+      "next_test": "Check the mapping against one fixture.",
+      "consequence_if_false": "Keep the single formal-loop claim deferred."
+    },
+    {
+      "item": "Add a second unseen proof fixture.",
+      "owner": "Future fold-claims implementation owner",
+      "next_test": "Repeat source/intermediate/inverse artifact and invariant comparison.",
+      "consequence_if_false": "Keep proof labelled single-fixture."
+    },
+    {
+      "item": "Run current-version skill evaluations with an unseen holdout.",
+      "owner": "Process Skills and equilibrium-review maintainers",
+      "next_test": "Use matched isolated runs with separated or blinded grading.",
+      "consequence_if_false": "Keep task-quality evidence not-run."
+    },
+    {
+      "item": "Confirm organ pointers and obtain parity records.",
+      "owner": "Organ owners and ReFolDec owner",
+      "next_test": "Record all required contract, fixture, registry, firewall, fold, result, and date fields.",
+      "consequence_if_false": "Keep placeholders and conformance deferred."
+    },
+    {
+      "item": "Perform whole-tree firewall review before broad publication claims.",
+      "owner": "ReFolDec owner",
+      "next_test": "Owner-authorized scan plus manual checklist and link review.",
+      "consequence_if_false": "No repository-wide publication clearance."
+    }
+  ],
+  "review_expiry": {
+    "expires_on": "2026-11-30",
+    "reopen_earlier_if": [
+      "Contract, representation, legal/deferred fold, registry, or firewall policy changes.",
+      "A runtime surface or second proof fixture is introduced.",
+      "A downstream organ is declared conforming or a placeholder becomes a public dependency.",
+      "Skill evaluation design, package versions, or benchmark evidence changes.",
+      "A whole-tree publication review, protected benchmark, renderer run, or Agent Skills client run becomes available.",
+      "New external links, provenance claims, or sensitive-content risk enters the release surface."
+    ]
+  }
+}
