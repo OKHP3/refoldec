@@ -1,0 +1,239 @@
+{
+  "contract": {
+    "id": "refoldec-fold-contract",
+    "version": "1.0.0"
+  },
+  "schema_version": "1.1",
+  "fixture_id": "synthetic-order-reconciliation",
+  "canonical_projection": {
+    "nodes": [
+      {"id": "requester", "semantic_role": "actor"},
+      {"id": "submit", "semantic_role": "step"},
+      {"id": "validate", "semantic_role": "decision"},
+      {"id": "fulfill", "semantic_role": "system"},
+      {"id": "request-info", "semantic_role": "handoff"},
+      {"id": "record", "semantic_role": "data"},
+      {"id": "audit", "semantic_role": "log"}
+    ],
+    "edges": [
+      {"from": "requester", "to": "submit", "relationship": "performs"},
+      {"from": "submit", "to": "validate", "relationship": "flows-to"},
+      {"from": "validate", "to": "fulfill", "relationship": "available"},
+      {"from": "validate", "to": "request-info", "relationship": "unavailable"},
+      {"from": "fulfill", "to": "record", "relationship": "flows-to"},
+      {"from": "record", "to": "audit", "relationship": "flows-to"},
+      {"from": "request-info", "to": "submit", "relationship": "flows-to"}
+    ],
+    "flows": [
+      {
+        "branch_id": "available",
+        "source": "validate",
+        "target": "fulfill",
+        "condition": "the requested change can be fulfilled"
+      },
+      {
+        "branch_id": "needs-information",
+        "source": "validate",
+        "target": "request-info",
+        "condition": "the requested change cannot yet be fulfilled"
+      }
+    ],
+    "governance": {
+      "artifact_version": "1.0.0",
+      "owner": "refoldec-maintainers",
+      "status": "fixture",
+      "applicable_context": "public-safe synthetic demonstration"
+    }
+  },
+  "representations": {
+    "Diagram": {
+      "format": "rendered-visual",
+      "payload": {
+        "layout": "left-to-right",
+        "render_context": "fixture-only"
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "validate", "semantic_role": "decision"},
+          {"id": "fulfill", "semantic_role": "system"},
+          {"id": "request-info", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"},
+          {"id": "audit", "semantic_role": "log"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "validate", "relationship": "flows-to"},
+          {"from": "validate", "to": "fulfill", "relationship": "available"},
+          {"from": "validate", "to": "request-info", "relationship": "unavailable"},
+          {"from": "fulfill", "to": "record", "relationship": "flows-to"},
+          {"from": "record", "to": "audit", "relationship": "flows-to"},
+          {"from": "request-info", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {
+            "branch_id": "available",
+            "source": "validate",
+            "target": "fulfill",
+            "condition": "the requested change can be fulfilled"
+          },
+          {
+            "branch_id": "needs-information",
+            "source": "validate",
+            "target": "request-info",
+            "condition": "the requested change cannot yet be fulfilled"
+          }
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Code": {
+      "format": "mermaid-dsl",
+      "payload": {
+        "source": "neutral process graph source; syntax is intentionally not executed by this fixture"
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "validate", "semantic_role": "decision"},
+          {"id": "fulfill", "semantic_role": "system"},
+          {"id": "request-info", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"},
+          {"id": "audit", "semantic_role": "log"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "validate", "relationship": "flows-to"},
+          {"from": "validate", "to": "fulfill", "relationship": "available"},
+          {"from": "validate", "to": "request-info", "relationship": "unavailable"},
+          {"from": "fulfill", "to": "record", "relationship": "flows-to"},
+          {"from": "record", "to": "audit", "relationship": "flows-to"},
+          {"from": "request-info", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {
+            "branch_id": "available",
+            "source": "validate",
+            "target": "fulfill",
+            "condition": "the requested change can be fulfilled"
+          },
+          {
+            "branch_id": "needs-information",
+            "source": "validate",
+            "target": "request-info",
+            "condition": "the requested change cannot yet be fulfilled"
+          }
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Documentation": {
+      "format": "markdown-narrative",
+      "payload": {
+        "narrative": "A requester submits an order change. The process validates whether the change can be fulfilled. Available changes are fulfilled, recorded, and audited; unavailable changes request more information and return for resubmission."
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "validate", "semantic_role": "decision"},
+          {"id": "fulfill", "semantic_role": "system"},
+          {"id": "request-info", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"},
+          {"id": "audit", "semantic_role": "log"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "validate", "relationship": "flows-to"},
+          {"from": "validate", "to": "fulfill", "relationship": "available"},
+          {"from": "validate", "to": "request-info", "relationship": "unavailable"},
+          {"from": "fulfill", "to": "record", "relationship": "flows-to"},
+          {"from": "record", "to": "audit", "relationship": "flows-to"},
+          {"from": "request-info", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {
+            "branch_id": "available",
+            "source": "validate",
+            "target": "fulfill",
+            "condition": "the requested change can be fulfilled"
+          },
+          {
+            "branch_id": "needs-information",
+            "source": "validate",
+            "target": "request-info",
+            "condition": "the requested change cannot yet be fulfilled"
+          }
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    },
+    "Agent-Executable": {
+      "format": "structured-instruction",
+      "payload": {
+        "trigger": "A synthetic order change is submitted.",
+        "inputs": ["order change"],
+        "outputs": ["audited fulfillment record"],
+        "steps": ["submit", "validate", "fulfill or request information", "record", "audit"],
+        "failure_paths": ["unavailable change requests information before resubmission"]
+      },
+      "projection": {
+        "nodes": [
+          {"id": "requester", "semantic_role": "actor"},
+          {"id": "submit", "semantic_role": "step"},
+          {"id": "validate", "semantic_role": "decision"},
+          {"id": "fulfill", "semantic_role": "system"},
+          {"id": "request-info", "semantic_role": "handoff"},
+          {"id": "record", "semantic_role": "data"},
+          {"id": "audit", "semantic_role": "log"}
+        ],
+        "edges": [
+          {"from": "requester", "to": "submit", "relationship": "performs"},
+          {"from": "submit", "to": "validate", "relationship": "flows-to"},
+          {"from": "validate", "to": "fulfill", "relationship": "available"},
+          {"from": "validate", "to": "request-info", "relationship": "unavailable"},
+          {"from": "fulfill", "to": "record", "relationship": "flows-to"},
+          {"from": "record", "to": "audit", "relationship": "flows-to"},
+          {"from": "request-info", "to": "submit", "relationship": "flows-to"}
+        ],
+        "flows": [
+          {
+            "branch_id": "available",
+            "source": "validate",
+            "target": "fulfill",
+            "condition": "the requested change can be fulfilled"
+          },
+          {
+            "branch_id": "needs-information",
+            "source": "validate",
+            "target": "request-info",
+            "condition": "the requested change cannot yet be fulfilled"
+          }
+        ],
+        "governance": {
+          "artifact_version": "1.0.0",
+          "owner": "refoldec-maintainers",
+          "status": "fixture",
+          "applicable_context": "public-safe synthetic demonstration"
+        }
+      }
+    }
+  }
+}

@@ -33,10 +33,12 @@ Comparison rules:
 6. An implementation MUST preserve an explicitly represented invariant. It
    MUST NOT infer an absent value and report the result as lossless.
 
-The four concrete fixture forms are in
-[`fixture.json`](./fixture.json). Their payloads demonstrate the shape of a
-diagram, code, narrative, and executable instruction without pretending to
-execute any of them.
+The four concrete fixture forms for the original access-request case are in
+[`fixture.json`](./fixture.json). A second public development fixture with the
+same four forms is in
+[`fixture-order-reconciliation.json`](./fixture-order-reconciliation.json).
+Their payloads demonstrate the shape of a diagram, code, narrative, and
+executable instruction without pretending to execute any of them.
 
 ## Core-loop crosswalk
 
@@ -60,11 +62,11 @@ structured narrative becomes `Documentation` before using the legal
 use the legal rows in this matrix. Direct `Diagram ⇄ Agent-Executable` remains
 deferred and must not be inferred from the explanatory loop.
 
-The synthetic access-request fixture is checked against this crosswalk by the
-dependency-free validator and Node test: its representations must be exactly
-`Diagram`, `Code`, `Documentation`, and `Agent-Executable`, and none of the
-explanatory labels may appear as a representation key. This checks the mapping
-without claiming that the fixture executes the loop.
+Both synthetic fixtures are checked against this crosswalk by the
+dependency-free validator and Node test: each representation set must be
+exactly `Diagram`, `Code`, `Documentation`, and `Agent-Executable`, and none of
+the explanatory labels may appear as a representation key. This checks the
+mapping without claiming that either fixture executes the loop.
 
 ## Legal fold matrix
 
@@ -122,19 +124,21 @@ a contract revision process rather than silently applying a shortcut.
 
 ## Fixture-level test design
 
-The dependency-free tests use the four fixture projections as stand-ins for
-fold output; they do not claim to execute a codec. They cover:
+The dependency-free tests use the four projections in each public fixture as
+stand-ins for fold output; they do not claim to execute a codec. They cover:
 
-- one valid round trip for every legal direction and inverse pair;
-- one explicit invariant-loss mutation for every legal direction;
+- a valid round trip for every legal direction and inverse pair on each public fixture;
+- an explicit invariant-loss mutation for every legal direction;
 - role, topology, flow, and governance preservation;
 - missing metadata and ambiguous identity;
 - exact deferred-fold rejection;
 - registry-role compatibility and the four-form fixture shape.
 
 This is contract-level evidence. It does not establish runtime reversibility,
-renderer compatibility, Agent Skills portability, or generalization to unseen
-fixtures. Those claims remain bounded by the evidence baseline in
+renderer compatibility, Agent Skills portability, or generalization to a
+protected unseen holdout. The second checked-in fixture is a distinct
+public-development case, and the manual proof remains analytical. Those claims
+remain bounded by the evidence baseline in
 [`docs/evidence/2026-08-22-refoldec-baseline.md`](../evidence/2026-08-22-refoldec-baseline.md)
 and the later review record.
 

@@ -1,0 +1,31 @@
+%% artifact: synthetic-order-reconciliation
+%% representation: Code
+%% version: 1.0.0
+%% owner: refoldec-maintainers
+%% status: fixture
+%% applicable_context: public-safe synthetic demonstration
+%% node: requester | actor
+%% node: submit | step
+%% node: validate | decision
+%% node: fulfill | system
+%% node: request-info | handoff
+%% node: record | data
+%% node: audit | log
+flowchart TD
+  requester[Requester] -->|performs| submit[Submit order change]
+  submit -->|flows-to| validate{Change fulfillable?}
+  validate -->|available| fulfill[Fulfill change]
+  validate -->|unavailable| request-info[Request information]
+  fulfill -->|flows-to| record[(Record outcome)]
+  record -->|flows-to| audit[/Audit outcome/]
+  request-info -->|flows-to| submit
+
+%% branch: available | validate -> fulfill | the requested change can be fulfilled
+%% branch: needs-information | validate -> request-info | the requested change cannot yet be fulfilled
+class requester actor
+class submit step
+class validate decision
+class fulfill system
+class request-info handoff
+class record data
+class audit log

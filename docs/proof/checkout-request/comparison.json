@@ -119,6 +119,17 @@
     ],
     "allowed_variation": ["prose wording", "layout", "palette", "shape rendering", "renderer chrome", "source ordering"]
   },
+  "generalization_check": {
+    "comparison_fixture": "../../conformance/fixture-order-reconciliation.json",
+    "proof_package": "../order-reconciliation/",
+    "comparison_record": "../order-reconciliation/comparison.json",
+    "result": "PASS",
+    "evidence_status": "manual-analytical",
+    "visibility": "public-development-fixture",
+    "actual_executor_used": false,
+    "scope": "A second public-safe graph with seven nodes, seven edges, two branches, and distinct system/log roles repeated the five-invariant comparison.",
+    "limitation": "This is not a protected release holdout and does not establish runtime generalization."
+  },
   "lossy_or_ambiguous_cases": [
     {
       "case": "missing owner tag",

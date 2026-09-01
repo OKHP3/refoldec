@@ -1,8 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import crypto from "node:crypto";
+import path from "node:path";
 
 const fixture = JSON.parse(fs.readFileSync("docs/conformance/fixture.json", "utf8"));
+const secondFixture = JSON.parse(
+  fs.readFileSync("docs/conformance/fixture-order-reconciliation.json", "utf8")
+);
 const registry = JSON.parse(fs.readFileSync("semantic-class-registry/semantic-classes.json", "utf8"));
 const representations = ["Diagram", "Code", "Documentation", "Agent-Executable"];
 const legalFolds = [
@@ -84,6 +89,10 @@ function invariantFailureCodes(actual, expected) {
 }
 
 function fold(sourceName, targetName) {
+  return foldFixture(fixture, sourceName, targetName);
+}
+
+function foldFixture(candidate, sourceName, targetName) {
   if (deferredFolds.some(([from, to]) => from === sourceName && to === targetName)) {
     const error = new Error(`DEFERRED_FOLD: ${sourceName} → ${targetName}`);
     error.code = "DEFERRED_FOLD";
@@ -93,7 +102,7 @@ function fold(sourceName, targetName) {
     legalFolds.some(([from, to]) => from === sourceName && to === targetName),
     `unsupported fold: ${sourceName} → ${targetName}`
   );
-  return clone(fixture.representations[targetName]);
+  return clone(candidate.representations[targetName]);
 }
 
 test("fixture declares exactly four concrete forms and the current contract", () => {
@@ -140,11 +149,36 @@ test("fixture roles are present in the semantic-class registry", () => {
     familyByRole.get(entry.id).push(entry.family);
   }
 
-  for (const { semantic_role: role } of fixture.canonical_projection.nodes) {
-    assert.ok(familyByRole.has(role), `fixture role is absent from registry: ${role}`);
-    assert.ok(
-      familyByRole.get(role).some((family) => registryRoleKeys.has(`${family}:${role}`)),
-      `fixture role has no registry family: ${role}`
+  for (const candidate of [fixture, secondFixture]) {
+    for (const { semantic_role: role } of candidate.canonical_projection.nodes) {
+      assert.ok(
+        familyByRole.has(role),
+        `${candidate.fixture_id} role is absent from registry: ${role}`
+      );
+      assert.ok(
+        familyByRole.get(role).some((family) => registryRoleKeys.has(`${family}:${role}`)),
+        `${candidate.fixture_id} role has no registry family: ${role}`
+      );
+    }
+  }
+});
+
+test("the second fixture has a distinct public-safe graph shape", () => {
+  assert.equal(secondFixture.fixture_id, "synthetic-order-reconciliation");
+  assert.notDeepEqual(
+    secondFixture.canonical_projection,
+    fixture.canonical_projection,
+    "the generalization case must not duplicate the original projection"
+  );
+  assert.equal(secondFixture.canonical_projection.nodes.length, 7);
+  assert.equal(secondFixture.canonical_projection.edges.length, 7);
+  assert.equal(secondFixture.canonical_projection.flows.length, 2);
+  assert.deepEqual(Object.keys(secondFixture.representations), representations);
+  for (const name of representations) {
+    assertProjectionEqual(
+      secondFixture.representations[name],
+      { projection: secondFixture.canonical_projection },
+      `second fixture ${name} does not expose its canonical invariant projection`
     );
   }
 });
@@ -163,6 +197,101 @@ test("each legal direction has a preserving fixture-level round trip", () => {
       fixture.representations[targetName],
       `${sourceName} → ${targetName} did not preserve the target projection`
     );
+  }
+});
+
+test("the second fixture preserves every legal direction", () => {
+  for (const [sourceName, targetName] of legalFolds) {
+    const target = foldFixture(secondFixture, sourceName, targetName);
+    const reconstructed = foldFixture(secondFixture, targetName, sourceName);
+    assertProjectionEqual(
+      reconstructed,
+      secondFixture.representations[sourceName],
+      `second fixture ${sourceName} → ${targetName} → ${sourceName} lost an invariant`
+    );
+    assertProjectionEqual(
+      target,
+      secondFixture.representations[targetName],
+      `second fixture ${sourceName} → ${targetName} did not preserve the target projection`
+    );
+  }
+});
+
+test("the second proof freezes and verifies all artifact and invariant hashes", () => {
+  const comparison = JSON.parse(
+    fs.readFileSync("docs/proof/order-reconciliation/comparison.json", "utf8")
+  );
+  const proofRoot = path.resolve("docs/proof/order-reconciliation");
+  const hash = (filePath) =>
+    crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+  const hashValue = (value) =>
+    crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
+
+  assert.equal(comparison.evidence_status, "manual-analytical");
+  assert.equal(comparison.visibility, "public-development-fixture");
+  assert.equal(comparison.actual_executor_used, false);
+  assert.equal(comparison.artifact_hashes.algorithm, "sha256");
+  assert.ok(comparison.artifact_hashes.files.length >= 8);
+
+  const artifactPaths = new Set();
+  for (const entry of comparison.artifact_hashes.files) {
+    assert.match(entry.sha256, /^[a-f0-9]{64}$/);
+    assert.ok(!artifactPaths.has(entry.path), `duplicate artifact hash: ${entry.path}`);
+    artifactPaths.add(entry.path);
+    assert.equal(
+      hash(path.resolve(proofRoot, entry.path)),
+      entry.sha256,
+      `artifact hash mismatch: ${entry.path}`
+    );
+  }
+
+  const expectedInvariants = [
+    "semantic_role_assignment",
+    "node_identity",
+    "edge_topology",
+    "flow_relationships",
+    "governance_tags",
+  ];
+  const checks = comparison.invariant_comparison.checks;
+  const secondProjection = secondFixture.canonical_projection;
+  const canonicalInvariantHashes = {
+    semantic_role_assignment: hashValue(
+      sortRecords(
+        secondProjection.nodes.map(({ id, semantic_role }) => ({ id, semantic_role }))
+      )
+    ),
+    node_identity: hashValue(
+      sortRecords(secondProjection.nodes.map(({ id }) => ({ id })))
+    ),
+    edge_topology: hashValue(sortRecords(secondProjection.edges)),
+    flow_relationships: hashValue(sortRecords(secondProjection.flows)),
+    governance_tags: hashValue(secondProjection.governance),
+  };
+  assert.deepEqual(
+    checks.map(({ invariant }) => invariant),
+    expectedInvariants
+  );
+  for (const check of checks) {
+    assert.match(check.expected_sha256, /^[a-f0-9]{64}$/);
+    assert.equal(
+      check.expected_sha256,
+      canonicalInvariantHashes[check.invariant],
+      `${check.invariant} hash does not match the neutral fixture`
+    );
+    assert.equal(check.result, "PASS");
+    assert.equal(check.failure_code, null);
+    for (const form of comparison.invariant_comparison.compared_forms) {
+      assert.equal(
+        check.observed_sha256[form],
+        check.expected_sha256,
+        `${check.invariant} hash mismatch for ${form}`
+      );
+    }
+    assert.match(check.on_mismatch, /^reject output/);
+  }
+  for (const [condition, action] of Object.entries(comparison.failure_handling)) {
+    assert.ok(condition);
+    assert.match(action, /FAIL|reject|stop/i);
   }
 });
 

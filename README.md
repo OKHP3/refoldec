@@ -130,8 +130,8 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 | Process Skills v1 | 🔄 In progress |
 | BPMN-for-Mermaid component | 🔄 In progress |
 | OverKill Hill project page | 📋 Planned |
-| Public proof-of-concept | ✅ One controlled synthetic fold loop, manually demonstrated — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
-| Fixture-level fold proof | ✅ Analytical — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
+| Public proof-of-concept | ✅ Two controlled synthetic fold loops, manually demonstrated — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
+| Fixture-level fold proof | ✅ Analytical, repeated on a distinct graph shape — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
 | Skill-library evidence | ⚠️ Analytical structural integrity only — task-quality evidence not-run |
 | Organ conformance | ⏸ Deferred — no owner-authorized parity reports |
 | Repository-wide publication clearance | ⏸ Not established — firewall policy is not whole-tree clearance |

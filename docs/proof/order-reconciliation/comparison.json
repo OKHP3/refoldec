@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.1",
+  "artifact": "synthetic-order-reconciliation",
+  "evidence_status": "manual-analytical",
+  "visibility": "public-development-fixture",
+  "performed_at": "2026-09-01",
+  "actual_executor_used": false,
+  "contract": {
+    "id": "refoldec-fold-contract",
+    "version": "1.0.0",
+    "fixture_schema_version": "1.1",
+    "registry_version": "1.0.0",
+    "firewall_version": "1.0.0"
+  },
+  "source": {
+    "path": "source-input.md",
+    "kind": "raw synthetic capture",
+    "fixture_path": "../../conformance/fixture-order-reconciliation.json",
+    "scope_review": "passed by inspection: generic workflow, no employer, client, proprietary, personal, order, or confidential data"
+  },
+  "artifact_hashes": {
+    "algorithm": "sha256",
+    "hash_scope": "neutral fixture and all listed proof artifacts except this comparison record",
+    "files": [
+      {"path": "../../conformance/fixture-order-reconciliation.json", "sha256": "5870a740f0c2294533ff1232f2340165f29db8864331ef63b2656bbf391afc6b"},
+      {"path": "source-input.md", "sha256": "1550bff7f21b880937e96c58de962f667bd90b78109aa20586683d0431042b70"},
+      {"path": "documentation.md", "sha256": "6b6760038a47bc788e69f5e19e3753d89fea7d8084a16475623b3c3cee49db1e"},
+      {"path": "code.mmd", "sha256": "ddbba5f62f6c51f5cf2e7297d4e897b55c7158208877911a6b7e9d7a381e8efa"},
+      {"path": "diagram.md", "sha256": "25347d71239f133a06d692e2b20af809701842ae80d0bad048625146080dfbd8"},
+      {"path": "agent-executable.md", "sha256": "e0cc3a0ea55124651acdbe893d194e3719597e4f62a0963a36f64f375c975be9"},
+      {"path": "unfolded-code.mmd", "sha256": "ced924c64176fe655481f397f294c54abff86c3fdcb2cfa17775c5996c3a6705"},
+      {"path": "unfolded-documentation.md", "sha256": "2f3fa4cb5fec159ab87dd12238bad8e64d581384943763679f0e215f434b983c"}
+    ]
+  },
+  "sequence": [
+    {
+      "step": 1,
+      "direction": "source-capture → Documentation",
+      "input": "source-input.md",
+      "output": "documentation.md",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Named every node, role, relationship, branch, and governance tag; no unmarked inference."
+    },
+    {
+      "step": 2,
+      "direction": "Documentation → Code",
+      "input": "documentation.md",
+      "output": "code.mmd",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Copied canonical IDs, Mermaid edges, branch conditions, classes, and governance comments."
+    },
+    {
+      "step": 3,
+      "direction": "Code → Diagram",
+      "input": "code.mmd",
+      "output": "diagram.md",
+      "method": "manual fold; renderer recipe archived",
+      "result": "PASS_WITH_LIMITATION",
+      "review": "All source-level nodes, edges, branches, roles, and tags are visible in the diagram record; no live renderer was used."
+    },
+    {
+      "step": 4,
+      "direction": "Code → Agent-Executable",
+      "input": "code.mmd",
+      "output": "agent-executable.md",
+      "method": "manual fold",
+      "result": "PASS",
+      "review": "Ordered execution, both branches, escalation path, IDs, roles, and governance tags are explicit."
+    },
+    {
+      "step": 5,
+      "direction": "Agent-Executable → Code",
+      "input": "agent-executable.md",
+      "output": "unfolded-code.mmd",
+      "method": "manual unfold",
+      "result": "PASS",
+      "review": "Reconstructed the seven-node source graph without inferring a missing node, edge, branch, role, or governance value."
+    },
+    {
+      "step": 6,
+      "direction": "Code → Documentation",
+      "input": "unfolded-code.mmd",
+      "output": "unfolded-documentation.md",
+      "method": "manual unfold",
+      "result": "PASS",
+      "review": "Reconstructed narrative names all seven IDs, roles, seven edges, two branches, escalation path, and four tags."
+    }
+  ],
+  "invariant_comparison": {
+    "projection_source": "../../conformance/fixture-order-reconciliation.json#canonical_projection",
+    "compared_forms": [
+      "documentation.md",
+      "code.mmd",
+      "diagram.md",
+      "agent-executable.md",
+      "unfolded-code.mmd",
+      "unfolded-documentation.md"
+    ],
+    "hash_algorithm": "sha256",
+    "hash_serialization": "JSON.stringify(sorted records); governance object in canonical key order",
+    "checks": [
+      {
+        "invariant": "semantic_role_assignment",
+        "expected_sha256": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+        "observed_sha256": {
+          "documentation.md": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+          "code.mmd": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+          "diagram.md": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+          "agent-executable.md": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+          "unfolded-code.mmd": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8",
+          "unfolded-documentation.md": "dcbdb95873b59c3fb8a1a4f0cae2613c2af91f5d1c129b4893198d96faef4ac8"
+        },
+        "result": "PASS",
+        "failure_code": null,
+        "on_mismatch": "reject output as ROLE_DRIFT"
+      },
+      {
+        "invariant": "node_identity",
+        "expected_sha256": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+        "observed_sha256": {
+          "documentation.md": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+          "code.mmd": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+          "diagram.md": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+          "agent-executable.md": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+          "unfolded-code.mmd": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c",
+          "unfolded-documentation.md": "3db28b6c646e292ce1b415ff534af95fb54ed2c6135549b3cb9edf7d8fa22b3c"
+        },
+        "result": "PASS",
+        "failure_code": null,
+        "on_mismatch": "reject output as MISSING_NODE_ID or AMBIGUOUS_MAPPING"
+      },
+      {
+        "invariant": "edge_topology",
+        "expected_sha256": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+        "observed_sha256": {
+          "documentation.md": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+          "code.mmd": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+          "diagram.md": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+          "agent-executable.md": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+          "unfolded-code.mmd": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615",
+          "unfolded-documentation.md": "185b46ec300e841f1bf97be0f54ee3363c3656d27778e3a0a2d3528f8b755615"
+        },
+        "result": "PASS",
+        "failure_code": null,
+        "on_mismatch": "reject output as TOPOLOGY_DRIFT"
+      },
+      {
+        "invariant": "flow_relationships",
+        "expected_sha256": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+        "observed_sha256": {
+          "documentation.md": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+          "code.mmd": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+          "diagram.md": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+          "agent-executable.md": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+          "unfolded-code.mmd": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57",
+          "unfolded-documentation.md": "e94919038182450d95bf1270507ff2f4812032a82adfc4a125216ddb9128ce57"
+        },
+        "result": "PASS",
+        "failure_code": null,
+        "on_mismatch": "reject output as FLOW_DRIFT"
+      },
+      {
+        "invariant": "governance_tags",
+        "expected_sha256": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+        "observed_sha256": {
+          "documentation.md": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+          "code.mmd": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+          "diagram.md": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+          "agent-executable.md": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+          "unfolded-code.mmd": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711",
+          "unfolded-documentation.md": "64a2857668f2ee4a597a12f14c87736a28e2e512592a6effbbaa80e2035f4711"
+        },
+        "result": "PASS",
+        "failure_code": null,
+        "on_mismatch": "reject output as GOVERNANCE_DRIFT"
+      }
+    ],
+    "round_trip_comparisons": [
+      {
+        "path": "Documentation → Code → Agent-Executable → Code → Documentation",
+        "source": "documentation.md",
+        "inverse_outputs": ["unfolded-code.mmd", "unfolded-documentation.md"],
+        "result": "PASS",
+        "equivalence": "all five invariant projection hashes match the neutral fixture exactly"
+      },
+      {
+        "path": "Code → Agent-Executable → Code",
+        "source": "code.mmd",
+        "inverse_output": "unfolded-code.mmd",
+        "result": "PASS",
+        "equivalence": "seven nodes, seven edges, two flows, and four governance tags match"
+      }
+    ],
+    "allowed_variation": ["prose wording", "layout", "palette", "shape rendering", "renderer chrome", "source ordering"]
+  },
+  "failure_handling": {
+    "missing_artifact": "FAIL; do not treat an incomplete package as a proof",
+    "artifact_hash_mismatch": "FAIL; freeze a new comparison record after review",
+    "missing_invariant_hash": "FAIL; do not infer the missing value",
+    "invariant_hash_mismatch": "reject output with the recorded invariant failure code",
+    "ambiguous_identity": "stop and request human clarification; do not infer identity",
+    "deferred_fold": "reject with DEFERRED_FOLD and route through Code"
+  },
+  "lossy_or_ambiguous_cases": [
+    {
+      "case": "changed system role on fulfill",
+      "failure_code": "ROLE_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; semantic role must remain system"
+    },
+    {
+      "case": "renamed request-info node",
+      "failure_code": "MISSING_NODE_ID",
+      "result": "LOSSY",
+      "decision": "reject output; canonical identity must remain request-info"
+    },
+    {
+      "case": "redirect available edge to request-info",
+      "failure_code": "TOPOLOGY_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; branch target must remain fulfill"
+    },
+    {
+      "case": "change needs-information condition",
+      "failure_code": "FLOW_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; branch identity and condition must remain exact"
+    },
+    {
+      "case": "missing owner tag",
+      "failure_code": "GOVERNANCE_DRIFT",
+      "result": "LOSSY",
+      "decision": "reject output; do not infer the owner"
+    },
+    {
+      "case": "Diagram → Agent-Executable shortcut",
+      "failure_code": "DEFERRED_FOLD",
+      "result": "REJECTED",
+      "decision": "route through Code; direct fold is not contracted"
+    }
+  ],
+  "human_review": {
+    "reviewed": true,
+    "review_scope": "public-safe scope, distinct graph shape, canonical IDs, registry roles, topology, branches, governance, hash comparison, and deferred boundaries",
+    "limitations": [
+      "This is a second public development fixture, not a protected release holdout.",
+      "No independent runtime executor, Mermaid renderer, or Agent Skills client was used.",
+      "The proof supports a bounded manual analytical demonstration only; it does not support production, portability, or general losslessness claims."
+    ]
+  }
+}

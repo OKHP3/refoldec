@@ -6,7 +6,18 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
 
-const fixture = JSON.parse(fs.readFileSync("docs/conformance/fixture.json", "utf8"));
+const fixturePaths = [
+  ["docs/conformance/fixture.json", "synthetic-access-request"],
+  [
+    "docs/conformance/fixture-order-reconciliation.json",
+    "synthetic-order-reconciliation",
+  ],
+];
+const fixtures = fixturePaths.map(([path, fixtureId]) => ({
+  path,
+  fixtureId,
+  value: JSON.parse(fs.readFileSync(path, "utf8")),
+}));
 const representationNames = ["Diagram", "Code", "Documentation", "Agent-Executable"];
 const loopStageMapping = {
   idea: null,
@@ -21,34 +32,11 @@ const loopStageMapping = {
 const projectionKeys = ["nodes", "edges", "flows", "governance"];
 const governanceKeys = ["artifact_version", "owner", "status", "applicable_context"];
 
-assert.deepEqual(fixture.contract, {
-  id: "refoldec-fold-contract",
-  version: "1.0.0",
-});
-assert.equal(fixture.schema_version, "1.1");
-assert.equal(fixture.fixture_id, "synthetic-access-request");
-assert.deepEqual(Object.keys(fixture.representations), representationNames);
-assert.deepEqual(Object.keys(fixture.canonical_projection), projectionKeys);
-assert.deepEqual(
-  Object.values(loopStageMapping).filter(Boolean),
-  representationNames,
-  "core-loop mapping must resolve to the four canonical forms"
-);
-for (const stage of Object.entries(loopStageMapping)
-  .filter(([, form]) => form === null)
-  .map(([stage]) => stage)) {
-  assert.equal(
-    fixture.representations[stage],
-    undefined,
-    `explanatory loop stage must not be a fixture representation: ${stage}`
-  );
-}
-
-function validateProjection(projection, label) {
+function validateProjection(projection, label, expectedCounts) {
   assert.deepEqual(Object.keys(projection), projectionKeys, `${label}: projection keys`);
-  assert.equal(projection.nodes.length, 6, `${label}: node count`);
-  assert.equal(projection.edges.length, 6, `${label}: edge count`);
-  assert.equal(projection.flows.length, 2, `${label}: flow count`);
+  assert.equal(projection.nodes.length, expectedCounts.nodes, `${label}: node count`);
+  assert.equal(projection.edges.length, expectedCounts.edges, `${label}: edge count`);
+  assert.equal(projection.flows.length, expectedCounts.flows, `${label}: flow count`);
   assert.deepEqual(Object.keys(projection.governance), governanceKeys, `${label}: governance keys`);
 
   const nodeIds = new Set();
@@ -77,21 +65,57 @@ function validateProjection(projection, label) {
   }
 }
 
-validateProjection(fixture.canonical_projection, "canonical projection");
-for (const name of representationNames) {
-  const form = fixture.representations[name];
-  assert.ok(form.format, `${name}: missing format`);
-  assert.ok(form.payload, `${name}: missing payload`);
-  validateProjection(form.projection, `${name} projection`);
+function validateFixture(fixture, expectedFixtureId) {
+  assert.deepEqual(fixture.contract, {
+    id: "refoldec-fold-contract",
+    version: "1.0.0",
+  });
+  assert.equal(fixture.schema_version, "1.1");
+  assert.equal(fixture.fixture_id, expectedFixtureId);
+  assert.deepEqual(Object.keys(fixture.representations), representationNames);
+  assert.deepEqual(Object.keys(fixture.canonical_projection), projectionKeys);
   assert.deepEqual(
-    form.projection,
-    fixture.canonical_projection,
-    `${name}: projection differs from canonical fixture`
+    Object.values(loopStageMapping).filter(Boolean),
+    representationNames,
+    "core-loop mapping must resolve to the four canonical forms"
+  );
+  for (const stage of Object.entries(loopStageMapping)
+    .filter(([, form]) => form === null)
+    .map(([stage]) => stage)) {
+    assert.equal(
+      fixture.representations[stage],
+      undefined,
+      `explanatory loop stage must not be a fixture representation: ${stage}`
+    );
+  }
+
+  const expectedCounts = {
+    nodes: fixture.canonical_projection.nodes.length,
+    edges: fixture.canonical_projection.edges.length,
+    flows: fixture.canonical_projection.flows.length,
+  };
+  validateProjection(fixture.canonical_projection, `${fixture.fixture_id} canonical projection`, expectedCounts);
+  for (const name of representationNames) {
+    const form = fixture.representations[name];
+    assert.ok(form.format, `${fixture.fixture_id} ${name}: missing format`);
+    assert.ok(form.payload, `${fixture.fixture_id} ${name}: missing payload`);
+    validateProjection(form.projection, `${fixture.fixture_id} ${name} projection`, expectedCounts);
+    assert.deepEqual(
+      form.projection,
+      fixture.canonical_projection,
+      `${fixture.fixture_id} ${name}: projection differs from canonical fixture`
+    );
+  }
+}
+
+for (const { value, fixtureId } of fixtures) {
+  validateFixture(value, fixtureId);
+  console.log(
+    `Conformance fixture PASSED — ${value.fixture_id}: ` +
+      `${value.canonical_projection.nodes.length} nodes, ` +
+      `${value.canonical_projection.edges.length} edges, ` +
+      `${value.canonical_projection.flows.length} flows across ${representationNames.length} forms.`
   );
 }
 
-console.log(
-  `Conformance fixture PASSED — ${fixture.canonical_projection.nodes.length} nodes, ` +
-    `${fixture.canonical_projection.edges.length} edges, ` +
-    `${fixture.canonical_projection.flows.length} flows across ${representationNames.length} forms.`
-);
+console.log(`Conformance fixture set PASSED — ${fixtures.length} fixtures validated.`);
