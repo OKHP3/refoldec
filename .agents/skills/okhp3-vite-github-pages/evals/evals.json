@@ -17,9 +17,9 @@
       "partition": "development",
       "risk": "high",
       "coverage_class": "normal",
-      "prompt": "A deployed Kieran's LifeTrkr page loads HTML but reports asset 404s under the GitHub Pages repository path. Diagnose the likely configuration issue and propose the smallest compatible fix.",
+      "prompt": "A deployed Vite page loads HTML but reports asset 404s under the GitHub Pages repository path. Diagnose the likely configuration issue and propose the smallest compatible fix.",
       "expectations": [
-        "Checks vite.config.ts and identifies the production base /kierans-lifetrkr/ versus local / behavior.",
+        "Checks vite.config.ts and identifies the declared production base versus local / behavior.",
         "Preserves src/App.tsx HashRouter instead of proposing BrowserRouter as the fix.",
         "Checks the workflow artifact path and the post-build dist/index.html to dist/404.html copy step.",
         "Separates a local build result from live Pages verification and reports the exact validation steps."
@@ -33,7 +33,7 @@
       "prompt": "Review a request to add a server and gh-pages branch because this Vite SPA has a GitHub Pages subpath. Explain whether the request fits the repository and what should be changed instead.",
       "expectations": [
         "Rejects server hosting and gh-pages branch changes as outside the client-only Actions deployment contract.",
-        "References the checked-in production base /kierans-lifetrkr/ and HashRouter constraints.",
+        "References the checked-in production base and HashRouter constraints.",
         "Uses .github/workflows/static.yml as the deployment source of truth, including the dist artifact and 404 fallback.",
         "Reports the conflict, safe alternative, validation status, and any remaining live-environment unknowns."
       ]

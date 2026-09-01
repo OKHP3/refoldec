@@ -43,7 +43,7 @@
       "partition": "development",
       "risk": "high",
       "coverage_class": "edge",
-      "prompt": "Someone proposes running the cataloger's --full mode in this LifeTrkr application repo. Explain whether that is appropriate, what --full scans, and what safer alternative applies here.",
+      "prompt": "Someone proposes running the cataloger's --full mode in an application repo. Explain whether that is appropriate, what --full scans, and what safer alternative applies here.",
       "expectations": [
         "Recommends normal project catalog mode for this application repo instead of casually using --full.",
         "Explains that --full scans root-level family/skill folders and excludes .agents/.",

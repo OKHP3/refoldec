@@ -60,7 +60,7 @@ root metadata remain part of the run.
 
 Confirm the repository root, target surface, desired mode, output path, and
 whether writes are authorized. Inspect the target README markers before a normal
-catalog run. Prefer catalog mode for LifeTrkr and other application repos;
+ catalog run. Prefer catalog mode for application repositories;
 reserve `--full` for a library whose root folders are distributable families.
 
 ### 2. Validate

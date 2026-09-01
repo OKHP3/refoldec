@@ -134,7 +134,7 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 | Fixture-level fold proof | ✅ Analytical, repeated on a distinct graph shape — [`docs/proof/minimal-fold-loop.md`](./docs/proof/minimal-fold-loop.md) |
 | Skill-library evidence | ⚠️ Analytical structural integrity only — task-quality evidence not-run |
 | Organ conformance | ⏸ Deferred — no owner-authorized parity reports |
-| Repository-wide publication clearance | ⏸ Not established — firewall policy is not whole-tree clearance |
+| Controlled release-tree clearance | ✅ Cleared with exclusions — dated scan and checklist in [`docs/release/2026-09-01-scope-firewall-clearance.md`](./docs/release/2026-09-01-scope-firewall-clearance.md) |
 | Controlled public readiness | ✅ Approved with limits — [`docs/release/2026-08-31-controlled-readiness.md`](./docs/release/2026-08-31-controlled-readiness.md) |
 | Ecosystem contracts (`ECOSYSTEM.md`, `FOLD-CONTRACT.md`) | ✅ In repo |
 | Semantic class registry | ✅ In repo |
@@ -162,14 +162,13 @@ See [`docs/okhp3-visual-language-stack.md`](./docs/okhp3-visual-language-stack.m
 - [`docs/evidence/skill-library-maturity.md`](./docs/evidence/skill-library-maturity.md) — 40-package maturity and evidence posture
 - [`docs/reviews/2026-08-31-controlled-readiness.json`](./docs/reviews/2026-08-31-controlled-readiness.json) — machine-readable controlled-readiness record
 - [`docs/reviews/2026-08-31-controlled-readiness.md`](./docs/reviews/2026-08-31-controlled-readiness.md) — consolidated evidence review and release boundary
+- [`docs/release/2026-09-01-scope-firewall-clearance.md`](./docs/release/2026-09-01-scope-firewall-clearance.md) — controlled release-tree privacy, provenance, and link clearance
 - [`docs/glossary.md`](./docs/glossary.md) — Canonical term definitions
 - [`docs/technology-stack.md`](./docs/technology-stack.md) — Maintained technology and runtime inventory
 - [`docs/adr/`](./docs/adr/) — Architecture Decision Records
 
 **External**
 
-- [xMIE Operating System — Notion Hub](https://app.notion.com/p/370812e0ced481eab9a0f00fe6b1bc74)
-- [ReFolDec — Notion Spine Page](https://app.notion.com/p/37d812e0ced4812ca4e1edc7c77d0922)
 - [OverKill Hill](https://overkillhill.com)
 
 ---

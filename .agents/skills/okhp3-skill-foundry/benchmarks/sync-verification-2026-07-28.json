@@ -88,7 +88,7 @@
       "validator_result": "Bundled validator passed before this self-excluded record was inserted."
     },
     {
-      "repository": "kierans-lifetrkr",
+      "repository": "example-application-repo",
       "package": ".agents/skills/okhp3-skill-foundry",
       "core_files_match": true,
       "observed_core_file_count": 17,

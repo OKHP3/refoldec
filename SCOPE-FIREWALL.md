@@ -121,6 +121,54 @@ OKHP³ Scope Firewall — Pre-Publish Checklist
 
 ---
 
+## Controlled release-tree review — 2026-09-01
+
+This dated record is the manual checklist result for the controlled release tree.
+It is authorized by the ReFolDec owner action recorded in
+[`docs/release/2026-08-31-controlled-readiness.md`](docs/release/2026-08-31-controlled-readiness.md)
+and the assigned release-clearance work. It authorizes review only; it does not
+authorize a push, publication, deployment, or external organ contact.
+
+The reviewed tree is the tracked Git tree after the privacy edits recorded in
+[`docs/release/2026-09-01-scope-firewall-clearance.md`](docs/release/2026-09-01-scope-firewall-clearance.md).
+Ignored workspace state (`.local/`, `.cache/`, `.upm/`, and Python caches) is
+not release content. Host/third-party skill packages remain excluded from the
+controlled release surface until their provenance and incomplete references are
+resolved.
+
+Checklist result:
+
+- [x] No employer or client organization names appear in the controlled release
+      tree. Owner and OKHP³ ecosystem names are not employer names.
+- [x] No employer-owned color values or palette assets appear in the controlled
+      release tree. The registry uses abstract tokens; owner-branded style
+      profiles remain outside the registry's semantic contract.
+- [x] No CSS color functions appear in shared registry or contract content.
+- [x] No employer-owned internal system names, project codes, or proprietary
+      platform identifiers remain in the controlled release tree.
+- [x] No client PII or commercially sensitive data was found. An unrelated
+      application name and personal name were removed from the checked-in skill
+      examples before this review.
+- [x] Enterprise-context provenance is generic and synthetic/representative
+      evidence is labelled as such.
+- [x] `scripts/validate-registry.mjs` passes for the abstract semantic registry.
+- [x] Locked names are used verbatim.
+- [x] The canonical disclaimer is present in `README.md`.
+- [x] Local links in the controlled release tree resolve. The three unresolved
+      relative references in the excluded Vercel host package are not release
+      links; they remain blocked with that package.
+- [x] Reviewed generated surfaces are intentional, source-derived outputs:
+      `.agents/skills/README.md`, `.agents/skills/.catalog-meta.json`, and the
+      two skill-library evidence files. Ignored caches and build output are
+      excluded.
+
+The clearance status is **controlled-release-tree-cleared-with-exclusions**.
+The full checkout is not blanket-cleared: excluded host/third-party packages,
+their incomplete references, and any future external destination content require
+separate owner review before inclusion.
+
+---
+
 ## Enforcement
 
 This firewall is enforced by convention, review, and the validation script for the semantic-class registry (`scripts/validate-registry.mjs`). The validator enforces the no-hex rule for the registry automatically. All other checks are human review items on the checklist above.

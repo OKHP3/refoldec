@@ -89,7 +89,7 @@ Each role's `classDefPattern` is the abstract body of a Mermaid `classDef` state
 **Example resolution** (done downstream by mermaid-theme-builder, not here):
 ```
 Registry:   fill:var(--token-primary),stroke:var(--token-primary-stroke),color:var(--token-on-primary)
-Resolved:   fill:#3b5bdb,stroke:#1e3a8a,color:#ffffff   ← organ's job, not the registry's
+Resolved:   fill:<bound-fill>,stroke:<bound-stroke>,color:<bound-foreground>   ← organ's job, not the registry's
 ```
 
 ---

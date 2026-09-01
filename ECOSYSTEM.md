@@ -164,6 +164,13 @@ record. A parity report must include `contract_version`, `fixture_schema_version
 `registry_version`, `firewall_version`, `supported_folds`, `deferred_folds`,
 `result`, and `checked_at` before an organ can be described as conforming.
 
+The controlled release-tree privacy and link review is recorded in
+[`docs/release/2026-09-01-scope-firewall-clearance.md`](docs/release/2026-09-01-scope-firewall-clearance.md).
+The 2026-09-01 URL check confirmed reachability for the listed GitHub and
+OverKill Hill destinations only; it did not establish ownership, organ
+conformance, Repl authorization, or destination-content privacy. Placeholder
+labels therefore remain authoritative.
+
 ---
 
 ## Codec runtime status

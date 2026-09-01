@@ -1,6 +1,6 @@
 ---
 name: okhp3-vite-github-pages
-description: "OverKill Hill P³ Vite-to-GitHub-Pages deployment runbook. Use when deploying or troubleshooting this React/Vite app, its Actions workflow, /kierans-lifetrkr/ production base, HashRouter fallback, dist artifacts, build validation, or Pages environment variables. Also activate for subpath asset failures or SPA refresh diagnosis. Do not use for gh-pages branches, backend hosting, or unrelated UI work."
+description: "OverKill Hill P³ Vite-to-GitHub-Pages deployment runbook. Use when deploying or troubleshooting a React/Vite app, its Actions workflow, an application-specific production base, HashRouter fallback, dist artifacts, build validation, or Pages environment variables. Also activate for subpath asset failures or SPA refresh diagnosis. Do not use for gh-pages branches, backend hosting, or unrelated UI work."
 license: MIT
 metadata:
   author: Jamie Hill (OverKill Hill P³)
@@ -17,7 +17,7 @@ metadata:
 
 **OverKill Hill P³** · [overkillhill.com](https://overkillhill.com) · [github.com/OKHP3](https://github.com/OKHP3)
 
-Use this focused runbook to keep Kieran’s LifeTrkr compatible with its client-only Vite build and GitHub Pages Actions deployment. Verify the repository before relying on any remembered version or workflow detail.
+Use this focused runbook to keep a client-only Vite build compatible with GitHub Pages Actions deployment. Verify the repository before relying on any remembered version or workflow detail.
 
 ## Scope
 
@@ -29,7 +29,7 @@ Use this focused runbook to keep Kieran’s LifeTrkr compatible with its client-
 
 Treat these current facts as constraints, then re-read the files if the task may have changed them:
 
-- `vite.config.ts` sets `base` to `/kierans-lifetrkr/` when `NODE_ENV === 'production'` and `/` otherwise. The dev server listens on `0.0.0.0:5000`.
+- `vite.config.ts` sets the application-specific production `base` path and `/` otherwise. The dev server listens on `0.0.0.0:5000`.
 - `src/App.tsx` uses `HashRouter`; preserve it for the GitHub Pages subpath.
 - `.github/workflows/static.yml` runs on pushes to `main` or manual dispatch, uses Pages permissions and concurrency, installs with `npm ci`, builds with `npm run build`, passes `VITE_GOOGLE_CLIENT_ID`, copies `dist/index.html` to `dist/404.html`, uploads `dist`, and deploys with the Pages actions.
 - The workflow normalizes Replit-internal package URLs to `https://registry.npmjs.org/` before installation. Preserve this portability step unless the owner changes the dependency source.
@@ -47,11 +47,11 @@ Confirm the intended repository name, Pages base, router, build script, artifact
 
 ### 3. Execute safely
 
-Make the smallest compatible edit. Keep the production base exactly `/kierans-lifetrkr/`, local development at `/`, `HashRouter`, npm, and Actions-based Pages deployment. Never place OAuth/API secrets in source, workflow text, or skill output; reference GitHub secrets by name only. Do not create a `gh-pages` branch or add a server workaround for an SPA that already uses hash routing.
+Make the smallest compatible edit. Keep the repository’s declared production base, local development at `/`, `HashRouter`, npm, and Actions-based Pages deployment. Never place OAuth/API secrets in source, workflow text, or skill output; reference GitHub secrets by name only. Do not create a `gh-pages` branch or add a server workaround for an SPA that already uses hash routing.
 
 ### 4. Validate
 
-Run `npm run check`, then `npm run build` for build-affecting changes. Inspect the generated `dist/index.html` for `/kierans-lifetrkr/` asset URLs and confirm the workflow creates `dist/404.html` after the build. If dependencies are unavailable and `npm ci` fails before installation with missing `@emnapi/core` or `@emnapi/runtime`, report that lockfile blocker without silently repairing unrelated dependency metadata. For workflow-only edits, inspect YAML structure and still run the narrowest available checks.
+Run `npm run check`, then `npm run build` for build-affecting changes. Inspect the generated `dist/index.html` for the repository’s declared production base asset URLs and confirm the workflow creates `dist/404.html` after the build. If dependencies are unavailable and `npm ci` fails before installation with missing `@emnapi/core` or `@emnapi/runtime`, report that lockfile blocker without silently repairing unrelated dependency metadata. For workflow-only edits, inspect YAML structure and still run the narrowest available checks.
 
 ### 5. Report
 

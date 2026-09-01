@@ -12,8 +12,9 @@
 ReFolDec is approved for controlled public use as a specification/head-canon
 repository and as a source of bounded, public-safe analytical proof. This is
 not approval of an implemented codec, general losslessness, ecosystem-wide
-conformance, skill portability, production readiness, or repository-wide
-publication clearance.
+conformance, skill portability, production readiness, or blanket clearance of
+the full working checkout. A controlled release-tree clearance with explicit
+exclusions is recorded separately.
 
 ## Approved
 
@@ -50,7 +51,7 @@ publication clearance.
 - Skill task-quality, uplift, portability, adversarial-client, or production
   claims.
 - External organ conformance, current organ status, and URL verification.
-- Repository-wide publication/privacy clearance from the scope firewall.
+- Blanket publication/privacy clearance for the full working checkout.
 - Direct `Diagram ↔ Agent-Executable` folds, which remain contract-deferred.
 
 ## Rejected for this release
@@ -73,7 +74,7 @@ publication clearance.
 | Cross-representation proof | One synthetic source is represented in four forms with manually reviewed invariant comparisons, hashes, and inverse artifacts. | Analytical proof of one bounded fixture; not general or production proof. |
 | Skill library | 40 packages inventoried; 36 project-owned evaluation designs are ready; current task-quality evidence is `not-run`; one historical benchmark is retained. | Structural maturity only; no uplift, portability, or production claim. |
 | Provenance/case study | The case study is explicitly representative; the proof package carries synthetic source provenance and a public-safe boundary. | Case study remains explanatory; proof is the only bounded demonstration. |
-| Scope firewall | Policy and registry-specific automation are present. Whole-tree firewall clearance and external-link verification were not run. | Policy may guide contributions; it is not a publication clearance. |
+| Scope firewall | Owner-authorized tracked-tree scan, manual checklist, local-link review, and selected external reachability checks completed for a controlled release tree; host/third-party packages and unresolved destination-content authorization remain excluded. | Controlled release-tree clearance is recorded with exclusions; this is not blanket clearance of the full checkout. |
 | Organ pointers | All four downstream organ links are marked placeholders; no owner-authorized parity reports are available. | Ecosystem claims remain deferred. |
 
 ## Strongest surviving objection
@@ -93,7 +94,7 @@ runtime, portability, or ecosystem evidence.
 | Confirm each downstream organ pointer and provide a parity result. | Each organ owner / ReFolDec owner | Owner-authorized repository/Repl confirmation plus the required parity fields in `ECOSYSTEM.md`. | Keep placeholders and ecosystem conformance deferred. |
 | Establish a second unseen proof fixture before generalizing the proof claim. | Future fold-claims implementation owner | Repeat the invariant comparison with source, intermediates, inverse artifacts, and hashes. | Keep proof labelled single-fixture. |
 | Run current-version skill evaluations with an unseen holdout. | Process Skills and equilibrium-review maintainers | Matched isolated runs, separated or blinded grading, and a protected holdout. | Keep skill evidence structural/analytical and task-quality `not-run`. |
-| Perform a release-tree firewall review before any broad publication claim. | ReFolDec owner | Owner-authorized whole-tree scan plus manual checklist and link review. | No repository-wide publication clearance. |
+| Preserve the controlled release boundary and repeat the firewall review after any scope, link, provenance, or generated-surface change. | ReFolDec owner | Dated checklist and scope record in `docs/release/2026-09-01-scope-firewall-clearance.md`. | Keep broad publication claims blocked. |
 
 No external publication, push, deployment, organ contact, or runtime
 implementation is authorized by this decision.

@@ -80,7 +80,7 @@ generation. Neither safety flag changes the discovered skill set.
 
 | Repository shape | Recommended command | Reason |
 |---|---|---|
-| LifeTrkr or another application repo | catalog, `--mode project` | Skills live directly under `.agents/skills/` |
+| An application repo | catalog, `--mode project` | Skills live directly under `.agents/skills/` |
 | Categorized project skills | catalog, `--mode library` | Category folders are intentional |
 | Distribution library | `--full` | Root families are the installable surface |
 
