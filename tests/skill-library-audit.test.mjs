@@ -1,5 +1,12 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import {
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { test } from 'node:test';
 
 const report = JSON.parse(readFileSync('docs/evidence/skill-library-inventory.json', 'utf8'));
@@ -65,4 +72,61 @@ test('inventory and evaluation view agree on release design counts', () => {
     report.summary.legacyCaseCount,
     evaluationView.summary.invalid_case_packages
   );
+});
+
+test('evaluation evidence generation is byte-identical across reruns', () => {
+  const temporaryDirectory = mkdtempSync(join(tmpdir(), 'skill-library-evaluation-'));
+  const firstJson = join(temporaryDirectory, 'first.json');
+  const firstMarkdown = join(temporaryDirectory, 'first.md');
+  const secondJson = join(temporaryDirectory, 'second.json');
+  const secondMarkdown = join(temporaryDirectory, 'second.md');
+
+  try {
+    const generate = (jsonOutput, markdownOutput, generatedAt) => {
+      const args = [
+        'scripts/generate-skill-library-evaluation-view.py',
+        '--skills-dir',
+        '.agents/skills',
+        '--json-output',
+        jsonOutput,
+        '--markdown-output',
+        markdownOutput,
+      ];
+      if (generatedAt) {
+        args.push('--generated-at', generatedAt);
+      }
+      execFileSync('python3', args, { stdio: 'pipe' });
+    };
+
+    generate(firstJson, firstMarkdown);
+    generate(secondJson, secondMarkdown);
+
+    assert.deepEqual(
+      readFileSync(secondJson),
+      readFileSync(firstJson),
+      'unchanged inputs must produce byte-identical JSON'
+    );
+    assert.deepEqual(
+      readFileSync(secondMarkdown),
+      readFileSync(firstMarkdown),
+      'unchanged inputs must produce byte-identical Markdown'
+    );
+
+    const generatedJson = JSON.parse(readFileSync(firstJson, 'utf8'));
+    const generatedMarkdown = readFileSync(firstMarkdown, 'utf8');
+    assert.equal('generated_at' in generatedJson, false);
+    assert.doesNotMatch(generatedMarkdown, /^\*\*Generated:\*\*/m);
+
+    generate(secondJson, secondMarkdown, '2026-09-01T00:00:00Z');
+    assert.equal(
+      JSON.parse(readFileSync(secondJson, 'utf8')).generated_at,
+      '2026-09-01T00:00:00Z'
+    );
+    assert.match(
+      readFileSync(secondMarkdown, 'utf8'),
+      /^\*\*Generated:\*\* 2026-09-01T00:00:00Z$/m
+    );
+  } finally {
+    rmSync(temporaryDirectory, { recursive: true, force: true });
+  }
 });
