@@ -18,6 +18,8 @@ from typing import Any
 
 
 EVIDENCE_STATUSES = {"live", "analytical", "historical", "not-run"}
+EVALUATION_PARTITIONS = {"development", "holdout"}
+EVALUATION_COVERAGE_CLASSES = {"normal", "edge", "boundary"}
 REFERENCE_PATTERN = re.compile(r"`((?:references|assets|scripts)/[^`\s]+)[^`]*`")
 SEMVER_PATTERN = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 
@@ -64,52 +66,67 @@ def evaluation_record(skill_dir: Path, version: str) -> dict[str, Any]:
     if not isinstance(cases, list):
         cases = []
 
+    required_coverage = evals.get("coverage_required", ["normal", "edge", "boundary"]) if evals else []
+    if not isinstance(required_coverage, list):
+        required_coverage = []
     partitions = sorted(
         {case.get("partition", "unpartitioned") for case in cases if isinstance(case, dict)}
     )
+
     def case_is_shaped(case: Any) -> bool:
-        if not isinstance(case, dict) or not case.get("id") or not case.get("prompt"):
-            return False
-        expectations = case.get("expectations")
-        if isinstance(expectations, list) and len(expectations) >= 3:
-            return True
-        assertions = case.get("assertions")
-        return isinstance(assertions, list) and len(assertions) >= 3
+        return (
+            isinstance(case, dict)
+            and bool(case.get("id"))
+            and bool(case.get("partition"))
+            and bool(case.get("risk"))
+            and bool(case.get("prompt"))
+            and case.get("partition") in EVALUATION_PARTITIONS
+            and case.get("coverage_class") in EVALUATION_COVERAGE_CLASSES
+            and isinstance(case.get("expectations"), list)
+            and len(case["expectations"]) >= 3
+        )
 
     case_shape_complete = bool(cases) and all(case_is_shaped(case) for case in cases)
-    case_text = [
-        json.dumps(case, ensure_ascii=False).lower()
+    legacy_case_count = sum(
+        1
         for case in cases
-        if isinstance(case, dict)
-    ]
-
-    def has_term(pattern: str) -> bool:
-        return any(re.search(pattern, text, re.I) for text in case_text)
-
-    has_normal = any(
-        re.search(
-            r"normal|happy|baseline|capture|build|portable|export|review|catalog|reconcile|target|profile|go|standard",
-            text,
-            re.I,
-        )
-        for text in case_text
+        if not isinstance(case, dict)
+        or not case.get("id")
+        or not case.get("partition")
+        or not case.get("risk")
+        or not case.get("prompt")
+        or not isinstance(case.get("expectations"), list)
+        or len(case.get("expectations", [])) < 3
     )
-    has_edge = any(
-        re.search(
-            r"edge|missing|partial|disagreement|semantic|conflict|historical|ambiguous|hold|stale|diverg|wrong|unresolved|incomplete|fallback",
-            text,
-            re.I,
-        )
-        for text in case_text
+    invalid_case_count = sum(
+        1
+        for case in cases
+        if not isinstance(case, dict)
+        or case.get("partition") not in EVALUATION_PARTITIONS
+        or case.get("coverage_class") not in EVALUATION_COVERAGE_CLASSES
     )
-    has_boundary = any(
-        re.search(
-            r"unsafe|safety|boundary|out.of.scope|adversarial|unauthorized|untrusted|repair|privacy|external-action|public-safety|install-request|delete|publish|secret|force-push|not_a_custom_gpt|blocked",
-            text,
-            re.I,
-        )
-        for text in case_text
+    duplicate_id_count = len(cases) - len(
+        {case.get("id") for case in cases if isinstance(case, dict)}
     )
+    coverage_counts = {
+        coverage_class: sum(
+            1
+            for case in cases
+            if isinstance(case, dict)
+            and case.get("partition") == "development"
+            and case.get("coverage_class") == coverage_class
+        )
+        for coverage_class in sorted(EVALUATION_COVERAGE_CLASSES)
+    }
+    coverage = {
+        coverage_class: {
+            "required": coverage_class in required_coverage,
+            "development_case_count": coverage_counts[coverage_class],
+            "covered": coverage_class in required_coverage
+            and coverage_counts[coverage_class] > 0,
+        }
+        for coverage_class in sorted(EVALUATION_COVERAGE_CLASSES)
+    }
 
     benchmark_meta = benchmark.get("metadata", {}) if benchmark else {}
     benchmark_status = benchmark_meta.get("evaluation_status")
@@ -127,6 +144,34 @@ def evaluation_record(skill_dir: Path, version: str) -> dict[str, Any]:
     holdout = evals.get("release_holdout") if evals else None
     if not isinstance(holdout, dict):
         holdout = None
+    holdout_metadata = holdout or {}
+    public_cases_exposed = holdout_metadata.get("public_cases_exposed") is True
+    protected_holdout_status = (
+        holdout_metadata.get("status")
+        if holdout_metadata.get("status") in {"external-required", "protected"}
+        else "not-declared"
+    )
+    holdout_metadata_valid = bool(
+        holdout
+        and holdout.get("status") == "external-required"
+        and holdout.get("holdout_seen") is True
+        and public_cases_exposed
+        and holdout.get("protected_case_location") == "external"
+        and holdout.get("reason")
+    )
+    coverage_ready = all(
+        item["covered"] for item in coverage.values() if item["required"]
+    )
+    partition_status = (
+        "explicit"
+        if cases
+        and all(
+            isinstance(case, dict)
+            and case.get("partition") in EVALUATION_PARTITIONS
+            for case in cases
+        )
+        else ("missing" if not cases else "invalid")
+    )
 
     return {
         "design_file": eval_path.exists(),
@@ -143,20 +188,28 @@ def evaluation_record(skill_dir: Path, version: str) -> dict[str, Any]:
             or (evals.get("skill_version") or evals.get("version")) == version
         ),
         "case_count": len(cases),
+        "legacy_case_count": legacy_case_count,
+        "invalid_case_count": invalid_case_count,
+        "duplicate_id_count": duplicate_id_count,
         "partitions": partitions,
         "case_shape": "complete" if case_shape_complete else ("partial" if cases else "missing"),
-        "partition_status": (
-            "explicit"
-            if cases and all(isinstance(case, dict) and case.get("partition") for case in cases)
-            else ("missing" if not cases else "legacy-unpartitioned")
-        ),
+        "partition_status": partition_status,
+        "coverage_required": required_coverage,
         "coverage": {
-            "normal": has_normal,
-            "edge": has_edge,
-            "unsafe_or_out_of_scope": has_boundary,
+            "normal": coverage["normal"]["covered"],
+            "edge": coverage["edge"]["covered"],
+            "boundary": coverage["boundary"]["covered"],
+            "unsafe_or_out_of_scope": coverage["boundary"]["covered"],
+            "classes": coverage,
             "status": (
                 "ready"
-                if case_shape_complete and has_normal and has_edge and has_boundary
+                if case_shape_complete
+                and not legacy_case_count
+                and not invalid_case_count
+                and not duplicate_id_count
+                and partition_status == "explicit"
+                and coverage_ready
+                and holdout_metadata_valid
                 else "incomplete"
             ),
         },
@@ -168,8 +221,13 @@ def evaluation_record(skill_dir: Path, version: str) -> dict[str, Any]:
         or {
             "status": "not-declared",
             "holdout_seen": None,
+            "public_cases_exposed": False,
+            "protected_case_location": None,
             "reason": "No release holdout record is present.",
         },
+        "public_cases_exposed": public_cases_exposed,
+        "protected_holdout_status": protected_holdout_status,
+        "holdout_metadata_valid": holdout_metadata_valid,
     }
 
 
@@ -285,6 +343,24 @@ def build_view(skills_dir: Path) -> dict[str, Any]:
         for p in project_packages
         if p["evaluation"]["release_holdout"].get("status") == "not-declared"
     ]
+    invalid_cases = [
+        p["name"]
+        for p in project_packages
+        if p["evaluation"]["invalid_case_count"]
+        or p["evaluation"]["legacy_case_count"]
+        or p["evaluation"]["duplicate_id_count"]
+    ]
+    public_exposed = [
+        p["name"] for p in project_packages if p["evaluation"]["public_cases_exposed"]
+    ]
+    protected_holdouts = [
+        p["name"]
+        for p in project_packages
+        if p["evaluation"]["protected_holdout_status"] == "protected"
+    ]
+    invalid_holdout_metadata = [
+        p["name"] for p in project_packages if not p["evaluation"]["holdout_metadata_valid"]
+    ]
     return {
         "schema_version": "1.0",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -308,10 +384,14 @@ def build_view(skills_dir: Path) -> dict[str, Any]:
             "task_quality": "No task-quality or uplift claim without matched current-version runs, separated grading, and an unseen holdout.",
         },
         "summary": {
-        "evaluation_design_ready": len(eval_ready),
+            "evaluation_design_ready": len(eval_ready),
             "evaluation_design_incomplete": len(incomplete),
             "legacy_partition_packages": len(legacy_partitions),
             "holdout_not_declared_packages": len(undeclared_holdouts),
+            "invalid_case_packages": len(invalid_cases),
+            "public_holdout_exposed_packages": len(public_exposed),
+            "protected_holdout_packages": len(protected_holdouts),
+            "invalid_holdout_metadata_packages": len(invalid_holdout_metadata),
             "packages_with_missing_references": len(missing_refs),
             "historical_benchmark_packages": len(historical),
             "task_quality_status": "not-run",
@@ -367,7 +447,9 @@ production-ready by association.
 | Package discovery | PASS ({scope["cataloged_package_count"]}) | Direct `SKILL.md` packages were inventoried. |
 | Portable-core frontmatter | PASS / documented exceptions | Project-owned packages have semver/name/footer checks; host or third-party packages remain labeled exceptions. |
 | Referenced resources | {"PASS" if summary["packages_with_missing_references"] == 0 else "BLOCKED"} | {summary["packages_with_missing_references"]} package(s) have unresolved backtick-delimited local references. |
-| Evaluation design coverage | {summary["evaluation_design_ready"]} ready / {summary["evaluation_design_incomplete"]} incomplete | All project-owned packages have the three-case design floor; {summary["legacy_partition_packages"]} retain legacy unpartitioned records. |
+| Evaluation design coverage | {summary["evaluation_design_ready"]} ready / {summary["evaluation_design_incomplete"]} incomplete | Explicit normal, edge, and boundary development coverage; {summary["legacy_partition_packages"]} legacy/unpartitioned packages and {summary["invalid_case_packages"]} invalid-case packages. |
+| Public design exposure | {summary["public_holdout_exposed_packages"]} packages | Checked-in development cases are public and cannot serve as an unseen release holdout. |
+| Protected release holdout | {summary["protected_holdout_packages"]} packages | A protected holdout remains external-required/not-run; no package claims protected evidence. |
 | Trigger quality | ANALYTICAL | Description and trigger-boundary inspection only; client recall/precision is not-run. |
 | Portability and safety | ANALYTICAL | Static package and boundary review only; no separated client/adversarial executor. |
 | Output-contract performance | NOT RUN | No matched current-version task-quality runs. |
@@ -389,11 +471,9 @@ production-ready by association.
 
 ## Remaining release gates
 
-1. Normalize the {summary["legacy_partition_packages"]} legacy-unpartitioned designs if a consumer requires explicit per-case development partitions.
-2. Declare external holdout records for the {summary["holdout_not_declared_packages"]} project-owned packages that have no holdout metadata; public cases cannot be declared protected.
-3. Run current-version with/without-skill tasks in an isolated executor with separate or blinded grading.
-4. Keep the Foundry 1.0.0 benchmark historical; it does not validate the current 3.1.0 package.
-5. Re-run this view and the catalog after any package, resource, or evaluation-version change.
+1. Run current-version with/without-skill tasks in an isolated executor with separate or blinded grading and keep the holdout outside the optimizing context.
+2. Keep the Foundry 1.0.0 benchmark historical; it does not validate the current 3.1.0 package.
+3. Re-run this view and the catalog after any package, resource, or evaluation-version change.
 """
 
 

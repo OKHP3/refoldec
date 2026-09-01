@@ -78,10 +78,46 @@ function inspectSkill(directory) {
 
   const cases = Array.isArray(evals?.evals) ? evals.evals : [];
   const partitions = [...new Set(cases.map(item => item.partition || 'unpartitioned'))].sort();
+  const requiredCoverage = Array.isArray(evals?.coverage_required)
+    ? evals.coverage_required
+    : ['normal', 'edge', 'boundary'];
+  const validPartitions = new Set(['development', 'holdout']);
+  const validCoverage = new Set(['normal', 'edge', 'boundary']);
+  const legacyCases = cases.filter(item =>
+    !item || !item.id || !item.partition || !item.risk || !item.prompt ||
+    !Array.isArray(item.expectations) || item.expectations.length < 3
+  );
+  const invalidCases = cases.filter(item =>
+    !item || !validPartitions.has(item.partition) ||
+    !validCoverage.has(item.coverage_class) ||
+    !Array.isArray(item.expectations) || item.expectations.length < 3
+  );
+  const duplicateIds = cases.length - new Set(cases.map(item => item?.id)).size;
+  const coverageCounts = Object.fromEntries(
+    [...validCoverage].map(coverageClass => [
+      coverageClass,
+      cases.filter(item => item?.partition === 'development' && item?.coverage_class === coverageClass).length,
+    ])
+  );
+  const holdout = evals?.release_holdout;
+  const publicCasesExposed = holdout?.public_cases_exposed === true;
+  const protectedHoldoutStatus = holdout?.status === 'protected'
+    ? 'protected'
+    : holdout?.status === 'external-required'
+      ? 'external-required'
+      : 'not-declared';
+  const holdoutMetadataValid = Boolean(
+    holdout &&
+    holdout.status === 'external-required' &&
+    holdout.holdout_seen === true &&
+    holdout.public_cases_exposed === true &&
+    holdout.protected_case_location === 'external' &&
+    holdout.reason
+  );
   const developmentCases = cases.filter(item => item.partition === 'development').length;
   const holdoutCases = cases.filter(item => item.partition === 'holdout').length;
   const completeCases = cases.filter(item =>
-    ['id', 'risk', 'prompt'].every(key => Boolean(item[key])) &&
+    ['id', 'partition', 'risk', 'prompt', 'coverage_class'].every(key => Boolean(item[key])) &&
     Array.isArray(item.expectations) &&
     item.expectations.length >= 3
   ).length;
@@ -89,10 +125,16 @@ function inspectSkill(directory) {
   let evaluationCoverage = 'no-evaluation-file';
   if (evalError) evaluationCoverage = 'invalid-evaluation-file';
   else if (evals) {
-    if (completeCases !== cases.length) evaluationCoverage = 'incomplete-cases';
-    else if (developmentCases > 0 && holdoutCases > 0) evaluationCoverage = 'development-and-holdout';
-    else if (developmentCases > 0) evaluationCoverage = 'development-only';
-    else evaluationCoverage = 'unpartitioned-cases';
+    const coverageReady = requiredCoverage.every(coverageClass =>
+      validCoverage.has(coverageClass) && coverageCounts[coverageClass] > 0
+    );
+    if (completeCases !== cases.length || legacyCases.length || invalidCases.length || duplicateIds) {
+      evaluationCoverage = 'incomplete-cases';
+    } else if (coverageReady && holdoutMetadataValid) {
+      evaluationCoverage = 'release-ready-design';
+    } else {
+      evaluationCoverage = 'coverage-incomplete';
+    }
   }
 
   const benchmarkStatus = benchmarkError
@@ -109,10 +151,18 @@ function inspectSkill(directory) {
       filePresent: Boolean(evals),
       caseCount: cases.length,
       completeCaseCount: completeCases,
+      legacyCaseCount: legacyCases.length,
+      invalidCaseCount: invalidCases.length,
+      duplicateIdCount: duplicateIds,
       partitions,
       developmentCaseCount: developmentCases,
       holdoutCaseCount: holdoutCases,
-      releaseHoldoutStatus: evals?.release_holdout?.status ?? null,
+      coverageRequired: requiredCoverage,
+      coverageCounts,
+      publicCasesExposed,
+      protectedHoldoutStatus,
+      releaseHoldoutStatus: holdout?.status ?? null,
+      holdoutMetadataValid,
       coverage: evaluationCoverage,
     },
     benchmarkStatus,
@@ -142,12 +192,22 @@ const summary = {
   developmentAndHoldoutPartitionCount: count(skill =>
     skill.evaluation.developmentCaseCount > 0 && skill.evaluation.holdoutCaseCount > 0),
   completeDevelopmentAndHoldoutCount: count(skill =>
-    skill.evaluation.coverage === 'development-and-holdout'),
-  developmentOnlyCount: count(skill => skill.evaluation.coverage === 'development-only'),
+    skill.evaluation.coverage === 'release-ready-design'),
+  developmentOnlyCount: count(skill => skill.evaluation.coverage === 'coverage-incomplete'),
   unpartitionedEvaluationCount: count(skill =>
     skill.evaluation.partitions.includes('unpartitioned')),
   invalidEvaluationCount: count(skill => skill.evaluation.coverage === 'invalid-evaluation-file'),
   incompleteEvaluationCount: count(skill => skill.evaluation.coverage === 'incomplete-cases'),
+  legacyCaseCount: skills.reduce((total, skill) => total + skill.evaluation.legacyCaseCount, 0),
+  invalidCaseCount: skills.reduce((total, skill) => total + skill.evaluation.invalidCaseCount, 0),
+  duplicateEvaluationIdPackageCount: count(skill => skill.evaluation.duplicateIdCount > 0),
+  releaseReadyDesignCount: count(skill =>
+    skill.evaluation.coverage === 'release-ready-design'),
+  publicCasesExposedPackageCount: count(skill => skill.evaluation.publicCasesExposed),
+  protectedHoldoutPackageCount: count(skill =>
+    skill.evaluation.protectedHoldoutStatus === 'protected'),
+  holdoutMetadataInvalidPackageCount: count(skill =>
+    skill.evaluation.filePresent && !skill.evaluation.holdoutMetadataValid),
   minimumShapePackageCount: count(skill =>
     skill.evaluation.filePresent &&
     skill.evaluation.completeCaseCount === skill.evaluation.caseCount),

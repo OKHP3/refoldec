@@ -8,13 +8,20 @@
     "versionedPackageCount": 40,
     "evaluationFileCount": 36,
     "noEvaluationFileCount": 4,
-    "developmentAndHoldoutPartitionCount": 9,
-    "completeDevelopmentAndHoldoutCount": 9,
-    "developmentOnlyCount": 16,
-    "unpartitionedEvaluationCount": 11,
+    "developmentAndHoldoutPartitionCount": 0,
+    "completeDevelopmentAndHoldoutCount": 36,
+    "developmentOnlyCount": 0,
+    "unpartitionedEvaluationCount": 0,
     "invalidEvaluationCount": 0,
-    "incompleteEvaluationCount": 11,
-    "minimumShapePackageCount": 25,
+    "incompleteEvaluationCount": 0,
+    "legacyCaseCount": 0,
+    "invalidCaseCount": 0,
+    "duplicateEvaluationIdPackageCount": 0,
+    "releaseReadyDesignCount": 36,
+    "publicCasesExposedPackageCount": 36,
+    "protectedHoldoutPackageCount": 0,
+    "holdoutMetadataInvalidPackageCount": 0,
+    "minimumShapePackageCount": 36,
     "packageLocalTestCount": 11,
     "benchmarkStatusCounts": {
       "historical": 1,
@@ -31,10 +38,26 @@
         "filePresent": false,
         "caseCount": 0,
         "completeCaseCount": 0,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
         "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
         "coverage": "no-evaluation-file"
       },
       "benchmarkStatus": "not-run",
@@ -53,10 +76,26 @@
         "filePresent": false,
         "caseCount": 0,
         "completeCaseCount": 0,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
         "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
         "coverage": "no-evaluation-file"
       },
       "benchmarkStatus": "not-run",
@@ -75,14 +114,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -100,13 +154,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -123,15 +193,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 4,
-        "completeCaseCount": 0,
+        "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 1,
+        "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 2,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -149,14 +234,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -173,15 +273,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 4,
-        "completeCaseCount": 0,
+        "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 1,
+        "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -198,14 +313,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 16,
-        "completeCaseCount": 0,
+        "completeCaseCount": 16,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 16,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 7,
+          "edge": 5,
+          "boundary": 4
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -222,14 +353,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 3,
-        "completeCaseCount": 0,
+        "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -247,13 +394,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -271,13 +434,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -295,13 +474,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -319,14 +514,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -344,13 +554,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -367,14 +593,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 3,
-        "completeCaseCount": 0,
+        "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -392,14 +634,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -417,13 +674,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -441,13 +714,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -465,13 +754,29 @@
         "filePresent": true,
         "caseCount": 4,
         "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -489,13 +794,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -513,13 +834,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -537,13 +874,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -561,13 +914,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -585,14 +954,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -610,13 +994,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -634,13 +1034,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -657,15 +1073,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 4,
-        "completeCaseCount": 0,
+        "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 1,
+        "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 2,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -683,14 +1114,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -707,15 +1153,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 5,
-        "completeCaseCount": 0,
+        "completeCaseCount": 5,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 2,
+        "developmentCaseCount": 5,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 2,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -733,14 +1194,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -758,13 +1234,29 @@
         "filePresent": true,
         "caseCount": 4,
         "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 2
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "historical",
       "resourceCounts": {
@@ -782,13 +1274,29 @@
         "filePresent": true,
         "caseCount": 4,
         "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
           "development"
         ],
         "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-only"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -806,14 +1314,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -830,14 +1353,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 3,
-        "completeCaseCount": 0,
+        "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -854,14 +1393,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 3,
-        "completeCaseCount": 0,
+        "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 0,
+        "developmentCaseCount": 3,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -878,15 +1433,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 4,
-        "completeCaseCount": 0,
+        "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 1,
+        "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -904,14 +1474,29 @@
         "filePresent": true,
         "caseCount": 3,
         "completeCaseCount": 3,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "holdout"
+          "development"
         ],
-        "developmentCaseCount": 2,
-        "holdoutCaseCount": 1,
+        "developmentCaseCount": 3,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 1,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "development-and-holdout"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -928,15 +1513,30 @@
       "evaluation": {
         "filePresent": true,
         "caseCount": 4,
-        "completeCaseCount": 0,
+        "completeCaseCount": 4,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [
-          "development",
-          "unpartitioned"
+          "development"
         ],
-        "developmentCaseCount": 1,
+        "developmentCaseCount": 4,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 1,
+          "edge": 2,
+          "boundary": 1
+        },
+        "publicCasesExposed": true,
+        "protectedHoldoutStatus": "external-required",
         "releaseHoldoutStatus": "external-required",
-        "coverage": "incomplete-cases"
+        "holdoutMetadataValid": true,
+        "coverage": "release-ready-design"
       },
       "benchmarkStatus": "not-run",
       "resourceCounts": {
@@ -954,10 +1554,26 @@
         "filePresent": false,
         "caseCount": 0,
         "completeCaseCount": 0,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
         "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
         "coverage": "no-evaluation-file"
       },
       "benchmarkStatus": "not-run",
@@ -976,10 +1592,26 @@
         "filePresent": false,
         "caseCount": 0,
         "completeCaseCount": 0,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
         "partitions": [],
         "developmentCaseCount": 0,
         "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
         "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
         "coverage": "no-evaluation-file"
       },
       "benchmarkStatus": "not-run",

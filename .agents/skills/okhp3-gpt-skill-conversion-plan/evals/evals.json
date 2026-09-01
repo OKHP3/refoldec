@@ -3,14 +3,21 @@
   "skill_name": "okhp3-gpt-skill-conversion-plan",
   "skill_version": "1.2.0",
   "status": "not-run",
+  "coverage_required": ["normal", "edge", "boundary"],
   "release_holdout": {
     "status": "external-required",
     "holdout_seen": true,
+    "public_cases_exposed": true,
+    "protected_case_location": "external",
     "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
   },
   "evals": [
     {
       "id": "portable-method",
+      "name": "convert-a-portable-method",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "normal",
       "prompt": "This GPT reviews ADRs using a rubric in its instructions, a public glossary PDF, three conversation starters, and a six-stage prompt chain. Plan its conversion to an Agent Skill.",
       "expectations": [
         "Maps the rubric and any useful chain stages to portable procedures with inputs, exit criteria, and recovery rather than copying UI language.",
@@ -21,6 +28,10 @@
     },
     {
       "id": "semantic-loss",
+      "name": "prevent-semantic-loss",
+      "partition": "development",
+      "risk": "critical",
+      "coverage_class": "edge",
       "prompt": "The GPT uses a private connector, hidden Builder instructions, conversation memory, and an OAuth Action. What transfers to a public skill and what does not?",
       "expectations": [
         "Separates portable method content from connector permissions, hidden UI behavior, memory, and OAuth credentials.",
@@ -31,6 +42,10 @@
     },
     {
       "id": "incomplete-source",
+      "name": "recover-an-incomplete-source",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "boundary",
       "prompt": "I only have a GPT name and a screenshot. Should we convert it into a skill now?",
       "expectations": [
         "Selects needs_source_artifacts or a comparable blocked disposition.",

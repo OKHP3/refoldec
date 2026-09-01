@@ -3,14 +3,21 @@
   "skill_name": "okhp3-custom-gpt-readiness",
   "skill_version": "1.2.0",
   "status": "not-run",
+  "coverage_required": ["normal", "edge", "boundary"],
   "release_holdout": {
     "status": "external-required",
     "holdout_seen": true,
+    "public_cases_exposed": true,
+    "protected_case_location": "external",
     "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
   },
   "evals": [
     {
       "id": "concept-with-gaps",
+      "name": "assess-a-concept-with-gaps",
+      "partition": "development",
+      "risk": "medium",
+      "coverage_class": "normal",
       "prompt": "I want a GPT that turns messy meeting notes into useful plans. I have only that sentence and no files yet. Tell me whether it is ready and what to ask next.",
       "expectations": [
         "Classifies the primary job or audience as missing or vague rather than inventing them.",
@@ -21,6 +28,10 @@
     },
     {
       "id": "partial-evidence",
+      "name": "assess-partial-evidence",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "edge",
       "prompt": "Here is a draft and a 12-step build chain: audience is internal project leads; output is a one-page plan; it may use an uploaded playbook; no tools; must not make commitments for people. Assess the evidence and prepare the builder handoff.",
       "expectations": [
         "Records supplied facts as evidence and does not ask again for audience, output, or tool policy.",
@@ -31,6 +42,10 @@
     },
     {
       "id": "wrong-construct",
+      "name": "route-a-wrong-construct",
+      "partition": "development",
+      "risk": "critical",
+      "coverage_class": "boundary",
       "prompt": "I need a background service with OAuth, a database, scheduled jobs, and a REST API. Can you assess this as a Custom GPT concept?",
       "expectations": [
         "Flags that the request is not primarily a Custom GPT and selects not_a_custom_gpt or an equivalent disposition.",

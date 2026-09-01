@@ -2,15 +2,21 @@
   "skill_name": "okhp3-thread-extract-chatgpt",
   "skill_version": "2.0.0",
   "status": "not-run",
+  "coverage_required": ["normal", "edge", "boundary"],
   "release_holdout": {
     "status": "external-required",
     "holdout_seen": true,
+    "public_cases_exposed": true,
+    "protected_case_location": "external",
     "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
   },
   "evals": [
     {
       "id": 1,
       "name": "chatgpt-controls-and-citations",
+      "partition": "development",
+      "risk": "medium",
+      "coverage_class": "normal",
       "prompt": "Extract this ChatGPT paste containing You and ChatGPT turns, Copy and Good response controls, inline citations, and a Sources drawer.",
       "expectations": [
         {
@@ -36,6 +42,9 @@
     {
       "id": 2,
       "name": "chatgpt-canvas-and-files",
+      "partition": "development",
+      "risk": "medium",
+      "coverage_class": "edge",
       "prompt": "The ChatGPT thread references an uploaded spreadsheet, a generated PNG, and a Canvas document exported as Markdown, but only the chat text and file names were pasted.",
       "expectations": [
         {
@@ -61,6 +70,9 @@
     {
       "id": 3,
       "name": "chatgpt-ambiguous-full-paste",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "boundary",
       "prompt": "Normalize a control-all ChatGPT paste with flattened formatting, a quoted user prompt inside an answer, and no visible role names.",
       "expectations": [
         {

@@ -3,15 +3,21 @@
   "skill_name": "okhp3-chatgpt-project-migration",
   "skill_version": "1.0.0",
   "status": "not-run",
+  "coverage_required": ["normal", "edge", "boundary"],
   "release_holdout": {
     "status": "external-required",
     "holdout_seen": true,
+    "public_cases_exposed": true,
+    "protected_case_location": "external",
     "reason": "The public design cases are visible to implementers; an unseen release holdout requires an external executor."
   },
   "evals": [
     {
       "id": 1,
       "name": "export-first-project-inventory",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "normal",
       "prompt": "I have access to a large ChatGPT project and want a defensible capture before we put anything in our repository. Give me the first-pass plan and the exact local record I should create.",
       "expectations": [
         {"id": 1, "text": "Response names `project_capture_manifest.json` as the inventory record."},
@@ -23,6 +29,9 @@
     {
       "id": 2,
       "name": "branch-complete-normalization",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "edge",
       "prompt": "Our export parser produces a clean single transcript by following current_node. What must change so we can claim to have preserved every turn and regenerated answer?",
       "expectations": [
         {"id": 1, "text": "Response says to retain every key in the conversation `mapping` object."},
@@ -34,6 +43,9 @@
     {
       "id": 3,
       "name": "unmatched-thread-and-public-boundary",
+      "partition": "development",
+      "risk": "high",
+      "coverage_class": "edge",
       "prompt": "A thread visible in the project UI has no export match, and the project may contain private material. Tell me what to do before we write a distilled repository document.",
       "expectations": [
         {"id": 1, "text": "Response assigns `no_match` and opens an exception rather than dropping the thread."},
@@ -45,6 +57,8 @@
     {
       "id": "edge-partial-export",
       "partition": "development",
+      "risk": "critical",
+      "coverage_class": "boundary",
       "prompt": "The export is missing a referenced node and the UI thread appears to contain a branch not represented in the flattened transcript.",
       "expectations": [
         {"id": 1, "text": "Reports the missing node and branch as an explicit exception."},
