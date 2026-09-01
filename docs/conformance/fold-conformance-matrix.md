@@ -38,6 +38,34 @@ The four concrete fixture forms are in
 diagram, code, narrative, and executable instruction without pretending to
 execute any of them.
 
+## Core-loop crosswalk
+
+The explanatory core loop surrounds, but does not expand, the four canonical
+forms in `FOLD-CONTRACT.md`. This crosswalk is the conformance interpretation
+for loop labels:
+
+| Loop label | Canonical mapping |
+|---|---|
+| `idea`, `text`, `structure` | Explanatory capture/structuring states; they are not fixture forms |
+| `diagram` | `Diagram` when rendered; diagram source remains `Code` |
+| `code` | `Code` |
+| `documentation` | `Documentation` |
+| `agent instruction` | `Agent-Executable` |
+| `reusable artifact` | Explanatory package/re-entry boundary; not a fifth form |
+
+The explanatory transitions `idea ⇄ text`, `text ⇄ structure`, packaging into
+`reusable artifact`, and loop re-entry do not claim legal codec folds. The
+structured narrative becomes `Documentation` before using the legal
+`Documentation ⇄ Diagram` rows. The remaining adjacent canonical transitions
+use the legal rows in this matrix. Direct `Diagram ⇄ Agent-Executable` remains
+deferred and must not be inferred from the explanatory loop.
+
+The synthetic access-request fixture is checked against this crosswalk by the
+dependency-free validator and Node test: its representations must be exactly
+`Diagram`, `Code`, `Documentation`, and `Agent-Executable`, and none of the
+explanatory labels may appear as a representation key. This checks the mapping
+without claiming that the fixture executes the loop.
+
 ## Legal fold matrix
 
 Each row is a separately testable directed operation. The inverse row is also

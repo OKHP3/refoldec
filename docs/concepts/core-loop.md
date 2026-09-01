@@ -62,6 +62,53 @@ At each stage, unfolding means:
 
 ---
 
+## Mapping the loop to the canonical forms
+
+The loop labels describe a process of capture and reuse; they are not a
+second representation vocabulary. The codec contract has exactly four
+canonical forms: `Diagram`, `Code`, `Documentation`, and `Agent-Executable`.
+The remaining loop labels are explanatory states or packaging boundaries.
+
+### Stage mapping
+
+| Loop stage | Contract status | Canonical form | Interpretation |
+|---|---|---|---|
+| `idea` | Explanatory state | — | Raw material entering capture; not a representation in the codec contract |
+| `text` | Explanatory state | — | Captured prose before it has the explicit context and invariants required of `Documentation` |
+| `structure` | Explanatory state | — | An intermediate structuring activity; it becomes `Documentation` only when its process narrative is contract-shaped |
+| `diagram` | Canonical | `Diagram` | The rendered, human-visible visual form |
+| `code` | Canonical | `Code` | The machine-readable source/notation, including Mermaid DSL |
+| `documentation` | Canonical | `Documentation` | The human-readable narrative with intent, context, and preserved invariants |
+| `agent instruction` | Canonical | `Agent-Executable` | Directly executable instructions with triggers, inputs/outputs, branches, and failure behavior |
+| `reusable artifact` | Explanatory boundary | — | A package containing one or more canonical forms and their metadata; it is not a fifth form |
+
+The loop's `diagram` label means the rendered visual. A diagram *notation*
+or source block belongs to `Code` until rendered. Likewise, a reusable
+artifact may package an `Agent-Executable`, but packaging does not create a
+new canonical representation.
+
+### Transition mapping
+
+Each loop transition is classified below so that an implementation does not
+mistake an explanatory bridge for an undeclared fold:
+
+| Loop transition | Mapping |
+|---|---|
+| `idea ⇄ text` | Explanatory capture/refinement; no contract fold |
+| `text ⇄ structure` | Explanatory structuring; no contract fold |
+| `structure ⇄ diagram` | Explanatory bridge. When the structured narrative is contract-shaped it is `Documentation`, so the legal folds are `Documentation ⇄ Diagram` (F09/F10), not `Structure ⇄ Diagram` |
+| `diagram ⇄ code` | Legal `Diagram ⇄ Code` folds (F03/F04) |
+| `code ⇄ documentation` | Legal `Code ⇄ Documentation` folds (F01/F02) |
+| `documentation ⇄ agent instruction` | Legal `Documentation ⇄ Agent-Executable` folds (F07/F08) |
+| `agent instruction ⇄ reusable artifact` | Explanatory packaging/versioning boundary; the packaged content remains `Agent-Executable` |
+| `reusable artifact ⇄ idea` | Explanatory loop re-entry; a new fold starts from captured material rather than a direct contract fold |
+
+The loop therefore does not authorize a direct `Diagram ⇄
+Agent-Executable` shortcut. Those directions remain deferred and must use the
+contracted `Code` intermediate, with `DEFERRED_FOLD` on an attempted shortcut.
+
+---
+
 ## Why the loop is recursive, not linear
 
 A linear pipeline has a start and an end. The ReFolDec loop has **neither**.
@@ -114,12 +161,11 @@ Each project in the OKHP³ Visual Language Stack operates at one or more specifi
 
 ## Contract boundary and evidence status
 
-The eight stages above are explanatory states in the broader capture loop, not
-additional canonical representations in the codec contract. The current
-contract recognizes exactly four forms: `Diagram`, `Code`, `Documentation`,
-and `Agent-Executable`. In particular, `idea`, `text`, `structure`, and
-`reusable artifact` remain descriptive entry/exit states until a future
-contract revision gives them canonical schemas and legal folds.
+The stage and transition mapping above is an editorial clarification of the
+existing contract boundary, not a contract revision. In particular, `idea`,
+`text`, `structure`, and `reusable artifact` remain descriptive entry/exit
+states until a future contract revision gives them canonical schemas and legal
+folds.
 
 The legal four-form directions, invariant projection, fixture, and failure
 cases are specified in

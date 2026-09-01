@@ -8,6 +8,16 @@ import assert from "node:assert/strict";
 
 const fixture = JSON.parse(fs.readFileSync("docs/conformance/fixture.json", "utf8"));
 const representationNames = ["Diagram", "Code", "Documentation", "Agent-Executable"];
+const loopStageMapping = {
+  idea: null,
+  text: null,
+  structure: null,
+  diagram: "Diagram",
+  code: "Code",
+  documentation: "Documentation",
+  "agent instruction": "Agent-Executable",
+  "reusable artifact": null,
+};
 const projectionKeys = ["nodes", "edges", "flows", "governance"];
 const governanceKeys = ["artifact_version", "owner", "status", "applicable_context"];
 
@@ -19,6 +29,20 @@ assert.equal(fixture.schema_version, "1.1");
 assert.equal(fixture.fixture_id, "synthetic-access-request");
 assert.deepEqual(Object.keys(fixture.representations), representationNames);
 assert.deepEqual(Object.keys(fixture.canonical_projection), projectionKeys);
+assert.deepEqual(
+  Object.values(loopStageMapping).filter(Boolean),
+  representationNames,
+  "core-loop mapping must resolve to the four canonical forms"
+);
+for (const stage of Object.entries(loopStageMapping)
+  .filter(([, form]) => form === null)
+  .map(([stage]) => stage)) {
+  assert.equal(
+    fixture.representations[stage],
+    undefined,
+    `explanatory loop stage must not be a fixture representation: ${stage}`
+  );
+}
 
 function validateProjection(projection, label) {
   assert.deepEqual(Object.keys(projection), projectionKeys, `${label}: projection keys`);

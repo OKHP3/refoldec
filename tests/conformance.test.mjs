@@ -21,6 +21,16 @@ const deferredFolds = [
   ["Diagram", "Agent-Executable"],
   ["Agent-Executable", "Diagram"],
 ];
+const loopStageMapping = {
+  idea: null,
+  text: null,
+  structure: null,
+  diagram: "Diagram",
+  code: "Code",
+  documentation: "Documentation",
+  "agent instruction": "Agent-Executable",
+  "reusable artifact": null,
+};
 
 const clone = (value) => structuredClone(value);
 const sortRecords = (records) =>
@@ -91,6 +101,25 @@ test("fixture declares exactly four concrete forms and the current contract", ()
   assert.equal(fixture.contract.id, "refoldec-fold-contract");
   assert.equal(fixture.contract.version, "1.0.0");
   assert.equal(fixture.schema_version, "1.1");
+});
+
+test("fixture covers only the canonical stages in the core-loop mapping", () => {
+  const mappedForms = Object.values(loopStageMapping).filter(Boolean);
+  const explanatoryStages = Object.entries(loopStageMapping)
+    .filter(([, form]) => form === null)
+    .map(([stage]) => stage);
+
+  assert.deepEqual(mappedForms, representations);
+  assert.deepEqual(
+    Object.keys(fixture.representations).filter((name) =>
+      explanatoryStages.includes(name)
+    ),
+    [],
+    "explanatory loop stages must not become fixture representations"
+  );
+  for (const form of mappedForms) {
+    assert.ok(fixture.representations[form], `fixture is missing mapped form ${form}`);
+  }
 });
 
 test("every form exposes the same five invariant classes", () => {

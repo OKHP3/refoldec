@@ -15,6 +15,34 @@ This is a representative example — not a record of one specific event. It desc
 
 ---
 
+## Stage and transition mapping
+
+This walkthrough uses the same explanatory loop as
+[`core-loop.md`](../concepts/core-loop.md). The stage names below do not add
+representations to the contract: only the four rows with a canonical form are
+codec forms. Capture, governance, packaging, and loop closure are explanatory
+boundaries around those forms.
+
+| Case-study stage | Canonical mapping |
+|---|---|
+| 1. Raw idea | Explanatory capture state |
+| 2. Process capture agent | Explanatory/historical capture mechanism; its narrative output is not itself a fifth form |
+| 3. Process narrative | `Documentation` once the narrative names the contract invariants |
+| 4. BPMN-for-Mermaid notation | `Code`; notation is machine-readable source, not the rendered `Diagram` |
+| 5. Rendered Mermaid diagram | `Diagram` |
+| 6. Theme Builder governance profile | Explanatory governance metadata applied to the `Diagram`; not a separate form |
+| 7. Markdown documentation | `Documentation` |
+| 8. `SKILL.md` execution package | `Agent-Executable` |
+| 9. Refolded artifact | Explanatory packaging/re-entry boundary containing canonical forms; not a fifth form |
+
+The transitions are similarly bounded: stages 1→3 and 8→9 are explanatory
+capture or packaging work; 3⇄4, 4⇄5, 5⇄7, and 7⇄8 use the legal canonical
+folds listed in the conformance matrix. Any direct
+`Diagram ⇄ Agent-Executable` move is still deferred and must pass through
+`Code`.
+
+---
+
 ## The scenario
 
 **Starting point:** Someone notices a repeated, error-prone process — the kind that happens often enough to be worth capturing, varied enough that people keep doing it differently, and consequential enough that consistency matters.
@@ -70,16 +98,17 @@ Frontmatter is applied: title, version, status, related artifacts. The process o
 
 ---
 
-### Stage 4 — BPMN for Mermaid notation (Visual plane — notation)
+### Stage 4 — BPMN for Mermaid source (Visual plane — notation)
 
 **Direction:** Fold ↓ continues  
 **ReFolDec plane:** Visual
+**Canonical form:** `Code`
 
-The structured narrative is translated into a BPMN-for-Mermaid diagram. Process steps become nodes. Decisions become gateways. Roles become swim lanes. Flows become directed edges. The process structure becomes navigable as a visual artifact.
+The structured narrative is translated into BPMN-for-Mermaid source. Process steps become nodes. Decisions become gateways. Roles become swim lanes. Flows become directed edges. The machine-readable process structure is now addressable as `Code`; it is not yet the rendered `Diagram`.
 
-BPMN for Mermaid handles the notation layer — the *structure* of the diagram: which elements exist, how they connect, what they represent. The diagram is written in a Markdown-native DSL that can live inside any Markdown document without leaving the plain-text ecosystem.
+BPMN for Mermaid handles the notation layer — the *structure* of the diagram: which elements exist, how they connect, what they represent. The source is written in a Markdown-native DSL that can live inside any Markdown document without leaving the plain-text ecosystem.
 
-**Output:** A BPMN-for-Mermaid diagram block embedded in a Markdown document.
+**Output:** A BPMN-for-Mermaid source block embedded in a Markdown document.
 
 ---
 
@@ -87,6 +116,7 @@ BPMN for Mermaid handles the notation layer — the *structure* of the diagram: 
 
 **Direction:** Fold ↓ continues  
 **ReFolDec plane:** Visual
+**Canonical form:** `Diagram`
 
 The diagram block is rendered. The Mermaid renderer interprets the notation and produces a visual graph. This is the human-navigable form of the process — the version that can be reviewed in a pull request, embedded in a doc, or included in a presentation without explaining code syntax.
 
@@ -98,6 +128,7 @@ The diagram block is rendered. The Mermaid renderer interprets the notation and 
 
 **Direction:** Fold ↓ continues  
 **ReFolDec plane:** Visual
+**Canonical mapping:** Governance metadata applied to the `Diagram`; not a separate canonical form
 
 A visual governance profile is applied. Mermaid Theme Builder defines:
 - A renderer profile: which Mermaid renderer settings govern this diagram context
@@ -128,12 +159,13 @@ This is the mature, durable, human-readable form of the process. It can be share
 
 ---
 
-### Stage 8 — SKILL.md execution package (Executable plane — xIE output)
+### Stage 8 — SKILL.md execution package (Executable plane — xME output)
 
 **Direction:** Fold ↓ reaches Executable; Unfold ↑ begins  
 **ReFolDec plane:** Executable
+**Canonical form:** `Agent-Executable`
 
-The mature documentation is inverted (xIE) into an executable package. A `SKILL.md` file is produced that contains:
+The mature documentation is folded (xME) into an executable package. A `SKILL.md` file is produced that contains:
 - Trigger conditions: when to invoke this skill
 - Compatible agent surfaces: which agents or humans can execute it
 - Steps: the process in sequential, unambiguous, executable form
@@ -151,6 +183,7 @@ This is no longer a human-narrative document. It is an instruction set for an ag
 
 **Direction:** Loop closes; a new fold may open  
 **ReFolDec plane:** Capture or Maturation
+**Canonical mapping:** Explanatory packaging/re-entry boundary; the packaged executable remains `Agent-Executable`
 
 The packaged skill is the artifact. It is versioned, linked to its documentation, traceable to its source narrative and diagram, and executable by an agent.
 

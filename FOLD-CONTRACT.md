@@ -47,6 +47,12 @@ This document defines that claim formally: what the representations are, what le
 
 There are exactly four canonical representations. No organ may introduce a fifth without a formal revision to this contract.
 
+The explanatory core loop may also name capture states such as `idea`, `text`,
+and `structure`, plus the `reusable artifact` packaging boundary. Those labels
+are not additional representations and do not create legal folds. The
+canonical mapping of those states and their transitions is recorded in the
+[conformance matrix](docs/conformance/fold-conformance-matrix.md).
+
 ---
 
 ### Representation 1 — Diagram
