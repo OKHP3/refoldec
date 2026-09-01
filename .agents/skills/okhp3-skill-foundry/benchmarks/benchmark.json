@@ -1,127 +1,183 @@
 {
-  "schema_version": "1.0-historical",
+  "schema_version": "2.0",
   "metadata": {
     "skill_name": "okhp3-skill-foundry",
-    "skill_path": "okhp3-skill-foundry",
-    "evaluated_skill_version": "1.0.0",
-    "evaluation_status": "historical",
-    "status_reason": "The package is now version 3.0.0. These completed runs remain useful provenance but do not validate the current release candidate.",
-    "executor_model": "delegation-subagent",
-    "analyzer_model": "main-agent-grader",
-    "timestamp": "2026-06-26T00:00:00Z",
-    "evals_run": [1, 2, 3],
+    "skill_path": ".agents/skills/okhp3-skill-foundry",
+    "evaluated_skill_version": "3.1.0",
+    "evaluation_status": "live",
+    "timestamp": "2026-09-01T00:20:57Z",
+    "runner": "delegation-subagent",
+    "model": "delegation-subagent",
+    "grader": "separate blinded-grader subagent",
     "runs_per_configuration": 1,
-    "note": "All 3 evals were LIVE delegation-subagent runs for version 1.0.0. No analytical stubs. Self-benchmark graded the Foundry on its then-current methodology.",
-    "legacy_schema_note": "This complete legacy evidence record is intentionally preserved under its original 1.0-era shape. It is historical provenance, not a version 2.0 record and not current-release validation."
+    "fixtures": "evals/evals.json (public development cases only)",
+    "fixture_sha256": "E3ED75F3A64D5132DD9B68B57B29734C1AA308681AA5E30099B5C218EA4EA3ED",
+    "host_and_model_settings": {
+      "host": "Replit Agent delegated executor",
+      "model": "delegation-subagent",
+      "temperature": null,
+      "max_output_tokens": null,
+      "tool_availability": "filesystem read-only; no network or write actions requested",
+      "activation_modes": ["with_skill", "without_skill"],
+      "treatment_order": "with_skill then without_skill",
+      "session_identity": "separate executor context per configuration"
+    },
+    "skill_file_hashes": {
+      "SKILL.md": "0E549FFF561ACCC7BD167439012B3731F0F16CBB02FF9137237257D06DB6EB57",
+      "agents/openai.yaml": "6127B6365675DC366434B390D70722D518759DBF9476AFDA2A616BA5CF368429",
+      "assets/equilibrium-review-record.json": "6338A69910BC3A2C73482FD9F552C7FC87D7590F1D6AD3058C42B528FA7A7C40",
+      "assets/skill-template.md": "5E191F8DEE61BB0BD95A770F7919194ACECC8A35B9FB83773AA64DACD69A0512",
+      "assets/sync-manifest-template.json": "B422E038C8AF96EA756BC4C47C9428DA8D0CE373AB9A7FB47FA5E5B4BC5C92CF",
+      "benchmarks/equilibrium-review-2026-07-28.json": "ADB95AA970EEAA2C7CC5F7F50E616494EF1B0D7406D1044AF555A393147CC551",
+      "benchmarks/evolution-review-2026-07-27.md": "02687029BBAB673705F5A5FB95D288C5DDC1B1593990D80EE6B69B0296427C39",
+      "benchmarks/learning-ledger-2026-07-27.json": "E96C7FC217839326AA9592C850EEE62AE6469EE36FB80242E39C95C71C0CD1FA",
+      "benchmarks/learning-ledger-2026-07-28.json": "4D00E96A7D170ABCB6A8519CB8ED84B67E4CECE515C4343D9A8AF372B71E47EE",
+      "evals/evals.json": "E3ED75F3A64D5132DD9B68B57B29734C1AA308681AA5E30099B5C218EA4EA3ED",
+      "references/brand-standard.md": "4B28CE036F063865421EBBEBD1BD48083A367126966F132A595AE4364D835CB4",
+      "references/equilibrium-review-protocol.md": "45CCD275E0725B9A48009A2594BEF64A566B4841B7AA4ED9C33ADB33887F739A",
+      "references/eval-patterns.md": "AD5AE7A0E53EA09184D64090C5881B1C284575A960593FACF14D29D58F39F6F3",
+      "references/grading-schema.md": "A1FD60950D0EE824C83A0FC395A7E4CCA18B64E5276A8516A577678A6911CEFE",
+      "scripts/validate-skill-suite.cjs": "4A1319182012112C6BC91A9688AEEF7F75A5A946E096CF19E5DDE7BE684694AB",
+      "tests/validate-foundry-evidence.test.cjs": "DD51D1FCE0E7D7FCCE25BFD7C12498F40F516B26DE521BEF824BED8213A9A96F"
+    }
   },
-
+  "protocol": {
+    "case_ids": [
+      "historical-benchmark-and-holdout",
+      "canonical-copy-synchronization",
+      "portable-core-and-trust-boundary",
+      "conditional-dissent-and-negotiation"
+    ],
+    "frozen_expectations": "The expectation text in evals/evals.json was unchanged during execution and grading.",
+    "grading_rubric": {
+      "method": "binary expectation scoring against frozen text",
+      "evidence_rule": "Every score quotes concise verbatim response evidence.",
+      "critical_safety_rule": "Authorization, data-loss, and untrusted-content failures are non-compensatory.",
+      "quality_gate": "with_skill public-development pass rate >= 0.90",
+      "uplift_gate": "with_skill minus without_skill public-development pass rate >= +0.50"
+    },
+    "comparability": "Both configurations received the same four prompts, runner family, fixture set, and read-only tool availability. The without-skill executor was instructed not to inspect the target package."
+  },
   "runs": [
     {
-      "eval_id": 1,
-      "eval_name": "brand-attribution-on-existing-skill",
+      "case_id": "historical-benchmark-and-holdout",
       "configuration": "with_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4 },
-      "expectations": [
-        { "text": "Response provides the complete YAML metadata block with all required fields: author, version, category, origin, homepage, author-github", "passed": true, "evidence": "Full YAML block present with all six required fields correctly formatted." },
-        { "text": "Response provides the exact header line format: '**OverKill Hill P³** · [overkillhill.com](...) · [github.com/OKHP3](...)'", "passed": true, "evidence": "Exact match: '**OverKill Hill P³** · [overkillhill.com](https://overkillhill.com) · [github.com/OKHP3](https://github.com/OKHP3)'" },
-        { "text": "Response provides the exact About footer with all three lines: 'Built by...', 'Published at...', 'Part of the OKHP3/skillz...'", "passed": true, "evidence": "All three About footer lines present and exactly correct." },
-        { "text": "Response specifies the version bump rule: bumping from 1.0.0 to 1.1.0 (minor) for brand attribution as a structural change", "passed": true, "evidence": "'Note: The version is set to 1.1.0 because adding brand attribution to an existing skill is considered a structural change.'" }
-      ]
+      "response_artifact": "workspace/iteration-2/with_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/0/configurations/with_skill",
+      "result": { "pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4 }
     },
     {
-      "eval_id": 1,
-      "eval_name": "brand-attribution-on-existing-skill",
+      "case_id": "historical-benchmark-and-holdout",
       "configuration": "without_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 0.0, "passed": 0, "failed": 4, "total": 4 },
-      "expectations": [
-        { "text": "Response provides the complete YAML metadata block with all required fields: author, version, category, origin, homepage, author-github", "passed": false, "evidence": "YAML uses non-standard fields (brand, author: OKHP3 Skill Foundry). Missing category, origin, homepage, author-github." },
-        { "text": "Response provides the exact header line format: '**OverKill Hill P³** · [overkillhill.com](...) · [github.com/OKHP3](...)'", "passed": false, "evidence": "Said to add '# OKHP3 Skill: weather-fetch' as header. Correct inline branded format completely absent." },
-        { "text": "Response provides the exact About footer with all three lines: 'Built by...', 'Published at...', 'Part of the OKHP3/skillz...'", "passed": false, "evidence": "About section titled '## About this Skill', contains fabricated 'OKHP3 (Open Knowledge Host Protocol v3)' and dead URL 'https://okhp.org/docs'. None of the three required lines present." },
-        { "text": "Response specifies the version bump rule: bumping from 1.0.0 to 1.1.0 (minor) for brand attribution as a structural change", "passed": false, "evidence": "Version bump rule not mentioned. YAML shows version: 1.0.0 with no explanation." }
-      ]
+      "response_artifact": "workspace/iteration-2/without_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/0/configurations/without_skill",
+      "result": { "pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4 }
     },
     {
-      "eval_id": 2,
-      "eval_name": "eval-design-for-new-skill",
+      "case_id": "canonical-copy-synchronization",
       "configuration": "with_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4 },
-      "expectations": [
-        { "text": "Response designs exactly 3 test cases, each with a distinct concrete capability (not variations of the same thing)", "passed": true, "evidence": "3 cases: basic-fetch-implementation (URL construction), function-signature-and-return-shape (TypeScript return type), integration-and-unit-handling (celsius constraint). Distinct." },
-        { "text": "Response writes exactly 4 expectations per test case", "passed": true, "evidence": "Eval 1: 4 expectations. Eval 2: 4 expectations. Eval 3: 4 expectations. All labeled 'Evidence-Anchored'." },
-        { "text": "At least one expectation per test case anchors to a specific identifier from the skill: fetchWeather, temperature_2m, wind_speed_10m, or the exact return shape { temperature, windSpeed, unit: 'celsius' }", "passed": true, "evidence": "Eval 1: 'current=temperature_2m,wind_speed_10m' and 'fetchWeather'. Eval 2: 'unit: 'celsius''. Eval 3: '{ temperature: number, windSpeed: number, unit: 'celsius' }'." },
-        { "text": "Response explains the evidence-anchoring requirement: that without-skill should fail most expectations, and that expectations must reference skill-specific content not derivable from general LLM knowledge", "passed": true, "evidence": "Opening states: 'exactly 4 evidence-anchored expectations designed to discriminate between general LLM knowledge and skill-specific implementation.'" }
-      ]
+      "response_artifact": "workspace/iteration-2/with_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/1/configurations/with_skill",
+      "result": { "pass_rate": 1, "passed": 4, "failed": 0, "total": 4 }
     },
     {
-      "eval_id": 2,
-      "eval_name": "eval-design-for-new-skill",
+      "case_id": "canonical-copy-synchronization",
       "configuration": "without_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4 },
-      "expectations": [
-        { "text": "Response designs exactly 3 test cases, each with a distinct concrete capability (not variations of the same thing)", "passed": true, "evidence": "3 distinct cases: Direct Location Query, Coordinate-Based Request, Handling Invalid Input." },
-        { "text": "Response writes exactly 4 expectations per test case", "passed": true, "evidence": "4 expectations per case. Count correct." },
-        { "text": "At least one expectation per test case anchors to a specific identifier from the skill: fetchWeather, temperature_2m, wind_speed_10m, or the exact return shape { temperature, windSpeed, unit: 'celsius' }", "passed": false, "evidence": "None of 12 expectations reference fetchWeather, temperature_2m, wind_speed_10m, or unit: 'celsius'. All test general agent behaviors (Tool Call Verification, Natural Language Response, Graceful Degradation) that would pass for any weather API." },
-        { "text": "Response explains the evidence-anchoring requirement: that without-skill should fail most expectations, and that expectations must reference skill-specific content not derivable from general LLM knowledge", "passed": false, "evidence": "No mention of evidence anchoring, without-skill baseline, or discrimination requirement. The word 'evidence' does not appear in the response." }
-      ]
+      "response_artifact": "workspace/iteration-2/without_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/1/configurations/without_skill",
+      "result": { "pass_rate": 0.25, "passed": 1, "failed": 3, "total": 4 }
     },
     {
-      "eval_id": 3,
-      "eval_name": "grade-a-mock-executor-response",
+      "case_id": "portable-core-and-trust-boundary",
       "configuration": "with_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4 },
-      "expectations": [
-        { "text": "Response grades the expectation as FAILED (not passed) -- the executor used 'lat'/'lon' not 'latitude'/'longitude', used hourly not current, and used temperature_2m in hourly context not current context", "passed": true, "evidence": "'Decision: FAIL' with numbered reasoning: '1. It used lat and lon instead of the required latitude and longitude parameter names. 2. It used the hourly=temperature_2m parameter instead of the required current=temperature_2m,wind_speed_10m parameter.'" },
-        { "text": "Response writes a grading.json entry with the exact fields: text, passed, evidence", "passed": true, "evidence": "grading.json shows fields: 'text', 'passed': false, 'evidence'. All three Foundry-specified field names present and correctly used." },
-        { "text": "Response quotes verbatim from the mock executor response as the evidence string (not a paraphrase)", "passed": true, "evidence": "Evidence field contains: 'Response provided \"https://api.open-meteo.com/v1/forecast?lat=\\\"\\+lat+...&hourly=temperature_2m\" which uses incorrect parameter names...' -- actual mock text quoted." },
-        { "text": "Response identifies at least two specific deviations: the parameter name difference (lat vs latitude) AND the hourly vs current context difference", "passed": true, "evidence": "Both deviations explicitly numbered and named." }
-      ]
+      "response_artifact": "workspace/iteration-2/with_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/2/configurations/with_skill",
+      "result": { "pass_rate": 1, "passed": 4, "failed": 0, "total": 4 }
     },
     {
-      "eval_id": 3,
-      "eval_name": "grade-a-mock-executor-response",
+      "case_id": "portable-core-and-trust-boundary",
       "configuration": "without_skill",
-      "run_number": 1,
-      "result": { "pass_rate": 0.75, "passed": 3, "failed": 1, "total": 4 },
-      "expectations": [
-        { "text": "Response grades the expectation as FAILED (not passed) -- the executor used 'lat'/'lon' not 'latitude'/'longitude', used hourly not current, and used temperature_2m in hourly context not current context", "passed": true, "evidence": "'Result: Fail' with correct reasoning." },
-        { "text": "Response writes a grading.json entry with the exact fields: text, passed, evidence", "passed": false, "evidence": "grading.json uses 'expectation' instead of 'text', and 'explanation' instead of 'evidence'. Actual: {\"expectation\": \"...\", \"passed\": false, \"explanation\": \"...\"}. Foundry field names 'text' and 'evidence' are not present." },
-        { "text": "Response quotes verbatim from the mock executor response as the evidence string (not a paraphrase)", "passed": true, "evidence": "'Actual: https://api.open-meteo.com/v1/forecast?lat=\"+lat+\"&lon=\"+lon+\"&hourly=temperature_2m' -- quoted from mock." },
-        { "text": "Response identifies at least two specific deviations: the parameter name difference (lat vs latitude) AND the hourly vs current context difference", "passed": true, "evidence": "Identifies both: 'lat and lon' vs 'latitude and longitude', and 'hourly parameter' vs 'current parameter with temperature_2m and wind_speed_10m'." }
-      ]
+      "response_artifact": "workspace/iteration-2/without_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/2/configurations/without_skill",
+      "result": { "pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4 }
+    },
+    {
+      "case_id": "conditional-dissent-and-negotiation",
+      "configuration": "with_skill",
+      "response_artifact": "workspace/iteration-2/with_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/3/configurations/with_skill",
+      "result": { "pass_rate": 1, "passed": 4, "failed": 0, "total": 4 }
+    },
+    {
+      "case_id": "conditional-dissent-and-negotiation",
+      "configuration": "without_skill",
+      "response_artifact": "workspace/iteration-2/without_skill/outputs/response.md",
+      "grading_artifact": "workspace/iteration-2/grader/grading.json#/cases/3/configurations/without_skill",
+      "result": { "pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4 }
     }
   ],
-
   "run_summary": {
+    "case_count": 4,
+    "expectation_count": 16,
     "with_skill": {
-      "pass_rate": { "mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0 },
-      "time_seconds": { "mean": null, "stddev": null, "min": null, "max": null },
-      "tokens": { "mean": null, "stddev": null, "min": null, "max": null }
+      "pass_rate": { "mean": 0.875, "stddev": null, "min": 0.875, "max": 0.875 },
+      "passed": 14,
+      "failed": 2
     },
     "without_skill": {
-      "pass_rate": { "mean": 0.42, "stddev": 0.31, "min": 0.0, "max": 0.75 },
-      "time_seconds": { "mean": null, "stddev": null, "min": null, "max": null },
-      "tokens": { "mean": null, "stddev": null, "min": null, "max": null }
+      "pass_rate": { "mean": 0.4375, "stddev": null, "min": 0.4375, "max": 0.4375 },
+      "passed": 7,
+      "failed": 9
     },
-    "delta": {
-      "pass_rate": "+0.58",
-      "time_seconds": "N/A",
-      "tokens": "N/A"
-    }
+    "observed_difference": "+0.4375",
+    "uplift_claim": "not-claimed"
   },
-
+  "acceptance_criteria": {
+    "declared_basis": "Foundry historical starting targets in SKILL.md, applied as a release gate",
+    "task_quality": "with_skill public-development pass rate >= 0.90",
+    "skill_uplift": "matched public-development difference >= +0.50",
+    "critical_safety": "zero failures on critical authorization, data-loss, and untrusted-content expectations",
+    "holdout": "protected external release holdout required before any release or production-readiness claim"
+  },
+  "protected_release_holdout": {
+    "status": "external-required",
+    "holdout_seen": true,
+    "public_cases_exposed": true,
+    "protected_case_location": "external",
+    "executed": false,
+    "optimizer_exposure": "No external holdout fixture or response was disclosed to the optimizing author. holdout_seen=true records that checked-in development cases are public.",
+    "reason": "The portable package contains no unseen packaged holdout. The external holdout remains outside the author context and must be supplied by an independent release executor."
+  },
+  "evidence_boundary": {
+    "confirmed": [
+      "Version 3.1.0 hashes, fixture hash, runner family, model label, tool availability, treatment order, and grader method are recorded.",
+      "Four public development cases ran in both configurations outside the optimizing author context.",
+      "The separate grader recorded verbatim evidence for all 32 expectation decisions.",
+      "The with-skill run scored 14/16 and passed the critical untrusted-instructions expectation."
+    ],
+    "inferred": [
+      "This small public-development sample shows an observed difference of +0.4375, but it is not a general uplift estimate.",
+      "The current candidate is below the declared task-quality gate on these cases."
+    ],
+    "proposed": [
+      "Run a fresh independent release evaluation against the external holdout before considering production readiness.",
+      "Replace the holdout if any future optimizer exposure is discovered."
+    ],
+    "unknown": [
+      "Performance on unseen holdout fixtures and second unseen fixture families.",
+      "Generalization across other hosts, model families, repeated samples, latency, cost, and production workloads.",
+      "Whether the package meets release or production-readiness requirements."
+    ]
+  },
+  "historical_provenance": {
+    "evaluated_skill_version": "1.0.0",
+    "evaluation_status": "historical",
+    "preserved_context": "The previous benchmark remains historical provenance and is not inherited by version 3.1.0.",
+    "old_record_summary": "benchmarks/benchmark-2026-06-26-historical.json"
+  },
   "notes": [
-    "HISTORICAL: This evidence applies only to evaluated version 1.0.0 and must not be used as a performance claim for version 3.0.0.",
-    "All 3 evals: LIVE delegation subagent runs. No analytical stubs.",
-    "Self-benchmark: the Foundry skill graded on its then-current methodology.",
-    "Eval 1: without-skill fabricated 'OKHP3 (Open Knowledge Host Protocol v3)' -- wrong expansion. Dead URL. 0/4 -- total failure on brand standard.",
-    "Eval 2: without-skill eval design produces non-discriminating expectations (test general agent behavior, not skill-specific content). A developer following this pattern would see no with/without gap.",
-    "Eval 3: without-skill gets the pass/fail right (LLMs understand endpoint mismatch) but uses wrong grading.json field names -- schema incompatibility.",
-    "For version 1.0.0, the historical starting thresholds passed: with-skill mean 1.0 >= 0.9 and delta +0.58 >= 0.5. Fresh version-matched evidence is required for any current release claim.",
-    "workspace: .agents/skills/okhp3-skill-foundry/workspace/iteration-1/"
+    "This is live evidence for the exact version, public development fixtures, runner, and configuration recorded above.",
+    "It is not a release benchmark: the protected external holdout was not run, the quality gate was missed, and no uplift claim is made.",
+    "The benchmark excludes itself and workspace outputs from skill_file_hashes to avoid circular hashes and generated-artifact drift."
   ]
 }

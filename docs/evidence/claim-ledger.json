@@ -45,7 +45,7 @@
       "claim": "The local skill library is release-ready and improves agent outcomes.",
       "claim_type": "hypothesis",
       "status": "blocked",
-      "evidence_ids": ["docs/evidence/skill-library-maturity.md", ".agents/skills/okhp3-skill-foundry/evals/evals.json"],
+      "evidence_ids": ["docs/evidence/skill-library-maturity.md", ".agents/skills/okhp3-skill-foundry/evals/evals.json", ".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json"],
       "consequence": "Users could mistake structural package health for measured task-quality uplift.",
       "next_test": "Run isolated current-version treatment/control evaluations with a protected holdout."
     },
@@ -66,6 +66,21 @@
       "evidence_ids": ["FOLD-CONTRACT.md#deferred-folds", "ARCHITECTURE.md"],
       "consequence": "A premature runtime could bake in uncontracted semantics.",
       "next_test": "Approve a contract revision with an intermediate representation first."
+    },
+    {
+      "claim_id": "CLM-08",
+      "claim": "The current Foundry 3.1.0 package completed a matched live evaluation on four public development cases, but the release quality gate and protected holdout requirement remain unmet.",
+      "claim_type": "fact",
+      "status": "supported-with-limits",
+      "evidence_ids": [".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json", ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json"],
+      "evidence_boundary": {
+        "confirmed": ["Exact-version public-development runs and blinded grading are recorded."],
+        "inferred": ["The observed public-case difference is sample-specific and not a general uplift claim."],
+        "proposed": ["Independent execution of the external holdout is the next release gate."],
+        "unknown": ["Unseen-case performance, cross-host portability, and production readiness."]
+      },
+      "consequence": "A bounded live observation could be overstated as a release or production claim.",
+      "next_test": "Run the protected external holdout with an independent release executor."
     }
   ]
 }

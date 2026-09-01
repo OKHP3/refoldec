@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "reportKind": "local-skill-library-inventory",
-  "asOf": "2026-08-31",
+  "asOf": "2026-09-01",
   "evidenceBoundary": "structural and analytical inventory; no live task-quality uplift claim",
   "summary": {
     "packageCount": 40,
@@ -24,7 +24,7 @@
     "minimumShapePackageCount": 36,
     "packageLocalTestCount": 11,
     "benchmarkStatusCounts": {
-      "historical": 1,
+      "live": 1,
       "not-run": 39
     }
   },
@@ -1258,7 +1258,7 @@
         "holdoutMetadataValid": true,
         "coverage": "release-ready-design"
       },
-      "benchmarkStatus": "historical",
+      "benchmarkStatus": "live",
       "resourceCounts": {
         "references": 4,
         "scripts": 1,

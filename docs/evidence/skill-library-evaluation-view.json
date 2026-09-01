@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-31T13:14:51Z",
+  "generated_at": "2026-09-01T00:25:43Z",
   "scope": {
     "skills_dir": ".agents/skills",
     "cataloged_package_count": 40,
@@ -30,7 +30,8 @@
     "protected_holdout_packages": 0,
     "invalid_holdout_metadata_packages": 0,
     "packages_with_missing_references": 0,
-    "historical_benchmark_packages": 1,
+    "live_benchmark_packages": 1,
+    "historical_benchmark_packages": 0,
     "task_quality_status": "not-run",
     "release_posture": "analytical-structural-integrity"
   },
@@ -3143,9 +3144,9 @@
           "status": "ready"
         },
         "benchmark_file": true,
-        "benchmark_status": "historical",
-        "evaluated_skill_version": "1.0.0",
-        "benchmark_version_matches": false,
+        "benchmark_status": "live",
+        "evaluated_skill_version": "3.1.0",
+        "benchmark_version_matches": true,
         "release_holdout": {
           "status": "external-required",
           "holdout_seen": true,

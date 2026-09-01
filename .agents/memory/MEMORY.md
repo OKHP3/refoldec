@@ -2,3 +2,4 @@
 - [Inventory stability](inventory-stability.md) — repository inventories must exclude generated cache directories so test runs do not change evidence counts.
 - [Skill catalog scope drift](skill-catalog-scope-drift.md) — audit the current package tree and preserve older planned counts only as historical context.
 - [Evaluation holdout semantics](evaluation-holdout-semantics.md) — checked-in cases are public development designs; protected release holdouts remain external and not-run.
+- [Benchmark hash boundaries](benchmark-hash-boundaries.md) — keep aggregate benchmark hashes and sync-verification hashes one-way to avoid an impossible circular evidence hash.

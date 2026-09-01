@@ -333,6 +333,11 @@ def build_view(skills_dir: Path) -> dict[str, Any]:
         for p in packages
         if p["evaluation"]["benchmark_status"] == "historical"
     ]
+    live_benchmarks = [
+        p["name"]
+        for p in packages
+        if p["evaluation"]["benchmark_status"] == "live"
+    ]
     legacy_partitions = [
         p["name"]
         for p in project_packages
@@ -393,6 +398,7 @@ def build_view(skills_dir: Path) -> dict[str, Any]:
             "protected_holdout_packages": len(protected_holdouts),
             "invalid_holdout_metadata_packages": len(invalid_holdout_metadata),
             "packages_with_missing_references": len(missing_refs),
+            "live_benchmark_packages": len(live_benchmarks),
             "historical_benchmark_packages": len(historical),
             "task_quality_status": "not-run",
             "release_posture": "analytical-structural-integrity",
@@ -452,7 +458,7 @@ production-ready by association.
 | Protected release holdout | {summary["protected_holdout_packages"]} packages | A protected holdout remains external-required/not-run; no package claims protected evidence. |
 | Trigger quality | ANALYTICAL | Description and trigger-boundary inspection only; client recall/precision is not-run. |
 | Portability and safety | ANALYTICAL | Static package and boundary review only; no separated client/adversarial executor. |
-| Output-contract performance | NOT RUN | No matched current-version task-quality runs. |
+| Output-contract performance | NOT RUN | {summary["live_benchmark_packages"]} package(s) have bounded matched current-version public-development runs; protected release task-quality evidence remains not-run. |
 | Historical evidence | {summary["historical_benchmark_packages"]} package(s) | Historical records are not inherited by newer versions. |
 
 ## Package evidence view
@@ -471,8 +477,8 @@ production-ready by association.
 
 ## Remaining release gates
 
-1. Run current-version with/without-skill tasks in an isolated executor with separate or blinded grading and keep the holdout outside the optimizing context.
-2. Keep the Foundry 1.0.0 benchmark historical; it does not validate the current 3.1.0 package.
+1. Run the protected external holdout with an independent executor before making a release, uplift, or production-readiness claim.
+2. Keep the Foundry 1.0.0 benchmark historical; the current public-development run is bounded live evidence for version 3.1.0 only.
 3. Re-run this view and the catalog after any package, resource, or evaluation-version change.
 """
 

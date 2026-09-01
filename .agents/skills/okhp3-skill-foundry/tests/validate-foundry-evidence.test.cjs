@@ -78,6 +78,7 @@ expectRejected('rejects an unknown holdout state', target => {
 expectRejected('rejects a live benchmark for a prior version', target => {
   mutateJson(target, 'benchmarks/benchmark.json', benchmark => {
     benchmark.metadata.evaluation_status = 'live';
+    benchmark.metadata.evaluated_skill_version = '1.0.0';
   });
 }, /version-mismatched benchmark/);
 

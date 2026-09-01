@@ -17,7 +17,8 @@ test('skill-library inventory covers the active package set', () => {
 
 test('skill-library inventory keeps live evidence claims bounded', () => {
   assert.match(report.evidenceBoundary, /no live task-quality uplift claim/);
-  assert.equal(report.summary.benchmarkStatusCounts.live ?? 0, 0);
+  assert.equal(report.summary.benchmarkStatusCounts.live ?? 0, 1);
+  assert.equal(report.summary.benchmarkStatusCounts.historical ?? 0, 0);
 });
 
 test('skill evaluations use an explicit comparable release design', () => {
