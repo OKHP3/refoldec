@@ -4,6 +4,7 @@ import {
   mkdtempSync,
   readFileSync,
   rmSync,
+  writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -128,5 +129,38 @@ test('evaluation evidence generation is byte-identical across reruns', () => {
     );
   } finally {
     rmSync(temporaryDirectory, { recursive: true, force: true });
+  }
+});
+
+test('checked-in evaluation evidence passes its drift check', () => {
+  execFileSync(
+    'python3',
+    ['scripts/generate-skill-library-evaluation-view.py', '--check'],
+    { stdio: 'pipe' }
+  );
+});
+
+test('evaluation evidence drift check catches either stale output', () => {
+  const evidencePaths = [
+    'docs/evidence/skill-library-evaluation-view.json',
+    'docs/evidence/skill-library-maturity.md',
+  ];
+  const originalContents = evidencePaths.map(path => readFileSync(path));
+
+  try {
+    for (const [index, path] of evidencePaths.entries()) {
+      writeFileSync(path, Buffer.concat([originalContents[index], Buffer.from('stale\n')]));
+      assert.throws(
+        () => execFileSync(
+          'python3',
+          ['scripts/generate-skill-library-evaluation-view.py', '--check'],
+          { stdio: 'pipe' }
+        ),
+        error => error.status === 1 && error.stderr.includes(path)
+      );
+      writeFileSync(path, originalContents[index]);
+    }
+  } finally {
+    evidencePaths.forEach((path, index) => writeFileSync(path, originalContents[index]));
   }
 });
