@@ -200,9 +200,27 @@
     "artifact_hash_mismatch": "FAIL; freeze a new comparison record after review",
     "missing_invariant_hash": "FAIL; do not infer the missing value",
     "invariant_hash_mismatch": "reject output with the recorded invariant failure code",
+    "missing_node_id": "FAIL; reject output as MISSING_NODE_ID; do not infer or rename a canonical node",
+    "omitted_executable_step": "FAIL; reject output as OMITTED_STEP; do not treat an incomplete sequence as executable",
     "ambiguous_identity": "stop and request human clarification; do not infer identity",
     "deferred_fold": "reject with DEFERRED_FOLD and route through Code"
   },
+  "negative_mutation_coverage": [
+    {
+      "mutation": "remove a canonical node ID from a Diagram projection",
+      "fixtures": ["synthetic-access-request", "synthetic-order-reconciliation"],
+      "failure_code": "MISSING_NODE_ID",
+      "result": "REJECTED",
+      "decision": "reject output; an unaddressable node must not be inferred"
+    },
+    {
+      "mutation": "remove the canonical submit step from an Agent-Executable projection",
+      "fixtures": ["synthetic-access-request", "synthetic-order-reconciliation"],
+      "failure_code": "OMITTED_STEP",
+      "result": "REJECTED",
+      "decision": "reject output; an incomplete executable sequence must not be accepted"
+    }
+  ],
   "lossy_or_ambiguous_cases": [
     {
       "case": "changed system role on fulfill",
@@ -215,6 +233,18 @@
       "failure_code": "MISSING_NODE_ID",
       "result": "LOSSY",
       "decision": "reject output; canonical identity must remain request-info"
+    },
+    {
+      "case": "missing canonical node ID",
+      "failure_code": "MISSING_NODE_ID",
+      "result": "LOSSY",
+      "decision": "reject output; an unaddressable node must not be inferred"
+    },
+    {
+      "case": "omitted submit executable step",
+      "failure_code": "OMITTED_STEP",
+      "result": "LOSSY",
+      "decision": "reject output; the executable sequence must remain complete"
     },
     {
       "case": "redirect available edge to request-info",

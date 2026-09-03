@@ -131,8 +131,16 @@ stand-ins for fold output; they do not claim to execute a codec. They cover:
 - an explicit invariant-loss mutation for every legal direction;
 - role, topology, flow, and governance preservation;
 - missing metadata and ambiguous identity;
+- missing canonical node identity rejected as `MISSING_NODE_ID`, and an omitted
+  executable step rejected as `OMITTED_STEP`, across both public fixtures;
 - exact deferred-fold rejection;
 - registry-role compatibility and the four-form fixture shape.
+
+The negative identity and executable-step mutations are projection-level
+conformance checks. They intentionally do not execute a codec: deleting a
+canonical node ID must fail closed rather than be inferred, and removing the
+`submit` step from either public fixture's executable projection must fail
+closed rather than being treated as executable.
 
 This is contract-level evidence. It does not establish runtime reversibility,
 renderer compatibility, Agent Skills portability, or generalization to a

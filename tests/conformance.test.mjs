@@ -62,8 +62,29 @@ function invariantFailureCodes(actual, expected) {
   const expectedProjection = projection(expected);
   const codes = [];
   const actualIds = actualProjection.nodes.map(({ id }) => id);
+  const expectedNodesById = new Map(
+    expectedProjection.nodes.map((node) => [node.id, node])
+  );
+  const actualNodeIds = new Set(actualIds);
+  const missingExpectedNodes = expectedProjection.nodes.filter(
+    ({ id }) => !actualNodeIds.has(id)
+  );
+  const unexpectedActualNodes = actualProjection.nodes.filter(
+    ({ id }) => !expectedNodesById.has(id)
+  );
 
   if (new Set(actualIds).size !== actualIds.length) codes.push("AMBIGUOUS_MAPPING");
+  if (
+    actualProjection.nodes.some(({ id }) => typeof id !== "string" || !id) ||
+    (missingExpectedNodes.length > 0 && unexpectedActualNodes.length > 0)
+  ) {
+    codes.push("MISSING_NODE_ID");
+  }
+  if (
+    missingExpectedNodes.some(({ semantic_role }) => semantic_role === "step")
+  ) {
+    codes.push("OMITTED_STEP");
+  }
   if (
     JSON.stringify(actualProjection.nodes) !== JSON.stringify(expectedProjection.nodes)
   ) {
@@ -86,6 +107,15 @@ function invariantFailureCodes(actual, expected) {
     codes.push("GOVERNANCE_DRIFT");
   }
   return codes;
+}
+
+function rejectInvariantMismatch(actual, expected) {
+  const codes = invariantFailureCodes(actual, expected);
+  if (codes.length === 0) return;
+
+  const error = new Error(codes.join(", "));
+  error.code = codes[0];
+  throw error;
 }
 
 function fold(sourceName, targetName) {
@@ -293,6 +323,18 @@ test("the second proof freezes and verifies all artifact and invariant hashes", 
     assert.ok(condition);
     assert.match(action, /FAIL|reject|stop/i);
   }
+  assert.deepEqual(
+    comparison.negative_mutation_coverage.map(({ failure_code }) => failure_code),
+    ["MISSING_NODE_ID", "OMITTED_STEP"]
+  );
+  for (const mutation of comparison.negative_mutation_coverage) {
+    assert.deepEqual(
+      mutation.fixtures,
+      [fixture.fixture_id, secondFixture.fixture_id],
+      `${mutation.failure_code} must cover both public fixtures`
+    );
+    assert.equal(mutation.result, "REJECTED");
+  }
 });
 
 test("every legal direction detects semantic-role loss", () => {
@@ -350,6 +392,45 @@ test("ambiguous identity is rejected rather than inferred", () => {
     },
     { code: "AMBIGUOUS_MAPPING" }
   );
+});
+
+test("missing canonical node identity is rejected with MISSING_NODE_ID", () => {
+  for (const candidate of [fixture, secondFixture]) {
+    const defective = clone(candidate.representations.Diagram);
+    delete defective.projection.nodes[0].id;
+
+    assert.throws(
+      () =>
+        rejectInvariantMismatch(
+          defective,
+          candidate.representations.Diagram
+        ),
+      { code: "MISSING_NODE_ID" },
+      `${candidate.fixture_id} must reject an unaddressable node`
+    );
+  }
+});
+
+test("omitted executable step is rejected with OMITTED_STEP", () => {
+  for (const candidate of [fixture, secondFixture]) {
+    const defective = clone(candidate.representations["Agent-Executable"]);
+    defective.payload.steps = defective.payload.steps.filter(
+      (step) => !step.startsWith("submit")
+    );
+    defective.projection.nodes = defective.projection.nodes.filter(
+      ({ id }) => id !== "submit"
+    );
+
+    assert.throws(
+      () =>
+        rejectInvariantMismatch(
+          defective,
+          candidate.representations["Agent-Executable"]
+        ),
+      { code: "OMITTED_STEP" },
+      `${candidate.fixture_id} must reject an omitted executable step`
+    );
+  }
 });
 
 test("both deferred direct folds fail explicitly", () => {
