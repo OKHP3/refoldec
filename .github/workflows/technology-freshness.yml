@@ -27,3 +27,7 @@ jobs:
         run: node scripts/validate-registry.mjs
       - name: Run tests
         run: node --test tests/registry.test.mjs
+      - name: Check skill-library inventory freshness
+        run: node scripts/audit-skill-library.mjs --check
+      - name: Check skill-library evaluation evidence freshness
+        run: python3 scripts/generate-skill-library-evaluation-view.py --check
