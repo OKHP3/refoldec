@@ -146,7 +146,16 @@
     "protected_case_location": "external",
     "executed": false,
     "optimizer_exposure": "No external holdout fixture or response was disclosed to the optimizing author. holdout_seen=true records that checked-in development cases are public.",
-    "reason": "The portable package contains no unseen packaged holdout. The external holdout remains outside the author context and must be supplied by an independent release executor."
+    "reason": "The portable package contains no unseen packaged holdout. The external holdout remains outside the author context and must be supplied by an independent release executor.",
+    "last_execution_attempt": {
+      "record": "docs/evidence/holdout-attempt-2026-09-02.json",
+      "attempted_at": "2026-09-02",
+      "executor": "independent availability-check subagent",
+      "status": "not-run",
+      "external_fixture_available": false,
+      "authorized_comparable_runner_available": false,
+      "holdout_exposed": false
+    }
   },
   "evidence_boundary": {
     "confirmed": [
@@ -178,6 +187,7 @@
   "notes": [
     "This is live evidence for the exact version, public development fixtures, runner, and configuration recorded above.",
     "It is not a release benchmark: the protected external holdout was not run, the quality gate was missed, and no uplift claim is made.",
+    "An independent availability check on 2026-09-02 found no externally supplied unseen fixture or authorized comparable runner; the attempted run is recorded in docs/evidence/holdout-attempt-2026-09-02.json and remains not-run.",
     "The benchmark excludes itself and workspace outputs from skill_file_hashes to avoid circular hashes and generated-artifact drift."
   ]
 }

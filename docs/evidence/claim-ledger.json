@@ -72,15 +72,15 @@
       "claim": "The current Foundry 3.1.0 package completed a matched live evaluation on four public development cases, but the release quality gate and protected holdout requirement remain unmet.",
       "claim_type": "fact",
       "status": "supported-with-limits",
-      "evidence_ids": [".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json", ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json"],
+      "evidence_ids": [".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json", ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json", "docs/evidence/holdout-attempt-2026-09-02.json"],
       "evidence_boundary": {
-        "confirmed": ["Exact-version public-development runs and blinded grading are recorded."],
-        "inferred": ["The observed public-case difference is sample-specific and not a general uplift claim."],
-        "proposed": ["Independent execution of the external holdout is the next release gate."],
+        "confirmed": ["Exact-version public-development runs and blinded grading are recorded.", "An independent availability check found no external unseen fixture or authorized comparable runner, and no holdout fixture or response was exposed."],
+        "inferred": ["The observed public-case difference is sample-specific and not a general uplift claim.", "The protected holdout remains not-run; the availability check does not provide release performance evidence."],
+        "proposed": ["Supply the unseen fixture and authorized runner to an independent release executor, then use separate blinded grading as the next release gate."],
         "unknown": ["Unseen-case performance, cross-host portability, and production readiness."]
       },
       "consequence": "A bounded live observation could be overstated as a release or production claim.",
-      "next_test": "Run the protected external holdout with an independent release executor."
+      "next_test": "Run the protected external holdout with an independent release executor once an external fixture and authorized comparable runner are available."
     }
   ]
 }

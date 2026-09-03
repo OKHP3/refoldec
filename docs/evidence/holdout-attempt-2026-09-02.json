@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "evidence_type": "protected_release_holdout_attempt",
+  "attempted_at": "2026-09-02",
+  "evaluation_status": "not-run",
+  "evaluated_skill_version": "3.1.0",
+  "benchmark_protocol": {
+    "benchmark": ".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json",
+    "evaluation_design": ".agents/skills/okhp3-skill-foundry/evals/evals.json",
+    "fixture_sha256": "E3ED75F3A64D5132DD9B68B57B29734C1AA308681AA5E30099B5C218EA4EA3ED",
+    "frozen_expectations": true,
+    "grading_method": "binary expectation scoring against frozen text; every score must quote concise verbatim response evidence",
+    "configurations": {
+      "with_skill": {
+        "activation_mode": "with_skill",
+        "tool_availability": "filesystem read-only; no network or write actions requested"
+      },
+      "without_skill": {
+        "activation_mode": "without_skill",
+        "tool_availability": "filesystem read-only; no network or write actions requested",
+        "target_skill_inspection": "prohibited"
+      }
+    },
+    "quality_gate": "with_skill public-development pass rate >= 0.90",
+    "uplift_gate": "with_skill minus without_skill public-development pass rate >= +0.50"
+  },
+  "version_match_verification": {
+    "benchmark_and_evaluation_versions_match": true,
+    "benchmark_fixture_hash_matches_evals_sha256": true,
+    "skill_file_hashes_taken_from_version_matched_benchmark": true,
+    "public_grading_artifact": ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json",
+    "public_grading_evidence_complete": true
+  },
+  "independent_executor_check": {
+    "executor": "independent availability-check subagent",
+    "separate_from_optimizing_author": true,
+    "external_unseen_fixture_available": false,
+    "authorized_comparable_isolated_runner_available": false,
+    "holdout_fixture_exposed_to_optimizing_author": false,
+    "verbatim_findings": [
+      "Genuine unseen external fixture: NOT AVAILABLE.",
+      "Comparable with-skill/without-skill executor: NOT AVAILABLE/authorized here.",
+      "Exact blockers: (1) missing controlled unseen fixture and access authorization; (2) missing authorized isolated executor capable of running both activation modes; (3) therefore no fresh release responses, blinded grading, or release evidence can be produced without violating holdout integrity."
+    ]
+  },
+  "grading": {
+    "status": "not-run",
+    "with_skill": null,
+    "without_skill": null,
+    "verbatim_grading_evidence": [],
+    "reason": "No holdout response was produced, so there is no grading evidence or outcome to append. Empty evidence is intentional and prevents an availability check from being mistaken for a release run."
+  },
+  "evidence_boundary": {
+    "confirmed": [
+      "The exact-version benchmark protocol and public-development fixture hash are preserved and match the recorded evaluation design.",
+      "The independent executor found no externally supplied unseen fixture and no authorized comparable isolated runner.",
+      "No protected holdout fixture or response was disclosed to the optimizing author."
+    ],
+    "inferred": [
+      "The protected release holdout remains not-run; the existing public-development scores cannot support a release, uplift, or production-readiness claim.",
+      "The current evidence boundary remains unchanged: public cases are development evidence only."
+    ],
+    "proposed": [
+      "Have an authorized independent release executor receive the unseen fixture out of the optimizing author's context and run both frozen activation modes.",
+      "Use a separate blinded grader to append one grading record per configuration with verbatim response evidence.",
+      "Replace the holdout before any optimization if the fixture or its response is exposed."
+    ],
+    "unknown": [
+      "Performance on unseen holdout fixtures and second unseen fixture families.",
+      "Generalization across other hosts, model families, repeated samples, latency, cost, and production workloads.",
+      "Whether the package meets release or production-readiness requirements."
+    ]
+  },
+  "next_action": "Provide the external unseen fixture and authorized isolated runner to an independent release executor; do not change the protected status or make a release claim before that run."
+}
