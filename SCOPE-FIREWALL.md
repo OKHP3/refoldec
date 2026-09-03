@@ -52,6 +52,13 @@ The following categories of content may appear in any OKHP³ public repo, site, 
 | **Generic governance patterns** | Descriptions of enterprise-style problems without identifying the enterprise | renderer profile, diagram-output contract, style-preserving update, syntax repair mode |
 | **OKHP³ ecosystem vocabulary** | Locked names and concepts within this ecosystem | ReFolDec, bpmn-beta, skillz, PathScrib-R, OverKill-Hill |
 
+The shared codec representation vocabulary is exactly four forms:
+`Diagram`, `Code`, `Documentation`, and `Agent-Executable`. The explanatory
+labels `idea`, `text`, and `structure` may describe capture and structuring
+states, and `reusable artifact` may describe a packaging or loop-re-entry
+boundary, but none is a fifth representation or a legal fold endpoint. The
+representation contract remains authoritative for what those forms contain.
+
 ---
 
 ## What does not travel

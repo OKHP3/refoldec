@@ -23,6 +23,17 @@ It is not a single tool. It is a **framework of planes, layers, and mechanics** 
 
 These two mechanics together form **xMIE** — the underlying operating physics of ReFolDec.
 
+### The representation boundary
+
+The codec has exactly four canonical forms: `Diagram`, `Code`,
+`Documentation`, and `Agent-Executable`. The explanatory loop may also use
+`idea`, `text`, and `structure` for capture/structuring states, plus
+`reusable artifact` for a packaging and loop-re-entry boundary. Those labels
+help explain the journey but are not additional canonical forms or legal fold
+endpoints. See [`FOLD-CONTRACT.md`](./FOLD-CONTRACT.md) for the authoritative
+contract and [`docs/conformance/fold-conformance-matrix.md`](./docs/conformance/fold-conformance-matrix.md)
+for the crosswalk.
+
 ---
 
 ## The stack

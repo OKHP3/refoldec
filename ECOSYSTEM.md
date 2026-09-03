@@ -50,7 +50,7 @@ ReFolDec (Head)
 
 ReFolDec owns the **shared contracts** that every organ conforms to:
 
-1. **The fold vocabulary** — the canonical names and definitions of fold, unfold, representation, lossless, round-trip, and the xMIE mechanics. See `FOLD-CONTRACT.md`.
+1. **The fold vocabulary** — the canonical names and definitions of fold, unfold, representation, lossless, round-trip, and the xMIE mechanics. The codec has exactly four canonical representations: `Diagram`, `Code`, `Documentation`, and `Agent-Executable`. The explanatory labels `idea`, `text`, and `structure` describe capture/structuring states, while `reusable artifact` names a packaging/re-entry boundary; none is an additional representation or legal fold endpoint. See `FOLD-CONTRACT.md` and its conformance crosswalk.
 
 2. **The semantic-class registry** — the authoritative meaning axis. Every role (`actor`, `decision`, `ai`, etc.) is defined once here with its abstract palette token and shape convention. See `semantic-class-registry/`. Organs reference the registry; they do not redefine it.
 

@@ -12,7 +12,7 @@
 | Python | `3.9+` documented by `okhp3-skill-cataloger` | Python `3.14.6` | Used only by optional checked-in skill support scripts; no repository Python runtime is pinned. |
 | PyYAML | Imported by `skill-creator/scripts/quick_validate.py` | PyYAML `6.0.3` | Unmanaged optional skill-script dependency: no requirements file or lockfile is present. |
 | JSON | `semantic-classes.json` and skill metadata | JSON has no project runtime version | The registry is validated with Node's built-in JSON parser. |
-| Markdown / CommonMark | Contract, documentation, and skill files | CommonMark `0.31.2` | Markdown is the repository's canonical documentation format. |
+| Markdown / CommonMark | Contract, documentation, and skill files | CommonMark `0.31.2` | Markdown is the repository's canonical documentation/storage format; it is not an additional codec representation. |
 | GitHub Actions | Added by this maintenance change | `actions/checkout@v6`, `actions/setup-node@v6` | Action references are monitored by Dependabot. |
 
 ## Referenced, but not installed here

@@ -28,6 +28,10 @@ The folding direction. xME takes raw, ephemeral, or loosely structured material 
 **Operations:** Expansion, synthesis, structuring, editorial pass.  
 **Movement:** Raw idea → text → structure → diagram → code → documentation → agent instruction → reusable artifact.
 
+The movement line is the explanatory capture loop, not a list of canonical
+representations. Only `diagram`, `code`, `documentation`, and `agent instruction`
+map to the four contract forms.
+
 ---
 
 ### xIE — Inversion (Unfold ↑)
@@ -35,6 +39,10 @@ The unfolding direction. xIE takes a mature artifact and unfolds it back into it
 
 **Operations:** Decomposition, primitive extraction, abstraction, packaging.  
 **Movement:** Reusable artifact → agent instruction → documentation → code → diagram → structure → text → idea.
+
+The movement line is likewise explanatory. `reusable artifact`, `structure`,
+`text`, and `idea` are packaging or capture states, not additional canonical
+forms.
 
 ---
 
@@ -71,7 +79,19 @@ An atomic, reusable unit extracted from a mature artifact during xIE (Inversion)
 ---
 
 ### Reusable artifact
-An artifact that has been packaged, versioned, and made reproducible for use by agents or humans beyond its original context. Process Skills / `SKILL.md` files are the primary form.
+An artifact that has been packaged, versioned, and made reproducible for use by agents or humans beyond its original context. Process Skills / `SKILL.md` files are the primary packaging form.
+
+In the codec vocabulary, this is a packaging and loop-re-entry boundary, not a
+fifth canonical representation. A packaged `SKILL.md` remains the
+`Agent-Executable` form.
+
+---
+
+### Canonical representation
+
+One of exactly four forms defined by `FOLD-CONTRACT.md`: `Diagram`, `Code`,
+`Documentation`, or `Agent-Executable`. Explanatory capture states and
+packaging boundaries do not add canonical representations.
 
 ---
 

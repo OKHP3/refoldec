@@ -46,6 +46,16 @@ The downward inversion/decomposition mechanic. Takes a mature artifact and unfol
 
 xMIE is the operating physics. Any artifact in the system is always somewhere on the fold/unfold continuum. ReFolDec governs movement in both directions.
 
+### Representation boundary
+
+The fold/unfold continuum does not expand the codec's representation vocabulary.
+The four canonical forms are `Diagram`, `Code`, `Documentation`, and
+`Agent-Executable`. In the explanatory capture loop, `idea`, `text`, and
+`structure` are pre-canonical capture/structuring states, while `reusable
+artifact` is a packaging and loop-re-entry boundary. These labels are not
+additional forms and do not create legal folds; the legal and deferred
+directions remain defined by `FOLD-CONTRACT.md`.
+
 ---
 
 ## The planes
@@ -92,7 +102,10 @@ Notion holds the ephemeral-to-structured transition. Pages are the primary unit.
 
 **Role:** Versioned canon, schema, artifact, and publishing plane.
 
-GitHub holds the durable form of all artifacts. Markdown is the canonical format. Repos are organized by system component. The `main` branch of each repo is source of truth.
+GitHub holds the durable form of all artifacts. Markdown is the repository's
+canonical documentation/storage format, not an additional codec
+representation. Repos are organized by system component. The `main` branch of
+each repo is source of truth.
 
 ---
 

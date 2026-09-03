@@ -12,6 +12,17 @@ ReFolDec is not one of these projects. It is the **keystone theory above them**:
 
 ---
 
+## Representation boundary
+
+Every project in the stack uses the same four canonical forms from
+`FOLD-CONTRACT.md`: `Diagram`, `Code`, `Documentation`, and
+`Agent-Executable`. The explanatory loop's `idea`, `text`, and `structure`
+labels describe capture/structuring states; `reusable artifact` describes a
+package or loop-re-entry boundary. They are not additional forms and do not
+authorize direct folds that the contract defers.
+
+---
+
 ## The stack
 
 ```
