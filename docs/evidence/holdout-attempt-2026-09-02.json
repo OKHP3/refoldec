@@ -31,6 +31,17 @@
     "public_grading_artifact": ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json",
     "public_grading_evidence_complete": true
   },
+  "runnable_protocol": {
+    "status": "ready",
+    "runner": ".agents/skills/okhp3-skill-foundry/scripts/run-release-holdout.cjs",
+    "reference": ".agents/skills/okhp3-skill-foundry/references/release-holdout-protocol.md",
+    "operations": ["prepare", "grade", "exposure", "validate"],
+    "privacy_guarantees": [
+      "Preparation records only the external fixture identifier and SHA-256.",
+      "Grading records response hashes and grader-supplied verbatim evidence, not fixture or response contents.",
+      "An exposed fixture requires a replacement fixture before optimization continues."
+    ]
+  },
   "independent_executor_check": {
     "executor": "independent availability-check subagent",
     "separate_from_optimizing_author": true,
@@ -71,5 +82,5 @@
       "Whether the package meets release or production-readiness requirements."
     ]
   },
-  "next_action": "Provide the external unseen fixture and authorized isolated runner to an independent release executor; do not change the protected status or make a release claim before that run."
+  "next_action": "Provide the external unseen fixture and authorization to the independent release executor, use the runnable protocol, and do not change the protected status or make a release claim before that run."
 }

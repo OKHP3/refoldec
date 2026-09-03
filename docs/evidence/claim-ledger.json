@@ -72,15 +72,15 @@
       "claim": "The current Foundry 3.1.0 package completed a matched live evaluation on four public development cases, but the release quality gate and protected holdout requirement remain unmet.",
       "claim_type": "fact",
       "status": "supported-with-limits",
-      "evidence_ids": [".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json", ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json", "docs/evidence/holdout-attempt-2026-09-02.json"],
+      "evidence_ids": [".agents/skills/okhp3-skill-foundry/benchmarks/benchmark.json", ".agents/skills/okhp3-skill-foundry/workspace/iteration-2/grader/grading.json", "docs/evidence/holdout-attempt-2026-09-02.json", ".agents/skills/okhp3-skill-foundry/scripts/run-release-holdout.cjs", ".agents/skills/okhp3-skill-foundry/references/release-holdout-protocol.md"],
       "evidence_boundary": {
-        "confirmed": ["Exact-version public-development runs and blinded grading are recorded.", "An independent availability check found no external unseen fixture or authorized comparable runner, and no holdout fixture or response was exposed."],
+        "confirmed": ["Exact-version public-development runs and blinded grading are recorded.", "An independent availability check found no external unseen fixture or authorized comparable runner, and no holdout fixture or response was exposed.", "A guarded runnable protocol now supports external fixture hashing, comparable-run attestation, separate blinded grading, and exposure replacement without packaging the fixture."],
         "inferred": ["The observed public-case difference is sample-specific and not a general uplift claim.", "The protected holdout remains not-run; the availability check does not provide release performance evidence."],
-        "proposed": ["Supply the unseen fixture and authorized runner to an independent release executor, then use separate blinded grading as the next release gate."],
+        "proposed": ["Supply the unseen fixture and authorization to an independent release executor, run the guarded protocol, then use separate blinded grading as the next release gate."],
         "unknown": ["Unseen-case performance, cross-host portability, and production readiness."]
       },
       "consequence": "A bounded live observation could be overstated as a release or production claim.",
-      "next_test": "Run the protected external holdout with an independent release executor once an external fixture and authorized comparable runner are available."
+      "next_test": "Run the protected external holdout with an independent release executor using the guarded protocol once an external fixture and authorization are available."
     }
   ]
 }
