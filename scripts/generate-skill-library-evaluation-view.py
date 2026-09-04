@@ -375,7 +375,7 @@ def build_view(skills_dir: Path, generated_at: str | None = None) -> dict[str, A
             "cataloged_package_count": len(packages),
             "project_owned_package_count": len(project_packages),
             "host_or_third_party_exception_count": len(packages) - len(project_packages),
-            "scope_note": "The task brief named the 14-package catalog at planning time; this view uses the current checked-in tree as the source of truth and inventories all 40 packages.",
+            "scope_note": "The task brief named the 14-package catalog at planning time; this view uses the current checked-in tree as the source of truth and inventories all current packages.",
         },
         "status_legend": {
             "live": "Comparable executor or user runs occurred for the exact version and configuration.",
@@ -442,9 +442,9 @@ def markdown(view: dict[str, Any]) -> str:
 
 ## Decision boundary
 
-The planning brief referenced the earlier 14-package catalog. The checked-in tree
-has since expanded, so this report inventories the current 40-package tree rather
-than silently omitting newer packages. The machine-readable companion is
+    The planning brief referenced the earlier 14-package catalog. The checked-in tree
+    has since expanded, so this report inventories the current tree rather
+    than silently omitting newer packages. The machine-readable companion is
 [`skill-library-evaluation-view.json`](./skill-library-evaluation-view.json).
 
 Structural health is not task-quality uplift. `analytical` means static or

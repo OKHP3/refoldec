@@ -1,31 +1,31 @@
 {
   "schemaVersion": "1.0",
   "reportKind": "local-skill-library-inventory",
-  "asOf": "2026-09-03",
+  "asOf": "not-specified",
   "evidenceBoundary": "structural and analytical inventory; no live task-quality uplift claim",
   "summary": {
-    "packageCount": 40,
-    "versionedPackageCount": 40,
-    "evaluationFileCount": 36,
-    "noEvaluationFileCount": 4,
+    "packageCount": 48,
+    "versionedPackageCount": 48,
+    "evaluationFileCount": 43,
+    "noEvaluationFileCount": 5,
     "developmentAndHoldoutPartitionCount": 0,
     "completeDevelopmentAndHoldoutCount": 36,
     "developmentOnlyCount": 0,
-    "unpartitionedEvaluationCount": 0,
+    "unpartitionedEvaluationCount": 7,
     "invalidEvaluationCount": 0,
-    "incompleteEvaluationCount": 0,
-    "legacyCaseCount": 0,
-    "invalidCaseCount": 0,
+    "incompleteEvaluationCount": 7,
+    "legacyCaseCount": 22,
+    "invalidCaseCount": 22,
     "duplicateEvaluationIdPackageCount": 0,
     "releaseReadyDesignCount": 36,
     "publicCasesExposedPackageCount": 36,
     "protectedHoldoutPackageCount": 0,
-    "holdoutMetadataInvalidPackageCount": 0,
+    "holdoutMetadataInvalidPackageCount": 7,
     "minimumShapePackageCount": 36,
-    "packageLocalTestCount": 11,
+    "packageLocalTestCount": 12,
     "benchmarkStatusCounts": {
-      "live": 1,
-      "not-run": 39
+      "live": 2,
+      "not-run": 46
     }
   },
   "skills": [
@@ -1023,6 +1023,324 @@
         "references": 1,
         "scripts": 1,
         "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-repl-repo-janitor copy",
+      "version": "0.1.0",
+      "hasScopeSection": false,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": false,
+        "caseCount": 0,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 0,
+        "invalidCaseCount": 0,
+        "duplicateIdCount": 0,
+        "partitions": [],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "no-evaluation-file"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 1,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-build-in-public",
+      "version": "1.0.1",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-canvas-board",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-design-pipeline",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-free-mode-autonomy",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 4,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 4,
+        "invalidCaseCount": 4,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "live",
+      "resourceCounts": {
+        "references": 2,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-github-sync",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 1,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-multi-artifact",
+      "version": "1.0.0",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": false,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 0,
+        "scripts": 0,
+        "tests": 0
+      }
+    },
+    {
+      "name": "okhp3-replit-repl-janitor",
+      "version": "1.0.1",
+      "hasScopeSection": true,
+      "hasValidationLoopSignal": true,
+      "evaluation": {
+        "filePresent": true,
+        "caseCount": 3,
+        "completeCaseCount": 0,
+        "legacyCaseCount": 3,
+        "invalidCaseCount": 3,
+        "duplicateIdCount": 0,
+        "partitions": [
+          "unpartitioned"
+        ],
+        "developmentCaseCount": 0,
+        "holdoutCaseCount": 0,
+        "coverageRequired": [
+          "normal",
+          "edge",
+          "boundary"
+        ],
+        "coverageCounts": {
+          "normal": 0,
+          "edge": 0,
+          "boundary": 0
+        },
+        "publicCasesExposed": false,
+        "protectedHoldoutStatus": "not-declared",
+        "releaseHoldoutStatus": null,
+        "holdoutMetadataValid": false,
+        "coverage": "incomplete-cases"
+      },
+      "benchmarkStatus": "not-run",
+      "resourceCounts": {
+        "references": 2,
+        "scripts": 1,
+        "tests": 1
       }
     },
     {
