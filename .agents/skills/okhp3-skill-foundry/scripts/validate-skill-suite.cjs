@@ -76,15 +76,16 @@ function references(body, skillDir) {
     if (!fs.existsSync(path.join(skillDir, ref))) fail(`${skillDir}: missing referenced file ${ref}`);
   }
 }
-function findSkills(dir, deep) {
+function findSkills(dir, deep, excluded = new Set()) {
   if (!fs.existsSync(dir)) return [];
   if (fs.existsSync(path.join(dir, 'SKILL.md'))) return [dir];
   const results = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (!entry.isDirectory() || entry.name === '.git' || entry.name === 'node_modules') continue;
+    if (!deep && excluded.has(entry.name)) continue;
     const child = path.join(dir, entry.name);
     if (fs.existsSync(path.join(child, 'SKILL.md'))) results.push(child);
-    else if (deep) results.push(...findSkills(child, true));
+    else if (deep) results.push(...findSkills(child, true, excluded));
   }
   return results;
 }
@@ -256,11 +257,38 @@ function validateSkill(skillDir, rootDir) {
 }
 if (!fs.existsSync(targetDir)) fail(`skills directory does not exist: ${targetDir}`);
 else {
-  const skillDirs = findSkills(targetDir, recursive);
+  let excluded = new Set();
+  if (!recursive) {
+    const scopeFile = path.join(targetDir, '.catalog-scope.json');
+    if (fs.existsSync(scopeFile)) {
+      try {
+        const scope = JSON.parse(fs.readFileSync(scopeFile, 'utf8'));
+        if (!scope.excluded_directories || typeof scope.excluded_directories !== 'object' ||
+          Array.isArray(scope.excluded_directories)) {
+          fail(`${scopeFile}: excluded_directories must be an object`);
+        } else {
+          excluded = new Set(Object.keys(scope.excluded_directories));
+        }
+      } catch (error) {
+        fail(`${scopeFile}: invalid JSON (${error.message})`);
+      }
+    }
+  }
+  const skillDirs = findSkills(targetDir, recursive, excluded);
   if (!skillDirs.length) fail(`no skill packages found under ${targetDir}`);
   for (const skillDir of skillDirs) validateSkill(skillDir, targetDir);
 }
 for (const warning of warnings) console.warn(`WARN ${warning}`);
 for (const error of errors) console.error(`ERROR ${error}`);
-console.log(`Validated ${fs.existsSync(targetDir) ? findSkills(targetDir, recursive).length : 0} skill packages${recursive ? ' recursively' : ''}.`);
+let finalExcluded = new Set();
+if (!recursive && fs.existsSync(path.join(targetDir, '.catalog-scope.json'))) {
+  try {
+    const scope = JSON.parse(fs.readFileSync(path.join(targetDir, '.catalog-scope.json'), 'utf8'));
+    if (scope.excluded_directories && typeof scope.excluded_directories === 'object' &&
+      !Array.isArray(scope.excluded_directories)) {
+      finalExcluded = new Set(Object.keys(scope.excluded_directories));
+    }
+  } catch {}
+}
+console.log(`Validated ${fs.existsSync(targetDir) ? findSkills(targetDir, recursive, finalExcluded).length : 0} skill packages${recursive ? ' recursively' : ''}.`);
 if (errors.length) process.exit(1);

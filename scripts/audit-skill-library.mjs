@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const skillsDir = join(root, '.agents', 'skills');
+const scopePath = join(skillsDir, '.catalog-scope.json');
 const defaultReport = join(root, 'docs', 'evidence', 'skill-library-inventory.json');
 const args = new Set(process.argv.slice(2));
 const reportPath = resolve(process.argv.find((arg, index) =>
@@ -179,8 +180,27 @@ if (!existsSync(skillsDir)) {
   process.exit(1);
 }
 
+let excludedDirectories = new Set();
+if (existsSync(scopePath)) {
+  try {
+    const scope = JSON.parse(readFileSync(scopePath, 'utf8'));
+    const excluded = scope.excluded_directories;
+    if (!excluded || typeof excluded !== 'object' || Array.isArray(excluded)) {
+      throw new Error('excluded_directories must be an object');
+    }
+    excludedDirectories = new Set(Object.keys(excluded));
+  } catch (error) {
+    console.error(`Invalid skill catalog scope: ${scopePath}: ${error.message}`);
+    process.exit(1);
+  }
+}
+
 const skills = readdirSync(skillsDir, { withFileTypes: true })
-  .filter(entry => entry.isDirectory() && existsSync(join(skillsDir, entry.name, 'SKILL.md')))
+  .filter(entry =>
+    entry.isDirectory() &&
+    !excludedDirectories.has(entry.name) &&
+    existsSync(join(skillsDir, entry.name, 'SKILL.md'))
+  )
   .map(entry => inspectSkill(join(skillsDir, entry.name)));
 
 const count = predicate => skills.filter(predicate).length;
@@ -223,6 +243,13 @@ const report = {
   reportKind: 'local-skill-library-inventory',
   asOf: asOf ?? 'not-specified',
   evidenceBoundary: 'structural and analytical inventory; no live task-quality uplift claim',
+  scope: {
+    skillsDirectory: '.agents/skills',
+    scopeFile: '.agents/skills/.catalog-scope.json',
+    activePackageCount: skills.length,
+    excludedPackageCount: excludedDirectories.size,
+    excludedDirectories: [...excludedDirectories].sort(),
+  },
   summary,
   skills,
 };

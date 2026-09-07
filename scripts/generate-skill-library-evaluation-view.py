@@ -58,6 +58,17 @@ def load_json(path: Path) -> dict[str, Any] | None:
     return value if isinstance(value, dict) else None
 
 
+def load_catalog_scope(skills_dir: Path) -> dict[str, Any]:
+    scope_path = skills_dir / ".catalog-scope.json"
+    scope = load_json(scope_path) if scope_path.exists() else {}
+    if scope is None:
+        raise ValueError(f"Invalid catalog scope JSON: {scope_path}")
+    excluded = scope.get("excluded_directories", {})
+    if not isinstance(excluded, dict):
+        raise ValueError(f"Catalog scope excluded_directories must be an object: {scope_path}")
+    return scope
+
+
 def evaluation_record(skill_dir: Path, version: str) -> dict[str, Any]:
     eval_path = skill_dir / "evals" / "evals.json"
     benchmark_path = skill_dir / "benchmarks" / "benchmark.json"
@@ -314,9 +325,15 @@ def package_record(skill_dir: Path, project_owned: bool) -> dict[str, Any]:
 
 
 def build_view(skills_dir: Path, generated_at: str | None = None) -> dict[str, Any]:
+    scope = load_catalog_scope(skills_dir)
+    excluded_directories = scope.get("excluded_directories", {})
     packages = []
     for child in sorted(skills_dir.iterdir()):
-        if child.is_dir() and (child / "SKILL.md").exists():
+        if (
+            child.is_dir()
+            and child.name not in excluded_directories
+            and (child / "SKILL.md").exists()
+        ):
             packages.append(package_record(child, child.name.startswith("okhp3-")))
 
     project_packages = [p for p in packages if p["package_class"] == "portable-core"]
@@ -375,7 +392,10 @@ def build_view(skills_dir: Path, generated_at: str | None = None) -> dict[str, A
             "cataloged_package_count": len(packages),
             "project_owned_package_count": len(project_packages),
             "host_or_third_party_exception_count": len(packages) - len(project_packages),
-            "scope_note": "The task brief named the 14-package catalog at planning time; this view uses the current checked-in tree as the source of truth and inventories all current packages.",
+            "scope_file": str(skills_dir / ".catalog-scope.json"),
+            "excluded_package_count": len(excluded_directories),
+            "excluded_directories": sorted(excluded_directories),
+            "scope_note": "The active catalog is the established project skill set; workspace support directories remain checked in but are explicitly excluded pending scope or provenance review.",
         },
         "status_legend": {
             "live": "Comparable executor or user runs occurred for the exact version and configuration.",

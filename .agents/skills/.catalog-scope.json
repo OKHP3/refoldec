@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "active_catalog": "established-project-skill-set",
+  "excluded_directories": {
+    "okhp3-repl-repo-janitor copy": {
+      "status": "quarantined-duplicate",
+      "reason": "Copied directory has the same frontmatter name as okhp3-repl-repo-janitor and is not a distinct catalog package."
+    },
+    "okhp3-replit-build-in-public": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-canvas-board": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-design-pipeline": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-free-mode-autonomy": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-github-sync": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-multi-artifact": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-repl-janitor": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    }
+  }
+}

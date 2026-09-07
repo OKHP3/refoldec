@@ -21,6 +21,12 @@ test('skill-library inventory covers the active package set', () => {
   assert.equal(report.summary.packageCount, 40);
   assert.equal(report.summary.versionedPackageCount, 40);
   assert.equal(report.skills.length, report.summary.packageCount);
+  assert.equal(report.scope.activePackageCount, 40);
+  assert.equal(report.scope.excludedPackageCount, 8);
+  assert.equal(
+    report.skills.some(skill => report.scope.excludedDirectories.includes(skill.name)),
+    false
+  );
 });
 
 test('skill-library inventory keeps live evidence claims bounded', () => {
@@ -72,6 +78,10 @@ test('inventory and evaluation view agree on release design counts', () => {
   assert.equal(
     report.summary.legacyCaseCount,
     evaluationView.summary.invalid_case_packages
+  );
+  assert.deepEqual(
+    report.scope.excludedDirectories,
+    evaluationView.scope.excluded_directories
   );
 });
 

@@ -238,6 +238,19 @@ def discover_skills(skills_dir: Path, mode: str, base: Path | None = None) -> li
     if base is None:
         base = skills_dir
     skills = []
+    scope_path = skills_dir / ".catalog-scope.json"
+    excluded = set()
+    if scope_path.exists():
+        try:
+            scope = json.loads(scope_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise ValueError(f"Invalid catalog scope JSON: {scope_path}: {exc}") from exc
+        excluded_map = scope.get("excluded_directories", {})
+        if not isinstance(excluded_map, dict):
+            raise ValueError(
+                f"Catalog scope excluded_directories must be an object: {scope_path}"
+            )
+        excluded = set(excluded_map)
     if mode == "library":
         for cat_dir in sorted(skills_dir.iterdir()):
             if not cat_dir.is_dir() or cat_dir.name.startswith("."):
@@ -247,6 +260,8 @@ def discover_skills(skills_dir: Path, mode: str, base: Path | None = None) -> li
             for skill_dir in sorted(cat_dir.iterdir()):
                 if not skill_dir.is_dir():
                     continue
+                if skill_dir.name in excluded:
+                    continue
                 md = skill_dir / "SKILL.md"
                 if md.exists():
                     fm = parse_frontmatter(md)
@@ -254,6 +269,8 @@ def discover_skills(skills_dir: Path, mode: str, base: Path | None = None) -> li
     else:
         for skill_dir in sorted(skills_dir.iterdir()):
             if not skill_dir.is_dir() or skill_dir.name.startswith("."):
+                continue
+            if skill_dir.name in excluded:
                 continue
             md = skill_dir / "SKILL.md"
             if md.exists():
