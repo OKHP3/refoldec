@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "reportKind": "local-skill-library-inventory",
-  "asOf": "not-specified",
+  "asOf": "2026-09-06",
   "evidenceBoundary": "structural and analytical inventory; no live task-quality uplift claim",
   "summary": {
     "packageCount": 48,
