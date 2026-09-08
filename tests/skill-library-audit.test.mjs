@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import {
   mkdtempSync,
+  mkdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
@@ -15,6 +16,59 @@ const evaluationView = JSON.parse(readFileSync('docs/evidence/skill-library-eval
 const projectPackages = evaluationView.packages.filter(packageRecord =>
   packageRecord.package_class === 'portable-core'
 );
+
+for (const [label, name, version, footer, expected] of [
+  ['valid active core', 'okhp3-fixture', '1.0.0', '## About', 'PASS'],
+  ['invalid active version', 'okhp3-fixture', 'invalid', '## About', 'REVIEW'],
+  ['mismatched active name', 'okhp3-other', '1.0.0', '## About', 'REVIEW'],
+  ['missing active footer', 'okhp3-fixture', '1.0.0', '', 'REVIEW'],
+  ['no active core', null, '1.0.0', '## About', 'NOT RUN'],
+]) {
+  test(`frontmatter summary reflects ${label} and preserves excluded duplicate`, () => {
+    const temporaryDirectory = mkdtempSync(join(tmpdir(), 'frontmatter-summary-'));
+    try {
+      const skills = join(temporaryDirectory, 'skills');
+      const duplicate = join(skills, 'okhp3-fixture copy');
+      const fixture = `---\nname: ${name}\nmetadata:\n  version: "${version}"\n---\n${footer}\n`;
+      mkdirSync(duplicate, { recursive: true });
+      const duplicatePath = join(duplicate, 'SKILL.md');
+      const duplicateContents = '---\nname: okhp3-fixture\n---\nPreserved duplicate.\n';
+      writeFileSync(duplicatePath, duplicateContents);
+      writeFileSync(join(skills, '.catalog-scope.json'), JSON.stringify({
+        excluded_directories: { 'okhp3-fixture copy': { status: 'quarantined-duplicate' } },
+      }));
+      // Documented host exceptions must not turn a failing core into a pass.
+      mkdirSync(join(skills, 'host-fixture'));
+      writeFileSync(join(skills, 'host-fixture', 'SKILL.md'), 'Host exception.\n');
+      if (name !== null) {
+        mkdirSync(join(skills, 'okhp3-fixture'));
+        writeFileSync(join(skills, 'okhp3-fixture', 'SKILL.md'), fixture);
+      }
+      const jsonOutput = join(temporaryDirectory, 'view.json');
+      const markdownOutput = join(temporaryDirectory, 'report.md');
+      execFileSync('python3', [
+        'scripts/generate-skill-library-evaluation-view.py',
+        '--skills-dir', skills,
+        '--json-output', jsonOutput,
+        '--markdown-output', markdownOutput,
+      ], { stdio: 'pipe' });
+      const view = JSON.parse(readFileSync(jsonOutput, 'utf8'));
+      const cores = view.packages.filter(p => p.package_class === 'portable-core');
+      assert.equal(cores.length, name === null ? 0 : 1);
+      if (cores.length) {
+        assert.equal(cores[0].frontmatter.status, expected === 'PASS' ? 'pass' : 'review');
+      }
+      const row = readFileSync(markdownOutput, 'utf8').split('\n')
+        .find(line => line.startsWith('| Portable-core frontmatter |'));
+      assert.equal(row.split('|')[2].trim().split(' / ')[0], expected);
+      assert.equal(view.scope.excluded_package_count, 1);
+      assert.equal(view.packages.some(p => p.path.includes('okhp3-fixture copy')), false);
+      assert.equal(readFileSync(duplicatePath, 'utf8'), duplicateContents);
+    } finally {
+      rmSync(temporaryDirectory, { recursive: true, force: true });
+    }
+  });
+}
 
 test('skill-library inventory covers the active package set', () => {
   assert.equal(report.schemaVersion, '1.0');
