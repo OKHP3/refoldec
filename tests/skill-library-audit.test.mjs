@@ -60,6 +60,7 @@ for (const [label, name, version, footer, expected] of [
       }
       const row = readFileSync(markdownOutput, 'utf8').split('\n')
         .find(line => line.startsWith('| Portable-core frontmatter |'));
+      assert.ok(row, 'generated report must contain the portable-core frontmatter summary row');
       assert.equal(row.split('|')[2].trim().split(' / ')[0], expected);
       assert.equal(view.scope.excluded_package_count, 1);
       assert.equal(view.packages.some(p => p.path.includes('okhp3-fixture copy')), false);
