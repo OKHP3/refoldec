@@ -432,6 +432,16 @@ def build_view(skills_dir: Path, generated_at: str | None = None) -> dict[str, A
 def markdown(view: dict[str, Any]) -> str:
     scope = view["scope"]
     summary = view["summary"]
+    core_statuses = [
+        package["frontmatter"]["status"]
+        for package in view["packages"]
+        if package["package_class"] == "portable-core"
+    ]
+    frontmatter_result = (
+        "NOT RUN" if not core_statuses
+        else "PASS" if all(status == "pass" for status in core_statuses)
+        else "REVIEW"
+    )
     generated_line = (
         f'**Generated:** {view["generated_at"]}\n'
         if view.get("generated_at") is not None
@@ -477,7 +487,7 @@ production-ready by association.
 | Dimension | Result | Interpretation |
 |---|---:|---|
 | Package discovery | PASS ({scope["cataloged_package_count"]}) | Direct `SKILL.md` packages were inventoried. |
-| Portable-core frontmatter | PASS / documented exceptions | Project-owned packages have semver/name/footer checks; host or third-party packages remain labeled exceptions. |
+| Portable-core frontmatter | {frontmatter_result} / documented exceptions | Project-owned packages have semver/name/footer checks; host or third-party packages remain labeled exceptions. |
 | Referenced resources | {"PASS" if summary["packages_with_missing_references"] == 0 else "BLOCKED"} | {summary["packages_with_missing_references"]} package(s) have unresolved backtick-delimited local references. |
 | Evaluation design coverage | {summary["evaluation_design_ready"]} ready / {summary["evaluation_design_incomplete"]} incomplete | Explicit normal, edge, and boundary development coverage; {summary["legacy_partition_packages"]} legacy/unpartitioned packages and {summary["invalid_case_packages"]} invalid-case packages. |
 | Public design exposure | {summary["public_holdout_exposed_packages"]} packages | Checked-in development cases are public and cannot serve as an unseen release holdout. |
