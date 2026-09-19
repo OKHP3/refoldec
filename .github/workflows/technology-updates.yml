@@ -1,0 +1,71 @@
+name: Propose technology updates
+
+on:
+  schedule:
+    - cron: '17 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: technology-update-proposal
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    # Only trusted default-branch code receives the write token. Never run on PR events.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+      - name: Retrieve stable releases and prepare candidate pins
+        id: update
+        run: node scripts/check-technology-versions.mjs --update
+      - name: Install candidate Node.js
+        if: steps.update.outputs.changed == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          check-latest: true
+      - name: Install candidate Python
+        if: steps.update.outputs.changed == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+          check-latest: true
+          allow-prereleases: false
+      - name: Validate candidate before creating a pull request
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          node --version
+          python3 --version
+          bash scripts/post-merge-setup.sh
+      - name: Open or refresh the update proposal
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: codex/technology-updates
+          commit-message: 'chore: refresh stable technology versions'
+          title: 'chore: refresh stable technology versions'
+          add-paths: |
+            .node-version
+            .python-version
+            docs/technology-versions.json
+          body: |
+            Updates exact Node.js LTS and Python stable pins and the upstream Mermaid watch record from official sources. Mermaid is advisory; no renderer is installed.
+
+            The candidate runtimes passed the full repository and skill-support validation before this proposal was created.
+            Evidence and any Replit module follow-up: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Review release notes and the changed version files before merging. Replit modules, its Nix channel, and installed desktop runtimes require separate host updates and validation. This workflow does not merge automatically.
+
+            PR events created by GITHUB_TOKEN do not trigger another workflow. If required PR checks are pending, dispatch Technology freshness on codex/technology-updates before merging. Do not bypass required checks.

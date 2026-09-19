@@ -19,9 +19,9 @@ Mission, confirmed by the contracts and README: provide the shared specification
 
 Current status:
 
-- Active specification/documentation project; no application runtime is present. The checked-in validation surface uses Node.js 24 LTS; the supporting skill scripts require Python 3.9+ when those skills are exercised.
+- Active specification/documentation project; no application runtime is present. Exact validation targets are recorded in `.node-version` and `.python-version`. Python is required by repository evidence checks and supporting skill scripts. Replit module lines are declared separately in `.replit`.
 - The semantic registry validator and Node test suite are working and dependency-free.
-- Four local skills and their supporting assets/scripts are present under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
+- Forty active skills and eight excluded directories are recorded by the skill-library inventory under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
 - Organ URLs and some ecosystem plans are still marked as placeholders or planned in the documentation.
 
 ## Scope boundaries and non-goals
@@ -71,6 +71,7 @@ CONTRIBUTING.md                   contribution conventions
 CHANGELOG.md                      history and planned work
 .github/ISSUE_TEMPLATE/           issue forms
 .replit                           Replit environment metadata; no run command
+.node-version / .python-version   exact stable validation targets
 semantic-class-registry/          human and machine registry definitions
 scripts/validate-registry.mjs     dependency-free registry validator
 tests/registry.test.mjs           Node test suite for registry rules
@@ -84,7 +85,7 @@ There is one Git repository at this root. No nested repository or independent ap
 
 ## Runtime and validation
 
-The repository has no package manifest and no install step. `.replit` declares Node.js 24 for the hosted environment; the checks require only Node.js and built-in modules.
+The repository has no root package manifest or dependency-install step. Seven private skill manifests contain dependency-free Node test commands. Repository checks use Node.js and Python standard libraries. `.replit` declares hosted module lines; exact CI targets are in `.node-version` and `.python-version`.
 
 Run the repository checks from the root:
 
@@ -93,9 +94,14 @@ node scripts/validate-registry.mjs
 node --test tests/registry.test.mjs
 node scripts/validate-conformance.mjs
 node --test tests/conformance.test.mjs
+node --test tests/technology-versions.test.mjs
+node scripts/check-technology-versions.mjs --offline
+bash scripts/post-merge-setup.sh
 ```
 
 The registry validator checks JSON shape, required fields, allowed `family` and `paletteToken` values, color-agnostic content, and unique `(id, family)` pairs. The conformance validator checks the four-form fixture, its canonical invariant projections, and contract/schema versions; its tests cover legal-direction preservation, invariant loss, ambiguity, missing metadata, and deferred folds. These are fixture/specification checks, not a codec runtime. For documentation-only changes, additionally run `git diff --check` and inspect `git status --short`.
+
+The Bash post-merge hook runs all repository and skill-support tests, structural validators and generated-evidence freshness checks. Release-hash checks require canonical Git bytes; Windows CRLF conversion can invalidate frozen evidence hashes. Prefer Linux CI for the complete release gate and keep host-specific results separate.
 
 No application build, local server, deployment command, or production guarantee is defined in this repository. Links to GitHub/Replit and organ projects in the docs are contextual; placeholder links remain unresolved until the project owner confirms them.
 
@@ -126,7 +132,7 @@ Preserve existing user changes and do not use destructive version-control comman
 - The codec runtime/orchestrator is intentionally deferred; its eventual scope and implementation contract are unknown.
 - The organ pointer table contains placeholder repository/Replit URLs that need owner confirmation before being treated as authoritative deployment links.
 - Process Skills are present, but their broader release/versioning plan remains in progress.
-- The repository has no application build, deployment configuration, or integration test beyond the registry checks. Technology freshness is checked weekly by `.github/workflows/technology-freshness.yml`; update `.replit` when the supported Node.js LTS major changes.
+- The repository has no application build or deployment configuration. `.github/workflows/technology-freshness.yml` validates exact runtime pins and the Replit module lines. `.github/workflows/technology-updates.yml` proposes tested weekly runtime updates; Dependabot handles Actions. See `docs/technology-stack.md` for activation, host migration, stable-release policy and evidence limits. Replit module/channel changes require provider availability checks and validation in that host.
 
 ## Keeping this guide current
 
