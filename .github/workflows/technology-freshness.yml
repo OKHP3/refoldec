@@ -3,8 +3,6 @@ name: Technology freshness
 on:
   push:
   pull_request:
-  schedule:
-    - cron: '17 8 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -13,21 +11,49 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime: [pinned, replit]
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
-      - name: Use latest Node.js LTS
+      - name: Select declared runtimes
+        id: versions
+        env:
+          RUNTIME_TARGET: ${{ matrix.runtime }}
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, re
+          if os.environ['RUNTIME_TARGET'] == 'pinned':
+              node = pathlib.Path('.node-version').read_text().strip()
+              python = pathlib.Path('.python-version').read_text().strip()
+              assert re.fullmatch(r'\d+\.\d+\.\d+', node)
+              assert re.fullmatch(r'\d+\.\d+\.\d+', python)
+          else:
+              text = pathlib.Path('.replit').read_text()
+              node = re.search(r'"nodejs-(\d+)"', text)[1]
+              python = re.search(r'"python-base-(\d+\.\d+)"', text)[1]
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'node={node}\npython={python}\n')
+          PY
+      - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version: ${{ steps.versions.outputs.node }}
           check-latest: true
-      - name: Check declared technology versions
-        run: node scripts/check-technology-versions.mjs
-      - name: Validate semantic registry
-        run: node scripts/validate-registry.mjs
-      - name: Run tests
-        run: node --test tests/registry.test.mjs tests/conformance.test.mjs tests/skill-library-audit.test.mjs
-      - name: Check skill-library inventory freshness
-        run: node scripts/audit-skill-library.mjs --check
-      - name: Check skill-library evaluation evidence freshness
-        run: python3 scripts/generate-skill-library-evaluation-view.py --check
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ steps.versions.outputs.python }}
+          check-latest: true
+          allow-prereleases: false
+      - name: Record actual tool versions
+        run: |
+          node --version
+          python3 --version
+          git --version
+          bash --version
+      - name: Validate repository and all skill support tests
+        run: bash scripts/post-merge-setup.sh

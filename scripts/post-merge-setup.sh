@@ -5,6 +5,8 @@ ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 node scripts/validate-registry.mjs
+node scripts/validate-conformance.mjs
+node scripts/check-technology-versions.mjs --offline
 node --test tests/*.mjs .agents/skills/okhp3-skill-foundry/tests/*.cjs
 while IFS= read -r test_file; do
   node --test "$test_file"

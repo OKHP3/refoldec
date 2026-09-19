@@ -14,6 +14,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - OverKill Hill public project page
 
 ### Added
+- Source-backed technology audit separating installed runtimes, declared versions, formats, optional host tools and unused application frameworks.
+- Exact Node LTS/Python stable pins, a weekly tested update-PR workflow, and dependency-free freshness regression tests.
+- CI validation on both exact target versions and the configured Replit runtime lines, using the full post-merge checks.
 - Controlled synthetic four-form fold/unfold proof package with manual invariant comparison.
 - Consolidated controlled-readiness decision separating specification evidence from runtime, organ, and skill outcome claims.
 
