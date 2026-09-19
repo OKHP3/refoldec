@@ -23,6 +23,8 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      REFOLDEC_PYTHON: python
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -31,7 +33,7 @@ jobs:
         env:
           RUNTIME_TARGET: ${{ matrix.runtime }}
         run: |
-          python3 - <<'PY'
+          python - <<'PY'
           import os, pathlib, re
           if os.environ['RUNTIME_TARGET'] == 'pinned':
               node = pathlib.Path('.node-version').read_text().strip()
@@ -59,7 +61,7 @@ jobs:
       - name: Record actual tool versions
         run: |
           node --version
-          python3 --version
+          python --version
           git --version
           bash --version
       - name: Validate repository and all skill support tests
