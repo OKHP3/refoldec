@@ -46,12 +46,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('validateDecisionModel exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/validate-decision-model.mjs'));
+  const mod = await import(new URL('../scripts/validate-decision-model.mjs', import.meta.url));
   assert.equal(typeof mod.validateDecisionModel, 'function');
 });
 
 test('validateDecisionModel returns { valid, errors, warnings, rules_fired }', async () => {
-  const { validateDecisionModel } = await import(join(SKILL_ROOT, 'scripts/validate-decision-model.mjs'));
+  const { validateDecisionModel } = await import(new URL('../scripts/validate-decision-model.mjs', import.meta.url));
   const result = validateDecisionModel({});
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));
@@ -60,7 +60,7 @@ test('validateDecisionModel returns { valid, errors, warnings, rules_fired }', a
 });
 
 test('validateDecisionModel returns invalid for empty decisions', async () => {
-  const { validateDecisionModel } = await import(join(SKILL_ROOT, 'scripts/validate-decision-model.mjs'));
+  const { validateDecisionModel } = await import(new URL('../scripts/validate-decision-model.mjs', import.meta.url));
   const result = validateDecisionModel({ decisions: [] });
   assert.equal(result.valid, false);
   assert.ok(result.errors.some(e => e.includes('DM-1')));

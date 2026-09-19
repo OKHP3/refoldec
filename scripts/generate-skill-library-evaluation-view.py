@@ -283,7 +283,7 @@ def package_record(skill_dir: Path, project_owned: bool) -> dict[str, Any]:
 
     return {
         "name": name,
-        "path": str(skill_path),
+        "path": skill_path.as_posix(),
         "version": version or None,
         "package_class": package_class,
         "frontmatter": {
@@ -388,11 +388,11 @@ def build_view(skills_dir: Path, generated_at: str | None = None) -> dict[str, A
         "schema_version": "1.0",
         **({"generated_at": generated_at} if generated_at is not None else {}),
         "scope": {
-            "skills_dir": str(skills_dir),
+            "skills_dir": skills_dir.as_posix(),
             "cataloged_package_count": len(packages),
             "project_owned_package_count": len(project_packages),
             "host_or_third_party_exception_count": len(packages) - len(project_packages),
-            "scope_file": str(skills_dir / ".catalog-scope.json"),
+            "scope_file": (skills_dir / ".catalog-scope.json").as_posix(),
             "excluded_package_count": len(excluded_directories),
             "excluded_directories": sorted(excluded_directories),
             "scope_note": "The active catalog is the established project skill set; workspace support directories remain checked in but are explicitly excluded pending scope or provenance review.",
@@ -546,8 +546,8 @@ def main() -> int:
         with tempfile.TemporaryDirectory(prefix="skill-library-evaluation-") as temporary_directory:
             temporary_json = Path(temporary_directory) / "skill-library-evaluation-view.json"
             temporary_markdown = Path(temporary_directory) / "skill-library-maturity.md"
-            temporary_json.write_text(generated_json, encoding="utf-8")
-            temporary_markdown.write_text(generated_markdown, encoding="utf-8")
+            temporary_json.write_bytes(generated_json.encode("utf-8"))
+            temporary_markdown.write_bytes(generated_markdown.encode("utf-8"))
 
             for expected_path, temporary_path in (
                 (json_path, temporary_json),
@@ -558,7 +558,7 @@ def main() -> int:
                 except (OSError, UnicodeError):
                     matches = False
                 if not matches:
-                    stale_paths.append(str(expected_path))
+                    stale_paths.append(expected_path.as_posix())
 
         if stale_paths:
             print(
@@ -575,8 +575,8 @@ def main() -> int:
 
     json_path.parent.mkdir(parents=True, exist_ok=True)
     markdown_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(generated_json, encoding="utf-8")
-    markdown_path.write_text(generated_markdown, encoding="utf-8")
+    json_path.write_bytes(generated_json.encode("utf-8"))
+    markdown_path.write_bytes(generated_markdown.encode("utf-8"))
     print(
         f"Generated evaluation view for {view['scope']['cataloged_package_count']} packages: "
         f"{json_path}, {markdown_path}"

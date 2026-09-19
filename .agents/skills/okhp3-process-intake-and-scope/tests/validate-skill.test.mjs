@@ -79,12 +79,12 @@ test('scripts have no React/DOM imports', () => {
 });
 
 test('generatePir exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/generate-pir.mjs'));
+  const mod = await import(new URL('../scripts/generate-pir.mjs', import.meta.url));
   assert.equal(typeof mod.generatePir, 'function');
 });
 
 test('generatePir returns { valid, errors, warnings, pir }', async () => {
-  const { generatePir } = await import(join(SKILL_ROOT, 'scripts/generate-pir.mjs'));
+  const { generatePir } = await import(new URL('../scripts/generate-pir.mjs', import.meta.url));
   const result = generatePir({ processName: 'Test Process' });
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));

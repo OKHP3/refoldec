@@ -46,12 +46,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('analyzeGaps exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/analyze-gaps.mjs'));
+  const mod = await import(new URL('../scripts/analyze-gaps.mjs', import.meta.url));
   assert.equal(typeof mod.analyzeGaps, 'function');
 });
 
 test('analyzeGaps returns { valid, errors, warnings, gaps, exceptionCatalog, summary }', async () => {
-  const { analyzeGaps } = await import(join(SKILL_ROOT, 'scripts/analyze-gaps.mjs'));
+  const { analyzeGaps } = await import(new URL('../scripts/analyze-gaps.mjs', import.meta.url));
   const result = analyzeGaps({ process_id: 'test', steps: [] });
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));

@@ -46,12 +46,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('generateFutureState exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/generate-future-state.mjs'));
+  const mod = await import(new URL('../scripts/generate-future-state.mjs', import.meta.url));
   assert.equal(typeof mod.generateFutureState, 'function');
 });
 
 test('generateFutureState returns { valid, errors, warnings, futureState }', async () => {
-  const { generateFutureState } = await import(join(SKILL_ROOT, 'scripts/generate-future-state.mjs'));
+  const { generateFutureState } = await import(new URL('../scripts/generate-future-state.mjs', import.meta.url));
   const result = generateFutureState({ process_id: 'test', gaps: [] });
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));

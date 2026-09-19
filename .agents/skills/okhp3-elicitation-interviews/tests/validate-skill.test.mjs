@@ -46,12 +46,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('generateQuestionPlan exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/generate-question-plan.mjs'));
+  const mod = await import(new URL('../scripts/generate-question-plan.mjs', import.meta.url));
   assert.equal(typeof mod.generateQuestionPlan, 'function');
 });
 
 test('generateQuestionPlan returns { valid, errors, warnings, plan }', async () => {
-  const { generateQuestionPlan } = await import(join(SKILL_ROOT, 'scripts/generate-question-plan.mjs'));
+  const { generateQuestionPlan } = await import(new URL('../scripts/generate-question-plan.mjs', import.meta.url));
   const result = generateQuestionPlan({ process_id: 'test', actors: [], steps: [], exceptions: [], business_rules: [] });
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));
