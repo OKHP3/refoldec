@@ -11,6 +11,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
 
+const python = process.env.REFOLDEC_PYTHON || 'python3';
 const report = JSON.parse(readFileSync('docs/evidence/skill-library-inventory.json', 'utf8'));
 const evaluationView = JSON.parse(readFileSync('docs/evidence/skill-library-evaluation-view.json', 'utf8'));
 const projectPackages = evaluationView.packages.filter(packageRecord =>
@@ -46,7 +47,7 @@ for (const [label, name, version, footer, expected] of [
       }
       const jsonOutput = join(temporaryDirectory, 'view.json');
       const markdownOutput = join(temporaryDirectory, 'report.md');
-      execFileSync('python3', [
+      execFileSync(python, [
         'scripts/generate-skill-library-evaluation-view.py',
         '--skills-dir', skills,
         '--json-output', jsonOutput,
@@ -161,7 +162,7 @@ test('evaluation evidence generation is byte-identical across reruns', () => {
       if (generatedAt) {
         args.push('--generated-at', generatedAt);
       }
-      execFileSync('python3', args, { stdio: 'pipe' });
+      execFileSync(python, args, { stdio: 'pipe' });
     };
 
     generate(firstJson, firstMarkdown);
@@ -199,7 +200,7 @@ test('evaluation evidence generation is byte-identical across reruns', () => {
 
 test('checked-in evaluation evidence passes its drift check', () => {
   execFileSync(
-    'python3',
+    python,
     ['scripts/generate-skill-library-evaluation-view.py', '--check'],
     { stdio: 'pipe' }
   );
@@ -217,7 +218,7 @@ test('evaluation evidence drift check catches either stale output', () => {
       writeFileSync(path, Buffer.concat([originalContents[index], Buffer.from('stale\n')]));
       assert.throws(
         () => execFileSync(
-          'python3',
+          python,
           ['scripts/generate-skill-library-evaluation-view.py', '--check'],
           { stdio: 'pipe' }
         ),
