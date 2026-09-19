@@ -10,12 +10,19 @@ permissions:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         runtime: [pinned, replit]
+        os: [ubuntu-latest]
+        include:
+          - runtime: pinned
+            os: windows-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Check out repository
         uses: actions/checkout@v7

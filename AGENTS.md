@@ -101,7 +101,7 @@ bash scripts/post-merge-setup.sh
 
 The registry validator checks JSON shape, required fields, allowed `family` and `paletteToken` values, color-agnostic content, and unique `(id, family)` pairs. The conformance validator checks the four-form fixture, its canonical invariant projections, and contract/schema versions; its tests cover legal-direction preservation, invariant loss, ambiguity, missing metadata, and deferred folds. These are fixture/specification checks, not a codec runtime. For documentation-only changes, additionally run `git diff --check` and inspect `git status --short`.
 
-The Bash post-merge hook runs all repository and skill-support tests, structural validators and generated-evidence freshness checks. Release-hash checks require canonical Git bytes; Windows CRLF conversion can invalidate frozen evidence hashes. Prefer Linux CI for the complete release gate and keep host-specific results separate.
+The Bash post-merge hook runs all repository and skill-support tests, structural validators and generated-evidence freshness checks. `.gitattributes` preserves LF text on every host so frozen evidence hashes remain valid. Generated evidence uses portable paths and UTF-8/LF bytes. CI runs the full gate on Linux and Windows; use Git Bash on Windows and keep host-specific results separate.
 
 No application build, local server, deployment command, or production guarantee is defined in this repository. Links to GitHub/Replit and organ projects in the docs are contextual; placeholder links remain unresolved until the project owner confirms them.
 

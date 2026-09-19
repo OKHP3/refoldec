@@ -46,12 +46,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('assignStepIds exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/assign-step-ids.mjs'));
+  const mod = await import(new URL('../scripts/assign-step-ids.mjs', import.meta.url));
   assert.equal(typeof mod.assignStepIds, 'function');
 });
 
 test('assignStepIds returns { valid, errors, warnings, steps }', async () => {
-  const { assignStepIds } = await import(join(SKILL_ROOT, 'scripts/assign-step-ids.mjs'));
+  const { assignStepIds } = await import(new URL('../scripts/assign-step-ids.mjs', import.meta.url));
   const result = assignStepIds([{ description: 'Submit form', actor_role_id: 'role-a' }]);
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));

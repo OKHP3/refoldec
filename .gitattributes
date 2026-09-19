@@ -1,0 +1,2 @@
+# Keep frozen evidence hashes and generated files identical across hosts.
+* text=auto eol=lf

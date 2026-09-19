@@ -14,6 +14,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - OverKill Hill public project page
 
 ### Added
+- Consistent LF checkout policy, portable generated-evidence paths, Windows-compatible skill test imports, and a Windows CI lane for the full validation gate.
 - Source-backed technology audit separating installed runtimes, declared versions, formats, optional host tools and unused application frameworks.
 - Exact Node LTS/Python stable pins, a weekly tested update-PR workflow, and dependency-free freshness regression tests.
 - CI validation on both exact target versions and the configured Replit runtime lines, using the full post-merge checks.

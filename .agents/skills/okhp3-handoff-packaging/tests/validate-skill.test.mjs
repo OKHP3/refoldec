@@ -47,19 +47,19 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('buildPublicationBundle exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/build-publication-bundle.mjs'));
+  const mod = await import(new URL('../scripts/build-publication-bundle.mjs', import.meta.url));
   assert.equal(typeof mod.buildPublicationBundle, 'function');
 });
 
 test('buildPublicationBundle returns error for missing dir', async () => {
-  const { buildPublicationBundle } = await import(join(SKILL_ROOT, 'scripts/build-publication-bundle.mjs'));
+  const { buildPublicationBundle } = await import(new URL('../scripts/build-publication-bundle.mjs', import.meta.url));
   const result = buildPublicationBundle('/nonexistent/path/proc-test');
   assert.equal(result.valid, false);
   assert.ok(result.errors.length > 0);
 });
 
 test('buildPublicationBundle returns { valid, errors, warnings, manifest, approvals } shape', async () => {
-  const { buildPublicationBundle } = await import(join(SKILL_ROOT, 'scripts/build-publication-bundle.mjs'));
+  const { buildPublicationBundle } = await import(new URL('../scripts/build-publication-bundle.mjs', import.meta.url));
   // Create a minimal temp dir with required files
   const tmp = join(tmpdir(), `bp-skill-test-${Date.now()}`);
   mkdirSync(tmp, { recursive: true });
