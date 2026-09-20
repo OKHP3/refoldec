@@ -78,7 +78,7 @@ test('skill-library inventory covers the active package set', () => {
   assert.equal(report.summary.versionedPackageCount, 40);
   assert.equal(report.skills.length, report.summary.packageCount);
   assert.equal(report.scope.activePackageCount, 40);
-  assert.equal(report.scope.excludedPackageCount, 8);
+  assert.equal(report.scope.excludedPackageCount, 9);
   assert.equal(
     report.skills.some(skill => report.scope.excludedDirectories.includes(skill.name)),
     false

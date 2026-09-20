@@ -1,10 +1,10 @@
-# AGENTS.md — ReFolDec Repository Guide
+# AGENTS.md â€” ReFolDec Repository Guide
 
 Read this file before changing the repository. It is the canonical agent guide; `CLAUDE.md` points here.
 
 ## Project identity and scope
 
-ReFolDec (Recursively Folding Codec) is a Git-backed specification and contract repository for the OKHP³ ecosystem. It defines the shared vocabulary and boundaries that downstream organs use when moving the same meaning between diagram, code, documentation, and agent-executable forms.
+ReFolDec (Recursively Folding Codec) is a Git-backed specification and contract repository for the OKHPÂ³ ecosystem. It defines the shared vocabulary and boundaries that downstream organs use when moving the same meaning between diagram, code, documentation, and agent-executable forms.
 
 Confirmed repository responsibilities:
 
@@ -15,13 +15,13 @@ Confirmed repository responsibilities:
 - Explain the architecture and case studies in Markdown documentation.
 - Carry a small set of checked-in Process Skills under `.agents/skills/`.
 
-Mission, confirmed by the contracts and README: provide the shared specification head for the OKHP³ organs. The longer-term vision, inferred from the contracts, is a lossless, recursively foldable process-capture model; the programmatic codec runtime is explicitly deferred.
+Mission, confirmed by the contracts and README: provide the shared specification head for the OKHPÂ³ organs. The longer-term vision, inferred from the contracts, is a lossless, recursively foldable process-capture model; the programmatic codec runtime is explicitly deferred.
 
 Current status:
 
 - Active specification/documentation project; no application runtime is present. Exact validation targets are recorded in `.node-version` and `.python-version`. Python is required by repository evidence checks and supporting skill scripts. Replit module lines are declared separately in `.replit`.
 - The semantic registry validator and Node test suite are working and dependency-free.
-- Forty active skills and eight excluded directories are recorded by the skill-library inventory under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
+- Forty active skills and nine excluded directories are recorded by the skill-library inventory under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
 - Organ URLs and some ecosystem plans are still marked as placeholders or planned in the documentation.
 
 ## Scope boundaries and non-goals
@@ -52,7 +52,7 @@ The four canonical representations are `Diagram`, `Code`, `Documentation`, and `
 The normal information flow is:
 
 ```text
-capture → structure → maturation → inversion → executable/visual artifact → versioned canon
+capture â†’ structure â†’ maturation â†’ inversion â†’ executable/visual artifact â†’ versioned canon
 ```
 
 The semantic registry is the meaning axis consumed by downstream organs. The head defines roles and abstract tokens; presentation consumers bind concrete styling downstream.
@@ -140,6 +140,6 @@ Update this file when the repository gains a new top-level artifact, validation 
 
 ## Canonical disclaimer
 
-This text must appear in the README of any public OKHP³ repo:
+This text must appear in the README of any public OKHPÂ³ repo:
 
-> Personal project of Jamie Hill / OverKill Hill P³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai.
+> Personal project of Jamie Hill / OverKill Hill PÂ³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai.
