@@ -21,7 +21,7 @@ Current status:
 
 - Active specification/documentation project; no application runtime is present. Exact validation targets are recorded in `.node-version` and `.python-version`. Python is required by repository evidence checks and supporting skill scripts. Replit module lines are declared separately in `.replit`.
 - The semantic registry validator and Node test suite are working and dependency-free.
-- Forty active skills and eight excluded directories are recorded by the skill-library inventory under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
+- Forty active skills and nine excluded directories are recorded by the skill-library inventory under `.agents/skills/`; these are checked-in agent capabilities, not a ReFolDec runtime.
 - Organ URLs and some ecosystem plans are still marked as placeholders or planned in the documentation.
 
 ## Scope boundaries and non-goals

@@ -33,6 +33,10 @@
     "okhp3-replit-repl-janitor": {
       "status": "scope-review",
       "reason": "Workspace support skill retained outside the established public catalog pending provenance and licensing review."
+    },
+    "okhp3-replit-task-executor": {
+      "status": "scope-review",
+      "reason": "Workspace support skill retained alongside the other Replit support packages, outside the established public catalog pending provenance and licensing review."
     }
   }
 }

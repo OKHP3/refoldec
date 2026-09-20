@@ -6,7 +6,7 @@
     "project_owned_package_count": 36,
     "host_or_third_party_exception_count": 4,
     "scope_file": ".agents/skills/.catalog-scope.json",
-    "excluded_package_count": 8,
+    "excluded_package_count": 9,
     "excluded_directories": [
       "okhp3-repl-repo-janitor copy",
       "okhp3-replit-build-in-public",
@@ -15,7 +15,8 @@
       "okhp3-replit-free-mode-autonomy",
       "okhp3-replit-github-sync",
       "okhp3-replit-multi-artifact",
-      "okhp3-replit-repl-janitor"
+      "okhp3-replit-repl-janitor",
+      "okhp3-replit-task-executor"
     ],
     "scope_note": "The active catalog is the established project skill set; workspace support directories remain checked in but are explicitly excluded pending scope or provenance review."
   },

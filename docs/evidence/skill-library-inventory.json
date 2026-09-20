@@ -7,7 +7,7 @@
     "skillsDirectory": ".agents/skills",
     "scopeFile": ".agents/skills/.catalog-scope.json",
     "activePackageCount": 40,
-    "excludedPackageCount": 8,
+    "excludedPackageCount": 9,
     "excludedDirectories": [
       "okhp3-repl-repo-janitor copy",
       "okhp3-replit-build-in-public",
@@ -16,7 +16,8 @@
       "okhp3-replit-free-mode-autonomy",
       "okhp3-replit-github-sync",
       "okhp3-replit-multi-artifact",
-      "okhp3-replit-repl-janitor"
+      "okhp3-replit-repl-janitor",
+      "okhp3-replit-task-executor"
     ]
   },
   "summary": {
