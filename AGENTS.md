@@ -143,3 +143,5 @@ Update this file when the repository gains a new top-level artifact, validation 
 This text must appear in the README of any public OKHP³ repo:
 
 > Personal project of Jamie Hill / OverKill Hill P³, not affiliated with any employer, the mermaid-js maintainers, Mermaid Chart, or Mermaid.ai.
+
+## Imported Claude Cowork project instructions
