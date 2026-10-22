@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "retrievedAt": "2026-10-19T08:41:49.222Z",
+  "retrievedAt": "2026-10-22T02:45:57.498Z",
   "sources": {
     "node": "https://nodejs.org/dist/index.json",
     "python": "https://www.python.org/downloads/",
     "mermaid": "https://registry.npmjs.org/mermaid/latest"
   },
   "releases": {
-    "nodeLts": "24.22.0",
-    "nodeCurrent": "26.12.0",
-    "pythonStable": "3.15.0",
+    "nodeLts": "24.22.1",
+    "nodeCurrent": "26.12.1",
+    "pythonStable": "3.15.1",
     "mermaidStable": "12.2.0"
   }
 }
