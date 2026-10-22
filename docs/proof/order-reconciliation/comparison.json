@@ -202,6 +202,8 @@
     "invariant_hash_mismatch": "reject output with the recorded invariant failure code",
     "missing_node_id": "FAIL; reject output as MISSING_NODE_ID; do not infer or rename a canonical node",
     "omitted_executable_step": "FAIL; reject output as OMITTED_STEP; do not treat an incomplete sequence as executable",
+    "omitted_edge": "FAIL; reject output as OMITTED_EDGE; do not treat an incomplete topology as lossless",
+    "omitted_branch": "FAIL; reject output as OMITTED_BRANCH; do not treat an incomplete flow set as lossless",
     "ambiguous_identity": "stop and request human clarification; do not infer identity",
     "deferred_fold": "reject with DEFERRED_FOLD and route through Code"
   },
@@ -219,6 +221,20 @@
       "failure_code": "OMITTED_STEP",
       "result": "REJECTED",
       "decision": "reject output; an incomplete executable sequence must not be accepted"
+    },
+    {
+      "mutation": "remove one canonical edge from a Code projection",
+      "fixtures": ["synthetic-access-request", "synthetic-order-reconciliation"],
+      "failure_code": "OMITTED_EDGE",
+      "result": "REJECTED",
+      "decision": "reject output; an incomplete edge set must not be accepted as lossless"
+    },
+    {
+      "mutation": "remove one canonical flow from a Code projection",
+      "fixtures": ["synthetic-access-request", "synthetic-order-reconciliation"],
+      "failure_code": "OMITTED_BRANCH",
+      "result": "REJECTED",
+      "decision": "reject output; an incomplete branch set must not be accepted as lossless"
     }
   ],
   "lossy_or_ambiguous_cases": [

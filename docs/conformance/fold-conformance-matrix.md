@@ -101,8 +101,10 @@ messages:
 | `MISSING_NODE_ID` | A node cannot be addressed across forms |
 | `OMITTED_NODE` / `OMITTED_STEP` | A source node or executable step is absent |
 | `ROLE_DRIFT` | A node's semantic class changed |
-| `TOPOLOGY_DRIFT` / `OMITTED_EDGE` | A directed relationship changed or disappeared |
-| `FLOW_DRIFT` / `OMITTED_BRANCH` | Branch identity, endpoint, or condition changed or disappeared |
+| `TOPOLOGY_DRIFT` | A directed relationship changed or an unexpected relationship appeared |
+| `OMITTED_EDGE` | A canonical directed relationship is absent |
+| `FLOW_DRIFT` | Branch identity, endpoint, or condition changed, or an unexpected flow appeared |
+| `OMITTED_BRANCH` | A canonical branch/flow is absent |
 | `GOVERNANCE_DRIFT` | A required governance tag changed or disappeared |
 | `AMBIGUOUS_MAPPING` | More than one source element could match the output element |
 | `UNMARKED_INFERENCE` | The output invents a missing fact without an explicit uncertainty marker |
@@ -131,16 +133,19 @@ stand-ins for fold output; they do not claim to execute a codec. They cover:
 - an explicit invariant-loss mutation for every legal direction;
 - role, topology, flow, and governance preservation;
 - missing metadata and ambiguous identity;
-- missing canonical node identity rejected as `MISSING_NODE_ID`, and an omitted
-  executable step rejected as `OMITTED_STEP`, across both public fixtures;
+- missing canonical node identity rejected as `MISSING_NODE_ID`, and omitted
+  executable step, edge, and branch rejected respectively as `OMITTED_STEP`,
+  `OMITTED_EDGE`, and `OMITTED_BRANCH`, across both public fixtures;
 - exact deferred-fold rejection;
 - registry-role compatibility and the four-form fixture shape.
 
-The negative identity and executable-step mutations are projection-level
-conformance checks. They intentionally do not execute a codec: deleting a
-canonical node ID must fail closed rather than be inferred, and removing the
-`submit` step from either public fixture's executable projection must fail
-closed rather than being treated as executable.
+The negative identity, executable-step, edge, and branch mutations are
+projection-level conformance checks. They intentionally do not execute a
+codec: deleting a canonical node ID must fail closed rather than be inferred;
+removing the `submit` step from either public fixture's executable projection
+must not be treated as executable; and removing a canonical edge or flow from
+either fixture's Code projection must fail closed with the specific
+`OMITTED_EDGE` or `OMITTED_BRANCH` code.
 
 This is contract-level evidence. It does not establish runtime reversibility,
 renderer compatibility, Agent Skills portability, or generalization to a
