@@ -93,12 +93,20 @@ function invariantFailureCodes(actual, expected) {
   if (
     JSON.stringify(actualProjection.edges) !== JSON.stringify(expectedProjection.edges)
   ) {
-    codes.push("TOPOLOGY_DRIFT");
+    codes.push(
+      actualProjection.edges.length < expectedProjection.edges.length
+        ? "OMITTED_EDGE"
+        : "TOPOLOGY_DRIFT"
+    );
   }
   if (
     JSON.stringify(actualProjection.flows) !== JSON.stringify(expectedProjection.flows)
   ) {
-    codes.push("FLOW_DRIFT");
+    codes.push(
+      actualProjection.flows.length < expectedProjection.flows.length
+        ? "OMITTED_BRANCH"
+        : "FLOW_DRIFT"
+    );
   }
   if (
     JSON.stringify(actualProjection.governance) !==
@@ -325,7 +333,7 @@ test("the second proof freezes and verifies all artifact and invariant hashes", 
   }
   assert.deepEqual(
     comparison.negative_mutation_coverage.map(({ failure_code }) => failure_code),
-    ["MISSING_NODE_ID", "OMITTED_STEP"]
+    ["MISSING_NODE_ID", "OMITTED_STEP", "OMITTED_EDGE", "OMITTED_BRANCH"]
   );
   for (const mutation of comparison.negative_mutation_coverage) {
     assert.deepEqual(
@@ -370,6 +378,27 @@ test("topology and flow changes are detected as lossy", () => {
   assert.ok(
     invariantFailureCodes(flowDefect, fixture.representations.Code).includes("FLOW_DRIFT")
   );
+});
+
+test("omitted canonical edge and branch are rejected with stable codes", () => {
+  for (const candidate of [fixture, secondFixture]) {
+    const expected = candidate.representations.Code;
+    const omittedEdge = clone(expected);
+    omittedEdge.projection.edges.splice(0, 1);
+    assert.throws(
+      () => rejectInvariantMismatch(omittedEdge, expected),
+      { code: "OMITTED_EDGE" },
+      `${candidate.fixture_id} must reject a missing canonical edge`
+    );
+
+    const omittedBranch = clone(expected);
+    omittedBranch.projection.flows.splice(0, 1);
+    assert.throws(
+      () => rejectInvariantMismatch(omittedBranch, expected),
+      { code: "OMITTED_BRANCH" },
+      `${candidate.fixture_id} must reject a missing canonical branch`
+    );
+  }
 });
 
 test("ambiguous identity is rejected rather than inferred", () => {
