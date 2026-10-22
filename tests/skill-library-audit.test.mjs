@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import {
+  existsSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -14,6 +15,7 @@ import { test } from 'node:test';
 const python = process.env.REFOLDEC_PYTHON || 'python3';
 const report = JSON.parse(readFileSync('docs/evidence/skill-library-inventory.json', 'utf8'));
 const evaluationView = JSON.parse(readFileSync('docs/evidence/skill-library-evaluation-view.json', 'utf8'));
+const catalogScope = JSON.parse(readFileSync('.agents/skills/.catalog-scope.json', 'utf8'));
 const projectPackages = evaluationView.packages.filter(packageRecord =>
   packageRecord.package_class === 'portable-core'
 );
@@ -78,7 +80,13 @@ test('skill-library inventory covers the active package set', () => {
   assert.equal(report.summary.versionedPackageCount, 40);
   assert.equal(report.skills.length, report.summary.packageCount);
   assert.equal(report.scope.activePackageCount, 40);
-  assert.equal(report.scope.excludedPackageCount, 9);
+  assert.equal(report.scope.excludedPackageCount, 8);
+  assert.equal(
+    catalogScope.resolved_dispositions['okhp3-repl-repo-janitor copy'].status,
+    'removed-with-owner-approval'
+  );
+  assert.equal(existsSync('.agents/skills/okhp3-repl-repo-janitor copy'), false);
+  assert.equal(existsSync('.agents/skills/okhp3-repl-repo-janitor'), true);
   assert.equal(
     report.skills.some(skill => report.scope.excludedDirectories.includes(skill.name)),
     false

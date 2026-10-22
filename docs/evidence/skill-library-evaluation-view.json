@@ -6,9 +6,8 @@
     "project_owned_package_count": 36,
     "host_or_third_party_exception_count": 4,
     "scope_file": ".agents/skills/.catalog-scope.json",
-    "excluded_package_count": 9,
+    "excluded_package_count": 8,
     "excluded_directories": [
-      "okhp3-repl-repo-janitor copy",
       "okhp3-replit-build-in-public",
       "okhp3-replit-canvas-board",
       "okhp3-replit-design-pipeline",
