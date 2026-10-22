@@ -7,9 +7,8 @@
     "skillsDirectory": ".agents/skills",
     "scopeFile": ".agents/skills/.catalog-scope.json",
     "activePackageCount": 40,
-    "excludedPackageCount": 9,
+    "excludedPackageCount": 8,
     "excludedDirectories": [
-      "okhp3-repl-repo-janitor copy",
       "okhp3-replit-build-in-public",
       "okhp3-replit-canvas-board",
       "okhp3-replit-design-pipeline",
