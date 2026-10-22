@@ -54,9 +54,9 @@
       "claim": "All named ecosystem organs currently conform to the head contracts.",
       "claim_type": "hypothesis",
       "status": "blocked",
-      "evidence_ids": ["ECOSYSTEM.md#organ-pointer-table", "SCOPE-FIREWALL.md"],
+      "evidence_ids": ["ECOSYSTEM.md#organ-pointer-table", "SCOPE-FIREWALL.md", "docs/evidence/downstream-organ-parity-status.json"],
       "consequence": "Placeholder links and planned organs could be presented as verified dependencies.",
-      "next_test": "Obtain owner-approved parity reports from each organ."
+      "next_test": "Obtain owner-approved parity reports from each organ; the 2026-10-22 snapshot review found no complete report."
     },
     {
       "claim_id": "CLM-07",

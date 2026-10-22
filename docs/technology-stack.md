@@ -1,6 +1,6 @@
 # ReFolDec technology inventory and update policy
 
-Reviewed **2026-09-18 America/Chicago** (2026-09-19 UTC). Question: which technologies actually execute or define artifacts in ReFolDec, what versions are present, and how should this repository follow stable releases?
+Original audit: **2026-09-18 America/Chicago** (2026-09-19 UTC). Upstream version references and host observations refreshed **2026-10-22 America/Chicago**. Question: which technologies actually execute or define artifacts in ReFolDec, what versions are present, and how should this repository follow stable releases?
 
 ## Scope and evidence
 
@@ -8,25 +8,29 @@ The baseline was clean `main`, commit `a735bba03d5be7cc1c51ab4aa4ce06f4863ac37a`
 
 ReFolDec is a specification repository with maintenance/validation scripts. It has no application build, service, database or codec runtime. The seven private skill manifests are version `0.1.0`, contain test commands, and declare **zero external npm dependencies**. Tracked Python code imports only standard-library modules. There is no requirements file, lockfile or TypeScript compilation pipeline. The old inventory's PyYAML dependency and four-skill claims were stale.
 
+### Current host observations
+
+The 2026-10-22 check observed Windows Node **24.11.1**, Python **3.14.0rc1**, Git **2.56.0.windows.2**, and GitHub CLI **2.96.0**; the Replit checkout reported Node **24.13.0**, Python **3.13.11**, and Git **2.54.0**. These installed versions are distinct from the exact CI targets in `.node-version` and `.python-version`. In particular, the Windows Python executable is a prerelease and must not be described as the stable target. The saved upstream snapshot currently records Node **24.22.1 LTS** and Python **3.15.1**. Future update PRs change the pins and machine-readable snapshot; those files remain authoritative between documentation reviews.
+
 ## Executed technologies and tooling
 
-“In place” describes the audit baseline. Exact pins added by this change are targets for CI/version managers, not claims that installed software has already changed. All upstream values below were checked on the review date; links point to their maintainers' release records.
+“In place” describes the original audit baseline unless the current host observations above say otherwise. Exact pins are targets for CI/version managers, not claims that installed software has already changed. Upstream references below were refreshed on 2026-10-22; links point to their maintainers' release records.
 
 | Technology | In place / evidence | Latest stable found | Tracking and action |
 |---|---|---|---|
-| Node.js | `.replit`: `nodejs-24`; local `24.11.1`; live Replit `24.13.0`; former CI selector `lts/*` | **24.22.1 LTS**; **26.12.1 Current** ([Node release index](https://nodejs.org/dist/index.json); refreshed 2026-10-22) | `.node-version` targets `24.22.1`; weekly tested PRs follow latest LTS, including a new LTS major. Current is recorded separately. |
+| Node.js | `.replit`: `nodejs-24`; local `24.11.1`; live Replit `24.13.0`; former CI selector `lts/*` | **24.22.1 LTS**; **26.12.1 Current** ([Node release index](https://nodejs.org/dist/index.json); refreshed 2026-10-22) | `.node-version` defines the current target; weekly tested PRs follow latest LTS, including a new LTS major. Current is recorded separately. |
 | JavaScript / ECMAScript | `.mjs` ES modules and `.cjs` CommonJS; no edition/transpiler pin | **ECMAScript 2026, 17th edition** ([Ecma](https://ecma-international.org/publications-and-standards/standards/ecma-262/)) | Runtime support follows Node. A newer standard does not imply all its features are implemented in the installed engine. |
 | Node standard library | File/path/URL, child processes, crypto, test/assert, OS, etc.; bundled with each Node runtime | Same release as Node | No separate npm upgrades. |
-| Python / standard library | `.replit`: `python-base-3.13`; live Replit **3.13.11**; local `python3`/`py -3`: **3.14.0rc1**; formerly CI runner-provided, unpinned | **3.15.1** ([Python downloads](https://www.python.org/downloads/)) | `.python-version` targets `3.15.1`. Python is required by repository evidence checks as well as optional skills. Local and Replit runtimes require separate host checks and updates. |
+| Python / standard library | `.replit`: `python-base-3.13`; live Replit **3.13.11**; local `python3`/`py -3`: **3.14.0rc1**; formerly CI runner-provided, unpinned | **3.15.1** ([Python downloads](https://www.python.org/downloads/)) | `.python-version` defines the current stable target. Python is required by repository evidence checks as well as optional skills. Local and Replit runtimes require separate host checks and updates. |
 | Bash | `scripts/post-merge-setup.sh`; local Git Bash **5.3.15**; live Replit **5.2.37** | **5.3 with patch 020 (5.3.20)** ([GNU patch index](https://ftp.gnu.org/gnu/bash/bash-5.3-patches/)) | Host-managed. Update via Git for Windows/Replit packages; validate hook after host changes. |
-| Git | Version control and optional audit helpers; local **2.55.0.windows.5**, live Replit **2.50.1** | Upstream **2.55.0**, with 2.56 prereleases excluded ([Git tags](https://github.com/git/git/tags)); Windows **2.55.0.windows.5** ([Git for Windows](https://github.com/git-for-windows/git/releases/latest)) | Host-managed; local Windows distribution matches the current release. Replit upgrade availability is separate. |
-| GitHub CLI | Optional repository/recovery skill subprocesses; local **2.96.0**; Replit version not measured | **2.101.0** ([CLI releases](https://github.com/cli/cli/releases/latest)) | Optional host tool; update through its official installer/package manager when those skills are used. |
+| Git | Version control and optional audit helpers; baseline local **2.55.0.windows.5**, Replit **2.50.1**; current hosts listed above | Upstream **2.56.0**, excluding release candidates ([Git tags](https://github.com/git/git/tags)); Windows **2.56.0.windows.2** ([Git for Windows](https://github.com/git-for-windows/git/releases/latest)) | Host-managed; the current Windows distribution matches this release. Replit upgrade availability is separate. |
+| GitHub CLI | Optional repository/recovery skill subprocesses; local **2.96.0**; Replit version not measured | **2.103.0** ([CLI releases](https://github.com/cli/cli/releases/latest)) | Optional host tool; update through its official installer/package manager when those skills are used. |
 | GitHub Actions checkout | Existing workflow uses moving major **v7** | **v7.0.1** ([checkout releases](https://github.com/actions/checkout/releases/latest)) | Existing Dependabot configuration tracks Actions; a major tag is not proof of a historical run's resolved commit. |
-| GitHub Actions setup-node | Existing workflow uses moving major **v7** | **v7.0.0** ([setup-node releases](https://github.com/actions/setup-node/releases/latest)) | Dependabot; exact project Node versions now come from the runtime pin. |
-| GitHub Actions setup-python | Added in this change, **v7** | **v7.0.0** ([setup-python releases](https://github.com/actions/setup-python/releases/latest)) | Explicit stable Python setup replaces the runner default; Dependabot tracks the action. |
-| create-pull-request action | Added in this change, **v8.1.1** | **v8.1.1** ([maintainer releases](https://github.com/peter-evans/create-pull-request/releases/latest)) | Creates/refreshes one reviewed update PR after candidate validation; Dependabot tracks it. |
+| GitHub Actions setup-node | Workflow declares moving major **v7** | **v7.1.0** ([setup-node releases](https://github.com/actions/setup-node/releases/latest)) | Dependabot; exact project Node versions come from the runtime pin. |
+| GitHub Actions setup-python | Workflow declares moving major **v7** | **v7.1.0** ([setup-python releases](https://github.com/actions/setup-python/releases/latest)) | Explicit stable Python setup replaces the runner default; Dependabot tracks the action. |
+| create-pull-request action | Workflow declares **v8.1.1** | **v8.1.1** ([maintainer releases](https://github.com/peter-evans/create-pull-request/releases/latest)) | Creates/refreshes one reviewed update PR after candidate validation; Dependabot tracks it. |
 | GitHub runner / system utilities | `ubuntu-latest`; Bash, Git, find, sort and Python bootstrap supplied by the runner | Rolling service image; no single application semver ([runner images](https://github.com/actions/runner-images)) | Runner provider updates the image. Logs record actual tools; the Node/Python matrix is explicit. No claim about the exact image of a run that was not inspected. |
-| Replit / Nix environment | `.replit`: channel **stable-25_05** with Node/Python modules; Nix executable version not measured | Upstream NixOS/Nixpkgs **26.05** ([release](https://nixos.org/blog/announcements/2026/nixos-2605/)); latest Replit-supported channel **unknown** | Nixpkgs release, Nix executable and Replit channel are different version axes. Verify available modules/channels in Replit before migrating; do not invent a `stable-26_05` channel. |
+| Replit / Nix environment | `.replit`: channel **stable-25_05** with Node/Python modules; Nix executable version not measured | Nix executable **2.35.3** ([downloads](https://nixos.org/download/)); upstream NixOS/Nixpkgs **26.05** ([release](https://nixos.org/blog/announcements/2026/nixos-2605/)); latest Replit-supported channel **unknown** | Nixpkgs release, Nix executable and Replit channel are different version axes. Verify available modules/channels in Replit before migrating; do not invent a `stable-26_05` channel. |
 
 ## Formats, notation and contracts
 
@@ -53,10 +57,10 @@ The audit searched executable files, manifests, lockfiles, workflow setup, and i
 | Technology | In-place version in ReFolDec | Stable reference checked for completeness |
 |---|---|---|
 | TypeScript | Not installed / no `.ts` or `.tsx` source | **7.0.2** ([maintainer npm metadata](https://registry.npmjs.org/typescript/latest)) |
-| Vite | Not installed | **8.3.0** ([metadata](https://registry.npmjs.org/vite/latest)) |
+| Vite | Not installed | **8.3.5** ([metadata](https://registry.npmjs.org/vite/latest)) |
 | Tailwind CSS | Not installed | **4.3.3** ([metadata](https://registry.npmjs.org/tailwindcss/latest)) |
-| React | Not installed; skill examples only | **19.3.0** ([metadata](https://registry.npmjs.org/react/latest)) |
-| Next.js | Not installed; skill examples only | **16.3.5** ([metadata](https://registry.npmjs.org/next/latest)) |
+| React | Not installed; skill examples only | **19.3.1** ([metadata](https://registry.npmjs.org/react/latest)) |
+| Next.js | Not installed; skill examples only | **16.4.2** ([metadata](https://registry.npmjs.org/next/latest)) |
 | PyYAML | Not imported by tracked code; local Python environment happens to contain **6.0.3** | **6.0.3** ([PyPI](https://pypi.org/project/PyYAML/)) |
 | npm / pip | No external package install required by repository checks; npm can dispatch the seven dependency-free skill test commands | Bundled/host tooling, not a project dependency baseline |
 
@@ -71,11 +75,13 @@ The audit searched executable files, manifests, lockfiles, workflow setup, and i
 
 ### Activation and release
 
-Merge these files to the default branch to activate the schedule. GitHub must allow Actions to create pull requests (Settings → Actions → General → Workflow permissions). Repository/organization policy may prohibit this; a failed proposal step must be treated as a failure, not as an applied update. This change does not modify that setting.
+The workflow is merged to the default branch. On 2026-10-22, the owner-approved Actions pull-request permission was confirmed enabled while default workflow permissions remained read-only. The [manual proposal run](https://github.com/OKHP3/refoldec/actions/runs/39713723343) completed successfully with no version drift, so its candidate-install, candidate-test, and PR-creation steps were correctly skipped. Earlier candidate updates passed validation and were integrated through PRs [#11](https://github.com/OKHP3/refoldec/pull/11) and [#12](https://github.com/OKHP3/refoldec/pull/12). A future changed candidate must still pass validation and successfully create a PR; this unchanged run does not prove that future PR creation has occurred.
+
+GitHub must continue to allow Actions to create pull requests (Settings → Actions → General → Workflow permissions). Repository/organization policy may prohibit this; a failed proposal step must be treated as a failure, not as an applied update. The workflow never enables automatic merge.
 
 The updater uses the standard repository token. GitHub does not trigger a new PR workflow from that token's PR events. Candidate tests therefore run **before** PR creation. If protected-branch checks are pending, manually dispatch **Technology freshness** on `codex/technology-updates` and review its result. Merge only after required checks pass; do not bypass protections. See [GitHub's token-trigger rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow) and the [PR action's setup requirements](https://github.com/peter-evans/create-pull-request).
 
-After a runtime PR merges, sync the clean Replit checkout and install/select the pinned versions on local development hosts. For Replit, inspect supported module and channel options, make a separate reviewed `.replit` migration if needed, restart the environment, record `node --version` and `python3 --version`, and run `bash scripts/post-merge-setup.sh`. The workflow explicitly reports a Replit line mismatch but does not rewrite unsupported module names. Current immediate host follow-ups are Python **3.13 → 3.14**, Node patch updates, and the old Nix channel. If the provider cannot supply the target, record that limitation and keep the tested compatibility lane until a supported migration exists.
+After a runtime PR merges, sync the clean Replit checkout and install/select the pinned versions on local development hosts. For Replit, inspect supported module and channel options, make a separate reviewed `.replit` migration if needed, restart the environment, record `node --version` and `python3 --version`, and run `bash scripts/post-merge-setup.sh`. The workflow explicitly reports a Replit line mismatch but does not rewrite unsupported module names. Immediate host review items are Python **3.13 to the current stable pin**, Node patch updates, and the old Nix channel; on Windows, replace the observed prerelease Python when selecting the stable target. Provider support for a newer Replit module/channel has not been established. Keep the tested compatibility lane until a supported migration is verified; a current pin alone does not complete a host migration.
 
 Rollback a problematic runtime change by reverting its pin/snapshot commit, rerunning validation and selecting the previous runtime on each host. Temporarily disable the proposal workflow if it keeps proposing a known-bad release; document the reason and revisit it at the next upstream release. Do not downgrade semantic contracts as part of runtime rollback.
 
@@ -90,15 +96,15 @@ bash scripts/post-merge-setup.sh                      # validators, all support 
 
 ## Evidence limits and source ledger
 
-All linked upstream pages/registries above were retrieved on the review date. They are primary authorities because they are maintained by the technology publisher, standards body or official distribution. Each table row maps the source to its exact supported claim; upstream availability alone does not establish local installation or compatibility.
+Upstream release records were refreshed on 2026-10-22 using official registries, maintainer releases and standards-body pages; unchanged standards retain their published reference versions. They are primary authorities because they are maintained by the technology publisher, standards body or official distribution. Each table row maps the source to its exact supported claim; upstream availability alone does not establish local installation or compatibility.
 
 | Claim | Tier and evidence | Consequence if false | Next check |
 |---|---|---|---|
 | No external npm/Python dependencies in tracked executable code | Confirmed: seven manifests; AST import scan of every tracked `.py`; JavaScript import review | Missing maintenance coverage | Repeat the inventory whenever executable code/manifests change |
 | Local and Replit versions shown above | Confirmed: local version commands and Replit browser Shell at the baseline commit | Incorrect upgrade target/gap | Re-read versions after each host migration |
 | Latest stable release values | Confirmed: official linked release sources, review date | Stale target | Weekly runtime/Action checks; monthly host and quarterly format review |
-| Runtime update workflow will be active | Proposal until merged and first run succeeds | No ongoing updates | Confirm scheduled/manual Actions run and proposal permissions after merge |
+| Runtime update workflow is active | Confirmed on 2026-10-22: default-branch workflow, successful manual no-drift run, and enabled proposal permission | No ongoing updates | Monitor future scheduled runs and verify PR creation when a changed candidate is discovered |
 | Latest targets are compatible with Replit | Unknown until installed/tested there | Broken hosted checks | Verify module availability, restart and run the host validation |
 | Rendered Mermaid version | Unknown; host-controlled and no local renderer | New syntax may fail | Inspect the destination renderer and smoke-test diagrams |
 
-Next release action: review and merge the maintenance change, run the proposal workflow once, then complete the separately recorded host migrations. No application deployment or codec-runtime guarantee is implied.
+Ongoing release action: review tested update PRs, synchronize each host after merge, and complete host migrations only when their supported versions and validation are verified. No application deployment or codec-runtime guarantee is implied.

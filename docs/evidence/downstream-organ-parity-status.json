@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "assessment_kind": "downstream-organ-parity-status",
+  "checked_at": "2026-10-22",
+  "assessment_boundary": "Read-only review of connected GitHub repository snapshots and candidate conformance artifacts. No downstream code was changed and no organ was run against the ReFolDec fixtures.",
+  "canonical_contract": {
+    "contract_id": "refoldec-fold-contract",
+    "contract_version": "1.0.0",
+    "fixture_schema_version": "1.1",
+    "registry_version": "1.0.0",
+    "firewall_version": "1.0.0",
+    "supported_folds_required": [
+      "Documentation -> Code",
+      "Code -> Documentation",
+      "Code -> Diagram",
+      "Diagram -> Code",
+      "Code -> Agent-Executable",
+      "Agent-Executable -> Code",
+      "Documentation -> Agent-Executable",
+      "Agent-Executable -> Documentation",
+      "Documentation -> Diagram",
+      "Diagram -> Documentation"
+    ],
+    "deferred_folds_required": [
+      "Diagram -> Agent-Executable",
+      "Agent-Executable -> Diagram"
+    ],
+    "invariant_projection_required": [
+      "node identity",
+      "semantic role",
+      "directed edge topology",
+      "flow branch/source/target/condition",
+      "governance tags"
+    ]
+  },
+  "status_legend": {
+    "pointer_status": "Whether the local ecosystem pointer has been owner-confirmed; kept separate from repository reachability.",
+    "result": "Pass requires a complete organ parity record and a checked comparison. not-run is not a pass.",
+    "release_decision": "Fail-closed means do not describe the organ as conformant until the required evidence is supplied."
+  },
+  "authorization_and_method": {
+    "source_access": "The connected GitHub App was reported as added and read-only repository/tree requests succeeded during this review.",
+    "parity_authorization": "No separate owner authorization for executing parity tests in downstream repositories was found. No writes or test executions were performed there.",
+    "retrieval_date": "2026-10-22",
+    "limitations": [
+      "A reachable repository and its current commit are not proof of ownership confirmation or contract conformance.",
+      "Only candidate report, contract, registry, firewall, and conformance paths were reviewed; no comprehensive content search or runtime parity execution was completed.",
+      "Organ-declared versions and supported folds are unknown unless an explicit parity record declares them."
+    ]
+  },
+  "organs": [
+    {
+      "organ": "mermaid-theme-builder",
+      "repository": "https://github.com/OKHP3/mermaid-theme-builder",
+      "pointer_status": "placeholder",
+      "checked_at": "2026-10-22",
+      "snapshot": {
+        "default_branch": "main",
+        "head_sha": "1ac3e666b6768d00dc29129099fd19dd3a54af4e",
+        "head_committed_at": "2026-10-03T03:43:09Z",
+        "retrieved_at": "2026-10-22"
+      },
+      "organ_declared": {
+        "contract_version": null,
+        "fixture_schema_version": null,
+        "registry_version": null,
+        "firewall_version": null,
+        "supported_folds": null,
+        "deferred_folds": null
+      },
+      "contract_version": null,
+      "fixture_schema_version": null,
+      "registry_version": null,
+      "firewall_version": null,
+      "supported_folds": null,
+      "deferred_folds": null,
+      "contract_versions_checked": {
+        "contract_version": "1.0.0",
+        "fixture_schema_version": "1.1",
+        "registry_version": "1.0.0",
+        "firewall_version": "1.0.0"
+      },
+      "supported_folds_status": "not-declared",
+      "contract_deferred_folds_required": [
+        "Diagram -> Agent-Executable",
+        "Agent-Executable -> Diagram"
+      ],
+      "checks": {
+        "fold_contract": "not-run",
+        "semantic_registry": "not-run; an explicit role mapping is required",
+        "scope_firewall": "not-run"
+      },
+      "result": "not-run",
+      "release_decision": "fail-closed",
+      "conformance_claim": "not-established",
+      "evidence": [
+        {
+          "path": "docs/forge-conformance-report.md",
+          "blob_sha": "cedabb2647cefe2add29f28357ca0c265ebb4576",
+          "finding": "The dated report checks Forge brand and UI-token items; it does not declare ReFolDec versions, supported folds, or invariant-projection parity."
+        },
+        {
+          "path": "skills/okhp3-mermaid-governance/references/conformance-checklist.md",
+          "blob_sha": "be755faf442abe5219a03ccc557a82928e6b21c4",
+          "finding": "The checklist uses an organ-specific class library and includes examples such as process, dataStore, event, and annotation. No mapping to the ReFolDec registry is declared in this artifact."
+        },
+        {
+          "path": "skills/okhp3-mermaid-theme-builder/references/scope-firewall.md",
+          "blob_sha": "ee64d828703141e3bd1ad1f1e56635c53d136c20",
+          "finding": "This is an organ-specific output firewall; it does not declare the shared firewall version or a ReFolDec parity result."
+        }
+      ],
+      "next_evidence_required": "Owner-approved parity record declaring all four versions and exact fold directions, with registry-role mapping and fixture-based invariant comparison."
+    },
+    {
+      "organ": "bpmn-beta",
+      "repository": "https://github.com/OKHP3/mermaid-diagram-bpmn",
+      "pointer_status": "placeholder",
+      "checked_at": "2026-10-22",
+      "snapshot": {
+        "default_branch": "main",
+        "head_sha": "1d7af365f1baf838a6302ee5685ed29ac19178e0",
+        "head_committed_at": "2026-10-06T17:02:46Z",
+        "retrieved_at": "2026-10-22"
+      },
+      "organ_declared": {
+        "contract_version": null,
+        "fixture_schema_version": null,
+        "registry_version": null,
+        "firewall_version": null,
+        "supported_folds": null,
+        "deferred_folds": null
+      },
+      "contract_version": null,
+      "fixture_schema_version": null,
+      "registry_version": null,
+      "firewall_version": null,
+      "supported_folds": null,
+      "deferred_folds": null,
+      "contract_versions_checked": {
+        "contract_version": "1.0.0",
+        "fixture_schema_version": "1.1",
+        "registry_version": "1.0.0",
+        "firewall_version": "1.0.0"
+      },
+      "supported_folds_status": "not-declared",
+      "contract_deferred_folds_required": [
+        "Diagram -> Agent-Executable",
+        "Agent-Executable -> Diagram"
+      ],
+      "checks": {
+        "fold_contract": "not-run",
+        "semantic_registry": "not-run",
+        "scope_firewall": "not-run"
+      },
+      "result": "not-run",
+      "release_decision": "fail-closed",
+      "conformance_claim": "not-established",
+      "evidence": [
+        {
+          "path": "app/docs/conformance.md",
+          "finding": "A conformance-named document exists in the current repository tree; no owner-approved ReFolDec parity record or declared version tuple was established in this review."
+        },
+        {
+          "path": "scripts/check-scope-firewall.mjs",
+          "finding": "A scope-firewall checker exists in the current repository tree; its presence alone does not establish parity with SCOPE-FIREWALL.md version 1.0.0."
+        }
+      ],
+      "next_evidence_required": "Owner-approved parity record plus fixture execution showing registry-role, node, edge, flow, and governance preservation for each claimed fold."
+    },
+    {
+      "organ": "skillz",
+      "repository": "https://github.com/OKHP3/skillz",
+      "pointer_status": "placeholder",
+      "checked_at": "2026-10-22",
+      "snapshot": {
+        "default_branch": "main",
+        "head_sha": "b5309bca91f63d7477d6e1144369e19e4a875932",
+        "head_committed_at": "2026-10-06T05:38:56Z",
+        "retrieved_at": "2026-10-22"
+      },
+      "organ_declared": {
+        "contract_version": null,
+        "fixture_schema_version": null,
+        "registry_version": null,
+        "firewall_version": null,
+        "supported_folds": null,
+        "deferred_folds": null
+      },
+      "contract_version": null,
+      "fixture_schema_version": null,
+      "registry_version": null,
+      "firewall_version": null,
+      "supported_folds": null,
+      "deferred_folds": null,
+      "contract_versions_checked": {
+        "contract_version": "1.0.0",
+        "fixture_schema_version": "1.1",
+        "registry_version": "1.0.0",
+        "firewall_version": "1.0.0"
+      },
+      "supported_folds_status": "not-declared",
+      "contract_deferred_folds_required": [
+        "Diagram -> Agent-Executable",
+        "Agent-Executable -> Diagram"
+      ],
+      "checks": {
+        "fold_contract": "not-run",
+        "semantic_registry": "not-run",
+        "scope_firewall": "not-run"
+      },
+      "result": "not-run",
+      "release_decision": "fail-closed",
+      "conformance_claim": "not-established",
+      "evidence": [
+        {
+          "path": ".agents/memory/github-sync-package-parity.md",
+          "blob_sha": "4663b8ef952acdd1f6819110d4e4bf03de999ec2",
+          "finding": "The record describes parity between a local GitHub-sync skill and its shipped mirror, not parity with the ReFolDec fold contract."
+        },
+        {
+          "path": "mermaid/okhp3-mermaid-governance/references/conformance-checklist.md",
+          "blob_sha": "13715c96c3db0e9d0071d8ff51e4af8c8cb4a6b6",
+          "finding": "The mirrored organ checklist is not a ReFolDec parity record and does not declare the shared contract version tuple."
+        }
+      ],
+      "next_evidence_required": "Owner-approved parity record for the skill packages that claim ReFolDec folds, with each skill's supported directions and a fixture-based invariant test."
+    },
+    {
+      "organ": "OverKill-Hill",
+      "repository": "https://github.com/OKHP3/overkill-hill",
+      "pointer_status": "placeholder",
+      "checked_at": "2026-10-22",
+      "snapshot": {
+        "default_branch": "main",
+        "head_sha": "de6a1a0f4f74f153cdae414a7f2eb24d26d2038b",
+        "head_committed_at": "2026-10-06T15:42:59Z",
+        "retrieved_at": "2026-10-22"
+      },
+      "organ_declared": {
+        "contract_version": null,
+        "fixture_schema_version": null,
+        "registry_version": null,
+        "firewall_version": null,
+        "supported_folds": null,
+        "deferred_folds": null
+      },
+      "contract_version": null,
+      "fixture_schema_version": null,
+      "registry_version": null,
+      "firewall_version": null,
+      "supported_folds": null,
+      "deferred_folds": null,
+      "contract_versions_checked": {
+        "contract_version": "1.0.0",
+        "fixture_schema_version": "1.1",
+        "registry_version": "1.0.0",
+        "firewall_version": "1.0.0"
+      },
+      "supported_folds_status": "not-declared",
+      "contract_deferred_folds_required": [
+        "Diagram -> Agent-Executable",
+        "Agent-Executable -> Diagram"
+      ],
+      "checks": {
+        "fold_contract": "not-run",
+        "semantic_registry": "not-run",
+        "scope_firewall": "not-run"
+      },
+      "result": "not-run",
+      "release_decision": "fail-closed",
+      "conformance_claim": "not-established",
+      "evidence": [
+        {
+          "path": "scripts/check-etch-parity.mjs",
+          "blob_sha": "2c051c0fcb550f1576d31dedd9e76f5ad233d645",
+          "finding": "This checker measures static-site image rendering parity, not fold-contract or semantic-registry parity."
+        },
+        {
+          "path": "scripts/check-stack-conformance.py",
+          "blob_sha": "172852af4623a110dafe975c4f891a295fed5730",
+          "finding": "This checker validates the site's runtime/tooling stack and is unrelated to ReFolDec representation-fold parity."
+        }
+      ],
+      "next_evidence_required": "Owner-approved narrative-surface parity record showing locked-name use, shared contract/version references, and scope-firewall compliance."
+    }
+  ]
+}
