@@ -50,7 +50,7 @@ jobs:
           bash scripts/post-merge-setup.sh
       - name: Open or refresh the update proposal
         if: steps.update.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: codex/technology-updates
